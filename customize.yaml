@@ -28,5 +28,5 @@ sensor.arbeitszimmer_temperatur_humidity:
     icon: mdi:water
 switch.spielerechner:
     icon: mdi:desktop-tower
-person.fabian:
+person.fabi:
     entity_picture: "fabian.png"

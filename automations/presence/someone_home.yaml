@@ -11,7 +11,7 @@
         - input_boolean.fabian_home
       to: "on"
   action:
-    - service: input_boolean.turn_off
+    - service: input_boolean.turn_on
       entity_id: input_boolean.home_occupied
 
 - alias: "Presence - lighting when someone comes home(evening mode)"

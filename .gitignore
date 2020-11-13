@@ -3,6 +3,7 @@ sounds/*
 tts/*
 www/*
 esphome/*
+themes/*
 custom_components/*
 .storage/*
 .HA_VERSION

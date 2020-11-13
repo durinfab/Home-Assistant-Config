@@ -38,7 +38,7 @@ filter:
         - switch.steckdose4
         - switch.manual_staubi
         - input_boolean.fernseher
-        - person.fabian
+        - person.fabi
         - person.lelo
         - person.paul
         - media_player.denon_avr_x1500h
