@@ -4,6 +4,8 @@ tts/*
 www/*
 esphome/*
 custom_components/*
+.storage/*
+.HA_VERSION
 .google.token
 .google.token1
 .ps4-games.json
