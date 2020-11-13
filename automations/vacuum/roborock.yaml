@@ -1,0 +1,167 @@
+##
+## Covers all automation regarding our Vacuum Robot
+##
+
+## When nobody is at home for 15 min, start cleaning(whole apartment)
+- alias: Vacuum - Run Main Floor Roomba when Away
+  trigger:
+    - platform: state
+      entity_id: input_boolean.home_occupied
+      from: "on"
+      to: "off"
+      for:
+        hours: 0
+        minutes: 15
+        seconds: 0
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.vacuum_ran
+      state: "off"
+    - condition: time
+      after: "08:00:00"
+      before: "22:00:00"
+    - condition: state
+      entity_id: vacuum.rockrobo
+      state: "docked"
+    - condition: numeric_state
+      entity_id: sensor.vacuum_battery
+      above: 99
+  action:
+    - service: vacuum.start
+      entity_id:
+        - vacuum.rockrobo
+
+## Displays that Vacuum Rebot needs help
+- alias: Vacuum - Vacuum Rebot needs help
+  trigger:
+    - platform: state
+      entity_id: vacuum.rockrobo
+      to: "error"
+  condition:
+    - condition: state
+      entity_id: input_boolean.vacuum_clear_bin
+      state: "off"
+  action:
+    - service: script.led_hard
+      data_template:
+        message: "Staubi braucht Hilfe!"
+
+## After Vacuum Rebot finished, increment the bin number. It is used to to
+## determine when he needs to be cleared
+- alias: Roomba - Cleaning finished
+  trigger:
+    - platform: state
+      entity_id: vacuum.rockrobo
+      from: "cleaning"
+      to: "docked"
+    - platform: state
+      entity_id: vacuum.rockrobo
+      from: "returning"
+      to: "docked"
+
+  action:
+    - service: input_number.increment
+      entity_id: input_number.bin
+
+## After 10 clearing, the vacuum robot drives to the bin and
+## waits for cleaning
+- alias: Roomba - Empty Vacuum Robot
+  trigger:
+    - platform: state
+      entity_id: input_number.bin
+  condition:
+    - condition: numeric_state
+      entity_id: "input_number.bin"
+      above: 9
+  action:
+    ## if the new driving location is set too fast after docking,
+    ## it will be ignored
+    - delay: 10
+    - service: script.move_vacuum_to_bin
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.vacuum_clear_bin
+    - service: script.led_hard
+      data_template:
+        message: "Bitte Staubi leeren!"
+
+## Let Vacuum return to base, when someone is home
+- alias: Vacuum - Shut Off Vacuum Robot when Home
+  trigger:
+    - platform: state
+      entity_id: input_boolean.home_occupied
+      from: "off"
+      to: "on"
+
+  condition:
+    - condition: state
+      entity_id: vacuum.rockrobo
+      state: "cleaning"
+  action:
+    - service: vacuum.return_to_base
+      entity_id:
+        - vacuum.rockrobo
+
+- alias: Vacuum - Run Main Floor Vacuum Weekdays
+  trigger:
+    - platform: time
+      at: "16:00:00"
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    - condition: state
+      entity_id: vacuum.rockrobo
+      state: "docked"
+    - condition: state
+      entity_id: input_boolean.vacuum_ran
+      state: "off"
+    - condition: numeric_state
+      entity_id: sensor.vacuum_battery
+      above: 99
+
+  action:
+    - service: vacuum.start
+      entity_id:
+        - vacuum.rockrobo
+
+## Vacuum Rebot should ony clean once per day automatically
+- alias: Vacuum - Set Main Floor Vacuum has ran for the Day
+  trigger:
+    - platform: state
+      entity_id: vacuum.rockrobo
+      to: "cleaning"
+      for:
+        hours: 0
+        minutes: 30
+        seconds: 0
+  action:
+    - service: homeassistant.turn_on
+      entity_id:
+        - input_boolean.vacuum_ran
+
+- alias: Vacuum - Vacuum Robot has not ran for the day
+  trigger:
+    - platform: time
+      at: "00:01:00"
+
+  action:
+    - service: homeassistant.turn_off
+      entity_id:
+        - input_boolean.vacuum_ran
+
+## Short notification that cleaning was finished
+- alias: rockrobo goes home
+  id: rockrobo_goes_home
+  trigger:
+    platform: state
+    entity_id: vacuum.rockrobo
+    to: "returning"
+  action:
+    service: script.led_notification
+    data_template:
+      message: "Saeuberung beendet!"

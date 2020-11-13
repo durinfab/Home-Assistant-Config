@@ -1,0 +1,26 @@
+
+######################################################################################################
+###Script to actually send notifications to the ChromeCast Audios during normal hours and only when we are home! Call like this:
+  # action:
+    # service: script.speech_engine
+    # speech_message:
+# # @CCOSTAN
+# Original Repo : https://github.com/CCOSTAN/Home-AssistantConfig
+######################################################################################################
+
+speech_processing:
+  sequence:
+    - service: media_player.volume_set
+      data_template:
+        entity_id: >
+          {{ media_player }}
+        volume_level: >-
+            0.3
+
+    - service: tts.amazon_polly_say
+      data_template:
+             entity_id: >-
+               {{ media_player }}
+             message: >-
+               <speak> {{ speech_message }} </speak>
+             cache: true

@@ -1,0 +1,33 @@
+- alias: "Info - led 4 - Paul is home"
+  initial_state: on
+  trigger:
+    - platform: state
+      entity_id: device_tracker.presence_paul
+      to: "home"
+  action:
+    - service: light.turn_on
+      entity_id: light.debug_led4
+      data:
+        color_name: green
+
+- alias: "Info - led 4 - Paul is not home"
+  initial_state: on
+  trigger:
+    - platform: state
+      entity_id: device_tracker.presence_paul
+      to: "not_home"
+  action:
+    - service: light.turn_off
+      entity_id: light.debug_led4
+
+- alias: "Info - led 4 - Paul is unknown"
+  initial_state: on
+  trigger:
+    - platform: state
+      entity_id: device_tracker.presence_paul
+      to: "unknown"
+  action:
+    - service: light.turn_on
+      entity_id: light.debug_led4
+      data:
+        color_name: red

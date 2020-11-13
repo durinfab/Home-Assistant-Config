@@ -1,0 +1,10 @@
+##
+## Sets the status of the "monitor" devices
+##
+
+mqtt_first_floor:
+  platform: mqtt
+  state_topic: 'monitor/first_floor/status'
+  payload_on: 'online'
+  payload_off: 'offline'
+  name: 'BLE First Floor Status'

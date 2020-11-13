@@ -1,0 +1,65 @@
+##
+## Scripts to move the vacuum robot to a specific position or clean a room
+##
+
+move_vacuum_to_bin:
+     alias: "move_vacuum_to_bin"
+     sequence:
+       - service: vacuum.send_command
+         data:
+           entity_id: 'vacuum.rockrobo'
+           command: 'go_to'
+           params:
+             'spot_id': 'bin'
+
+clean_kitchen:
+    alias: "clean_kitchen"
+    sequence:
+      - service: script.led_notification
+        data_template:
+          message: "Kueche wird gesaeubert!"
+      - service: vacuum.send_command
+        data:
+          entity_id: 'vacuum.rockrobo'
+          command: 'zoned_cleanup'
+          params:
+            'zone_ids': ["Kuche"]
+
+clean_work:
+    alias: "clean_work"
+    sequence:
+      - service: script.led_notification
+        data_template:
+          message: "Arbeitszimmer wird gesaeubert!"
+      - service: vacuum.send_command
+        data:
+          entity_id: 'vacuum.rockrobo'
+          command: 'zoned_cleanup'
+          params:
+            'zone_ids': ["Arbeitszimmer"]
+
+clean_lager:
+    alias: "clean_lager"
+    sequence:
+      - service: script.led_notification
+        data_template:
+          message: "Lagerraum wird gesaeubert!"
+      - service: vacuum.send_command
+        data:
+          entity_id: 'vacuum.rockrobo'
+          command: 'zoned_cleanup'
+          params:
+            'zone_ids': ["Lagerraum"]
+
+clean_flur:
+    alias: "clean_flur"
+    sequence:
+      - service: script.led_notification
+        data_template:
+          message: "Flur wird gesaeubert!"
+      - service: vacuum.send_command
+        data:
+          entity_id: 'vacuum.rockrobo'
+          command: 'zoned_cleanup'
+          params:
+            'zone_ids': ["Flur"]

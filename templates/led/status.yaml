@@ -1,0 +1,66 @@
+##
+## Gets random fact about the house, which is displayed on the led sign
+##
+
+>
+  {%- macro uv() -%}
+    UV-Index: {{ states.sensor.dark_sky_uv_index.state }}
+  {%- endmacro -%}
+
+  {%- macro ad() -%}
+    Blocked Ads: {{ float(states('sensor.adguard_dns_queries_blocked_ratio')) | round(1) | replace('.', ',') }} %
+  {%- endmacro -%}
+
+  {%- macro au() -%}
+    Aussentemp. {{ float(states('sensor.dark_sky_temperature')) | replace('.', ',') }}
+  {%- endmacro -%}
+
+  {%- macro bad() -%}
+    Badtemp. {{ float(states('sensor.bad_temperatur_temperature')) | replace('.', ',') }}
+  {%- endmacro -%}
+
+  {%- macro win() -%}
+    Winterg.Temp. {{ float(states('sensor.wintergarten_temperatur_temperature')) | replace('.', ',') }}
+  {%- endmacro -%}
+
+  {%- macro tim() -%}
+    {{ float(states('sensor.time')) }} Uhr
+  {%- endmacro -%}
+
+  {%- macro un_christ() -%}
+    {{ states('sensor.until_christ') }} Tage bis Weihnachten
+  {%- endmacro -%}
+
+  {%- macro lights_on() -%}
+    {% set lights = [ states.light.wintergarten_links,
+      states.light.wintergarten_rechts,
+      states.light.kuechenlampe,
+      states.light.schreibtischlampe,
+      states.light.lagerlampe,
+      states.light.schreibtisch_strip,
+      states.light.wintergarten_strip,
+      states.light.esstisch,
+      states.light.esstisch_ambilight,
+      states.light.aussenlampe,
+      states.light.windfang_lampe,
+      states.light.regal_lampe
+    ] %}
+     {{ lights | selectattr('state','eq','on') | list | count }} einge. Lampen
+  {%- endmacro -%}
+  {%- macro windows_open() -%}
+    {% set windows = [ 
+    states.binary_sensor.schlafzimmer_fenster_links_contact,
+    states.binary_sensor.wintergarten_fenster_contact,
+    states.binary_sensor.arbeitszimmer_fenster_links_contact,
+    states.binary_sensor.bad_fenster_contact,
+    states.binary_sensor.kueche_fenster_contact
+    ] %}
+     {{ windows | selectattr('state','eq','on') | list | count }} Fenster offen
+  {%- endmacro -%}
+  {%- macro last_clean() -%}
+    {% set a = state_attr('vacuum.rockrobo', 'last_run_stats') ['endTime'] %}
+    Letztes Saugen: {{ ( a | int  / 1000 ) | timestamp_custom("%d.%m um %H:%M") }}
+  {%- endmacro -%}
+
+  {{ ([last_clean,lights_on,un_christ,ad,au,bad,win,windows_open]|random)() }}  
+

@@ -1,0 +1,75 @@
+- platform: group
+  name: Erdgeschoss Ambiente
+  entities:
+      - light.schreibtisch_strip
+      - light.esstisch_ambilight
+      - light.wintergarten_links
+      - light.wintergarten_rechts
+      - light.lagerlampe
+      - light.flurlampe
+
+- platform: group
+  name: wintergarten_lights
+  entities:
+     - light.wintergarten_links
+     - light.wintergarten_rechts
+     - light.wintergarten_strip
+
+- platform: group
+  name: wintergarten_light_wall
+  entities:
+     - light.wintergarten_links
+     - light.wintergarten_rechts
+
+- platform: group
+  name: arbeitszimmer_lights
+  entities:
+    - light.schreibtisch_strip
+    - light.lagerlampe
+    - light.esstisch
+    - light.esstisch_ambilight
+
+- platform: group
+  name: kuechen_lights
+  entities:
+    - light.kuechenlampe
+
+- platform: group
+  name: schlafzimmer_lights
+  entities:
+    - light.schlafzimmer_links
+    - light.schlafzimmer_rechts
+    - light.schlafzimmer_led
+    
+- platform: group
+  name: ground_floor_lights
+  entities:
+     - light.wintergarten_links
+     - light.wintergarten_rechts
+     - light.kuechenlampe
+     - light.schreibtischlampe
+     - light.lagerlampe
+     - light.schreibtisch_strip
+     - light.wintergarten_strip
+     - light.esstisch
+     - light.esstisch_ambilight
+     - light.regal_lampe
+     - light.windfang_lampe
+     - light.flurlampe
+
+- platform: group
+  name: all_lights
+  entities:
+     - light.wintergarten_links
+     - light.wintergarten_rechts
+     - light.kuechenlampe
+     - light.schreibtischlampe
+     - light.lagerlampe
+     - light.schreibtisch_strip
+     - light.wintergarten_strip
+     - light.esstisch
+     - light.esstisch_ambilight
+     - light.aussenlampe
+     - light.regal_lampe
+     - light.flur_lampe
+     - light.flurlampe

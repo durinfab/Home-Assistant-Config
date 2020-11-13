@@ -1,0 +1,91 @@
+##
+## Covers all Automation concerning the bedside lampe
+## Note that the bedside lampe
+##
+
+- id: "Nachttischlampe Lelo an"
+  alias: Nachttischlampe Lelo an
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.schlafzimmer_button_click
+    to: "single"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.fabi_in_bed
+        state: "True"
+      - condition: state
+        entity_id: sensor.lelo_in_bed
+        state: "False"
+  action:
+    - service: light.toggle
+      entity_id: light.schlafzimmer_links
+
+- id: "Nachttischlampe Fabi an"
+  alias: Nachttischlampe Fabi an
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.schlafzimmer_button_click
+    to: "single"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.fabi_in_bed
+        state: "False"
+      - condition: state
+        entity_id: sensor.fabi_in_bed
+        state: "True"
+  action:
+    - service: light.toggle
+      entity_id: light.schlafzimmer_rechts
+
+## if nobody is in Bed, toggle the lamps with full brightness
+- id: "Bedroom - Single Press, lights on"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.schlafzimmer_button_click
+    to: "single"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.fabi_in_bed
+        state: "False"
+      - condition: state
+        entity_id: sensor.lelo_in_bed
+        state: "False"
+      - condition: state
+        entity_id: light.schlafzimmer_rechts
+        state: "off"
+  action:
+    - service: script.schlafzimmer_bright
+
+## if nobody is in bed, turn both lights off
+- id: "Bedroom - Single Press, lights off"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.schlafzimmer_button_click
+    to: "single"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.fabi_in_bed
+        state: "False"
+      - condition: state
+        entity_id: sensor.lelo_in_bed
+        state: "False"
+      - condition: state
+        entity_id: light.schlafzimmer_rechts
+        state: "on"
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.schlafzimmer_rechts
+        - light.schlafzimmer_links

@@ -1,0 +1,10 @@
+##
+## Sets the status of the "monitor" devices
+##
+
+mqtt_ground:
+  platform: mqtt
+  state_topic: 'monitor/ground/status'
+  payload_on: 'online'
+  payload_off: 'offline'
+  name: 'BLE Ground Status'

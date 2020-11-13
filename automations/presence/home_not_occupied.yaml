@@ -1,0 +1,67 @@
+  ##
+  ## Covers all automations that happenwhen no one is at home anymore
+  ##
+  
+  - alias: "Presence - No one is home"
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.paul_home
+          - input_boolean.lelo_home
+          - input_boolean.fabian_home
+        from: "on"
+        to: "off"
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_boolean.fabian_home
+          state: "off"
+        - condition: state
+          entity_id: input_boolean.paul_home
+          state: "off"
+        - condition: state
+          entity_id: input_boolean.lelo_home
+          state: "off"
+    action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.home_occupied
+      - service: alarm_control_panel.alarm_arm_away
+        data:
+          entity_id: alarm_control_panel.alarmanlage
+          code: 0815
+
+  - alias: "Presence - Turn off all lights"
+    trigger:
+      - platform: state
+        entity_id:
+          - input_boolean.home_occupied
+        to: "off"
+    action:
+      - service: switch.turn_off
+        entity_id:
+          - switch.steckdose2
+          - switch.steckdose3
+          - switch.steckdose4
+      - service: light.turn_off
+        entity_id:
+          - light.flur_lampe
+          - light.bogenstrip
+          - light.schreibtisch_strip
+          - light.kuechenlampe
+          - light.lagerlampe
+          - light.schlafzimmer_links
+          - light.schlafzimmer_rechts
+          - light.wintergarten_links
+          - light.wintergarten_rechts
+          - light.esstisch
+          - light.esstisch_ambilight
+          - light.regal_lampe
+      - service: light.turn_on
+        data:
+          entity_id: light.740aa7b1_77fedd44
+          brightness: 1
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.led_sign_mode
+          option: Disabled

@@ -1,0 +1,49 @@
+##
+## This engine is used to give acustical feedback to the residents via Smart Speaker
+## TODO: Source
+##
+
+speech_engine:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.muted
+      state: 'off'
+    - service: script.speech_processing
+      data_template:
+            ## when a device is playing music it is excluded
+            ## thats because it does not resume the previous media
+            media_player: >-
+              {% if media_player | length == 0 %}
+                {% if (is_state('media_player.kuche', 'off') or is_state('media_player.kuche', 'idle') or is_state('media_player.kuche', 'paused')) and (is_state('media_player.wintergarten_karotte', 'off') or is_state('media_player.wintergarten_karotte', 'idle') or is_state('media_player.wintergarten_karotte', 'paused')) %}
+                  {% set media_player = [
+                    'media_player.arbeitszimmer',
+                    'media_player.kuche',
+                    'media_player.wintergarten_karotte'
+                  ] %}
+                {% endif %}
+                {% if is_state('media_player.kuche', 'playing') and is_state('media_player.wintergarten_karotte', 'playing') %}
+                  {% set media_player = [
+                    'media_player.arbeitszimmer'
+                  ] %}
+                {% endif %}
+                {% if (is_state('media_player.kuche', 'off') or is_state('media_player.kuche', 'idle') or is_state('media_player.kuche', 'paused')) and is_state('media_player.wintergarten_karotte', 'playing') %}
+                  {% set media_player = [
+                    'media_player.arbeitszimmer',
+                    'media_player.kuche'
+                  ] %}
+                {% endif %}
+                {% if (is_state('media_player.wintergarten_karotte', 'off') or is_state('media_player.wintergarten_karotte', 'idle') or is_state('media_player.wintergarten_karotte', 'paused')) and is_state('media_player.kuche', 'playing') %}
+                  {% set media_player = [
+                    'media_player.arbeitszimmer',
+                    'media_player.wintergarten_karotte'
+                  ] %}
+                {% endif %}
+              {% endif %}
+              
+              {% if media_player is not string and media_player is sequence %}
+                {% set media_player = media_player|join(', ') %}
+              {% endif %}
+              
+              {{ media_player }}
+            ## Fill the message with random facts
+            speech_message: !include ../templates/speech/briefing.yaml

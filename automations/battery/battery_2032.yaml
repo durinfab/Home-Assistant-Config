@@ -1,0 +1,49 @@
+initial_state: on
+alias: 'Notification - Battery CR2032'
+trigger:
+  - platform: numeric_state
+    entity_id: 
+    - sensor.kueche_button_battery
+    - sensor.schlafzimmer_button_battery
+    - sensor.lagerraum_button_click
+    - sensor.schlafzimmer_double_battery
+    - sensor.wintergarten_double_battery
+    - sensor.arbeitszimmer_double_battery
+    - sensor.bad_temperatur_battery
+    - sensor.wintergarten_temperatur_battery
+    - sensor.arbeitszimmer_temperatur_battery
+    below: 25
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id: 
+    - sensor.kueche_button_battery
+    - sensor.schlafzimmer_button_battery
+    - sensor.lagerraum_button_click
+    - sensor.schlafzimmer_double_battery
+    - sensor.wintergarten_double_battery
+    - sensor.arbeitszimmer_double_battery
+    - sensor.bad_temperatur_battery
+    - sensor.wintergarten_temperatur_battery
+    - sensor.arbeitszimmer_temperatur_battery
+    below: 10
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id: 
+    - sensor.kueche_button_battery
+    - sensor.schlafzimmer_button_battery
+    - sensor.lagerraum_button_click
+    - sensor.schlafzimmer_double_battery
+    - sensor.wintergarten_double_battery
+    - sensor.arbeitszimmer_double_battery
+    - sensor.bad_temperatur_battery
+    - sensor.wintergarten_temperatur_battery
+    - sensor.arbeitszimmer_temperatur_battery
+    below: 5
+    for:
+      minutes: 5
+action:
+    service: notify.mobile_app_iphone_von_fabian_during
+    data_template:
+      message: "Sensor {{ trigger.to_state.name }} hat nur noch {{ trigger.to_state.state }}% Batterieladung, er benötigt eine CR2032 Knopfzelle"

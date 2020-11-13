@@ -1,0 +1,111 @@
+google:
+  client_id: !secret google_id
+  client_secret: !secret google_secret
+ios:
+
+homekit: !include homekit.yaml
+
+light: !include light.yaml
+
+spotify:
+  client_id: !secret spotify_id
+  client_secret: !secret spotify_secret
+
+http:
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+tts:
+  - platform: amazon_polly
+    aws_access_key_id: !secret polly_key
+    aws_secret_access_key: !secret polly_access
+    region_name: eu-central-1
+    text_type: ssml
+    voice: Vicki
+    cache: True
+
+sensor: !include_dir_merge_list sensors/
+device_tracker: !include_dir_list device_tracker/
+group: !include_dir_merge_named groups
+switch: !include switch.yaml
+automation: !include_dir_merge_list automations/
+script: !include_dir_merge_named scripts
+homeassistant:
+  customize: !include customize.yaml
+
+climate:
+  - platform: mqtt
+    send_if_off: false
+    name: Thermostat
+    current_temperature_topic: events/central_heating/otmonitor/roomtemperature
+    temperature_command_topic: actions/otmonitor/setpoint
+    temperature_state_topic: events/central_heating/otmonitor/setpoint
+    min_temp: 5
+    max_temp: 35
+    initial: 20
+    precision: 0.5
+
+circadian_lighting:
+  min_colortemp: 2700
+  max_colortemp: 6500
+  interval: 30
+  transition: 3
+
+alarm_control_panel:
+  - platform: manual
+    name: Alarmanlage
+    code: !secret alarm_code
+    arming_time: 30
+    delay_time: 30
+    trigger_time: 4
+    disarmed:
+      trigger_time: 0
+    armed_home:
+      arming_time: 0
+      delay_time: 0
+
+binary_sensor: !include_dir_merge_list binary_sensors/
+person:
+  - name: Fabi
+    id: fabi
+    device_trackers:
+      - device_tracker.presence_fabi
+  - name: Paul
+    id: paul
+    device_trackers:
+      - device_tracker.presence_paul
+  - name: Lelo
+    id: lelo
+    device_trackers:
+      - device_tracker.presence_lelo
+
+browser_mod:
+  devices:
+    740aa7b1-83b882ce:
+      name: "fire"
+      camera: true
+input_datetime:
+  last_door:
+    name: Letzte Türöffnung
+    has_date: true
+    has_time: true
+  last_cleaning:
+    name: Letztes Saugen
+    has_date: true
+    has_time: true
+input_select: !include_dir_merge_named input_select
+input_boolean: !include_dir_named input_boolean
+input_number:
+  bin:
+    name: vaccum_bin_counter
+    min: 0
+    max: 10
+    step: 1
+    mode: box
+input_text:
+  flur_text1:
+    name: Flur Text1
+    initial: Restarting...
+  tmp:
+    name: tmp text
+    initial: ""

@@ -1,0 +1,16 @@
+  ##
+  ## saving the last time the door was opened
+  ## used for presence detection
+  ##
+
+- alias: save last door opening
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.haustuer_contact
+    from: 'off'
+    to: 'on'
+  action:
+  - service: input_datetime.set_datetime
+    entity_id: input_datetime.last_door
+    data_template: 
+      datetime: "{{ now().strftime('%Y-%m-%d %H:%M:%S') }}"

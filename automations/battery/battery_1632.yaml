@@ -1,0 +1,40 @@
+initial_state: on
+alias: 'Notification - Battery CR1632'
+trigger:
+  - platform: numeric_state
+    entity_id: 
+    - sensor.haustuer_battery
+    - sensor.arbeitszimmer_fenster_links_battery
+    - sensor.wintergarten_fenster_battery
+    - sensor.schlafzimmer_fenster_links_battery
+    - sensor.bad_fenster_battery
+    - sensor.kueche_fenster_battery
+    below: 25
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id: 
+    - sensor.haustuer_battery
+    - sensor.arbeitszimmer_fenster_links_battery
+    - sensor.wintergarten_fenster_battery
+    - sensor.schlafzimmer_fenster_links_battery
+    - sensor.bad_fenster_battery
+    - sensor.kueche_fenster_battery
+    below: 10
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id: 
+    - sensor.haustuer_battery
+    - sensor.arbeitszimmer_fenster_links_battery
+    - sensor.wintergarten_fenster_battery
+    - sensor.schlafzimmer_fenster_links_battery
+    - sensor.bad_fenster_battery
+    - sensor.kueche_fenster_battery
+    below: 5
+    for:
+      minutes: 5
+action:
+  service: notify.mobile_app_iphone_von_fabian_during
+  data_template:
+    message: "Sensor {{ trigger.to_state.name }} hat nur noch {{ trigger.to_state.state }}% Batterieladung, er benötigt eine CR1632 Knopfzelle"

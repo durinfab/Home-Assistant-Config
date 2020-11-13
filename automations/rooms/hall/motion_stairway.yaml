@@ -1,0 +1,32 @@
+  ##
+  ## Turns on the stairway light on motion in the evening
+  ##
+
+- id: "Hall - stairway light on"
+  alias: motion - stairway light on
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.treppe_motion_occupancy
+    from: "off"
+    to: "on"
+  condition:
+    - condition: state
+      entity_id: input_boolean.evening_mode
+      state: "on"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.steckdose4
+
+- id: "Hall - stairway light off"
+  alias: motion - stairway light off
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.treppe_motion_occupancy
+    to: "off"
+    for:
+      seconds: 90
+  action:
+    - service: switch.turn_off
+      entity_id: switch.steckdose4

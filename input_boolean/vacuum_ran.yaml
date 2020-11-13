@@ -1,0 +1,3 @@
+    name: "vacuum_ran"
+    initial: 'off'
+    icon: mdi:robot-vacuum

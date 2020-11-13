@@ -1,0 +1,11 @@
+##
+## Tracking of the location
+## TODO: Obsolete?
+##
+
+platform: mqtt
+source_type: 'router'
+devices:
+  presence_fabian: 'location/fabian'
+  presence_lelo: 'location/lelo'
+  presence_paul: 'location/paul'

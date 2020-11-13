@@ -1,0 +1,109 @@
+##
+## Covers all automations based on the weigth of the residents
+##
+
+- id: "Bedroom - lelo get up"
+  initial_state: False
+  trigger:
+    platform: state
+    entity_id: sensor.lelo_in_bed
+    from: "True"
+    to: "False"
+    for:
+      seconds: 3
+  condition:
+    condition: time
+    after: "22:00:00"
+    before: "6:00:00"
+  action:
+    - service: script.turn_on
+      entity_id: script.bed_lelo_leaves
+
+- alias: Bedroom - lelo lays down
+  initial_state: False
+  trigger:
+    platform: state
+    entity_id: sensor.lelo_in_bed
+    from: "False"
+    to: "True"
+    for:
+      seconds: 3
+  condition:
+    condition: time
+    after: "22:00:00"
+    before: "6:00:00"
+  action:
+    - service: script.turn_on
+      entity_id: script.bed_lelo_enters
+
+- alias: Bedroom - fabi get up
+  initial_state: False
+  trigger:
+    platform: state
+    entity_id: sensor.fabi_in_bed
+    from: "True"
+    to: "False"
+    for:
+      seconds: 3
+  condition:
+    condition: time
+    after: "00:00:00"
+    before: "6:00:00"
+  action:
+    - service: script.turn_on
+      entity_id: script.bed_fabi_leaves
+
+- alias: Bedroom - fabi lays down
+  initial_state: False
+  trigger:
+    platform: state
+    entity_id: sensor.fabi_in_bed
+    from: "False"
+    to: "True"
+    for:
+      seconds: 3
+  condition:
+    condition: time
+    after: "00:00:00"
+    before: "6:00:00"
+  action:
+    - service: script.turn_on
+      entity_id: script.bed_fabi_enters
+
+## turn off the get up/ lay down automations
+- alias: "Bedroom - night is over"
+  initial_state: True
+  trigger:
+    platform: time
+    at: "06:00:00"
+  action:
+    - service: automation.turn_off
+      entity_id:
+        - automation.hinlegen_licht_links
+        - automation.hinlegen_licht_rechts
+        - automation.aufstehen_licht_links
+        - automation.aufstehen_licht_rechts
+
+## The get up/ lay down automations are only turned on, if someone lays
+## longer then 15 min in bed
+- alias: "Bedroom - night begins"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id:
+      - sensor.fabi_in_bed
+      - sensor.lelo_in_bed
+    to: "True"
+    for:
+      minutes: 15
+  condition:
+    condition: time
+    after: "22:00:00"
+    before: "6:00:00"
+  action:
+    - service: automation.turn_on
+      entity_id:
+        - automation.hinlegen_licht_links
+        - automation.hinlegen_licht_rechts
+        - automation.aufstehen_licht_links
+        - automation.aufstehen_licht_rechts

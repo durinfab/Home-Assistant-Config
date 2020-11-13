@@ -1,0 +1,88 @@
+##
+## Automation for global lighting in the house
+##
+
+## When someone comes home to the unoccupied house in the evening
+home_late_light:
+  sequence:
+    - service: light.turn_on
+      data_template:
+        entity_id:
+          - light.schreibtisch_strip
+          - light.esstisch_ambilight
+          - light.wintergarten_strip
+          - light.flur_lampe
+          - light.regal_lampe
+        rgb_color:
+          [
+            "{{ (range(0, 255)|random) }}",
+            "{{ (range(0, 255)|random) }}",
+            "{{ (range(0, 255)|random) }}",
+          ]
+        transition: 1
+    - service: wled.effect
+      entity_id:
+        - light.schreibtisch_strip
+        - light.wintergarten_strip
+        - light.regal_lampe
+      data_template:
+        effect: 0
+    - service: light.turn_on
+      entity_id:
+        - light.esstisch
+
+## Just for Fun: All strips get a random WLED effect
+random_effect:
+  sequence:
+  - service: light.turn_on
+    data:
+      entity_id: 
+        - light.schreibtisch_strip
+        - light.wintergarten_strip
+        - light.regal_lampe
+      rgb_color: ['{{ (range(0, 255)|random) }}',
+                    '{{ (range(0, 255)|random) }}',
+                    '{{ (range(0, 255)|random) }}']
+  - service: wled.effect
+    entity_id: light.wintergarten_strip
+    data:
+      effect: '{{ state_attr("light.wintergarten_strip", "effect_list") | random }}'
+      intensity: '{{ (range(50, 200)|random) }}'
+      speed: '{{ (range(50, 200)|random) }}'
+  - service: wled.effect
+    entity_id: light.regal_lampe
+    data:
+      effect: '{{ state_attr("light.regal_lampe", "effect_list") | random }}'
+      intensity: '{{ (range(50, 200)|random) }}'
+      speed: '{{ (range(50, 200)|random) }}'
+  - service: wled.effect
+    entity_id: light.schreibtisch_strip
+    data:
+      effect: '{{ state_attr("light.schreibtisch_strip", "effect_list") | random }}'
+      intensity: '{{ (range(50, 200)|random) }}'
+      speed: '{{ (range(50, 200)|random) }}'
+
+## Every color-sensitive light on the ground floor get the same random color 
+random_color:
+  sequence:
+    - service: light.turn_on
+      entity_id:
+          - light.schreibtisch_strip
+          - light.esstisch_ambilight
+          - light.wintergarten_strip
+          - light.flur_lampe
+          - light.regal_lampe
+      data_template:
+        rgb_color:
+          [
+            "{{ (range(0, 255)|random) }}",
+            "{{ (range(0, 255)|random) }}",
+            "{{ (range(0, 255)|random) }}"
+          ]
+    - service: wled.effect
+      entity_id:
+        - light.schreibtisch_strip
+        - light.wintergarten_strip
+        - light.regal_lampe
+      data_template:
+        effect: 0

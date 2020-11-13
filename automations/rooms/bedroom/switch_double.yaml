@@ -1,0 +1,40 @@
+  ##
+  ## Covers all Automation concerning the bedside lampe 
+  ##
+  
+  - id: 'Bedroom - single left'
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: sensor.schlafzimmer_double_click
+      to: 'left'
+    action:
+    - service: switch.turn_on
+      entity_id: switch.circadian_lighting_schlafzimmer
+    - service: light.toggle
+      data:
+        entity_id:
+            - light.schlafzimmer_links
+
+  - id: 'Bedroom - single right'
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: sensor.schlafzimmer_double_click
+      to: 'right'
+    action:
+    - service: switch.turn_on
+      entity_id: switch.circadian_lighting_schlafzimmer
+    - service: light.toggle
+      data:
+        entity_id:
+            - light.schlafzimmer_rechts
+
+  - id: 'Bedroom - both'
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: sensor.schlafzimmer_double_click
+      to: 'both'
+    action:
+    - service: script.schlafzimmer_bright

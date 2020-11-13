@@ -1,0 +1,9 @@
+entrances:
+  name: entrances
+  entities:
+  - binary_sensor.schlafzimmer_fenster_links_contact
+  - binary_sensor.wintergarten_fenster_contact
+  - binary_sensor.arbeitszimmer_fenster_links_contact
+  - binary_sensor.bad_fenster_contact
+  - binary_sensor.kueche_fenster_contact
+  - binary_sensor.haustuer_contact

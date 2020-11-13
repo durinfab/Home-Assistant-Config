@@ -1,0 +1,300 @@
+##
+## Scripts to interact with the devices in the living room.
+## many of them control several devices at once.
+##
+
+## Shutdown the PC in Living Room
+shutdown:
+  sequence:
+    - service: hassio.addon_stdin
+      data:
+        addon: core_rpc_shutdown
+        input: Spielerechner
+
+## Toggle the TV with IR Sender
+fernseher:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "fernseher/send"
+        payload_template: "2,C,20,3"
+    - delay: "00:00:01"
+    - service: script.walkaround_for_retain
+
+wintergarten_bright:
+  sequence:
+    - service: switch.turn_off
+      entity_id: switch.circadian_lighting_wintergarten
+    - service: light.turn_on
+      entity_id:
+        - light.wintergarten_links
+        - light.wintergarten_rechts
+      data_template:
+        color_temp: 213
+        brightness: 255
+
+schlafzimmer_bright:
+  sequence:
+    - service: switch.turn_off
+      entity_id: switch.circadian_lighting_schlafzimmer
+    - service: light.turn_on
+      entity_id:
+        - light.schlafzimmer_links
+        - light.schlafzimmer_rechts
+      data_template:
+        color_temp: 213
+        brightness: 255
+
+turn_off_everything:
+  sequence:
+    - service: script.speech_engine
+      data_template:
+        personarriving: >
+          {%- macro greeting_sentence() -%}
+          {{ [
+          "Ich schalte mal alle Geräte aus",
+          "Bis zum nächsten Mal.",
+          "Genug gechillt, jetzt wird gearbeitet",
+          "Ich schalte alles aus. Bis nachher!"
+          ] | random }}
+          {%- endmacro -%}
+          {{greeting_sentence()}}
+        call_responsibilities: 0
+        call_no_announcement: 1
+        call_garage_check: 0
+        call_random: 1
+        call_window_check: 0
+        media_player: "media_player.wintergarten_karotte"
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.fernseher
+    - service: media_player.turn_off
+      entity_id: media_player.denon_avr_x1500h
+      #- service: homeassistant.turn_off
+      #  entity_id: switch.spielerechner
+    - service: media_player.turn_off
+      entity_id: media_player.playstation_4
+    - service: homeassistant.turn_off
+      entity_id:
+        - light.Wintergarten_Rechts
+        - light.Wintergarten_Links
+
+## My IR Sender saves it last command and sends it again after connection loss. So it potentionally randomly toggles to tv
+walkaround_for_retain:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "fernseher/send"
+        payload_template: "3,4B36532C,32"
+
+start_netflix:
+  sequence:
+    - service: script.speech_engine
+      data_template:
+        personarriving: >
+          {%- macro greeting_sentence() -%}
+          {{ [
+          "Ich schalte Netflix an",
+          "Netflix und Chill?"
+          ] | random }}
+          {%- endmacro -%}
+          {{greeting_sentence()}}
+        media_player: "media_player.wintergarten_karotte"
+        call_responsibilities: 0
+        call_no_announcement: 1
+        call_random: 1
+        call_garage_check: 0
+        call_window_check: 0
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.fernseher
+    - service: media_player.turn_on
+      entity_id: media_player.denon_avr_x1500h
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.denon_avr_x1500h
+        source: TV
+
+    ## switch tv input
+    - service: mqtt.publish
+      data:
+        topic: "fernseher/send"
+        payload_template: "2,0x76,20"
+    - delay: "00:00:05"
+    - service: script.walkaround_for_retain
+    - condition: state
+      entity_id: input_boolean.evening_mode
+      state: "on"
+    - service: switch.turn_on
+      entity_id: switch.circadian_lighting_wintergarten
+    - service: circadian_lighting.values_update
+      entity_id:
+        - light.wintergarten_links
+        - light.wintergarten_rechts
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.Wintergarten_Rechts
+          - light.Wintergarten_Links
+
+start_wii:
+  sequence:
+    - service: script.speech_engine
+      data_template:
+        personarriving: >
+          {%- macro greeting_sentence() -%}
+          {{ [
+          "Nintendo Wii. Denke daran dass du die Wii selbst starten musst."
+          ] | random }}
+          {%- endmacro -%}
+          {{greeting_sentence()}}
+        media_player: "media_player.wintergarten_karotte"
+        call_responsibilities: 0
+        call_no_announcement: 1
+        call_garage_check: 0
+        call_random: 1
+        call_window_check: 0
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.fernseher
+    - service: media_player.turn_on
+      entity_id: media_player.denon_avr_x1500h
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.denon_avr_x1500h
+        source: Wii
+
+    ## switch tv input
+    - service: mqtt.publish
+      data:
+        topic: "fernseher/send"
+        payload_template: "2,38,20,3"
+    - delay: "00:00:05"
+    - service: mqtt.publish
+      data:
+        topic: "fernseher/send"
+        payload_template: "2,5C,20,3"
+    - service: script.walkaround_for_retain
+    - condition: state
+      entity_id: input_boolean.evening_mode
+      state: "on"
+    - service: switch.turn_on
+      entity_id: switch.circadian_lighting_wintergarten
+    - service: circadian_lighting.values_update
+      entity_id:
+        - light.wintergarten_links
+        - light.wintergarten_rechts
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.Wintergarten_Rechts
+          - light.Wintergarten_Links
+
+start_ps4:
+  sequence:
+    - service: script.speech_engine
+      data_template:
+        personarriving: >
+          {%- macro greeting_sentence() -%}
+          {{ [
+          "Are you ready to die?",
+          "Ich hoffe du hast ein paar Booster dabei. Ich schmeiße die PS4 an!",
+          "Na dann spielen wir mal etwas Bloodborne, wir haben ja auch kein anderes Spiel"
+          ] | random }}
+          {%- endmacro -%}
+          {{greeting_sentence()}}
+        media_player: "media_player.wintergarten_karotte"
+        call_responsibilities: 0
+        call_no_announcement: 1
+        call_random: 1
+        call_garage_check: 0
+        call_window_check: 0
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.fernseher
+    - service: media_player.turn_on
+      entity_id: media_player.denon_avr_x1500h
+    - service: media_player.turn_on
+      entity_id: media_player.playstation_4
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.denon_avr_x1500h
+        source: Playstation
+
+    ## switch tv input
+    - service: mqtt.publish
+      data:
+        topic: "fernseher/send"
+        payload_template: "2,38,20,3"
+    - delay: "00:00:05"
+    - service: mqtt.publish
+      data:
+        topic: "fernseher/send"
+        payload_template: "2,5C,20,3"
+    - service: script.walkaround_for_retain
+    - condition: state
+      entity_id: input_boolean.evening_mode
+      state: "on"
+    - service: switch.turn_on
+      entity_id: switch.circadian_lighting_wintergarten
+    - service: circadian_lighting.values_update
+      entity_id:
+        - light.wintergarten_links
+        - light.wintergarten_rechts
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.Wintergarten_Rechts
+          - light.Wintergarten_Links
+
+start_gaming:
+  sequence:
+    - service: script.speech_engine
+      data_template:
+        personarriving: >
+          {%- macro greeting_sentence() -%}
+          {{ [
+          "Jetzt wird gezockt",
+          "Ich hoffe du hast ein paar Booster dabei. Jetzt wird gezockt!",
+          "Lets Play",
+          ] | random }}
+          {%- endmacro -%}
+          {{greeting_sentence()}}
+        media_player: "media_player.wintergarten_karotte"
+        call_responsibilities: 0
+        call_no_announcement: 1
+        call_random: 1
+        call_garage_check: 0
+        call_window_check: 0
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.fernseher
+    - service: media_player.turn_on
+      entity_id: media_player.denon_avr_x1500h
+    - service: homeassistant.turn_on
+      entity_id: switch.spielerechner
+    - service: media_player.select_source
+      data:
+        entity_id: media_player.denon_avr_x1500h
+        source: Windows
+    
+    ## switch tv input
+    - service: mqtt.publish
+      data:
+        topic: "fernseher/send"
+        payload_template: "2,38,20,3"
+    - delay: "00:00:05"
+    - service: mqtt.publish
+      data:
+        topic: "fernseher/send"
+        payload_template: "2,5C,20,3"
+    - service: script.walkaround_for_retain
+    - condition: state
+      entity_id: input_boolean.evening_mode
+      state: "on"
+    - service: switch.turn_on
+      entity_id: switch.circadian_lighting_wintergarten
+    - service: circadian_lighting.values_update
+      entity_id:
+        - light.wintergarten_links
+        - light.wintergarten_rechts
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.Wintergarten_Rechts
+          - light.Wintergarten_Links

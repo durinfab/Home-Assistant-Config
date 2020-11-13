@@ -1,0 +1,34 @@
+##
+## Turns on the hall light on motion in the evening
+##
+
+
+- id: "Hall - turn on lights in hall on motion"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.flur_motion
+    from: "off"
+    to: "on"
+  condition:
+    - condition: state
+      entity_id: input_boolean.evening_mode
+      state: "on"
+  action:
+    - service: light.turn_on
+      entity_id: light.regal_lampe
+      data_template:
+        brightness: 255
+
+- id: "Hall - turn off lights in hall on motion"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.flur_motion
+    from: "on"
+    to: "off"
+    for:
+      seconds: 90
+  action:
+    - service: light.turn_off
+      entity_id: light.regal_lampe

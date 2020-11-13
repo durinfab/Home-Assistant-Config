@@ -1,0 +1,39 @@
+##
+## Covers all automations corresponding the kitchen button
+##
+
+- id: 'Kitchen - Light on/off'
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.kueche_button_click
+    to: 'single'
+  action:
+  - service: light.toggle
+    entity_id: light.kuechenlampe
+
+## After n times of cleaning, the vacuum robot drives to the bin and wait for 
+## his cleaning. After doing that this button does command him back home 
+- id: Kitchen - Vacuum return to base after clearing bin 
+  trigger:
+      platform: state
+      entity_id: sensor.kueche_button_click
+      to: 'double'
+  condition:
+    - condition: state
+      entity_id: input_boolean.vacuum_clear_bin
+      state: 'on'
+
+  action:
+    - service: vacuum.return_to_base
+      entity_id: vacuum.rockrobo
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.vacuum_clear_bin
+    - service: script.clear_led_hard
+    - service: script.led_notification
+      data_template:
+        message: "Danke!"
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.bin
+        value: 0

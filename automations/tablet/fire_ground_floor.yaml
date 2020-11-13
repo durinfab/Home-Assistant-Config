@@ -1,0 +1,97 @@
+##
+## Covers all automations around the tablet on ground_floor
+## Powered by Fully Kiosk Browser
+##
+
+## Turn of Tablet when no other light is on and its night
+
+  - alias: 'Turn off fire when no one ground'
+    initial_state: True
+    trigger:
+    - platform: state
+      entity_id: 
+        - light.wintergarten_links
+        - light.wintergarten_rechts
+        - light.kuechenlampe
+        - light.schreibtischlampe
+        - light.lagerlampe
+        - light.schreibtisch_strip
+        - light.wintergarten_strip
+        - light.esstisch
+        - light.esstisch_ambilight
+        - light.regal_lampe
+        - light.windfang_lampe
+        - light.flurlampe
+      to: 'off'
+    condition:
+      condition: and
+      conditions:
+          - condition: state
+            entity_id: group.ground_floor_lights
+            state: 'off'
+          - condition: or
+            conditions:
+            - condition: sun
+              after: sunset
+              after_offset: '02:00:00'
+            - condition: sun
+              before: sunrise
+    action:
+    - service: light.turn_on
+      data:
+        entity_id: light.740aa7b1_77fedd44
+        brightness: 1
+
+
+## turn it back on, when someone comes to ground floor
+
+  - alias: 'Turn on fire when someone ground'
+    initial_state: True
+    trigger:
+      platform: state
+      entity_id: 
+        - light.wintergarten_links
+        - light.wintergarten_rechts
+        - light.kuechenlampe
+        - light.schreibtischlampe
+        - light.lagerlampe
+        - light.schreibtisch_strip
+        - light.wintergarten_strip
+        - light.esstisch
+        - light.esstisch_ambilight
+        - light.windfang_lampe
+        - light.flurlampe
+      to: 'on'
+    condition:
+      - condition: or
+        conditions:
+            - condition: sun
+              after: sunset
+              after_offset: '02:00:00'
+            - condition: sun
+              before: sunrise
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.740aa7b1_77fedd44
+          brightness: 150
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.led_sign_mode
+          option: Default
+
+## turn on tablet on sunrise
+
+  - alias: 'Tablet on on sunrise'
+    trigger:
+        - platform: sun
+          event: sunrise
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.740aa7b1_77fedd44
+          brightness: 150
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.led_sign_mode
+          option: Default

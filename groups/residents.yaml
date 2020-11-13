@@ -1,0 +1,5 @@
+residents:
+  entities:
+  - input_boolean.lelo_home
+  - input_boolean.fabian_home
+  - input_boolean.paul_home

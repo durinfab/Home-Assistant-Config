@@ -1,0 +1,45 @@
+##
+## Scripts to enable the circadian lighting when someone leaves the bed at night
+##
+
+bed_lelo_leaves:
+  sequence:
+    - service: switch.turn_off
+      entity_id:
+        - switch.circadian_lighting_schlafzimmer
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.schlafzimmer_links
+        brightness: 1
+
+bed_fabi_leaves:
+  sequence:
+    - service: switch.turn_off
+      entity_id:
+        - switch.circadian_lighting_schlafzimmer
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.schlafzimmer_rechts
+        brightness: 1
+
+bed_lelo_enters:
+  sequence:
+    - service: switch.turn_on
+      entity_id:
+        - switch.circadian_lighting_schlafzimmer
+    - service: light.turn_off
+      data:
+        entity_id:
+          - light.schlafzimmer_links
+
+bed_fabi_enters:
+  sequence:
+    - service: switch.turn_on
+      entity_id:
+        - switch.circadian_lighting_schlafzimmer
+    - service: light.turn_off
+      data:
+        entity_id:
+          - light.schlafzimmer_rechts

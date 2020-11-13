@@ -1,0 +1,15 @@
+##
+## All entities for devices that are observed by the "monitor" component
+##
+
+platform: mqtt
+source_type: 'bluetooth_le'
+devices:
+  fabi_bt_mobile_first_floor: 'presence/first_floor/fabian_iphone/device_tracker'
+  fabi_bt_mobile_ground: 'presence/ground/fabian_iphone/device_tracker'
+  fabi_bt_watch_first_floor: 'presence/first_floor/fabian_watch/device_tracker'
+  fabi_bt_watch_ground: 'presence/ground/fabian_watch/device_tracker'
+  paul_bt_mobile_first_floor: 'presence/first_floor/paul_iphone/device_tracker'
+  paul_bt_mobile_ground: 'presence/ground/paul_iphone/device_tracker'
+  lelo_bt_mobile_first_floor: 'presence/first_floor/lelo_handy/device_tracker'
+  lelo_bt_mobile_ground: 'presence/ground/lelo_handy/device_tracker'

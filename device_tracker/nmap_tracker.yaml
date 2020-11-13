@@ -1,0 +1,13 @@
+
+
+platform: nmap_tracker
+interval_seconds: 15
+consider_home: 30
+track_new_devices: yes
+home_interval: 10
+scan_options: " --privileged -F -n --host-timeout 5s"
+hosts:
+  - !secret fabian_iphone_wifi
+  - !secret lelo_handy_wifi
+  - !secret paul_iphone_wifi
+  - !secret fabian_aw_wifi

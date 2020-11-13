@@ -1,0 +1,21 @@
+- alias: 'Info - led 8 - Some windows are open'
+  initial_state: on
+  trigger:
+  - platform: state
+    entity_id: group.windows
+    to: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: light.debug_led8
+      data: 
+        color_name: red
+
+- alias: "Info - led 8 - No windows are open"
+  initial_state: on
+  trigger:
+  - platform: state
+    entity_id: group.windows
+    to: 'off'
+  action:
+    - service: light.turn_off
+      entity_id: light.debug_led8

@@ -1,0 +1,12 @@
+##
+## Counts the percentage of people who are home
+## TODO: Source
+##
+
+- platform: template
+  sensors:
+    home_count:
+      friendly_name: 'Home count'
+      unique_id: 'home_count'
+      value_template: >-
+        {{ ((expand('group.residents')|selectattr('state', 'eq', 'on')|map(attribute='name')|list|count)/(expand('group.residents')|map(attribute='name')|list|count))|round(2) }}

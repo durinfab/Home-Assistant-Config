@@ -1,0 +1,22 @@
+person_fabian:
+  name: fabian
+  entities:
+    - device_tracker.fabian_iphone_wifi
+    - device_tracker.fabi_bt_mobile_ground
+    - device_tracker.fabi_bt_mobile_first_floor
+    - device_tracker.fabi_bt_watch_first_floor
+    - device_tracker.fabi_bt_watch_ground
+
+person_paul:
+  name: paul
+  entities:
+    - device_tracker.paul_iphone_wifi
+    - device_tracker.paul_bt_mobile_ground
+    - device_tracker.paul_bt_mobile_first_floor
+
+person_lelo:
+  name: lelo
+  entities:
+    - device_tracker.lelo_handy_wifi
+    - device_tracker.lelo_bt_mobile_ground
+    - device_tracker.lelo_bt_mobile_first_floor

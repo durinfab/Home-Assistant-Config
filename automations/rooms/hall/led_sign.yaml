@@ -1,0 +1,26 @@
+- alias: LED_Sign - Periodical update
+  initial_state: True
+  trigger:
+    - platform: time_pattern
+      minutes: "/2"
+    - platform: state
+      entity_id: input_select.led_sign_mode
+      to: Default
+  condition:
+    - condition: state
+      entity_id: input_select.led_sign_mode
+      state: Default
+  action:
+    - service: script.led_update
+
+- alias: LED_Sign - Disable
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: input_select.led_sign_mode
+    to: Disabled
+  action:
+    - service: input_text.set_value
+      data:
+          entity_id: input_text.flur_text1
+          value: ""
