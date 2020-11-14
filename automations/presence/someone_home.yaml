@@ -10,15 +10,21 @@
         - input_boolean.lelo_home
         - input_boolean.fabian_home
       to: "on"
+  condition:
+    condition: state
+    entity_id: input_boolean.home_occupied
+    state: 'off'
+
   action:
+    ## Walkaround to clear "Authentication..."
+    - service: script.clear_led_hard
     - service: input_boolean.turn_on
       entity_id: input_boolean.home_occupied
 
 - alias: "Presence - lighting when someone comes home(evening mode)"
   trigger:
     - platform: state
-      entity_id:
-        - input_boolean.home_occupied
+      entity_id: input_boolean.home_occupied
       to: "on"
   condition:
     - condition: state
