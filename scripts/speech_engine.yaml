@@ -46,4 +46,4 @@ speech_engine:
               
               {{ media_player }}
             ## Fill the message with random facts
-            speech_message: !include ../templates/speech/briefing.yaml
+            speech_message: !include ../templates/speech/talktome.yaml
