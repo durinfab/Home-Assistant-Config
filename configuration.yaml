@@ -1,3 +1,4 @@
+logbook:
 google:
   client_id: !secret google_id
   client_secret: !secret google_secret
