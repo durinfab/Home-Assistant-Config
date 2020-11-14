@@ -39,12 +39,17 @@
     - service: script.led_hard
       data_template:
         message: "Authentifiziere..."
+    ## Wait for someone to appear home
     - wait_template: "{{ states('input_boolean.home_occupied') == 'on' }}"
       timeout: "00:00:30"
       continue_on_timeout: true
+    ## If timeout triggers, this still will be 'off'
     - wait_template: "{{ states('input_boolean.home_occupied') == 'off' }}"
       timeout: "00:00:01"
       continue_on_timeout: false
+    - service: script.led_hard
+      data_template:
+        message: "Unautorisierter Zugriff!"
     - service: alarm_control_panel.alarm_trigger
       entity_id: alarm_control_panel.alarmanlage
 
