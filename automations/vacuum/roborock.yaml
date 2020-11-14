@@ -101,6 +101,10 @@
     - service: vacuum.return_to_base
       entity_id:
         - vacuum.rockrobo
+    - delay: 5
+    - service: vacuum.return_to_base
+      entity_id:
+        - vacuum.rockrobo
 
 - alias: Vacuum - Run Main Floor Vacuum Weekdays
   trigger:
