@@ -28,7 +28,7 @@
     trigger:
       platform: state
       entity_id: binary_sensor.haustuer_contact
-      to: 'off'
+      to: 'on'
       
     condition:
       - condition: not
