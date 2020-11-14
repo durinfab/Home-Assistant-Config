@@ -37,7 +37,7 @@
         entity_id: sensor.fabi_in_bed
         state: "False"
       - condition: state
-        entity_id: sensor.fabi_in_bed
+        entity_id: sensor.lelo_in_bed
         state: "True"
   action:
     - service: light.toggle
