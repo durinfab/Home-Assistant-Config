@@ -57,6 +57,7 @@
           - light.esstisch
           - light.esstisch_ambilight
           - light.regal_lampe
+          - light.wintergarten_strip
       - service: light.turn_on
         data:
           entity_id: light.740aa7b1_77fedd44
