@@ -24,7 +24,11 @@
     - platform: state
       entity_id:
         - group.entrances
-        - group.motion
+        - group.motion_sensors
+      to: "on"
+    - platform: state
+      entity_id:
+        - binary_sensor.haustuer_contact
       to: "on"
   condition:
     condition: and
