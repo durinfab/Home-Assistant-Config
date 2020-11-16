@@ -11,7 +11,6 @@ home_late_light:
           - light.schreibtisch_strip
           - light.esstisch_ambilight
           - light.wintergarten_strip
-          - light.flur_lampe
           - light.regal_lampe
         rgb_color:
           [
@@ -70,7 +69,6 @@ random_color:
           - light.schreibtisch_strip
           - light.esstisch_ambilight
           - light.wintergarten_strip
-          - light.flur_lampe
           - light.regal_lampe
       data_template:
         rgb_color:
