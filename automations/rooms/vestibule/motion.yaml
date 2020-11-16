@@ -1,4 +1,4 @@
-- alias: "Vestibule - Motion"
+- alias: "Vestibule - No Motion"
   initial_state: True
   trigger:
     platform: state
@@ -10,7 +10,7 @@
       entity_id:
         - light.windfang_lampe
 
-- alias: "Vestibule - No Motion"
+- alias: "Vestibule - Motion"
   initial_state: True
   trigger:
     platform: state
@@ -21,3 +21,7 @@
     - service: light.turn_on
       entity_id:
         - light.windfang_lampe
+      data_template:
+        brightness: 225
+        color_temp: 454
+        
