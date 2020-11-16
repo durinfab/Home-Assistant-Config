@@ -107,7 +107,7 @@ Why especially this device? Because it uses a smart Laser-based navigation(no ra
 
 *Note: If you want to buy this device, be sure to get one with old production date (before 2019-11) as the factory firmware (to which the robot can be reset) does support the installation of a custom ROM.*
 
-## ESP32/ESP8266 ##
+### ESP32/ESP8266 ###
 
 This ESP Family is a famous name in the DIY Smart Home and IoT world. The [ESP32](https://www.amazon.de/AZDelivery-ESP32-NodeMCU-gratis-eBook/dp/B07Z83MF5W/ref=asc_df_B07Z83MF5W/?tag=googshopde-21&linkCode=df0&hvadid=427788576373&hvpos=&hvnetw=g&hvrand=8639050305478239369&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1003859&hvtargid=pla-898234157885&psc=1&th=1&psc=1&tag=&ref=&adgrpid=99889209552&hvpone=&hvptwo=&hvadid=427788576373&hvpos=&hvnetw=g&hvrand=8639050305478239369&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1003859&hvtargid=pla-898234157885) is the successor of the ESP8266. Both have a lot of GPIO Pins, 5V Micro-USB power supply and Bluetooth+Wi-Fi connectivity. They also have a very large community with projects like [ESPHome](https://esphome.io) and the mentioned [WLED](https://github.com/Aircoookie/WLED).
 
@@ -117,7 +117,7 @@ This ESP Family is a famous name in the DIY Smart Home and IoT world. The [ESP32
 
 ESPHome allows to build a firmware based on the connected sensors and devices. Ir has a big bandwidth of supported devices and sensors, which are very easy to configure. All of the following devices are base on ESPHome. Everyone who works with a lot of self programmed ESP Devices should try this service.
 
-###  MAX7219 - Led Matrix ###
+#### MAX7219 - Led Matrix ####
 
 I like the idea of sharing the collected information of the apartment with the residents. At the same time there should be the possibility to notify the residents, beside sending them a notification. At this point I was searching for an alternative and found the [MAX7219 LED Matrix](https://www.amazon.de/AZDelivery-MAX7219-Matrix-Anzeigemodul-Arduino/dp/B079HVW652/ref=asc_df_B079HVW652/?tag=googshopde-21&linkCode=df0&hvadid=309901650373&hvpos=&hvnetw=g&hvrand=9116350884031864081&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1003859&hvtargid=pla-602010100762&psc=1&th=1&psc=1&tag=&ref=&adgrpid=62387684635&hvpone=&hvptwo=&hvadid=309901650373&hvpos=&hvnetw=g&hvrand=9116350884031864081&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1003859&hvtargid=pla-602010100762).
 
@@ -125,15 +125,15 @@ I like the idea of sharing the collected information of the apartment with the r
 
 On the left side you can see the current time and on the right a random information. There is also a mode for blocking information(that need an interaction to disappear) or an notification, that shows one time for about ten seconds.
 
-### DHT11 - Temperature/Humidity Sensor ###
+#### DHT11 - Temperature/Humidity Sensor ####
 
 In the bedroom there is still a DHT11 Sensor in use. It should be replaced with an Aqara sensor in the future to keep consistency. I'm still playing with the thought to add some other sensors to this ESP to get a  overview over the air quality...
 
-### HC-SR501 - PIR Sensor ###
+#### HC-SR501 - PIR Sensor ####
 
 These boards are relatively cheap but I have always bad luck with them. By now there are two of them in use and both are working on 5V (You can also power them with 3.3V). An advantage over the Zigbee counterpart is that you can adjust the delay between scans.
 
-### Debugpanel ###
+#### Debugpanel ####
 
 This little board looks very ugly but saves me a lot of debugging work. All of these LEDs can be addressed individuelly, and are part of their own automation. For example: A lot of automations are based on the evening_mode, so it got its own LED.
 
@@ -141,14 +141,14 @@ Beside the LEDs there are also two switches and a PIR-Sensor. I thought about ad
 
 ![debugpanel](readme_images/debugpanel.jpg)
 
-### HX711 - Weight Sensor ###
+#### HX711 - Weight Sensor ####
 
 Some of you might ask what you can do with a weight sensor in a Smart Home. A whole lot of! I use them placed under my bed to detect the presence there. Because my girlfriend weighs less than me, we can differentiate who and how much people are there. This enables a lot of handy automations.
 
 *The idea for this use case of the HX711 is from [here](https://selfhostedhome.com/diy-bed-presence-detection-home-assistant/)*
 
-
-
-### IR Sender/Receiver ###
+#### IR Sender/Receiver ####
 
 As my TVs Ethernet port is not working at the moment and the Wake-On-Wi-Fi functionality does not work reliable, I needed an alternative to send commands to the TV. The problem with IR senders is, that they are not able to report the state of the corresponding device. So the state of the TV is represented by a simple Input_Boolean which is not optimal. Another problem is that my IR Sender has a very poor range and needs to point perfectly to the device. I am investigating that, maybe this one need a replacement...
+
+## Software Components ##
