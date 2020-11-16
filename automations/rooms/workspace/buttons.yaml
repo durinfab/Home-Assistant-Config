@@ -61,3 +61,7 @@
       data:
         entity_id: input_select.led_sign_mode
         option: "Disabled"
+    - service: light.turn_on
+      data:
+        entity_id: light.740aa7b1_77fedd44
+        brightness: 1
