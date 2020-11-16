@@ -1,6 +1,6 @@
 ##
 ## Counts the percentage of people who are home
-## TODO: Source
+## Source: https://github.com/DubhAd/Home-AssistantConfig/blob/live/sensors/home_count.yaml
 ##
 
 - platform: template

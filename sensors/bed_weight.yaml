@@ -1,0 +1,27 @@
+- platform: template
+  sensors:
+    fabi_in_bed:
+      friendly_name: "Fabi im Bett"
+      value_template: >
+        {{ states('sensor.add_bed_weight')|float >= 60.0 }}
+    lelo_in_bed:
+      friendly_name: "Lelo im Bett"
+      value_template: >
+        {{ states('sensor.add_bed_weight')|float > 40.0
+          and (states('sensor.add_bed_weight')|float < 60.0
+               or states('sensor.add_bed_weight')|float >= 100.0)}}
+    add_bed_weight:
+      friendly_name: "Gesamtgewicht Bett"
+      value_template: >
+        {{ ((states('sensor.fabi_weight') | float) + (states('sensor.lelo_weight') | float)) | round(2) }}
+    num_in_master_bed:
+      friendly_name: "Anzahl Personen im Bett"
+      unit_of_measurement: "Personen"
+      value_template: >-
+        {% if is_state('sensor.fabi_in_bed', 'True') and is_state('sensor.lelo_in_bed', 'True') %}
+            2
+        {% elif is_state('sensor.fabi_in_bed', 'True') or is_state('sensor.lelo_in_bed', 'True') %}
+            1
+        {% else %}
+            0
+        {% endif %}
