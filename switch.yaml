@@ -28,12 +28,6 @@
 
 - platform: circadian_lighting
   lights_rgb:
-    - light.flurlampe
-  name: Flurlampe
-  disable_brightness_adjust: True
-
-- platform: circadian_lighting
-  lights_rgb:
     - light.aussenlampe
   name: Aussenlampe
   disable_brightness_adjust: True

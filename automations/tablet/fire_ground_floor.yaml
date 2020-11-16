@@ -20,7 +20,7 @@
         - light.esstisch
         - light.esstisch_ambilight
         - light.windfang_lampe
-        - light.flurlampe
+        - light.regal_lampe
       to: 'on'
     condition:
       - condition: or

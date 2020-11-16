@@ -13,7 +13,6 @@
               - switch.circadian_lighting_kueche
               - switch.circadian_lighting_schlafzimmer
               - switch.circadian_lighting_kartenstrip
-              - switch.circadian_lighting_flurlampe
         ## trigger the information loop
         - service: script.led_update
 
