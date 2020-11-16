@@ -2,6 +2,7 @@ name: Gemeindebau
 filter:
     include_domains:
         - light
+        - alarm_control_panel
     exclude_entities:
       - light.debug_led1
       - light.debug_led2
