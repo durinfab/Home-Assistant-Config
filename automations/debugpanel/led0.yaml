@@ -1,0 +1,21 @@
+- alias: 'Info - led 0 - motion kitchen'
+  initial_state: on
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.debug_motion
+    to: "on"
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.debug_led0
+        color_name: green
+
+- alias: 'Info - led 0 - no motion kitchen'
+  initial_state: on
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.debug_motion
+    to: "off"
+  action:
+    - service: light.turn_off
+      entity_id: light.debug_led0
