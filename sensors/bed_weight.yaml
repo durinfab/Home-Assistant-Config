@@ -1,3 +1,7 @@
+##
+## Source: https://selfhostedhome.com/diy-bed-presence-detection-home-assistant/
+##
+
 - platform: template
   sensors:
     fabi_in_bed:
