@@ -1,0 +1,62 @@
+- alias: Disco - Turn on
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: input_boolean.disco
+    to: "on"
+
+  action:
+    - service: light.turn_off
+      entity_id: light.esstisch
+    - service: switch.turn_off
+      entity_id:
+        - switch.circadian_lighting_schlafzimmer
+        - switch.circadian_lighting_wintergarten
+        - switch.circadian_lighting_lagerlampe
+        - switch.circadian_lighting_kueche
+    - service: light.turn_on
+      data_template:
+        entity_id: 
+          - light.schreibtisch_strip
+          - light.wintergarten_strip
+          - light.schlafzimmer_led
+          - light.regal_lampe
+        brightness: 255
+        effect: colorloop
+
+    - service: light.turn_on
+      data_template:
+        entity_id:
+          - light.wintergarten_light_wall
+          - light.windfang_lampe
+          - light.schlafzimmer_links
+          - light.schlafzimmer_rechts
+          - light.lagerlampe
+          - light.esstisch_ambilight
+        brightness: 255
+        effect: 'Random Loop'
+
+- alias: Disco - Turn off
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: input_boolean.disco
+    to: "off"
+
+  action:
+    - service: script.random_color
+    - service: circadian_lighting.values_update
+    - service: light.turn_off
+      entity_id: light.schlafzimmer_led
+    - service: light.turn_on
+      data:
+        entity_id:
+            - light.Lagerlampe
+        brightness: 250
+        color_temp: 320
+    - service: switch.turn_on
+      entity_id:
+        - switch.circadian_lighting_schlafzimmer
+        - switch.circadian_lighting_wintergarten
+        - switch.circadian_lighting_lagerlampe
+        - switch.circadian_lighting_kueche

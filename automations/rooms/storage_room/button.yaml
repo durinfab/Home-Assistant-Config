@@ -25,3 +25,17 @@
     data:
       entity_id:
           - light.Lagerlampe
+      brightness: 250
+      color_temp: 320
+
+
+- id: 'Storage Room - button triple'
+  alias: Storage Room - button triple
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.lagerraum_button_click
+    to: 'triple'
+  action:
+  - service: input_boolean.toggle
+    entity_id: input_boolean.disco
