@@ -49,9 +49,10 @@
     - service: light.turn_off
       entity_id: light.schlafzimmer_led
     - service: light.turn_on
-      data:
-        entity_id:
-            - light.Lagerlampe
+      entity_id:
+        - light.windfang_lampe
+        - light.Lagerlampe
+      data_template:
         brightness: 250
         color_temp: 320
     - service: switch.turn_on
