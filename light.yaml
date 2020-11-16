@@ -61,7 +61,6 @@
      - light.wintergarten_links
      - light.wintergarten_rechts
      - light.kuechenlampe
-     - light.schreibtischlampe
      - light.lagerlampe
      - light.schreibtisch_strip
      - light.wintergarten_strip
@@ -69,4 +68,4 @@
      - light.esstisch_ambilight
      - light.aussenlampe
      - light.regal_lampe
-     - light.flurlampe
+     - light.windfang_lampe
