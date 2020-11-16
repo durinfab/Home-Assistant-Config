@@ -10,13 +10,8 @@
   lights_rgb:
     - light.schlafzimmer_links
     - light.schlafzimmer_rechts
-  name: Schlafzimmer
-  disable_brightness_adjust: False
-
-- platform: circadian_lighting
-  lights_rgb:
     - light.schlafzimmer_led
-  name: Kartenstrip
+  name: Schlafzimmer
   disable_brightness_adjust: False
 
 - platform: circadian_lighting
