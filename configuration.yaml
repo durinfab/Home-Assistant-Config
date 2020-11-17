@@ -27,26 +27,11 @@ tts:
 sensor: !include_dir_merge_list sensors/
 device_tracker: !include_dir_list device_tracker/
 group: !include_dir_merge_named groups
-switch: !include switch.yaml
+switch: !include_dir_merge_list switch/
 automation: !include_dir_merge_list automations/
 script: !include_dir_merge_named scripts
 homeassistant:
   customize: !include customize.yaml
-
-
-
-
-#climate:
-#  - platform: mqtt
-#    send_if_off: false
-#    name: Thermostat
-#    current_temperature_topic: events/central_heating/otmonitor/roomtemperature
-#    temperature_command_topic: actions/otmonitor/setpoint
-#    temperature_state_topic: events/central_heating/otmonitor/setpoint
-#    min_temp: 5
-#    max_temp: 35
-#    initial: 20
-#    precision: 0.5
 
 circadian_lighting:
   min_colortemp: 2700
