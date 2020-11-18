@@ -37,7 +37,7 @@ As too many Wi-Fi devices are not good for the stability of the network and alwa
 
 All my battery equipped devices use Zigbee for communication. With the help of [Zigbee2MQTT](https://www.zigbee2mqtt.io) all received information is converted into MQTT messages. For a long time I used the [CC2531](https://www.amazon.de/CC2531-USB-Stick-zigbee2mqtt-ioBroker-Firmware/dp/B07T3GM28F) as Coordinator. All related firmware files can be found [here](https://github.com/Koenkk/Z-Stack-firmware). But because of his weak transmission strength and the low amount of direct children at the same time, I recently decided to move on to the [CC26X2R1](https://www.mouser.de/ProductDetail/Texas-Instruments/LAUNCHXL-CC26X2R1?qs=pfd5qewlna7NQQI%252B7L2KoA%3D%3D).
 
-![CC26X2R1](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTHqH2g6yD0xBa9EpGjN9Qu--JeOV1fvV5jc2T25p739gRK2cN-qXy_v_GXJrm9EiEAnAEVh12s&usqp=CAc)
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTHqH2g6yD0xBa9EpGjN9Qu--JeOV1fvV5jc2T25p739gRK2cN-qXy_v_GXJrm9EiEAnAEVh12s&usqp=CAc" width="300">
 
 So far I'm very happy with it. Today I'm using 19 Zigbee sensors, which are noted down below:
 
@@ -71,13 +71,11 @@ For bulbs and ceiling lamps um using [Yeelight](https://www.yeelight.com) Lamps.
 
 | Model                                                        | Image                                                        | Quantity | Notes                                                        |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | :------: | ------------------------------------------------------------ |
-| Xiaomi Yeelight Bulb V1 ([YLDP02YL](https://www.amazon.de/YEELIGHT-Smart-LED-Glühbirne-Lumen/dp/B073QPD1KX/ref=sr_1_2?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=YLDP02YL&qid=1605394900&sr=8-2)) | ![Yeelight V1](https://images-na.ssl-images-amazon.com/images/I/41WorOMGm5L._AC_SX679_.jpg) |    2     | Used as bedside lamps. They are less bright than the V2 and my oldest smart bulbs. |
-| Xiaomi Yeelight Bulb V2 (YLDP06YL)                           | ![Yeelight V2](https://images-na.ssl-images-amazon.com/images/I/414zidjPMbL._AC_SX679_.jpg) |    3     | Used inside the Living Room as Main Lighting. One of them is located in our Storage Room. |
-| Xiaomi Yeelight Bulb 1S ([YLDP13YL](https://www.amazon.de/Glühbirne-Millionen-Weißlicht-Kompatibel-Assistant/dp/B0832XR68B/ref=sr_1_1?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=YLDP13YL&qid=1605395096&sr=8-1)) | ![Yeelight 1S](https://images-na.ssl-images-amazon.com/images/I/414zidjPMbL._AC_SX679_.jpg) |    2     | Used in the vestibule and one outside by the entrance. I'm curious if she does survive the cold days... |
-| [Yeelight Meteorite](https://www.amazon.de/Yeelight-2700K-6000K-Farbtemperatur-LED-Leuchter-LED-Kronleuchter/dp/B07MY2MTZY/ref=sr_1_1_sspa?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=yeelight+Meteorite&qid=1605395144&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzS0paWkJJMVZIVkRRJmVuY3J5cHRlZElkPUEwOTA2NTExUUQ5RkhCQlkzS0c2JmVuY3J5cHRlZEFkSWQ9QTA3NDAyNzk5NTlXTE1FTVo4R0Qmd2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl) | ![Yeelight Meteorite](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS4sh9x_PEhq1y3UefXoEoBEXZiqPwiVcvc6s20LaNPfTsi3EfLn0dpg6iIcOfQfsOoWn3XtYs&usqp=CAc) |    1     | Used in the Workspace room for dinner and ambient lighting.  |
-| Xiaomi Ceiling Lamp                                          | ![Yeelight Ceiling](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTD8uUrwwr7SBeM5IchMpkv07SezDwQhY9kOrDej2LyIloFolmgFFtOB_Fp-Jt6HjCC899l4ma5&usqp=CAc) |    1     | Used in our kitchen. Very bright but not that cheap.         |
-
-
+| Xiaomi Yeelight Bulb V1 ([YLDP02YL](https://www.amazon.de/YEELIGHT-Smart-LED-Glühbirne-Lumen/dp/B073QPD1KX/ref=sr_1_2?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=YLDP02YL&qid=1605394900&sr=8-2)) | <img src="https://images-na.ssl-images-amazon.com/images/I/41WorOMGm5L._AC_SX679_.jpg" width="150"> |    2     | Used as bedside lamps. They are less bright than the V2 and my oldest smart bulbs. |
+| Xiaomi Yeelight Bulb V2 (YLDP06YL)                           | <img src="https://images-na.ssl-images-amazon.com/images/I/414zidjPMbL._AC_SX679_.jpg" width="150"> |    3     | Used inside the Living Room as Main Lighting. One of them is located in our Storage Room. |
+| Xiaomi Yeelight Bulb 1S ([YLDP13YL](https://www.amazon.de/Glühbirne-Millionen-Weißlicht-Kompatibel-Assistant/dp/B0832XR68B/ref=sr_1_1?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=YLDP13YL&qid=1605395096&sr=8-1)) | <img src="https://images-na.ssl-images-amazon.com/images/I/414zidjPMbL._AC_SX679_.jpg" width="150"> |    2     | Used in the vestibule and one outside by the entrance. I'm curious if she does survive the cold days... |
+| [Yeelight Meteorite](https://www.amazon.de/Yeelight-2700K-6000K-Farbtemperatur-LED-Leuchter-LED-Kronleuchter/dp/B07MY2MTZY/ref=sr_1_1_sspa?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=yeelight+Meteorite&qid=1605395144&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzS0paWkJJMVZIVkRRJmVuY3J5cHRlZElkPUEwOTA2NTExUUQ5RkhCQlkzS0c2JmVuY3J5cHRlZEFkSWQ9QTA3NDAyNzk5NTlXTE1FTVo4R0Qmd2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl) | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS4sh9x_PEhq1y3UefXoEoBEXZiqPwiVcvc6s20LaNPfTsi3EfLn0dpg6iIcOfQfsOoWn3XtYs&usqp=CAc" width="150"> |    1     | Used in the Workspace room for dinner and ambient lighting.  |
+| Xiaomi Ceiling Lamp                                          | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTD8uUrwwr7SBeM5IchMpkv07SezDwQhY9kOrDej2LyIloFolmgFFtOB_Fp-Jt6HjCC899l4ma5&usqp=CAc" width="150"> |    1     | Used in our kitchen. Very bright but not that cheap.         |
 
 The lighting strips offered by Yeelight are very expensive and not worth the money when you can do it yourself :)
 
@@ -101,7 +99,7 @@ Detect residents in a specific area is not easy to establish, but is paying off.
 
 The newest member in our small Smart Home is a used Roborock S50 (or S51/S55 - different color). 
 
-![Roborock S50](https://images-na.ssl-images-amazon.com/images/I/416NB5aoZzL._AC_SL1000_.jpg)
+<img src="https://images-na.ssl-images-amazon.com/images/I/416NB5aoZzL._AC_SL1000_.jpg" width="200">
 
 Why especially this device? Because it uses a smart Laser-based navigation(no random algorithms), is rootable and is supported by Valetudo. It is importent to me to interrupt the cloud connection to Xiaomi. His little brother the [Xiaomi Mi Robot](https://www.amazon.de/Xiaomi-Saugroboter-Staubsauger-Kehrmaschine-Steuerung/dp/B01LYV1EMA/ref=pd_lpo_79_t_0/260-7052561-1317654?_encoding=UTF8&pd_rd_i=B01LYV1EMA&pd_rd_r=68c901e4-bbb9-4551-96b6-79d031291d4d&pd_rd_w=Fnimb&pd_rd_wg=YIxMw&pf_rd_p=d5c9797d-0238-4119-b220-af4cc3420918&pf_rd_r=EA2CRW8TBWB03PGYNE88&psc=1&refRID=EA2CRW8TBWB03PGYNE88) has a fewer feature tree. The Roborock S50 supports virtual No-Go Borders and saves the created map over multiple cleaning runs. For a advanced comparision click [here](https://valetudo.cloud/pages/knowledge_base/supported-roborock-devices.html#gen-2).
 
@@ -115,9 +113,7 @@ As my TVs Ethernet port is not working at the moment and the Wake-On-Wi-Fi funct
 
 This ESP Family is a famous name in the DIY Smart Home and IoT world. The [ESP32](https://www.amazon.de/AZDelivery-ESP32-NodeMCU-gratis-eBook/dp/B07Z83MF5W/ref=asc_df_B07Z83MF5W/?tag=googshopde-21&linkCode=df0&hvadid=427788576373&hvpos=&hvnetw=g&hvrand=8639050305478239369&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1003859&hvtargid=pla-898234157885&psc=1&th=1&psc=1&tag=&ref=&adgrpid=99889209552&hvpone=&hvptwo=&hvadid=427788576373&hvpos=&hvnetw=g&hvrand=8639050305478239369&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1003859&hvtargid=pla-898234157885) is the successor of the ESP8266. Both have a lot of GPIO Pins, 5V Micro-USB power supply and Bluetooth+Wi-Fi connectivity. They also have a very large community with projects like [ESPHome](https://esphome.io) and the mentioned [WLED](https://github.com/Aircoookie/WLED).
 
-![ESP32](https://images-na.ssl-images-amazon.com/images/I/71y1ETlEHyL._SL1500_.jpg)
-
-
+<img src="https://images-na.ssl-images-amazon.com/images/I/71y1ETlEHyL._SL1500_.jpg" width="200">
 
 ESPHome allows to build a firmware based on the connected sensors and devices. Ir has a big bandwidth of supported devices and sensors, which are very easy to configure. All of the following devices are base on ESPHome. Everyone who works with a lot of self programmed ESP Devices should try this service.
 
@@ -125,7 +121,7 @@ ESPHome allows to build a firmware based on the connected sensors and devices. I
 
 I like the idea of sharing the collected information of the apartment with the residents. At the same time there should be the possibility to notify the residents, beside sending them a notification. At this point I was searching for an alternative and found the [MAX7219 LED Matrix](https://www.amazon.de/AZDelivery-MAX7219-Matrix-Anzeigemodul-Arduino/dp/B079HVW652/ref=asc_df_B079HVW652/?tag=googshopde-21&linkCode=df0&hvadid=309901650373&hvpos=&hvnetw=g&hvrand=9116350884031864081&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1003859&hvtargid=pla-602010100762&psc=1&th=1&psc=1&tag=&ref=&adgrpid=62387684635&hvpone=&hvptwo=&hvadid=309901650373&hvpos=&hvnetw=g&hvrand=9116350884031864081&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1003859&hvtargid=pla-602010100762).
 
-![MAX7219](readme_images/MAX7219.jpg)
+<img src="readme_images/MAX7219.jpg">
 
 On the left side you can see the current time and on the right a random information. There is also a mode for blocking information(that need an interaction to disappear) or an notification, that shows one time for about ten seconds.
 
@@ -153,9 +149,46 @@ Some of you might ask what you can do with a weight sensor in a Smart Home. A wh
 
 ## Software Components ##
 
+## More complex automations ##
 
+In this section I want to describe some of my more complex automation-systems. Maybe someone is interested in this and/or has some ideas to improve the systems.
+
+### The LED Sign - Notifications and random facts for everyone ##
+
+You all know the idea. A continous information source to show some of the collected information and notify the residents in special cases.
+
+To distinguish between the states of this I created an input_select to represent those.
+
+- **Default** - Everytwo minutes an event is fired to update the current text with a random text from [/template/led/status.yaml](/template/led/status.yaml).
+- **Notification** - Notifications are a bit senseless regarding their reliability. Example: If someone arrives at home a welcome message is printed there. These kind of notifications disappear after 10 seconds and are restoring the previous text to the sign. If the current State is "Hard" no notification will be shown.
+- **Hard** - If the vacuum robot's bin should get cleared a "Hard"-Notification is printed. This kind of notification will not get overwritten by anything. After an acceptance/specific action of the user, the message will get removed. 
+- **Disabled** - If no one is at home the state switches to "Disabled". This state behaves similary to "Hard", because it can only be interrupted by an specific action.
+
+Here is a short illustration:
+
+<img src="/readme_images/led_sign.png">
+
+## Bedroom and corresponding lights ##
+
+Another quiet complex structure has my bedroom-weight-light automation system. If someone asks me what the most abstract sensor in my setup I usually tell themabout the weight sensors under my bed. At the beginning it sounds a bit unnecessary, but the potential is huge. Here is what I'm doing: At first I need to mention that my girlfriend and me are having their fixed side of the bed for sleeping. At this point it is easy to say, that we both got our own bedside lamp. Another point that is playing in my hands is that we a moderate weight difference between us. Long story short: When someone leaves the bed I can easily tell, who it was. I have placed two buttons in our bedroom, one between us,over the bed and the otherone at the entrance.
+
+The buttons are obviously used to control the lights. But there are some different interactions based one time and if someone is sleeping already.
+
+- Entrance Button (single)
+  - **Single:** If no one is in bed: Toggle both lights with full brightness
+  - **Single:** If someone is in bed: Toggle the lamp of the resident that is not in bed at low brightness
+- Bedside Button (double)
+  - **Single Left/Right:** Toggle the corresponding side with medium brightness
+  - **Both:** Turn on both lights with full brightness
+
+- Weight Control
+  - **Enabled**: When one of us lays in bed for more then 15 minutes.
+    - When the resident leaves the bed, the light on his side goes on with very low brightness.
+    - When the resident lays down again, the light turns off again.
+  - **Disabled:** When the sun rises.
 
 ## Future Plans ##
 
-- Add Wii "Power" to IR Sensor
+- Add Wii "Power" to IR Sensor.
+- Find a cheap way to realize Multiroom-Airplay. I need to try [this](https://github.com/mikebrady/shairport-sync).
 - Reintegrate my [OpenTherm Gateway](https://www.nodo-shop.nl/nl/opentherm-gateway/188-opentherm-gateway.html). Looking forward to [this](https://github.com/rvdbreemen/OTGW-firmware) to get released. 
