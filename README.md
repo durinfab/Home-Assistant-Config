@@ -107,6 +107,10 @@ Why especially this device? Because it uses a smart Laser-based navigation(no ra
 
 *Note: If you want to buy this device, be sure to get one with old production date (before 2019-11) as the factory firmware (to which the robot can be reset) does support the installation of a custom ROM.*
 
+### IR-Sender ###
+
+As my TVs Ethernet port is not working at the moment and the Wake-On-Wi-Fi functionality does not work reliable, I needed an alternative to send commands to the TV. For this propose I'm using the [RM4C mini](https://www.amazon.de/Universal-IR-Fernbedienung-Stimmenkontrolle-Koordinierung-Intelligente-Automatisierungsmodule-Schwarz/dp/B08215598C/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=RM4C+mini&qid=1605704505&sr=8-3). To control this handy device I use the [Broadlink Integration](https://www.home-assistant.io/integrations/broadlink/). This does also support the learing of new IR-Commands.
+
 ### ESP32/ESP8266 ###
 
 This ESP Family is a famous name in the DIY Smart Home and IoT world. The [ESP32](https://www.amazon.de/AZDelivery-ESP32-NodeMCU-gratis-eBook/dp/B07Z83MF5W/ref=asc_df_B07Z83MF5W/?tag=googshopde-21&linkCode=df0&hvadid=427788576373&hvpos=&hvnetw=g&hvrand=8639050305478239369&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1003859&hvtargid=pla-898234157885&psc=1&th=1&psc=1&tag=&ref=&adgrpid=99889209552&hvpone=&hvptwo=&hvadid=427788576373&hvpos=&hvnetw=g&hvrand=8639050305478239369&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1003859&hvtargid=pla-898234157885) is the successor of the ESP8266. Both have a lot of GPIO Pins, 5V Micro-USB power supply and Bluetooth+Wi-Fi connectivity. They also have a very large community with projects like [ESPHome](https://esphome.io) and the mentioned [WLED](https://github.com/Aircoookie/WLED).
@@ -147,8 +151,11 @@ Some of you might ask what you can do with a weight sensor in a Smart Home. A wh
 
 *The idea for this use case of the HX711 is from [here](https://selfhostedhome.com/diy-bed-presence-detection-home-assistant/)*
 
-#### IR Sender/Receiver ####
-
-As my TVs Ethernet port is not working at the moment and the Wake-On-Wi-Fi functionality does not work reliable, I needed an alternative to send commands to the TV. The problem with IR senders is, that they are not able to report the state of the corresponding device. So the state of the TV is represented by a simple Input_Boolean which is not optimal. Another problem is that my IR Sender has a very poor range and needs to point perfectly to the device. I am investigating that, maybe this one need a replacement...
-
 ## Software Components ##
+
+
+
+## Future Plans ##
+
+- Add Wii "Power" to IR Sensor
+- Reintegrate my [OpenTherm Gateway](https://www.nodo-shop.nl/nl/opentherm-gateway/188-opentherm-gateway.html). Looking forward to [this](https://github.com/rvdbreemen/OTGW-firmware) to get released. 

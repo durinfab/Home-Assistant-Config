@@ -14,12 +14,12 @@ shutdown:
 ## Toggle the TV with IR Sender
 fernseher:
   sequence:
-    - service: mqtt.publish
+    - service: remote.send_command
+      entity_id: remote.living_room_remote
       data:
-        topic: "fernseher/send"
-        payload_template: "2,C,20,3"
-    - delay: "00:00:01"
-    - service: script.walkaround_for_retain
+        device: television
+        command: power
+    - delay: 2
 
 wintergarten_bright:
   sequence:
@@ -78,14 +78,6 @@ turn_off_everything:
         - light.Wintergarten_Rechts
         - light.Wintergarten_Links
 
-## My IR Sender saves it last command and sends it again after connection loss. So it potentionally randomly toggles to tv
-walkaround_for_retain:
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "fernseher/send"
-        payload_template: "3,4B36532C,32"
-
 start_netflix:
   sequence:
     - service: script.speech_engine
@@ -114,12 +106,11 @@ start_netflix:
         source: TV
 
     ## switch tv input
-    - service: mqtt.publish
+    - service: remote.send_command
+      entity_id: remote.living_room_remote
       data:
-        topic: "fernseher/send"
-        payload_template: "2,0x76,20"
-    - delay: "00:00:05"
-    - service: script.walkaround_for_retain
+        device: television
+        command: netflix
     - condition: state
       entity_id: input_boolean.evening_mode
       state: "on"
@@ -162,16 +153,17 @@ start_wii:
         source: Wii
 
     ## switch tv input
-    - service: mqtt.publish
+    - service: remote.send_command
+      entity_id: remote.living_room_remote
       data:
-        topic: "fernseher/send"
-        payload_template: "2,38,20,3"
-    - delay: "00:00:05"
-    - service: mqtt.publish
+        device: television
+        command: source
+    - delay: "00:00:04"
+    - service: remote.send_command
+      entity_id: remote.living_room_remote
       data:
-        topic: "fernseher/send"
-        payload_template: "2,5C,20,3"
-    - service: script.walkaround_for_retain
+        device: television
+        command: enter
     - condition: state
       entity_id: input_boolean.evening_mode
       state: "on"
@@ -218,16 +210,17 @@ start_ps4:
         source: Playstation
 
     ## switch tv input
-    - service: mqtt.publish
+    - service: remote.send_command
+      entity_id: remote.living_room_remote
       data:
-        topic: "fernseher/send"
-        payload_template: "2,38,20,3"
-    - delay: "00:00:05"
-    - service: mqtt.publish
+        device: television
+        command: source
+    - delay: "00:00:04"
+    - service: remote.send_command
+      entity_id: remote.living_room_remote
       data:
-        topic: "fernseher/send"
-        payload_template: "2,5C,20,3"
-    - service: script.walkaround_for_retain
+        device: television
+        command: enter
     - condition: state
       entity_id: input_boolean.evening_mode
       state: "on"
@@ -274,16 +267,17 @@ start_gaming:
         source: Windows
     
     ## switch tv input
-    - service: mqtt.publish
+    - service: remote.send_command
+      entity_id: remote.living_room_remote
       data:
-        topic: "fernseher/send"
-        payload_template: "2,38,20,3"
-    - delay: "00:00:05"
-    - service: mqtt.publish
+        device: television
+        command: source
+    - delay: "00:00:04"
+    - service: remote.send_command
+      entity_id: remote.living_room_remote
       data:
-        topic: "fernseher/send"
-        payload_template: "2,5C,20,3"
-    - service: script.walkaround_for_retain
+        device: television
+        command: enter
     - condition: state
       entity_id: input_boolean.evening_mode
       state: "on"
