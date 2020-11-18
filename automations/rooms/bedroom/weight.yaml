@@ -84,8 +84,8 @@
 - alias: "Bedroom - night is over"
   initial_state: True
   trigger:
-    platform: time
-    at: "06:00:00"
+    - platform: sun
+      event: sunrise
   action:
     - service: automation.turn_off
       entity_id:
@@ -96,12 +96,11 @@
 
 ## The get up/ lay down automations are only turned on, if someone lays
 ## longer then 15 min in bed
-- alias: "Bedroom - night begins"
+- alias: "Bedroom - night begins for lelo"
   initial_state: True
   trigger:
     platform: state
     entity_id:
-      - sensor.fabi_in_bed
       - sensor.lelo_in_bed
     to: "True"
     for:
@@ -114,6 +113,23 @@
     - service: automation.turn_on
       entity_id:
         - automation.hinlegen_licht_links
-        - automation.hinlegen_licht_rechts
         - automation.aufstehen_licht_links
+
+- alias: "Bedroom - night begins for lelo"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id:
+      - sensor.fabi_in_bed
+    to: "True"
+    for:
+      minutes: 15
+  condition:
+    condition: time
+    after: "22:00:00"
+    before: "6:00:00"
+  action:
+    - service: automation.turn_on
+      entity_id:
+        - automation.hinlegen_licht_rechts
         - automation.aufstehen_licht_rechts

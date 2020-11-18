@@ -21,7 +21,10 @@
         state: "False"
   action:
     - service: light.toggle
-      entity_id: light.schlafzimmer_links
+      data:
+        entity_id:
+          - light.schlafzimmer_links
+        brightness: 1
 
 - id: "Nachttischlampe Fabi an"
   alias: Nachttischlampe Fabi an
@@ -41,7 +44,10 @@
         state: "True"
   action:
     - service: light.toggle
-      entity_id: light.schlafzimmer_rechts
+      data:
+        entity_id:
+          - light.schlafzimmer_rechts
+        brightness: 1
 
 ## if nobody is in Bed, toggle the lamps with full brightness
 - id: "Bedroom - Single Press, lights on"

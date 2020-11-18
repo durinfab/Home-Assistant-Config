@@ -15,6 +15,7 @@
       data:
         entity_id:
             - light.schlafzimmer_links
+        brightness: 128
 
   - id: 'Bedroom - single right'
     initial_state: True
@@ -29,6 +30,7 @@
       data:
         entity_id:
             - light.schlafzimmer_rechts
+        brightness: 128
 
   - id: 'Bedroom - both'
     initial_state: True
