@@ -16,8 +16,11 @@
     after: "22:00:00"
     before: "6:00:00"
   action:
-    - service: script.turn_on
-      entity_id: script.bed_lelo_leaves
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.schlafzimmer_links
+        brightness: 1
 
 - alias: Bedroom - lelo lays down
   initial_state: False
@@ -33,8 +36,10 @@
     after: "22:00:00"
     before: "6:00:00"
   action:
-    - service: script.turn_on
-      entity_id: script.bed_lelo_enters
+    - service: light.turn_off
+      data:
+        entity_id:
+          - light.schlafzimmer_links
 
 - alias: Bedroom - fabi get up
   initial_state: False
@@ -50,8 +55,11 @@
     after: "00:00:00"
     before: "6:00:00"
   action:
-    - service: script.turn_on
-      entity_id: script.bed_fabi_leaves
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.schlafzimmer_rechts
+        brightness: 1
 
 - alias: Bedroom - fabi lays down
   initial_state: False
@@ -67,8 +75,10 @@
     after: "00:00:00"
     before: "6:00:00"
   action:
-    - service: script.turn_on
-      entity_id: script.bed_fabi_enters
+    - service: light.turn_off
+      data:
+        entity_id:
+          - light.schlafzimmer_rechts
 
 ## turn off the get up/ lay down automations
 - alias: "Bedroom - night is over"
