@@ -12,6 +12,9 @@
   action:
   - service: vacuum.return_to_base
     entity_id: vacuum.rockrobo
+  - delay: 2
+  - service: vacuum.return_to_base
+    entity_id: vacuum.rockrobo
 
 - id: 'Storage Room - button single'
   alias: Storage Room - button single
