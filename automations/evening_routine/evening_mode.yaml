@@ -21,8 +21,8 @@
   - alias: 'Evening - Disable evening mode'
     initial_state: True
     trigger:
-        platform: time
-        at: "05:00:00"
+        platform: sun
+        event: sunrise
     action:
        - service: input_boolean.turn_off
          entity_id: input_boolean.evening_mode

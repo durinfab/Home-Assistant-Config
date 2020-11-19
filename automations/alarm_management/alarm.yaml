@@ -2,16 +2,6 @@
 ## Covers all automations around the alarm management
 ##
 
-#- alias: 'enable alarm management'
-#  trigger:
-#  - platform: state
-#    entity_id: alarm_control_panel.alarmanlage
-#    from: 'disarmed'
-#    to: 'armed_away'
-#  action:
-#    - service: alarm_control_panel.alarm_arm_away
-#      entity_id: alarm_control_panel.alarmanlage
-
 ## If an sensor is triggered and no one is home, the alarm management goes through two stages:
 ## Authentication stage: For 30 seconds the alarm management is waiting for one of the residents is coming home
 ##    Success: do not trigger alarm

@@ -1,7 +1,7 @@
 ##
 ## WARNING: Not working at the moment - problems with OpenTherm Bridge
 ## Over all the OpenTherm Bridge is very buggy so I tried to recognize 
-## some behavior-patterns. These automations are very obsolte.
+## some behavior-patterns. These automations are obsolte.
 ##
 
 - alias: 'HVAC - increase heat'
