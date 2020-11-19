@@ -1,4 +1,6 @@
-# My Home Assistant Configuration
+# My Home Assistant Configuration ✨
+
+**Current Version: 0.117.6**
 
 I'm Fabian, a computer science student from Germany. I live in a shared apartment with my girlfriend and my best friend. I'm using Home Assistant for about four years right now and Home Automation has become one of my biggest hobbies. During my journey I learned a lot about keeping the network tidy, getting an own point of view of logical shortcuts between devices and a good effort-benefit- and price-performance- assessment.
 
@@ -8,7 +10,7 @@ This is my current, active configuration for everyday use. Feel free to inspire 
 
 **TL;DR: I received many inspirations and help from all those smart home developers and enthusiasts and I want to give something back. So here is my Home Assistant Configuration.** 
 
-### Philosophy ###
+### 💭 Philosophy ###
 
 In this chapter I want to give you a short briefing what my smart home should do and where I set my preferences.
 
@@ -25,15 +27,15 @@ In this chapter I want to give you a short briefing what my smart home should do
 
 4. The avoidence of cloud services. I know if you're afraid of your data being  abused, don't collect them.
 
-## Hardware ##
+## 🖥 Hardware ##
 
 My Home Assistant instance is running in a [Docker environment](https://docs.docker.com/get-docker/) on an [Intel® NUC-Kit NUC8i3BEH](https://www.amazon.de/Intel-NUC8i3BEH-Mainboard-Generation-Processors/dp/B07JB2M5JS) with an Intel® Core™ i3-8109U and 16GB DDR4 RAM. All Smart Home related service are running on it in their own Docker container. 
 
-### Network ###
+### ⛓ Network ###
 
 As too many Wi-Fi devices are not good for the stability of the network and always need a power source, I needed to add another communication technology to my network. Because Zigbee is overall cheaper than Z-Wave, my decision was made quickly.
 
-#### Zigbee #### 
+#### 🐝 Zigbee #### 
 
 All my battery equipped devices use Zigbee for communication. With the help of [Zigbee2MQTT](https://www.zigbee2mqtt.io) all received information is converted into MQTT messages. For a long time I used the [CC2531](https://www.amazon.de/CC2531-USB-Stick-zigbee2mqtt-ioBroker-Firmware/dp/B07T3GM28F) as Coordinator. All related firmware files can be found [here](https://github.com/Koenkk/Z-Stack-firmware). But because of his weak transmission strength and the low amount of direct children at the same time, I recently decided to move on to the [CC26X2R1](https://www.mouser.de/ProductDetail/Texas-Instruments/LAUNCHXL-CC26X2R1?qs=pfd5qewlna7NQQI%252B7L2KoA%3D%3D).
 
@@ -53,7 +55,7 @@ So far I'm very happy with it. Today I'm using 19 Zigbee sensors, which are note
 
 Overall I'm very happy with my Zigbee setup. For the future I possibly will replace the “Aqara wireless switch” with a different model. I also should place an old [CC2531](https://www.amazon.de/CC2531-USB-Stick-zigbee2mqtt-ioBroker-Firmware/dp/B07T3GM28F/ref=sr_1_9?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=CC2531&qid=1605394793&sr=8-9) with the router software for a more stable network structure.
 
-### Wi-Fi ###
+### ☁️ Wi-Fi ###
 
 Today a Wi-Fi-network are inevitable. As our apartment is quite large, I need multiple routers to achieve a stable connection. With some old routers a configured a “Mesh”-like network with multiple [DD-WRT](https://dd-wrt.com) custom flashed routers. And overall it was a real pain to maintain and administrate. At the end of 2018 I decided to invest into two [“Google Wi-Fi”](https://www.amazon.de/Google-Wifi-Router-Duo-Pack/dp/B073D5P4L7/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=google+wifi&qid=1605394841&sr=8-3) Routers. 
 
@@ -63,7 +65,7 @@ These are performing inconspicuous. Everything is stable, but from a networking 
 
 But nonetheless these pucks are able to handle 45 devices with no problems. In the following table I will show you the different devices that are used. As there are quiet much, I will split that section into categories.
 
-#### Lighting ####
+#### 💡 Lighting ####
 
 I love colorful LEDs. They help to give every room some dynamic and variety. That's why I'm mainly using color-ranged bulbs and strips instead of white-ranged ones.
 
@@ -81,7 +83,7 @@ The lighting strips offered by Yeelight are very expensive and not worth the mon
 
 Im using four DIY LED Strips with the Software WLED. These are executed on an [ESP-01](https://de.aliexpress.com/item/4000505567851.html?spm=a2g0o.productlist.0.0.40194a59h8sLr7&algo_pvid=36b19a66-effe-4b3f-843c-86309eabe285&algo_expid=36b19a66-effe-4b3f-843c-86309eabe285-3&btsid=0b0a187b16053906987342338e15b5&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_) with [RGB-Adapter](https://de.aliexpress.com/item/4000505567851.html?spm=a2g0o.productlist.0.0.40194a59h8sLr7&algo_pvid=36b19a66-effe-4b3f-843c-86309eabe285&algo_expid=36b19a66-effe-4b3f-843c-86309eabe285-3&btsid=0b0a187b16053906987342338e15b5&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_). As [power supply](https://de.aliexpress.com/item/4000741932348.html?spm=a2g0o.productlist.0.0.1fa24d62bzqAcz&algo_pvid=c91f7f6f-7261-4fe9-9880-d96bf9194acc&algo_expid=c91f7f6f-7261-4fe9-9880-d96bf9194acc-0&btsid=2100bde316053910324372519ef81f&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_) im using basic 5V ones and for the lighting [WS2812B LED Strips](https://de.aliexpress.com/item/32682015405.html?spm=a2g0o.productlist.0.0.322a4c9e8dQBrC&algo_pvid=d1e877f2-bc62-4237-9084-3cfd792d8485&algo_expid=d1e877f2-bc62-4237-9084-3cfd792d8485-7&btsid=2100bdd516053912230116342eaf4d&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_). For an 3M Led Strip (60 LEDs per Meter) I'm paying around 30 Euro. On top we have all features of the [WLED](#WLED) firmware.
 
-### Presence Detection ###
+### 🏃🏻‍♂️ Presence Detection ###
 
 Detect residents in a specific area is not easy to establish, but is paying off. You can turn the lights off or disable the heater, when nobody is at home. You can automatically start the alarm-management or trigger the vacuum robot... There are **two level of region precision** (room based vs. home based) and **two level of human/identity precision** (there is a living thing vs. there is resident with the name).
 
@@ -95,7 +97,7 @@ Detect residents in a specific area is not easy to establish, but is paying off.
 | **room based** | **Easy** Motion Sensors, Switches, Buttons (Basically every sensor that needs an interaction). | **Hard** Requires the resident to ALWAYS take their home it them. In my opinion only realizable with Smart Watches. |
 | **home based** | **Easy** Motion Sensors, Switches, Buttons (Basically every sensor that needs an interaction). | **Medium** Requires BLE monitoring and well-defined scanning algorithms. Not easy to establish but very reliable. |
 
-### Vacuum Robot ###
+### 🧹 Vacuum Robot ###
 
 The newest member in our small Smart Home is a used Roborock S50 (or S51/S55 - different color). 
 
@@ -105,7 +107,7 @@ Why especially this device? Because it uses a smart Laser-based navigation(no ra
 
 *Note: If you want to buy this device, be sure to get one with old production date (before 2019-11) as the factory firmware (to which the robot can be reset) does allow the installation of a custom ROM.*
 
-### Wall mounted Tablet ###
+### 📱 Wall mounted Tablet ###
 
 
 
@@ -117,7 +119,7 @@ To integrate my tablet I'm using [Fully Kiosk Browser](https://www.fully-kiosk.c
 
 *Hint: The tablet lose it's connection to Home Assistant if I lock the device. Thats why I'm just setting the brightness to the lowest setting.*
 
-### IR-Sender ###
+### ⚡️ IR-Sender ###
 
 As my TVs Ethernet port is not working at the moment and the Wake-On-Wi-Fi functionality does not work reliable, I needed an alternative to send commands to the TV. For this propose I'm using the [RM4C mini](https://www.amazon.de/Universal-IR-Fernbedienung-Stimmenkontrolle-Koordinierung-Intelligente-Automatisierungsmodule-Schwarz/dp/B08215598C/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=RM4C+mini&qid=1605704505&sr=8-3). To control this handy device I use the [Broadlink Integration](https://www.home-assistant.io/integrations/broadlink/). This does also support the learing of new IR-Commands.
 
@@ -137,23 +139,23 @@ I like the idea of sharing the collected information of the apartment with the r
 
 On the left side you can see the current time and on the right a random information. There is also a mode for blocking information(that need an interaction to disappear) or an notification, that shows one time for about ten seconds.
 
-#### DHT11 - Temperature/Humidity Sensor ####
+#### 🌡 DHT11 - Temperature/Humidity Sensor ####
 
 In the bedroom there is still a DHT11 Sensor in use. It should be replaced with an Aqara sensor in the future to keep consistency. I'm still playing with the thought to add some other sensors to this ESP to get a  overview over the air quality...
 
-#### HC-SR501 - PIR Sensor ####
+#### 🧍🏼‍♂️ HC-SR501 - PIR Sensor ####
 
 These boards are relatively cheap but I have always bad luck with them. By now there are two of them in use and both are working on 5V (You can also power them with 3.3V). An advantage over the Zigbee counterpart is that you can adjust the delay between scans.
 
 #### Debugpanel ####
 
-This little board looks very ugly but saves me a lot of debugging work. All of these LEDs can be addressed individuelly, and are part of their own automation. For example: A lot of automations are based on the evening_mode, so it got its own LED.
+This little board looks very ugly but saves me a lot of debugging work. All of these LEDs can be addressed individuelly, and are part of their own automation. For example: A lot of automations are based on the [evening_mode](/automations/evening_mode/), so it got its own LED.
 
-Beside the LEDs there are also two switches and a PIR-Sensor. I thought about adding a Raspberry Pi with a Display to it, which shows a custom Home Assistant Log...
+Beside the LEDs there are also two switches and a PIR-Sensor. I thought about adding a Display to it, which shows a small Home Assistant Log...
 
 ![debugpanel](readme_images/debugpanel.jpg)
 
-#### HX711 - Weight Sensor ####
+#### 🏋🏼‍♂️ HX711 - Weight Sensor ####
 
 Some of you might ask what you can do with a weight sensor in a Smart Home. A whole lot of! I use them placed under my bed to detect the presence there. Because my girlfriend weighs less than me, we can differentiate who and how much people are there. This enables a lot of handy automations.
 
@@ -163,43 +165,43 @@ Some of you might ask what you can do with a weight sensor in a Smart Home. A wh
 
 I'am using different Software Components and custom Home Assistant integrations to round off my setup. one big relief ist Hass.io and [HACS](https://github.com/hacs/integration). Hass.io is a Docker based version of Home Assistant, which supports the installation of external Integrations (Add-Ons). These are executed in their own Docker container (basically their own execution envoirement).
 
-You can install different custom_integration into your Home Assisatnt config folder. Normally these are managed manually by the user, but [HACS](https://github.com/hacs/integration) gives the opportunity to list, install/update and maintain all of your Integration. Beside them, [HACS](https://github.com/hacs/integration) allows you to install custom Themes and Lovelace-Cards.
+You can install different custom integration into your Home Assisatnt config folder. Normally these are managed manually by the user, but [HACS](https://github.com/hacs/integration) gives the opportunity to list, install/update and maintain all of your Integration. Beside them, [HACS](https://github.com/hacs/integration) allows you to install custom Themes and Lovelace-Cards.
 
 ### HACS - Current used Integrations ###
 
-- [Circadian Lighting](https://github.com/claytonjn/hass-circadian_lighting) - Used for synching lights color (and/or brightness) with the current daylight.
-- [browser_mod](https://github.com/thomasloven/hass-browser_mod) - Turn the [Fully Kiosk Browser](https://www.fully-kiosk.com/) in a controllable entity.
+- [Circadian Lighting](https://github.com/claytonjn/hass-circadian_lighting) - Used for synching lights color (and/or brightness) with the current daylight. 🌇
+- [browser_mod](https://github.com/thomasloven/hass-browser_mod) - Turn the [Fully Kiosk Browser](https://www.fully-kiosk.com/) in a controllable entity. ☁️
 
 ### HACS - Currently used Lovelace Cards ###
 
-- [mini-graph-card](https://github.com/kalkih/mini-graph-card) - Beautiful graphs for Lovelace.
-- [simple-thermostat](https://github.com/nervetattoo/simple-thermostat) - A pretty nice visualsation for climate entities.
-- [vacuum-card](https://github.com/denysdovhan/vacuum-card) - Nice card for the visualsation of vacuum entities.
-- [lovelace-valetudo-map-card](https://github.com/TheLastProject/lovelace-valetudo-map-card) - To display the Map from Valetudo. You will also need [this]() Add-On for image conversion. 
-- [atomic-calendar-revive](https://github.com/marksie1988/atomic-calendar-revive) - Calendercard with plenty of customisation.
+- [mini-graph-card](https://github.com/kalkih/mini-graph-card) - Beautiful graphs for Lovelace. 📊
+- [simple-thermostat](https://github.com/nervetattoo/simple-thermostat) - A pretty nice visualsation for climate entities. 🌡
+- [vacuum-card](https://github.com/denysdovhan/vacuum-card) - Nice card for the visualsation of vacuum entities. 🧹
+- [lovelace-valetudo-map-card](https://github.com/TheLastProject/lovelace-valetudo-map-card) - To display the Map from Valetudo. You will also need [this]() Add-On for image conversion. 🗺
+- [atomic-calendar-revive](https://github.com/marksie1988/atomic-calendar-revive) - Calendercard with plenty of customisation. 📅
 
 ### Hass.io Add-Ons ###
 
-- [Adguard](https://github.com/hassio-addons/addon-adguard-home) - Ad-Blocking for the entire network ([PiHole](https://www.home-assistant.io/integrations/pi_hole/) replacement).
-- [ESPHome](https://esphome.io/guides/getting_started_hassio.html) - Manage all my ESPHome enabled IoT devices.
-- [Mosquitto](https://github.com/home-assistant/hassio-addons/tree/master/mosquitto) - MQTT Server for my network.
+- [Adguard](https://github.com/hassio-addons/addon-adguard-home) - Ad-Blocking for the entire network ([PiHole](https://www.home-assistant.io/integrations/pi_hole/) replacement). 🛡
+- [ESPHome](https://esphome.io/guides/getting_started_hassio.html) - Manage all my ESPHome enabled IoT devices. 🏠
+- [Mosquitto](https://github.com/home-assistant/hassio-addons/tree/master/mosquitto) - MQTT Server for my network. ☀️
 - [ps4Waker](https://github.com/vkorn/hassio-addons/tree/master/ps4waker) - Helps to automatically start-up my PS4.
 - [RPC-Shutdown](https://github.com/home-assistant/hassio-addons/blob/master/rpc_shutdown/README.md) - Shutdown Windows Machines.
 - [valetudo-mapper](https://github.com/Poeschl/Hassio-Addons/tree/master/valetudo-mapper) - Converts Valetudo Map to a PNG and adds camera entity for viewing.
 - [VSCode](https://github.com/hassio-addons/addon-vscode) - Visual Studio Code through browser. Used for whole automation implementation.
-- [Zigbee2MQTT](https://github.com/danielwelch/hassio-zigbee2mqtt) - Bridge to pipe Zigbee Device Information to MQTT.
+- [Zigbee2MQTT](https://github.com/danielwelch/hassio-zigbee2mqtt) - Bridge to pipe Zigbee Device Information to MQTT. 🐝
 
 ## More complex automations ##
 
 In this section I want to describe some of my more complex automation-systems. Maybe someone is interested in this and/or has some ideas to improve the systems.
 
-### The LED Sign - Notifications and random facts for everyone ##
+### The LED Sign - Notifications and random facts for everyone 🌈 ##
 
 You all know the idea. A continous information source to show some of the collected information and notify the residents in special cases.
 
-To distinguish between the states of this I created an input_select to represent those.
+To distinguish between the states of this I created an [input_select](https://www.home-assistant.io/integrations/input_select/) to represent those.
 
-- **Default** - Everytwo minutes an event is fired to update the current text with a random text from [/template/led/status.yaml](/template/led/status.yaml).
+- **Default** - Every two minutes an event is fired to update the current text with a random text from [/template/led/status.yaml](/template/led/status.yaml).
 - **Notification** - Notifications are a bit senseless regarding their reliability. Example: If someone arrives at home a welcome message is printed there. These kind of notifications disappear after 10 seconds and are restoring the previous text to the sign. If the current State is "Hard" no notification will be shown.
 - **Hard** - If the vacuum robot's bin should get cleared a "Hard"-Notification is printed. This kind of notification will not get overwritten by anything. After an acceptance/specific action of the user, the message will get removed. 
 - **Disabled** - If no one is at home the state switches to "Disabled". This state behaves similary to "Hard", because it can only be interrupted by an specific action.
@@ -208,7 +210,7 @@ Here is a short illustration:
 
 <img src="/readme_images/led_sign.png">
 
-## Bedroom and corresponding lights ##
+### Bedroom and corresponding lights 🛏 ###
 
 Another quiet complex structure has my bedroom-weight-light automation system. If someone asks me what the most abstract sensor in my setup I usually tell themabout the weight sensors under my bed. At the beginning it sounds a bit unnecessary, but the potential is huge. Here is what I'm doing: At first I need to mention that my girlfriend and me are having their fixed side of the bed for sleeping. At this point it is easy to say, that we both got our own bedside lamp. Another point that is playing in my hands is that we a moderate weight difference between us. Long story short: When someone leaves the bed I can easily tell, who it was. I have placed two buttons in our bedroom, one between us,over the bed and the otherone at the entrance.
 
@@ -227,7 +229,7 @@ The buttons are obviously used to control the lights. But there are some differe
     - When the resident lays down again, the light turns off again.
   - **Disabled:** When the sun rises.
 
-## Future Plans ##
+## Future Plans 👨🏻‍🔧 ##
 
 - Add Wii "Power" to IR Sensor. Maybe PS4 too...
 - Reintegrate my [OpenTherm Gateway](https://www.nodo-shop.nl/nl/opentherm-gateway/188-opentherm-gateway.html). Looking forward to [this](https://github.com/rvdbreemen/OTGW-firmware) to get released. 
