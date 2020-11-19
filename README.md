@@ -37,7 +37,7 @@ As too many Wi-Fi devices are not good for the stability of the network and alwa
 
 #### 🐝 Zigbee #### 
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTHqH2g6yD0xBa9EpGjN9Qu--JeOV1fvV5jc2T25p739gRK2cN-qXy_v_GXJrm9EiEAnAEVh12s&usqp=CAc" width="150" align="left">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTHqH2g6yD0xBa9EpGjN9Qu--JeOV1fvV5jc2T25p739gRK2cN-qXy_v_GXJrm9EiEAnAEVh12s&usqp=CAc" width="160" align="left">
 
 All my battery equipped devices use Zigbee for communication. With the help of [Zigbee2MQTT](https://www.zigbee2mqtt.io) all received information is converted into MQTT messages. For a long time I used the [CC2531](https://www.amazon.de/CC2531-USB-Stick-zigbee2mqtt-ioBroker-Firmware/dp/B07T3GM28F) as Coordinator. All related firmware files can be found [here](https://github.com/Koenkk/Z-Stack-firmware). But because of his weak transmission strength and the low amount of direct children at the same time, I recently decided to move on to the [CC26X2R1](https://www.mouser.de/ProductDetail/Texas-Instruments/LAUNCHXL-CC26X2R1?qs=pfd5qewlna7NQQI%252B7L2KoA%3D%3D).
 
@@ -57,9 +57,9 @@ Overall I'm very happy with my Zigbee setup. For the future I possibly will repl
 
 ### ☁️ Wi-Fi ###
 
-Today a Wi-Fi-network are inevitable. As our apartment is quite large, I need multiple routers to achieve a stable connection. With some old routers a configured a “Mesh”-like network with multiple [DD-WRT](https://dd-wrt.com) custom flashed routers. And overall it was a real pain to maintain and administrate. At the end of 2018 I decided to invest into two [“Google Wi-Fi”](https://www.amazon.de/Google-Wifi-Router-Duo-Pack/dp/B073D5P4L7/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=google+wifi&qid=1605394841&sr=8-3) Routers. 
-
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRAwO1YO8swy8G67U6m8Dy8bjyuHyDj0Am8jrIOYw9KWByll6sLbiOTPoGGU3VEQbZh5GBY9ITR&usqp=CAc" align="left" width="250">
+
+Today a Wi-Fi-network are inevitable. As our apartment is quite large, I need multiple routers to achieve a stable connection. With some old routers a configured a “Mesh”-like network with multiple [DD-WRT](https://dd-wrt.com) custom flashed routers. And overall it was a real pain to maintain and administrate. At the end of 2018 I decided to invest into two [“Google Wi-Fi”](https://www.amazon.de/Google-Wifi-Router-Duo-Pack/dp/B073D5P4L7/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=google+wifi&qid=1605394841&sr=8-3) Routers. 
 
 These are performing inconspicuous. Everything is stable, but from a networking perspective some more settings with the app are desirable. 
 
@@ -123,7 +123,7 @@ As my TVs Ethernet port is not working at the moment and the Wake-On-Wi-Fi funct
 
 ### ESP32/ESP8266 ###
 
-<img src="https://images-na.ssl-images-amazon.com/images/I/71y1ETlEHyL._SL1500_.jpg" width="200" align="left">
+<img src="https://images-na.ssl-images-amazon.com/images/I/71y1ETlEHyL._SL1500_.jpg" width="130" align="left">
 
 This ESP Family is a famous name in the DIY Smart Home and IoT world. The [ESP32](https://www.amazon.de/AZDelivery-ESP32-NodeMCU-gratis-eBook/dp/B07Z83MF5W/ref=asc_df_B07Z83MF5W/?tag=googshopde-21&linkCode=df0&hvadid=427788576373&hvpos=&hvnetw=g&hvrand=8639050305478239369&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1003859&hvtargid=pla-898234157885&psc=1&th=1&psc=1&tag=&ref=&adgrpid=99889209552&hvpone=&hvptwo=&hvadid=427788576373&hvpos=&hvnetw=g&hvrand=8639050305478239369&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1003859&hvtargid=pla-898234157885) is the successor of the ESP8266. Both have a lot of GPIO Pins, 5V Micro-USB power supply and Bluetooth+Wi-Fi connectivity. They also have a very large community with projects like [ESPHome](https://esphome.io) and the mentioned [WLED](https://github.com/Aircoookie/WLED).
 
