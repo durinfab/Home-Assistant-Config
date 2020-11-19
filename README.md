@@ -55,9 +55,9 @@ Overall I'm very happy with my Zigbee setup. For the future I possibly will repl
 
 ### Wi-Fi ###
 
-Today a Wi-Fi-network are inevitable. As our apartment is quite large, I need multiple routers to achieve a stable connection. With some old routers a configured a “Mesh”-like network with multiple [DD-WRT](https://dd-wrt.com) custom flashed routers. And overall it was a real pain to maintain and administrate. At the end of 2018 I decided to invest into two [“Google Wi-Fi”](https://www.amazon.de/Google-Wifi-Router-Duo-Pack/dp/B073D5P4L7/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=google+wifi&qid=1605394841&sr=8-3) Routers.
+Today a Wi-Fi-network are inevitable. As our apartment is quite large, I need multiple routers to achieve a stable connection. With some old routers a configured a “Mesh”-like network with multiple [DD-WRT](https://dd-wrt.com) custom flashed routers. And overall it was a real pain to maintain and administrate. At the end of 2018 I decided to invest into two [“Google Wi-Fi”](https://www.amazon.de/Google-Wifi-Router-Duo-Pack/dp/B073D5P4L7/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=google+wifi&qid=1605394841&sr=8-3) Routers. 
 
-![Google Wifi](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRAwO1YO8swy8G67U6m8Dy8bjyuHyDj0Am8jrIOYw9KWByll6sLbiOTPoGGU3VEQbZh5GBY9ITR&usqp=CAc)
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRAwO1YO8swy8G67U6m8Dy8bjyuHyDj0Am8jrIOYw9KWByll6sLbiOTPoGGU3VEQbZh5GBY9ITR&usqp=CAc" align="left">
 
 These are performing inconspicuous. Everything is stable, but from a networking perspective some more settings with the app are desirable. 
 
@@ -103,7 +103,19 @@ The newest member in our small Smart Home is a used Roborock S50 (or S51/S55 - d
 
 Why especially this device? Because it uses a smart Laser-based navigation(no random algorithms), is rootable and is supported by Valetudo. It is importent to me to interrupt the cloud connection to Xiaomi. His little brother the [Xiaomi Mi Robot](https://www.amazon.de/Xiaomi-Saugroboter-Staubsauger-Kehrmaschine-Steuerung/dp/B01LYV1EMA/ref=pd_lpo_79_t_0/260-7052561-1317654?_encoding=UTF8&pd_rd_i=B01LYV1EMA&pd_rd_r=68c901e4-bbb9-4551-96b6-79d031291d4d&pd_rd_w=Fnimb&pd_rd_wg=YIxMw&pf_rd_p=d5c9797d-0238-4119-b220-af4cc3420918&pf_rd_r=EA2CRW8TBWB03PGYNE88&psc=1&refRID=EA2CRW8TBWB03PGYNE88) has a fewer feature tree. The Roborock S50 supports virtual No-Go Borders and saves the created map over multiple cleaning runs. For a advanced comparision click [here](https://valetudo.cloud/pages/knowledge_base/supported-roborock-devices.html#gen-2).
 
-*Note: If you want to buy this device, be sure to get one with old production date (before 2019-11) as the factory firmware (to which the robot can be reset) does support the installation of a custom ROM.*
+*Note: If you want to buy this device, be sure to get one with old production date (before 2019-11) as the factory firmware (to which the robot can be reset) does allow the installation of a custom ROM.*
+
+### Wall mounted Tablet ###
+
+
+
+<img src="https://images-na.ssl-images-amazon.com/images/I/617lfOlJYYL._AC_SL1000_.jpg" width="200">
+
+If you want an dynamic control panel for your Home Assistant, beside your phone, an wall-mounted tablet is a easy alternative. For this purpose I've bought a Amazon Fire HD8" 2018 ("karnak"). All Fire Tablets devices are relatively cheap but are having a big downside: Fire OS. This stripped down version of Android is just a pain. After a bit of investigation I found a custom Rom that fitted my device. I've installed Lineage OS on it successfully and it just works.
+
+To integrate my tablet I'm using [Fully Kiosk Browser](https://www.fully-kiosk.com) with the [browser_mod](https://github.com/thomasloven/hass-browser_mod). This allows me to get access to literally all of it's sensors including brightness control, camera and microphones. 
+
+*Hint: The tablet lose it's connection to Home Assistant if I lock the device. Thats why I'm just setting the brightness to the lowest setting.*
 
 ### IR-Sender ###
 
@@ -149,6 +161,34 @@ Some of you might ask what you can do with a weight sensor in a Smart Home. A wh
 
 ## Software Components ##
 
+I'am using different Software Components and custom Home Assistant integrations to round off my setup. one big relief ist Hass.io and [HACS](https://github.com/hacs/integration). Hass.io is a Docker based version of Home Assistant, which supports the installation of external Integrations (Add-Ons). These are executed in their own Docker container (basically their own execution envoirement).
+
+You can install different custom_integration into your Home Assisatnt config folder. Normally these are managed manually by the user, but [HACS](https://github.com/hacs/integration) gives the opportunity to list, install/update and maintain all of your Integration. Beside them, [HACS](https://github.com/hacs/integration) allows you to install custom Themes and Lovelace-Cards.
+
+### HACS - Current used Integrations ###
+
+- [Circadian Lighting](https://github.com/claytonjn/hass-circadian_lighting) - Used for synching lights color (and/or brightness) with the current daylight.
+- [browser_mod](https://github.com/thomasloven/hass-browser_mod) - Turn the [Fully Kiosk Browser](https://www.fully-kiosk.com/) in a controllable entity.
+
+### HACS - Currently used Lovelace Cards ###
+
+- [mini-graph-card](https://github.com/kalkih/mini-graph-card) - Beautiful graphs for Lovelace.
+- [simple-thermostat](https://github.com/nervetattoo/simple-thermostat) - A pretty nice visualsation for climate entities.
+- [vacuum-card](https://github.com/denysdovhan/vacuum-card) - Nice card for the visualsation of vacuum entities.
+- [lovelace-valetudo-map-card](https://github.com/TheLastProject/lovelace-valetudo-map-card) - To display the Map from Valetudo. You will also need [this]() Add-On for image conversion. 
+- [atomic-calendar-revive](https://github.com/marksie1988/atomic-calendar-revive) - Calendercard with plenty of customisation.
+
+### Hass.io Add-Ons ###
+
+- [Adguard](https://github.com/hassio-addons/addon-adguard-home) - Ad-Blocking for the entire network ([PiHole](https://www.home-assistant.io/integrations/pi_hole/) replacement).
+- [ESPHome](https://esphome.io/guides/getting_started_hassio.html) - Manage all my ESPHome enabled IoT devices.
+- [Mosquitto](https://github.com/home-assistant/hassio-addons/tree/master/mosquitto) - MQTT Server for my network.
+- [ps4Waker](https://github.com/vkorn/hassio-addons/tree/master/ps4waker) - Helps to automatically start-up my PS4.
+- [RPC-Shutdown](https://github.com/home-assistant/hassio-addons/blob/master/rpc_shutdown/README.md) - Shutdown Windows Machines.
+- [valetudo-mapper](https://github.com/Poeschl/Hassio-Addons/tree/master/valetudo-mapper) - Converts Valetudo Map to a PNG and adds camera entity for viewing.
+- [VSCode](https://github.com/hassio-addons/addon-vscode) - Visual Studio Code through browser. Used for whole automation implementation.
+- [Zigbee2MQTT](https://github.com/danielwelch/hassio-zigbee2mqtt) - Bridge to pipe Zigbee Device Information to MQTT.
+
 ## More complex automations ##
 
 In this section I want to describe some of my more complex automation-systems. Maybe someone is interested in this and/or has some ideas to improve the systems.
@@ -189,6 +229,5 @@ The buttons are obviously used to control the lights. But there are some differe
 
 ## Future Plans ##
 
-- Add Wii "Power" to IR Sensor.
-- Find a cheap way to realize Multiroom-Airplay. I need to try [this](https://github.com/mikebrady/shairport-sync).
+- Add Wii "Power" to IR Sensor. Maybe PS4 too...
 - Reintegrate my [OpenTherm Gateway](https://www.nodo-shop.nl/nl/opentherm-gateway/188-opentherm-gateway.html). Looking forward to [this](https://github.com/rvdbreemen/OTGW-firmware) to get released. 
