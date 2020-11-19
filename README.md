@@ -59,13 +59,13 @@ Overall I'm very happy with my Zigbee setup. For the future I possibly will repl
 
 Today a Wi-Fi-network are inevitable. As our apartment is quite large, I need multiple routers to achieve a stable connection. With some old routers a configured a “Mesh”-like network with multiple [DD-WRT](https://dd-wrt.com) custom flashed routers. And overall it was a real pain to maintain and administrate. At the end of 2018 I decided to invest into two [“Google Wi-Fi”](https://www.amazon.de/Google-Wifi-Router-Duo-Pack/dp/B073D5P4L7/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=google+wifi&qid=1605394841&sr=8-3) Routers. 
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRAwO1YO8swy8G67U6m8Dy8bjyuHyDj0Am8jrIOYw9KWByll6sLbiOTPoGGU3VEQbZh5GBY9ITR&usqp=CAc" align="left">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRAwO1YO8swy8G67U6m8Dy8bjyuHyDj0Am8jrIOYw9KWByll6sLbiOTPoGGU3VEQbZh5GBY9ITR&usqp=CAc" align="left" wight="400">
 
 These are performing inconspicuous. Everything is stable, but from a networking perspective some more settings with the app are desirable. 
 
 But nonetheless these pucks are able to handle 45 devices with no problems. In the following table I will show you the different devices that are used. As there are quiet much, I will split that section into categories.
 
-#### 💡 Lighting ####
+### 💡 Lighting ###
 
 I love colorful LEDs. They help to give every room some dynamic and variety. That's why I'm mainly using color-ranged bulbs and strips instead of white-ranged ones.
 
@@ -109,11 +109,9 @@ Why especially this device? Because it uses a smart Laser-based navigation(no ra
 
 ### 📱 Wall mounted Tablet ###
 
-
-
-<img src="https://images-na.ssl-images-amazon.com/images/I/617lfOlJYYL._AC_SL1000_.jpg" width="200">
-
 If you want an dynamic control panel for your Home Assistant, beside your phone, an wall-mounted tablet is a easy alternative. For this purpose I've bought a Amazon Fire HD8" 2018 ("karnak"). All Fire Tablets devices are relatively cheap but are having a big downside: Fire OS. This stripped down version of Android is just a pain. After a bit of investigation I found a custom Rom that fitted my device. I've installed Lineage OS on it successfully and it just works.
+
+<img src="https://images-na.ssl-images-amazon.com/images/I/61v-ujK3IrL._AC_SL1000_.jpg" width="200" align="right">
 
 To integrate my tablet I'm using [Fully Kiosk Browser](https://www.fully-kiosk.com) with the [browser_mod](https://github.com/thomasloven/hass-browser_mod). This allows me to get access to literally all of it's sensors including brightness control, camera and microphones. 
 
