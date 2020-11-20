@@ -1,49 +1,49 @@
-  ##
-  ## Covers all automations corresponding the "monitor"-RPi Zero on the ground floor
-  ##
-  
-  ## If he's offline for 10 minutes, hard reset him
-  - initial_state: on
-    alias: 'Presence - BT ground offline too long'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.mqtt_ground
-        to: 'off'
-        for: '00:10:00'
-    action:
-      - service: switch.turn_off
-        entity_id: switch.mqtt_ground
-      - delay: '00:01:00'
-      - service: switch.turn_on
-        entity_id: switch.mqtt_ground
-      - wait_template: >-
-          {{ is_state('binary_sensor.mqtt_ground','on') }}
-      - service: notify.mobile_app_iphone_von_fabian_during
-        data:
-          message: "Ground Bluetooth Knoten wurde neu gestartet!"
+##
+## Covers all automations corresponding the "monitor"-RPi Zero on the ground floor
+##
 
-  ## If he's offline for 30 seconds, announce that he cannot be trusted
-  - initial_state: on
-    alias: 'Presence - BT ground offline'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.mqtt_ground
-        to: 'off'
-        for: '00:00:30'
-    action:
-      - service: mqtt.publish
-        data:
-          topic: monitor/ground/lelo_handy/device_tracker
-          payload: unknown
-      - service: mqtt.publish
-        data:
-          topic: monitor/ground/fabian_iphone/device_tracker
-          payload: unknown
-      - service: mqtt.publish
-        data:
-          topic: monitor/ground/fabian_watch/device_tracker
-          payload: unknown
-      - service: mqtt.publish
-        data:
-          topic: monitor/ground/paul_iphone/device_tracker
-          payload: unknown
+## If he's offline for 10 minutes, hard reset him
+- initial_state: on
+  alias: "Presence - BT ground offline too long"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.monitor_ground
+      to: "off"
+      for: "00:10:00"
+  action:
+    - service: switch.turn_off
+      entity_id: switch.monitor_ground
+    - delay: "00:01:00"
+    - service: switch.turn_on
+      entity_id: switch.monitor_ground
+    - wait_template: >-
+        {{ is_state('binary_sensor.monitor_ground','on') }}
+    - service: notify.mobile_app_iphone_von_fabian_during
+      data:
+        message: "Ground Bluetooth Knoten wurde neu gestartet!"
+
+## If he's offline for 30 seconds, announce that he cannot be trusted
+- initial_state: on
+  alias: "Presence - BT ground offline"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.monitor_ground
+      to: "off"
+      for: "00:00:30"
+  action:
+    - service: mqtt.publish
+      data:
+        topic: monitor/ground/lelo_handy/device_tracker
+        payload: unknown
+    - service: mqtt.publish
+      data:
+        topic: monitor/ground/fabian_iphone/device_tracker
+        payload: unknown
+    - service: mqtt.publish
+      data:
+        topic: monitor/ground/fabian_watch/device_tracker
+        payload: unknown
+    - service: mqtt.publish
+      data:
+        topic: monitor/ground/paul_iphone/device_tracker
+        payload: unknown

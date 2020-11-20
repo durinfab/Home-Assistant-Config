@@ -2,8 +2,7 @@
 ## All Events which corresponds evening_mode
 ##
 
-- id: "Evening - Ambient Light when someone home"
-  alias: Ambient Light when someone home
+- alias: Evening - Ambient Light when someone home
   initial_state: True
   trigger:
     platform: state

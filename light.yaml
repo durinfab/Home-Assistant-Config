@@ -1,86 +1,86 @@
 - platform: group
-  name: Erdgeschoss Ambiente
+  name: ground_colored
   entities:
-      - light.schreibtisch_strip
-      - light.esstisch_ambilight
-      - light.wintergarten_links
-      - light.wintergarten_rechts
-      - light.lagerlampe
-      - light.regal_lampe
-      - light.windfang_lampe
+    - light.workspace_strip
+    - light.dining_table_ambilight
+    - light.living_room_lamp_left
+    - light.living_room_lamp_right
+    - light.storage_room_lamp
+    - light.hall_strip
+    - light.vestibule_lamp
 
 - platform: group
-  name: wintergarten_lights
+  name: living_room_lights
   entities:
-     - light.wintergarten_links
-     - light.wintergarten_rechts
-     - light.wintergarten_strip
+    - light.living_room_lamp_left
+    - light.living_room_lamp_right
+    - light.living_room_strip
 
 - platform: group
-  name: wintergarten_light_wall
+  name: living_room_light_wall
   entities:
-     - light.wintergarten_links
-     - light.wintergarten_rechts
+    - light.living_room_lamp_left
+    - light.living_room_lamp_right
 
 - platform: group
-  name: arbeitszimmer_lights
+  name: workspace_lights
   entities:
-    - light.schreibtisch_strip
-    - light.esstisch
-    - light.esstisch_ambilight
+    - light.workspace_strip
+    - light.dining_table
+    - light.dining_table_ambilight
 
 - platform: group
-  name: kuechen_lights
+  name: kitchen_lights
   entities:
-    - light.kuechenlampe
+    - light.kitchen_lamp
 
 - platform: group
-  name: schlafzimmer_lights
+  name: bedroom_lights
   entities:
-    - light.schlafzimmer_links
-    - light.schlafzimmer_rechts
-    - light.schlafzimmer_led
-    
+    - light.bedroom_lamp_left
+    - light.bedroom_lamp_right
+    - light.bedroom_strip
+
 - platform: group
   name: ground_floor_lights
   entities:
-     - light.wintergarten_links
-     - light.wintergarten_rechts
-     - light.kuechenlampe
-     - light.lagerlampe
-     - light.schreibtisch_strip
-     - light.wintergarten_strip
-     - light.esstisch
-     - light.esstisch_ambilight
-     - light.regal_lampe
-     - light.windfang_lampe
+    - light.living_room_lamp_left
+    - light.living_room_lamp_right
+    - light.kitchen_lamp
+    - light.storage_room_lamp
+    - light.workspace_strip
+    - light.living_room_strip
+    - light.dining_table
+    - light.dining_table_ambilight
+    - light.hall_strip
+    - light.vestibule_lamp
 
 - platform: group
   name: all_lights
   entities:
-     - light.wintergarten_links
-     - light.wintergarten_rechts
-     - light.kuechenlampe
-     - light.lagerlampe
-     - light.schreibtisch_strip
-     - light.wintergarten_strip
-     - light.esstisch
-     - light.esstisch_ambilight
-     - light.aussenlampe
-     - light.regal_lampe
-     - light.windfang_lampe
+    - light.living_room_lamp_left
+    - light.living_room_lamp_right
+    - light.kitchen_lamp
+    - light.storage_room_lamp
+    - light.workspace_strip
+    - light.living_room_strip
+    - light.dining_table
+    - light.dining_table_ambilight
+    - light.outdoor_lamp
+    - light.hall_strip
+    - light.vestibule_lamp
 
 - platform: group
   name: party_lights
   entities:
-     - light.wintergarten_links
-     - light.wintergarten_rechts
-     - light.lagerlampe
-     - light.schreibtisch_strip
-     - light.wintergarten_strip
-     - light.esstisch_ambilight
-     - light.regal_lampe
-     - light.windfang_lampe
-     - light.schlafzimmer_led
-     - light.schlafzimmer_links
-     - light.schlafzimmer_rechts
+    - light.living_room_lamp_left
+    - light.living_room_lamp_right
+    - light.storage_room_lamp
+    - light.workspace_strip
+    - light.living_room_strip
+    - light.dining_table_ambilight
+    - light.hall_strip
+    - light.vestibule_lamp
+    - light.bedroom_strip
+    - light.bedroom_lamp_left
+    - light.bedroom_lamp_right

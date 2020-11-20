@@ -12,7 +12,7 @@ shutdown:
         input: Spielerechner
 
 ## Toggle the TV with IR Sender
-fernseher:
+phillips_tv:
   sequence:
     - service: remote.send_command
       entity_id: remote.living_room_remote
@@ -21,26 +21,26 @@ fernseher:
         command: power
     - delay: 2
 
-wintergarten_bright:
+living_room_bright:
   sequence:
     - service: switch.turn_off
-      entity_id: switch.circadian_lighting_wintergarten
+      entity_id: switch.circadian_lighting_living_room
     - service: light.turn_on
       entity_id:
-        - light.wintergarten_links
-        - light.wintergarten_rechts
+        - light.living_room_lamp_left
+        - light.living_room_lamp_right
       data_template:
         color_temp: 213
         brightness: 255
 
-schlafzimmer_bright:
+bedroom_bright:
   sequence:
     - service: switch.turn_off
-      entity_id: switch.circadian_lighting_schlafzimmer
+      entity_id: switch.circadian_lighting_bedroom
     - service: light.turn_on
       entity_id:
-        - light.schlafzimmer_links
-        - light.schlafzimmer_rechts
+        - light.bedroom_lamp_left
+        - light.bedroom_lamp_right
       data_template:
         color_temp: 213
         brightness: 255
@@ -64,9 +64,9 @@ turn_off_everything:
         call_garage_check: 0
         call_random: 1
         call_window_check: 0
-        media_player: "media_player.wintergarten_karotte"
+        media_player: "media_player.living_room"
     - service: input_boolean.turn_off
-      entity_id: input_boolean.fernseher
+      entity_id: input_boolean.phillips_tv
     - service: media_player.turn_off
       entity_id: media_player.denon_avr_x1500h
       #- service: homeassistant.turn_off
@@ -75,8 +75,8 @@ turn_off_everything:
       entity_id: media_player.playstation_4
     - service: homeassistant.turn_off
       entity_id:
-        - light.Wintergarten_Rechts
-        - light.Wintergarten_Links
+        - light.living_room_lamp_right
+        - light.living_room_lamp_left
 
 start_netflix:
   sequence:
@@ -90,14 +90,14 @@ start_netflix:
           ] | random }}
           {%- endmacro -%}
           {{greeting_sentence()}}
-        media_player: "media_player.wintergarten_karotte"
+        media_player: "media_player.living_room"
         call_responsibilities: 0
         call_no_announcement: 1
         call_random: 1
         call_garage_check: 0
         call_window_check: 0
     - service: input_boolean.turn_on
-      entity_id: input_boolean.fernseher
+      entity_id: input_boolean.phillips_tv
     - service: media_player.turn_on
       entity_id: media_player.denon_avr_x1500h
     - service: media_player.select_source
@@ -115,16 +115,16 @@ start_netflix:
       entity_id: input_boolean.evening_mode
       state: "on"
     - service: switch.turn_on
-      entity_id: switch.circadian_lighting_wintergarten
+      entity_id: switch.circadian_lighting_living_room
     - service: circadian_lighting.values_update
       entity_id:
-        - light.wintergarten_links
-        - light.wintergarten_rechts
+        - light.living_room_lamp_left
+        - light.living_room_lamp_right
     - service: light.turn_on
       data:
         entity_id:
-          - light.Wintergarten_Rechts
-          - light.Wintergarten_Links
+          - light.living_room_lamp_right
+          - light.living_room_lamp_left
 
 start_wii:
   sequence:
@@ -137,14 +137,14 @@ start_wii:
           ] | random }}
           {%- endmacro -%}
           {{greeting_sentence()}}
-        media_player: "media_player.wintergarten_karotte"
+        media_player: "media_player.living_room"
         call_responsibilities: 0
         call_no_announcement: 1
         call_garage_check: 0
         call_random: 1
         call_window_check: 0
     - service: homeassistant.turn_on
-      entity_id: input_boolean.fernseher
+      entity_id: input_boolean.phillips_tv
     - service: media_player.turn_on
       entity_id: media_player.denon_avr_x1500h
     - service: media_player.select_source
@@ -168,16 +168,16 @@ start_wii:
       entity_id: input_boolean.evening_mode
       state: "on"
     - service: switch.turn_on
-      entity_id: switch.circadian_lighting_wintergarten
+      entity_id: switch.circadian_lighting_living_room
     - service: circadian_lighting.values_update
       entity_id:
-        - light.wintergarten_links
-        - light.wintergarten_rechts
+        - light.living_room_lamp_left
+        - light.living_room_lamp_right
     - service: light.turn_on
       data:
         entity_id:
-          - light.Wintergarten_Rechts
-          - light.Wintergarten_Links
+          - light.living_room_lamp_right
+          - light.living_room_lamp_left
 
 start_ps4:
   sequence:
@@ -192,14 +192,14 @@ start_ps4:
           ] | random }}
           {%- endmacro -%}
           {{greeting_sentence()}}
-        media_player: "media_player.wintergarten_karotte"
+        media_player: "media_player.living_room"
         call_responsibilities: 0
         call_no_announcement: 1
         call_random: 1
         call_garage_check: 0
         call_window_check: 0
     - service: homeassistant.turn_on
-      entity_id: input_boolean.fernseher
+      entity_id: input_boolean.phillips_tv
     - service: media_player.turn_on
       entity_id: media_player.denon_avr_x1500h
     - service: media_player.turn_on
@@ -225,16 +225,16 @@ start_ps4:
       entity_id: input_boolean.evening_mode
       state: "on"
     - service: switch.turn_on
-      entity_id: switch.circadian_lighting_wintergarten
+      entity_id: switch.circadian_lighting_living_room
     - service: circadian_lighting.values_update
       entity_id:
-        - light.wintergarten_links
-        - light.wintergarten_rechts
+        - light.living_room_lamp_left
+        - light.living_room_lamp_right
     - service: light.turn_on
       data:
         entity_id:
-          - light.Wintergarten_Rechts
-          - light.Wintergarten_Links
+          - light.living_room_lamp_right
+          - light.living_room_lamp_left
 
 start_gaming:
   sequence:
@@ -249,14 +249,14 @@ start_gaming:
           ] | random }}
           {%- endmacro -%}
           {{greeting_sentence()}}
-        media_player: "media_player.wintergarten_karotte"
+        media_player: "media_player.living_room"
         call_responsibilities: 0
         call_no_announcement: 1
         call_random: 1
         call_garage_check: 0
         call_window_check: 0
     - service: input_boolean.turn_on
-      entity_id: input_boolean.fernseher
+      entity_id: input_boolean.phillips_tv
     - service: media_player.turn_on
       entity_id: media_player.denon_avr_x1500h
     - service: homeassistant.turn_on
@@ -265,7 +265,7 @@ start_gaming:
       data:
         entity_id: media_player.denon_avr_x1500h
         source: Windows
-    
+
     ## switch tv input
     - service: remote.send_command
       entity_id: remote.living_room_remote
@@ -282,13 +282,13 @@ start_gaming:
       entity_id: input_boolean.evening_mode
       state: "on"
     - service: switch.turn_on
-      entity_id: switch.circadian_lighting_wintergarten
+      entity_id: switch.circadian_lighting_living_room
     - service: circadian_lighting.values_update
       entity_id:
-        - light.wintergarten_links
-        - light.wintergarten_rechts
+        - light.living_room_lamp_left
+        - light.living_room_lamp_right
     - service: light.turn_on
       data:
         entity_id:
-          - light.Wintergarten_Rechts
-          - light.Wintergarten_Links
+          - light.living_room_lamp_right
+          - light.living_room_lamp_left

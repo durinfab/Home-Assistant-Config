@@ -1,24 +1,24 @@
 initial_state: on
-alias: 'Notification - Battery CR2450'
+alias: "Notification - Battery CR2450"
 trigger:
   - platform: numeric_state
-    entity_id: 
-    - sensor.windfang_motion_battery
-    - sensor.treppe_motion_battery
+    entity_id:
+      - sensor.vestibule_motion_battery
+      - sensor.stairway_motion_battery
     below: 25
     for:
       minutes: 5
   - platform: numeric_state
-    entity_id: 
-    - sensor.windfang_motion_battery
-    - sensor.treppe_motion_battery
+    entity_id:
+      - sensor.vestibule_motion_battery
+      - sensor.stairway_motion_battery
     below: 10
     for:
       minutes: 5
   - platform: numeric_state
-    entity_id: 
-    - sensor.windfang_motion_battery
-    - sensor.treppe_motion_battery
+    entity_id:
+      - sensor.vestibule_motion_battery
+      - sensor.stairway_motion_battery
     below: 5
     for:
       minutes: 5

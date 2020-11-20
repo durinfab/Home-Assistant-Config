@@ -51,7 +51,7 @@
 
 ## After Vacuum Rebot finished, increment the bin number. It is used to to
 ## determine when he needs to be cleared
-- alias: Roomba - Cleaning finished
+- alias: Vacuum - Cleaning finished
   trigger:
     - platform: state
       entity_id: vacuum.rockrobo
@@ -68,7 +68,7 @@
 
 ## After 10 clearing, the vacuum robot drives to the bin and
 ## waits for cleaning
-- alias: Roomba - Empty Vacuum Robot
+- alias: Vacuum - Empty Vacuum Robot
   trigger:
     - platform: state
       entity_id: input_number.bin
@@ -161,8 +161,8 @@
         - input_boolean.vacuum_ran
 
 ## Short notification that cleaning was finished
-- alias: rockrobo goes home
-  id: rockrobo_goes_home
+- alias: Vacuum - rockrobo goes home
+  id: Vacuum - rockrobo_goes_home
   trigger:
     platform: state
     entity_id: vacuum.rockrobo

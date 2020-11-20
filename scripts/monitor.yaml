@@ -67,3 +67,11 @@
       data:
         topic: presence/scan/restart
         payload: ''
+
+
+  scan_bt_force_restart:
+    sequence:
+    - service: automation.trigger
+      entity_id: automation.presence_bt_first_floor_offline_too_long
+    - service: automation.trigger
+      entity_id: automation.presence_bt_ground_offline_too_long

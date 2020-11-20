@@ -1,40 +1,40 @@
-  ##
-  ## This automations start the arrive- and depart scans for "monitor"
-  ## TODO: Source
-  ##
-  
-  - alias: 'Presence - Start Departscan'
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: binary_sensor.haustuer_contact
-      to: 'off'
-      for:
-        seconds: 5
-    condition:
-      - condition: not
-        conditions:
+##
+## This automations start the arrive- and depart scans for "monitor"
+## TODO: Source
+##
+
+- alias: "Presence - Start Departscan"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.vestibule_front_door_contact
+    to: "off"
+    for:
+      seconds: 5
+  condition:
+    - condition: not
+      conditions:
         - condition: state
           entity_id: sensor.home_count
           state: "0"
-      - condition: template
-        value_template: >
-          {{ (expand('group.people_status')|selectattr('state', 'eq', 'Just Arrived')|map(attribute='name')|list|count) == 0 }}
-    action:
+    - condition: template
+      value_template: >
+        {{ (expand('group.people_status')|selectattr('state', 'eq', 'Just Arrived')|map(attribute='name')|list|count) == 0 }}
+  action:
     - service: script.scan_bt_depart
 
-  - alias: 'Presence - Start Arrivescan'
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: binary_sensor.haustuer_contact
-      to: 'on'
-      
-    condition:
-      - condition: not
-        conditions:
+- alias: "Presence - Start Arrivescan"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.vestibule_front_door_contact
+    to: "on"
+
+  condition:
+    - condition: not
+      conditions:
         - condition: state
           entity_id: sensor.home_count
           state: "1"
-    action:
+  action:
     - service: script.scan_bt_arrive

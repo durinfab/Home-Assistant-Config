@@ -1,36 +1,36 @@
 initial_state: on
-alias: 'Notification - Battery CR1632'
+alias: "Notification - Battery CR1632"
 trigger:
   - platform: numeric_state
-    entity_id: 
-    - sensor.haustuer_battery
-    - sensor.arbeitszimmer_fenster_links_battery
-    - sensor.wintergarten_fenster_battery
-    - sensor.schlafzimmer_fenster_links_battery
-    - sensor.bad_fenster_battery
-    - sensor.kueche_fenster_battery
+    entity_id:
+      - sensor.vestibule_front_door_battery
+      - sensor.workspace_window_left_battery
+      - sensor.living_room_window_battery
+      - sensor.bedroom_window_left_battery
+      - sensor.bathroom_window_battery
+      - sensor.kitchen_window_battery
     below: 25
     for:
       minutes: 5
   - platform: numeric_state
-    entity_id: 
-    - sensor.haustuer_battery
-    - sensor.arbeitszimmer_fenster_links_battery
-    - sensor.wintergarten_fenster_battery
-    - sensor.schlafzimmer_fenster_links_battery
-    - sensor.bad_fenster_battery
-    - sensor.kueche_fenster_battery
+    entity_id:
+      - sensor.vestibule_front_door_battery
+      - sensor.workspace_window_left_battery
+      - sensor.living_room_window_battery
+      - sensor.bedroom_window_left_battery
+      - sensor.bathroom_window_battery
+      - sensor.kitchen_window_battery
     below: 10
     for:
       minutes: 5
   - platform: numeric_state
-    entity_id: 
-    - sensor.haustuer_battery
-    - sensor.arbeitszimmer_fenster_links_battery
-    - sensor.wintergarten_fenster_battery
-    - sensor.schlafzimmer_fenster_links_battery
-    - sensor.bad_fenster_battery
-    - sensor.kueche_fenster_battery
+    entity_id:
+      - sensor.vestibule_front_door_battery
+      - sensor.workspace_window_left_battery
+      - sensor.living_room_window_battery
+      - sensor.bedroom_window_left_battery
+      - sensor.bathroom_window_battery
+      - sensor.kitchen_window_battery
     below: 5
     for:
       minutes: 5

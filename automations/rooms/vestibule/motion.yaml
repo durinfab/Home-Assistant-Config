@@ -2,26 +2,25 @@
   initial_state: True
   trigger:
     platform: state
-    entity_id: binary_sensor.windfang_motion_occupancy
+    entity_id: binary_sensor.vestibule_motion_occupancy
     from: "on"
     to: "off"
   action:
     - service: light.turn_off
       entity_id:
-        - light.windfang_lampe
+        - light.vestibule_lamp
 
 - alias: "Vestibule - Motion"
   initial_state: True
   trigger:
     platform: state
-    entity_id: binary_sensor.windfang_motion_occupancy
+    entity_id: binary_sensor.vestibule_motion_occupancy
     from: "off"
     to: "on"
   action:
     - service: light.turn_on
       entity_id:
-        - light.windfang_lampe
+        - light.vestibule_lamp
       data_template:
         brightness: 225
         color_temp: 454
-        

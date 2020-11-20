@@ -1,42 +1,42 @@
-  ##
-  ## Covers all Automation concerning the bedside lampe 
-  ##
-  
-  - id: 'Bedroom - single left'
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: sensor.schlafzimmer_double_click
-      to: 'left'
-    action:
+##
+## Covers all Automation concerning the bedside lampe
+##
+
+- alias: "Bedroom - single left"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.bedroom_double_click
+    to: "left"
+  action:
     - service: switch.turn_on
-      entity_id: switch.circadian_lighting_schlafzimmer
+      entity_id: switch.circadian_lighting_bedroom
     - service: light.toggle
       data:
         entity_id:
-            - light.schlafzimmer_links
+          - light.bedroom_lamp_left
         brightness: 128
 
-  - id: 'Bedroom - single right'
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: sensor.schlafzimmer_double_click
-      to: 'right'
-    action:
+- alias: "Bedroom - single right"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.bedroom_double_click
+    to: "right"
+  action:
     - service: switch.turn_on
-      entity_id: switch.circadian_lighting_schlafzimmer
+      entity_id: switch.circadian_lighting_bedroom
     - service: light.toggle
       data:
         entity_id:
-            - light.schlafzimmer_rechts
+          - light.bedroom_lamp_right
         brightness: 128
 
-  - id: 'Bedroom - both'
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: sensor.schlafzimmer_double_click
-      to: 'both'
-    action:
-    - service: script.schlafzimmer_bright
+- alias: "Bedroom - both"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.bedroom_double_click
+    to: "both"
+  action:
+    - service: script.bedroom_bright

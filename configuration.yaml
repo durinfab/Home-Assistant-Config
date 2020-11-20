@@ -74,11 +74,11 @@ browser_mod:
       camera: true
 input_datetime:
   last_door:
-    name: Letzte Türöffnung
+    name: last door opening
     has_date: true
     has_time: true
   last_cleaning:
-    name: Letztes Saugen
+    name: last cleaning
     has_date: true
     has_time: true
 input_select: !include_dir_merge_named input_select

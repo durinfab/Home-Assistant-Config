@@ -2,7 +2,7 @@
 ## Covers all automations based on the weigth of the residents
 ##
 
-- id: "Bedroom - lelo get up"
+- alias: Bedroom - lelo get up
   initial_state: False
   trigger:
     platform: state
@@ -19,7 +19,7 @@
     - service: light.turn_on
       data:
         entity_id:
-          - light.schlafzimmer_links
+          - light.bedroom_lamp_left
         brightness: 1
 
 - alias: Bedroom - lelo lays down
@@ -39,7 +39,7 @@
     - service: light.turn_off
       data:
         entity_id:
-          - light.schlafzimmer_links
+          - light.bedroom_lamp_left
 
 - alias: Bedroom - fabi get up
   initial_state: False
@@ -58,7 +58,7 @@
     - service: light.turn_on
       data:
         entity_id:
-          - light.schlafzimmer_rechts
+          - light.bedroom_lamp_right
         brightness: 1
 
 - alias: Bedroom - fabi lays down
@@ -78,7 +78,7 @@
     - service: light.turn_off
       data:
         entity_id:
-          - light.schlafzimmer_rechts
+          - light.bedroom_lamp_right
 
 ## turn off the get up/ lay down automations
 - alias: "Bedroom - night is over"
@@ -89,10 +89,10 @@
   action:
     - service: automation.turn_off
       entity_id:
-        - automation.hinlegen_licht_links
-        - automation.hinlegen_licht_rechts
-        - automation.aufstehen_licht_links
-        - automation.aufstehen_licht_rechts
+        - automation.bedroom_fabi_lays_down
+        - automation.bedroom_fabi_get_up
+        - automation.bedroom_lelo_lays_down
+        - automation.bedroom_lelo_get_up
 
 ## The get up/ lay down automations are only turned on, if someone lays
 ## longer then 15 min in bed
@@ -112,8 +112,8 @@
   action:
     - service: automation.turn_on
       entity_id:
-        - automation.hinlegen_licht_links
-        - automation.aufstehen_licht_links
+        - automation.bedroom_lelo_lays_down
+        - automation.bedroom_lelo_get_up
 
 - alias: "Bedroom - night begins for lelo"
   initial_state: True
@@ -131,5 +131,5 @@
   action:
     - service: automation.turn_on
       entity_id:
-        - automation.hinlegen_licht_rechts
-        - automation.aufstehen_licht_rechts
+        - automation.bedroom_fabi_lays_down
+        - automation.bedroom_fabi_get_up

@@ -1,8 +1,8 @@
-- id: "Outside - motion light on"
+- alias: "Outside - motion light on"
   initial_state: True
   trigger:
     platform: state
-    entity_id: binary_sensor.aussen_motion_occupancy
+    entity_id: binary_sensor.outdoor_motion_occupancy
     from: "off"
     to: "on"
   condition:
@@ -11,17 +11,17 @@
       state: "on"
   action:
     - service: light.turn_on
-      entity_id: light.aussenlampe
+      entity_id: light.outdoor_lamp
 
-- id: "Outside - motion light off"
+- alias: "Outside - motion light off"
   initial_state: True
   trigger:
     platform: state
-    entity_id: binary_sensor.aussen_motion_occupancy
+    entity_id: binary_sensor.outdoor_motion_occupancy
     from: "on"
     to: "off"
     for:
       seconds: 90
   action:
     - service: light.turn_off
-      entity_id: light.aussenlampe
+      entity_id: light.outdoor_lamp

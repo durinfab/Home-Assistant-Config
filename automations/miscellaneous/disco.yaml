@@ -7,20 +7,20 @@
 
   action:
     - service: light.turn_off
-      entity_id: light.esstisch
+      entity_id: light.dining_table
     - service: switch.turn_off
       entity_id:
-        - switch.circadian_lighting_schlafzimmer
-        - switch.circadian_lighting_wintergarten
-        - switch.circadian_lighting_lagerlampe
-        - switch.circadian_lighting_kueche
+        - switch.circadian_lighting_bedroom
+        - switch.circadian_lighting_living_room
+        - switch.circadian_lighting_storage_room_lamp
+        - switch.circadian_lighting_kitchen
     - service: light.turn_on
       data_template:
-        entity_id: 
-          - light.schreibtisch_strip
-          - light.wintergarten_strip
-          - light.schlafzimmer_led
-          - light.regal_lampe
+        entity_id:
+          - light.workspace_strip
+          - light.living_room_strip
+          - light.bedroom_strip
+          - light.hall_strip
         brightness: 255
         effect: colorloop
 
@@ -28,13 +28,13 @@
       data_template:
         entity_id:
           - light.wintergarten_light_wall
-          - light.windfang_lampe
-          - light.schlafzimmer_links
-          - light.schlafzimmer_rechts
-          - light.lagerlampe
-          - light.esstisch_ambilight
+          - light.vestibule_lamp
+          - light.bedroom_lamp_left
+          - light.bedroom_lamp_right
+          - light.storage_room_lamp
+          - light.dining_table_ambilight
         brightness: 255
-        effect: 'Random Loop'
+        effect: "Random Loop"
 
 - alias: Disco - Turn off
   initial_state: true
@@ -48,20 +48,20 @@
     - service: circadian_lighting.values_update
     - service: wled.effect
       data_template:
-        entity_id: light.schlafzimmer_led
+        entity_id: light.bedroom_strip
         effect: 0
     - service: light.turn_off
-      entity_id: light.schlafzimmer_led
+      entity_id: light.bedroom_strip
     - service: light.turn_on
       entity_id:
-        - light.windfang_lampe
-        - light.Lagerlampe
+        - light.vestibule_lamp
+        - light.storage_room_lamp
       data_template:
         brightness: 250
         color_temp: 320
     - service: switch.turn_on
       entity_id:
-        - switch.circadian_lighting_schlafzimmer
-        - switch.circadian_lighting_wintergarten
-        - switch.circadian_lighting_lagerlampe
-        - switch.circadian_lighting_kueche
+        - switch.circadian_lighting_bedroom
+        - switch.circadian_lighting_living_room
+        - switch.circadian_lighting_storage_room_lamp
+        - switch.circadian_lighting_kitchen

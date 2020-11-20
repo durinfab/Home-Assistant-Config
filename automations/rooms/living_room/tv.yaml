@@ -2,20 +2,20 @@
 ## trigger the tv script to turn it on an off
 ##
 
-  - alias: Living Room - TV to on
-    trigger:
-      platform: state
-      entity_id: input_boolean.fernseher
-      to: 'on'
-    action:
-        service: script.turn_on
-        entity_id: script.fernseher
+- alias: Living Room - TV to on
+  trigger:
+    platform: state
+    entity_id: input_boolean.phillips_tv
+    to: "on"
+  action:
+    service: script.turn_on
+    entity_id: script.phillips_tv
 
-  - alias: Living Room - TV to off
-    trigger:
-      platform: state
-      entity_id: input_boolean.fernseher
-      to: 'off'
-    action:
-        service: script.turn_on
-        entity_id: script.fernseher
+- alias: Living Room - TV to off
+  trigger:
+    platform: state
+    entity_id: input_boolean.phillips_tv
+    to: "off"
+  action:
+    service: script.turn_on
+    entity_id: script.phillips_tv

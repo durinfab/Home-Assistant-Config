@@ -1,78 +1,78 @@
-  ##
-  ## Covers all automations corresponding the living room button
-  ##
-  
-  - alias: Living Room - left single
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: sensor.wintergarten_double_click
-      to: 'left'
-    action:
-      - service: script.turn_on
-        entity_id: script.start_gaming
+##
+## Covers all automations corresponding the living room button
+##
 
-  - alias: Living Room - right double
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: sensor.wintergarten_double_click
-      to: 'right_double'
-    action:
-      - service: script.turn_on
-        entity_id: script.start_wii
+- alias: Living Room - left single
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_double_click
+    to: "left"
+  action:
+    - service: script.turn_on
+      entity_id: script.start_gaming
 
-  - alias: Living Room - right single
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: sensor.wintergarten_double_click
-      to: 'right'
-    action:
+- alias: Living Room - right double
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_double_click
+    to: "right_double"
+  action:
+    - service: script.turn_on
+      entity_id: script.start_wii
+
+- alias: Living Room - right single
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_double_click
+    to: "right"
+  action:
     - service: switch.turn_on
-      entity_id: switch.circadian_lighting_wintergarten
+      entity_id: switch.circadian_lighting_living_room
     - service: light.toggle
       data:
         entity_id:
-            - light.Wintergarten_Rechts
-            - light.Wintergarten_Links
-        
-  - alias: Living Room - left long
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: sensor.wintergarten_double_click
-      to: 'left_long'
-    action:
-      - service: script.turn_on
-        entity_id: script.start_netflix
-        
-  - alias: Living Room - right long
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: sensor.wintergarten_double_click
-      to: 'right_long'
-    action:
-      - service: script.turn_on
-        entity_id: script.start_ps4
-        
-  - alias: Living Room - both
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: sensor.wintergarten_double_click
-      to: 'both'
-    action:
-      - service: script.turn_on
-        entity_id: script.turn_off_everything
-  
-  - alias: Living Room - both long
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: sensor.wintergarten_double_click
-      to: 'both_long'
-    action:
-      - service: script.turn_on
-        entity_id: script.wintergarten_bright
+          - light.living_room_lamp_right
+          - light.living_room_lamp_left
+
+- alias: Living Room - left long
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_double_click
+    to: "left_long"
+  action:
+    - service: script.turn_on
+      entity_id: script.start_netflix
+
+- alias: Living Room - right long
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_double_click
+    to: "right_long"
+  action:
+    - service: script.turn_on
+      entity_id: script.start_ps4
+
+- alias: Living Room - both
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_double_click
+    to: "both"
+  action:
+    - service: script.turn_on
+      entity_id: script.turn_off_everything
+
+- alias: Living Room - both long
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_double_click
+    to: "both_long"
+  action:
+    - service: script.turn_on
+      entity_id: script.living_room_bright

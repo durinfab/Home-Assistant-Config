@@ -1,32 +1,32 @@
-  ##
-  ## All necessary steps before and after a restart
-  ##
-  
-  - alias: HA Start
-    trigger:
+##
+## All necessary steps before and after a restart
+##
+
+- alias: Miscellaneous - HA Start
+  trigger:
     - event: start
       platform: homeassistant
-    action:
-        - service: switch.turn_on
-          entity_id: 
-              - switch.circadian_lighting_esstisch
-              - switch.circadian_lighting_kueche
-              - switch.circadian_lighting_schlafzimmer
-              - switch.circadian_lighting_kartenstrip
-        ## trigger the information loop
-        - service: script.led_update
+  action:
+    - service: switch.turn_on
+      entity_id:
+        - switch.circadian_lighting_dining_table
+        - switch.circadian_lighting_kitchen
+        - switch.circadian_lighting_bedroom
+        - switch.circadian_lighting_kartenstrip
+    ## trigger the information loop
+    - service: script.led_update
 
-        ## restart the "monitor" service
-        - service: mqtt.publish
-          data_template:
-            topic: presence/scan/restart
+    ## restart the "monitor" service
+    - service: mqtt.publish
+      data_template:
+        topic: presence/scan/restart
 
-  - alias: HA Restarting/Stop
-    trigger:
+- alias: Miscellaneous - HA Restarting/Stop
+  trigger:
     - event: shutdown
       platform: homeassistant
-    action:
-        - service: input_text.set_value
-          data_template:
-            entity_id: input_text.flur_text1
-            value: "Restarting..."
+  action:
+    - service: input_text.set_value
+      data_template:
+        entity_id: input_text.flur_text1
+        value: "Restarting..."

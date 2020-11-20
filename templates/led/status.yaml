@@ -16,11 +16,11 @@
   {%- endmacro -%}
 
   {%- macro bad() -%}
-    Badtemp. {{ float(states('sensor.bad_temperatur_temperature')) | replace('.', ',') }}
+    Badtemp. {{ float(states('sensor.bathroom_temperature_temperature')) | replace('.', ',') }}
   {%- endmacro -%}
 
   {%- macro win() -%}
-    Winterg.Temp. {{ float(states('sensor.wintergarten_temperatur_temperature')) | replace('.', ',') }}
+    Winterg.Temp. {{ float(states('sensor.living_room_temperature_temperature')) | replace('.', ',') }}
   {%- endmacro -%}
 
   {%- macro tim() -%}
@@ -32,28 +32,28 @@
   {%- endmacro -%}
 
   {%- macro lights_on() -%}
-    {% set lights = [ states.light.wintergarten_links,
-      states.light.wintergarten_rechts,
-      states.light.kuechenlampe,
+    {% set lights = [ states.light.living_room_lamp_left,
+      states.light.living_room_lamp_right,
+      states.light.kitchen_lamp,
       states.light.schreibtischlampe,
-      states.light.lagerlampe,
-      states.light.schreibtisch_strip,
-      states.light.wintergarten_strip,
-      states.light.esstisch,
-      states.light.esstisch_ambilight,
-      states.light.aussenlampe,
-      states.light.windfang_lampe,
-      states.light.regal_lampe
+      states.light.storage_room_lamp,
+      states.light.workspace_strip,
+      states.light.living_room_strip,
+      states.light.dining_table,
+      states.light.dining_table_ambilight,
+      states.light.outdoor_lamp,
+      states.light.vestibule_lamp,
+      states.light.hall_strip
     ] %}
      {{ lights | selectattr('state','eq','on') | list | count }} einge. Lampen
   {%- endmacro -%}
   {%- macro windows_open() -%}
     {% set windows = [ 
-    states.binary_sensor.schlafzimmer_fenster_links_contact,
-    states.binary_sensor.wintergarten_fenster_contact,
-    states.binary_sensor.arbeitszimmer_fenster_links_contact,
-    states.binary_sensor.bad_fenster_contact,
-    states.binary_sensor.kueche_fenster_contact
+    states.binary_sensor.bedroom_window_left_contact,
+    states.binary_sensor.living_room_window_contact,
+    states.binary_sensor.workspace_window_left_contact,
+    states.binary_sensor.bathroom_window_contact,
+    states.binary_sensor.kitchen_window_contact
     ] %}
      {{ windows | selectattr('state','eq','on') | list | count }} Fenster offen
   {%- endmacro -%}
@@ -62,5 +62,4 @@
     Letztes Saugen: {{ ( a | int  / 1000 ) | timestamp_custom("%d.%m um %H:%M") }}
   {%- endmacro -%}
 
-  {{ ([last_clean,lights_on,un_christ,ad,au,bad,win,windows_open]|random)() }}  
-
+  {{ ([last_clean,lights_on,un_christ,ad,au,bad,win,windows_open]|random)() }}

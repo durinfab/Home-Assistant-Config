@@ -4,39 +4,39 @@
 
 - platform: circadian_lighting
   lights_rgb:
-    - light.schlafzimmer_links
-    - light.schlafzimmer_rechts
-    - light.schlafzimmer_led
-  name: Schlafzimmer
+    - light.bedroom_lamp_left
+    - light.bedroom_lamp_right
+    - light.bedroom_strip
+  name: bedroom
   disable_brightness_adjust: True
 
 - platform: circadian_lighting
   lights_rgb:
-    - light.wintergarten_links
-    - light.wintergarten_rechts
-  name: Wintergarten
+    - light.living_room_lamp_left
+    - light.living_room_lamp_right
+  name: living_room
   disable_brightness_adjust: True
 
 - platform: circadian_lighting
   lights_rgb:
-    - light.aussenlampe
-  name: Aussenlampe
+    - light.outdoor_lamp
+  name: outdoor_lamp
   disable_brightness_adjust: True
 
 - platform: circadian_lighting
   lights_ct:
-    - light.lagerlampe
-  name: Lagerlampe
+    - light.storage_room_lamp
+  name: storage_room_lamp
   disable_brightness_adjust: True
 
 - platform: circadian_lighting
   lights_ct:
-    - light.kuechenlampe
-  name: Kueche
+    - light.kitchen_lamp
+  name: kitchen
   disable_brightness_adjust: True
 
 - platform: circadian_lighting
   lights_ct:
-    - light.esstisch
-  name: Esstisch
+    - light.dining_table
+  name: dining_table
   disable_brightness_adjust: True

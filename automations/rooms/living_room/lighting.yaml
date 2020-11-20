@@ -1,22 +1,22 @@
 ## Turn on Living Room Light if the TV(AVR) is on
 
-  - alias: Living Room - Lights on evening
-    initial_state: True
-    trigger:
-      platform: state
-      entity_id: input_boolean.evening_mode
-      to: 'on'
-    condition:
-      condition: state
-      entity_id: media_player.denon_avr_x1500h
-      state: 'on'
-    action:
-        - service: circadian_lighting.values_update
-          entity_id: 
-                  - light.wintergarten_links
-                  - light.wintergarten_rechts
-        - service: light.turn_on
-          data:
-              entity_id:
-                  - light.Wintergarten_Rechts
-                  - light.Wintergarten_Links
+- alias: Living Room - Lights on evening
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: input_boolean.evening_mode
+    to: "on"
+  condition:
+    condition: state
+    entity_id: media_player.denon_avr_x1500h
+    state: "on"
+  action:
+    - service: circadian_lighting.values_update
+      entity_id:
+        - light.living_room_lamp_left
+        - light.living_room_lamp_right
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.living_room_lamp_right
+          - light.living_room_lamp_left

@@ -1,32 +1,22 @@
-light.schlafzimmer_links:
-    friendly_name: Lelos Seite
-light.schlafzimmer_rechts:
-    friendly_name: Fabis Seite
-sensor.schlafzimmer_temperatur:
-    friendly_name: Schlafzimmer
-sensor.schlafzimmer_feuchtigkeit:
-    friendly_name: Feuchtigkeit
-sensor.wintergarten_grass_battery:
-    friendly_name: Batterie
-sensor.wintergarten_grass_moisture:
-    friendly_name: Feuchtigkeit
-sensor.wintergarten_grass_light_intensity:
-    friendly_name: Lichtintensität
-sensor.wintergarten_grass_temperature:
-    friendly_name: Temperatur
-sensor.wintergarten_grass_conductivity:
-    friendly_name: Leitfähigkeit
-binary_sensor.schlafzimmer_fenster_links_contact:
-    icon: mdi:window-closed
-binary_sensor.wintergarten_fenster_contact:
-    icon: mdi:window-closed
-sensor.bad_temperatur_humidity:
-    icon: mdi:water
-sensor.wintergarten_temperatur_humidity:
-    icon: mdi:water
-sensor.arbeitszimmer_temperatur_humidity:
-    icon: mdi:water
+light.bedroom_lamp_left:
+  friendly_name: Lelos Seite
+light.bedroom_lamp_right:
+  friendly_name: Fabis Seite
+sensor.bedroom_temperature:
+  friendly_name: Schlafzimmer
+sensor.bedroom_humidity:
+  friendly_name: Feuchtigkeit
+binary_sensor.bedroom_window_left_contact:
+  icon: mdi:window-closed
+binary_sensor.living_room_window_contact:
+  icon: mdi:window-closed
+sensor.bathroom_temperature_humidity:
+  icon: mdi:water
+sensor.living_room_temperature_humidity:
+  icon: mdi:water
+sensor.workspace_temperature_humidity:
+  icon: mdi:water
 switch.spielerechner:
-    icon: mdi:desktop-tower
+  icon: mdi:desktop-tower
 person.fabi:
-    entity_picture: "fabian.png"
+  entity_picture: "fabian.png"

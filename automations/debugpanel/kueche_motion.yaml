@@ -2,8 +2,7 @@
 ## Enables/Disables Light based on motion detection in the evening
 ##
 
-- id: "Kitchen - motion light on"
-  alias: Kitchen - motion light on
+- alias: Kitchen - motion light on
   initial_state: True
   trigger:
     platform: state
@@ -16,10 +15,9 @@
     state: "on"
   action:
     - service: light.turn_on
-      entity_id: light.kuechenlampe
+      entity_id: light.kitchen_lamp
 
-- id: "Kitchen - motion light off"
-  alias: Kitchen - motion light off
+- alias: Kitchen - motion light off
   initial_state: True
   trigger:
     platform: state
@@ -30,4 +28,4 @@
       minutes: 10
   action:
     - service: light.turn_off
-      entity_id: light.kuechenlampe
+      entity_id: light.kitchen_lamp

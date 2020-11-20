@@ -2,7 +2,7 @@
   initial_state: on
   trigger:
   - platform: state
-    entity_id: group.schlafzimmer_lights
+    entity_id: group.bedroom_lights
     to: 'on'
   action:
     - service: light.turn_on
@@ -14,7 +14,7 @@
   initial_state: on
   trigger:
   - platform: state
-    entity_id: group.schlafzimmer_lights
+    entity_id: group.bedroom_lights
     to: 'off'
   action:
     - service: light.turn_off
