@@ -28,5 +28,5 @@
   action:
     - service: input_text.set_value
       data_template:
-        entity_id: input_text.flur_text1
+        entity_id: input_text.hall_text
         value: "Restarting..."
