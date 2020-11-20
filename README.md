@@ -147,9 +147,9 @@ These boards are relatively cheap but I have always bad luck with them. By now t
 
 #### Debugpanel ####
 
-<img src="readme_images/debugpanel.jpg" width="130" align="right">
+<img src="readme_images/debugpanel.jpg" width="170" align="right">
 
-This little board looks very ugly but saves me a lot of debugging work. All of these LEDs can be addressed individuelly, and are part of their own automation. For example: A lot of automations are based on the [evening_mode](automations/evening_mode/), so it got its own LED.
+This little board looks very ugly but saves me a lot of debugging work. All of these LEDs can be addressed individuelly, and are part of their own automation. For example: A lot of automations are based on the [evening_mode](automations/evening_routine/), so it got its own LED.
 
 Beside the LEDs there are also two switches and a PIR-Sensor. I thought about adding a Display to it, which shows a small Home Assistant Log...
 
