@@ -91,8 +91,8 @@ input_number:
     step: 1
     mode: box
 input_text:
-  flur_text1:
-    name: Flur Text1
+  hall_text:
+    name: Hall_Text
     initial: Restarting...
   tmp:
     name: tmp text
