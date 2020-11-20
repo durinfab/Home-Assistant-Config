@@ -147,11 +147,11 @@ These boards are relatively cheap but I have always bad luck with them. By now t
 
 #### Debugpanel ####
 
-This little board looks very ugly but saves me a lot of debugging work. All of these LEDs can be addressed individuelly, and are part of their own automation. For example: A lot of automations are based on the [evening_mode](/automations/evening_mode/), so it got its own LED.
+<img src="readme_images/debugpanel.jpg" width="130" align="right">
+
+This little board looks very ugly but saves me a lot of debugging work. All of these LEDs can be addressed individuelly, and are part of their own automation. For example: A lot of automations are based on the [evening_mode](automations/evening_mode/), so it got its own LED.
 
 Beside the LEDs there are also two switches and a PIR-Sensor. I thought about adding a Display to it, which shows a small Home Assistant Log...
-
-![debugpanel](readme_images/debugpanel.jpg)
 
 #### 🏋🏼‍♂️ HX711 - Weight Sensor ####
 
@@ -203,7 +203,7 @@ You all know the idea. A continous information source to show some of the collec
 
 To distinguish between the states of this I created an [input_select](https://www.home-assistant.io/integrations/input_select/) to represent those.
 
-- **Default** - Every two minutes an event is fired to update the current text with a random text from [template/led/status.yaml](template/led/status.yaml).
+- **Default** - Every two minutes an event is fired to update the current text with a random text from [templates/led/status.yaml](templates/led/status.yaml).
 - **Notification** - Notifications are a bit senseless regarding their reliability. Example: If someone arrives at home a welcome message is printed there. These kind of notifications disappear after 10 seconds and are restoring the previous text to the sign. If the current State is "Hard" no notification will be shown.
 - **Hard** - If the vacuum robot's bin should get cleared a "Hard"-Notification is printed. This kind of notification will not get overwritten by anything. After an acceptance/specific action of the user, the message will get removed. 
 - **Disabled** - If no one is at home the state switches to "Disabled". This state behaves similary to "Hard", because it can only be interrupted by an specific action.
