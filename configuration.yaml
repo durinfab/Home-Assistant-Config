@@ -57,15 +57,15 @@ person:
   - name: Fabi
     id: fabi
     device_trackers:
-      - device_tracker.presence_fabian
-  - name: Paul
-    id: paul
+      - device_tracker.presence_fabi
+  - name: Mate
+    id: mate
     device_trackers:
-      - device_tracker.presence_paul
-  - name: Lelo
-    id: lelo
+      - device_tracker.presence_mate
+  - name: Partner
+    id: partner
     device_trackers:
-      - device_tracker.presence_lelo
+      - device_tracker.presence_partner
 
 browser_mod:
   devices:

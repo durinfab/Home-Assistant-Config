@@ -68,7 +68,7 @@ turn_off_everything:
     - service: input_boolean.turn_off
       entity_id: input_boolean.phillips_tv
     - service: media_player.turn_off
-      entity_id: media_player.denon_avr_x1500h
+      entity_id: media_player.denon_avr
       #- service: homeassistant.turn_off
       #  entity_id: switch.spielerechner
     - service: media_player.turn_off
@@ -99,10 +99,10 @@ start_netflix:
     - service: input_boolean.turn_on
       entity_id: input_boolean.phillips_tv
     - service: media_player.turn_on
-      entity_id: media_player.denon_avr_x1500h
+      entity_id: media_player.denon_avr
     - service: media_player.select_source
       data:
-        entity_id: media_player.denon_avr_x1500h
+        entity_id: media_player.denon_avr
         source: TV
 
     ## switch tv input
@@ -146,10 +146,10 @@ start_wii:
     - service: homeassistant.turn_on
       entity_id: input_boolean.phillips_tv
     - service: media_player.turn_on
-      entity_id: media_player.denon_avr_x1500h
+      entity_id: media_player.denon_avr
     - service: media_player.select_source
       data:
-        entity_id: media_player.denon_avr_x1500h
+        entity_id: media_player.denon_avr
         source: Wii
 
     ## switch tv input
@@ -201,12 +201,12 @@ start_ps4:
     - service: homeassistant.turn_on
       entity_id: input_boolean.phillips_tv
     - service: media_player.turn_on
-      entity_id: media_player.denon_avr_x1500h
+      entity_id: media_player.denon_avr
     - service: media_player.turn_on
       entity_id: media_player.playstation_4
     - service: media_player.select_source
       data:
-        entity_id: media_player.denon_avr_x1500h
+        entity_id: media_player.denon_avr
         source: Playstation
 
     ## switch tv input
@@ -258,12 +258,12 @@ start_gaming:
     - service: input_boolean.turn_on
       entity_id: input_boolean.phillips_tv
     - service: media_player.turn_on
-      entity_id: media_player.denon_avr_x1500h
+      entity_id: media_player.denon_avr
     - service: homeassistant.turn_on
       entity_id: switch.spielerechner
     - service: media_player.select_source
       data:
-        entity_id: media_player.denon_avr_x1500h
+        entity_id: media_player.denon_avr
         source: Windows
 
     ## switch tv input

@@ -39,13 +39,13 @@
       - condition: or
         conditions:
           - condition: state
-            entity_id: input_boolean.lelo_home
+            entity_id: input_boolean.partner_home
             state: "on"
           - condition: state
-            entity_id: input_boolean.fabian_home
+            entity_id: input_boolean.fabi_home
             state: "on"
           - condition: state
-            entity_id: input_boolean.paul_home
+            entity_id: input_boolean.mate_home
             state: "on"
       - condition: state
         entity_id: input_boolean.mulltonne

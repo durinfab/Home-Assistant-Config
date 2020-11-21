@@ -1,15 +1,16 @@
 ##
 ## All entities for devices that are observed by the "monitor" component
+## Source: https://github.com/DubhAd/Home-AssistantConfig/blob/live/device_tracker/mqtt.yaml
 ##
 
 platform: mqtt
-source_type: 'bluetooth_le'
+source_type: "bluetooth"
 devices:
-  fabi_bt_mobile_first_floor: 'presence/first_floor/fabian_iphone/device_tracker'
-  fabi_bt_mobile_ground: 'presence/ground/fabian_iphone/device_tracker'
-  fabi_bt_watch_first_floor: 'presence/first_floor/fabian_watch/device_tracker'
-  fabi_bt_watch_ground: 'presence/ground/fabian_watch/device_tracker'
-  paul_bt_mobile_first_floor: 'presence/first_floor/paul_iphone/device_tracker'
-  paul_bt_mobile_ground: 'presence/ground/paul_iphone/device_tracker'
-  lelo_bt_mobile_first_floor: 'presence/first_floor/lelo_handy/device_tracker'
-  lelo_bt_mobile_ground: 'presence/ground/lelo_handy/device_tracker'
+  fabi_tracking_phone_first_floor: presence/first_floor/fabi_phone/device_tracker
+  fabi_tracking_phone_ground: presence/ground/fabi_phone/device_tracker
+  fabi_tracking_watch_first_floor: presence/first_floor/fabi_watch/device_tracker
+  fabi_tracking_watch_ground: presence/ground/fabi_watch/device_tracker
+  mate_tracking_phone_first_floor: presence/first_floor/mate_phone/device_tracker
+  mate_tracking_phone_ground: presence/ground/mate_phone/device_tracker
+  partner_tracking_phone_first_floor: presence/first_floor/partner_phone/device_tracker
+  partner_tracking_phone_ground: presence/ground/partner_phone/device_tracker

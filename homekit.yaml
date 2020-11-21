@@ -39,6 +39,6 @@ filter:
     - switch.manual_staubi
     - input_boolean.phillips_tv
     - person.fabi
-    - person.lelo
-    - person.paul
-    - media_player.denon_avr_x1500h
+    - person.partner
+    - person.mate
+    - media_player.denon_avr

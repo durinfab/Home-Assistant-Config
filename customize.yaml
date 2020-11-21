@@ -4,6 +4,10 @@ light.bedroom_lamp_right:
   friendly_name: Fabis Seite
 sensor.bedroom_temperature:
   friendly_name: Schlafzimmer
+sensor.partner_in_bed:
+    friendly_name: "Lelo im Bett"
+sensor.add_bed_weight:
+  friendly_name: "Gesamtgewicht Bett"
 sensor.bedroom_humidity:
   friendly_name: Feuchtigkeit
 binary_sensor.bedroom_window_left_contact:
@@ -12,6 +16,9 @@ binary_sensor.living_room_window_contact:
   icon: mdi:window-closed
 sensor.bathroom_temperature_humidity:
   icon: mdi:water
+sensor.num_in_master_bed:
+      friendly_name: "Anzahl Personen im Bett"
+      unit_of_measurement: "Personen"
 sensor.living_room_temperature_humidity:
   icon: mdi:water
 sensor.workspace_temperature_humidity:

@@ -79,7 +79,7 @@
 
           {{ media_player }}
         speech_message: "Unautorisierter Zugriff erkannt."
-    - service: notify.mobile_app_iphone_von_fabian_during
+    - service: notify.mobile_app_fabi_phone
       data:
         title: "Alarm im Gemeindebau"
         message: "Um {{ now() }} gab es einen Alarm!"

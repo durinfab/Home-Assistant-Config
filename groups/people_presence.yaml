@@ -1,22 +1,22 @@
-person_fabian:
-  name: fabian
+person_fabi:
+  name: fabi
   entities:
-    - device_tracker.fabian_iphone_wifi
-    - device_tracker.fabi_bt_mobile_ground
-    - device_tracker.fabi_bt_mobile_first_floor
-    - device_tracker.fabi_bt_watch_first_floor
-    - device_tracker.fabi_bt_watch_ground
+    - device_tracker.fabi_phone_wifi
+    - device_tracker.fabi_tracking_phone_ground
+    - device_tracker.fabi_tracking_phone_first_floor
+    - device_tracker.fabi_tracking_watch_first_floor
+    - device_tracker.fabi_tracking_watch_ground
 
-person_paul:
-  name: paul
+person_mate:
+  name: Mate
   entities:
-    - device_tracker.paul_iphone_wifi
-    - device_tracker.paul_bt_mobile_ground
-    - device_tracker.paul_bt_mobile_first_floor
+    - device_tracker.mate_phone_wifi
+    - device_tracker.mate_tracking_phone_ground
+    - device_tracker.mate_tracking_phone_first_floor
 
-person_lelo:
-  name: lelo
+person_partner:
+  name: Partner
   entities:
-    - device_tracker.lelo_handy_wifi
-    - device_tracker.lelo_bt_mobile_ground
-    - device_tracker.lelo_bt_mobile_first_floor
+    - device_tracker.partner_phone_wifi
+    - device_tracker.partner_tracking_phone_ground
+    - device_tracker.partner_tracking_phone_first_floor

@@ -6,14 +6,14 @@
   trigger:
     - platform: state
       entity_id:
-        - input_boolean.paul_home
-        - input_boolean.lelo_home
-        - input_boolean.fabian_home
+        - input_boolean.mate_home
+        - input_boolean.partner_home
+        - input_boolean.fabi_home
       to: "on"
   condition:
     condition: state
     entity_id: input_boolean.home_occupied
-    state: 'off'
+    state: "off"
 
   action:
     ## Walkaround to clear "Authentication..."

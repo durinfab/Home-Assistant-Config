@@ -8,7 +8,7 @@
     to: "on"
   condition:
     condition: state
-    entity_id: media_player.denon_avr_x1500h
+    entity_id: media_player.denon_avr
     state: "on"
   action:
     - service: circadian_lighting.values_update

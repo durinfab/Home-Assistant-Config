@@ -2,31 +2,17 @@
 ## If an resident arrives home, he will be greeted
 ##
 
-
-- alias: 'Presence - Paul greeting'
+- alias: "Presence - Mate greeting"
   trigger:
-     - platform: state
-       entity_id:
-            - input_boolean.paul_home
-       to: 'on'
+    - platform: state
+      entity_id:
+        - input_boolean.mate_home
+      to: "on"
 
   action:
     - service: script.speech_engine
       data_template:
-        personarriving: >
-          {%- macro greeting_sentence() -%}
-          {{ [
-          "Na Paul was geht so?",
-          "Willkommen Zuhause Paul",
-          "Endlich bist du wieder Zuhause Paul",
-          "Piece Out Paul",
-          "Doppel Piece Paul",
-          "Juhu, Paul ist wieder Zuhause",
-          "Na wer ist denn da wieder Zuhause? Ich habe dich schon vermisst",
-          "Hallo Paul"
-          ] | random }}
-          {%- endmacro -%}
-          {{greeting_sentence()}}
+        personarriving: !include /config/templates/secret/greetings/mate.yaml
         call_responsibilities: 0
         call_random: 1
         call_no_announcement: 1
@@ -35,31 +21,18 @@
     - service: script.led_update
     - service: script.led_notification
       data_template:
-        message: "Hey Paul!"
-        
-- alias: 'Presence - Fabi greeting'
+        message: !secret hey_mate
+
+- alias: "Presence - Fabi greeting"
   trigger:
-     - platform: state
-       entity_id:
-            - input_boolean.fabian_home
-       to: 'on'
+    - platform: state
+      entity_id:
+        - input_boolean.fabi_home
+      to: "on"
   action:
     - service: script.speech_engine
       data_template:
-        personarriving: >
-          {%- macro greeting_sentence() -%}
-          {{ [
-          "Na Fabian was geht so?",
-          "Willkommen Zuhause Fabian",
-          "Endlich bist du wieder Zuhause Fabian",
-          "Piece Out Fabian",
-          "Doppel Piece Fabian",
-          "Juhu, Fabi ist wieder Zuhause",
-          "Na wer ist denn da wieder Zuhause? Ich habe dich schon vermisst",
-          "Hallo Fabi"
-          ] | random }}
-          {%- endmacro -%}
-          {{greeting_sentence()}}
+        personarriving: !include /config/templates/secret/greetings/fabi.yaml
         call_responsibilities: 0
         call_random: 1
         call_no_announcement: 1
@@ -69,31 +42,18 @@
     - service: script.led_notification
       data_template:
         message: "Hey Fabi!"
-        
-- alias: 'Presence - Fabi greeting'
+
+- alias: "Presence - Partner greeting"
   trigger:
-     - platform: state
-       entity_id:
-            - input_boolean.lelo_home
-       to: 'on'
+    - platform: state
+      entity_id:
+        - input_boolean.partner_home
+      to: "on"
 
   action:
     - service: script.speech_engine
       data_template:
-        personarriving: >
-          {%- macro greeting_sentence() -%}
-          {{ [
-          "Na Leelo was geht so?",
-          "Willkommen Zuhause, Leelo",
-          "Endlich bist du wieder Zuhause, Leelo",
-          "Piece Out, Leelo",
-          "Doppel Piece, Leelo",
-          "Juhu, Leelo ist wieder Zuhause",
-          "Na wer ist denn da wieder Zuhause? Ich habe dich schon vermisst",
-          "Hallo Leelo"
-          ] | random }}
-          {%- endmacro -%}
-          {{greeting_sentence()}}
+        personarriving: !include /config/templates/secret/greetings/partner.yaml
         call_responsibilities: 0
         call_random: 1
         call_no_announcement: 1
@@ -102,6 +62,4 @@
     - service: script.led_update
     - service: script.led_notification
       data_template:
-          message: "Hey Lelo!"
-
-      
+        message: !secret hey_partner

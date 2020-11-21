@@ -2,11 +2,11 @@
 ## Covers all automations based on the weigth of the residents
 ##
 
-- alias: Bedroom - lelo get up
+- alias: Bedroom - partner get up
   initial_state: False
   trigger:
     platform: state
-    entity_id: sensor.lelo_in_bed
+    entity_id: sensor.partner_in_bed
     from: "True"
     to: "False"
     for:
@@ -22,11 +22,11 @@
           - light.bedroom_lamp_left
         brightness: 1
 
-- alias: Bedroom - lelo lays down
+- alias: Bedroom - partner lays down
   initial_state: False
   trigger:
     platform: state
-    entity_id: sensor.lelo_in_bed
+    entity_id: sensor.partner_in_bed
     from: "False"
     to: "True"
     for:
@@ -91,17 +91,17 @@
       entity_id:
         - automation.bedroom_fabi_lays_down
         - automation.bedroom_fabi_get_up
-        - automation.bedroom_lelo_lays_down
-        - automation.bedroom_lelo_get_up
+        - automation.bedroom_partner_lays_down
+        - automation.bedroom_partner_get_up
 
 ## The get up/ lay down automations are only turned on, if someone lays
 ## longer then 15 min in bed
-- alias: "Bedroom - night begins for lelo"
+- alias: "Bedroom - night begins for partner"
   initial_state: True
   trigger:
     platform: state
     entity_id:
-      - sensor.lelo_in_bed
+      - sensor.partner_in_bed
     to: "True"
     for:
       minutes: 15
@@ -112,10 +112,10 @@
   action:
     - service: automation.turn_on
       entity_id:
-        - automation.bedroom_lelo_lays_down
-        - automation.bedroom_lelo_get_up
+        - automation.bedroom_partner_lays_down
+        - automation.bedroom_partner_get_up
 
-- alias: "Bedroom - night begins for lelo"
+- alias: "Bedroom - night begins for partner"
   initial_state: True
   trigger:
     platform: state

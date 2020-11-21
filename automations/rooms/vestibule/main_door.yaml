@@ -12,15 +12,15 @@
       minutes: 5
   condition:
     condition: state
-    entity_id: input_boolean.fabian_home
+    entity_id: input_boolean.fabi_home
     state: "on"
   action:
-    - service: notify.mobile_app_iphone_von_fabian_during
+    - service: notify.mobile_app_fabi_phone
       data:
         message: "Die Haustür steht länger als 5 Minuten offen"
         title: "Warnung"
 
-- alias: Vestibule - Notify lelo when door open too long
+- alias: Vestibule - Notify partner when door open too long
   initial_state: True
   trigger:
     platform: state
@@ -30,7 +30,7 @@
       minutes: 5
   condition:
     condition: state
-    entity_id: input_boolean.lelo_home
+    entity_id: input_boolean.partner_home
     state: "on"
   action:
     - service: notify.mobile_app_pic_lx9
@@ -50,13 +50,13 @@
     condition: or
     conditions:
       - condition: state
-        entity_id: input_boolean.lelo_home
+        entity_id: input_boolean.partner_home
         state: "on"
       - condition: state
-        entity_id: input_boolean.fabian_home
+        entity_id: input_boolean.fabi_home
         state: "on"
       - condition: state
-        entity_id: input_boolean.paul_home
+        entity_id: input_boolean.mate_home
         state: "on"
   action:
     - service: script.speech_engine

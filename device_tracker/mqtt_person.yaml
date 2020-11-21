@@ -1,11 +1,11 @@
 ##
 ## Tracking of the location
-## TODO: Obsolete?
+## Source: https://github.com/DubhAd/Home-AssistantConfig/blob/live/device_tracker/mqtt_person.yaml
 ##
 
 platform: mqtt
-source_type: 'router'
 devices:
-  presence_fabian: 'location/fabian'
-  presence_lelo: 'location/lelo'
-  presence_paul: 'location/paul'
+  presence_fabi: 'location/fabi'
+  presence_partner: 'location/partner'
+  presence_mate: 'location/mate'
+source_type: router

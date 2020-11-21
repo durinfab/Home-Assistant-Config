@@ -1,0 +1,8 @@
+##
+## Sets the status of the "monitor" devices
+##
+ -  platform: mqtt
+    state_topic: "presence/first_floor/status"
+    payload_on: "online"
+    payload_off: "offline"
+    name: "monitor_first_floor"

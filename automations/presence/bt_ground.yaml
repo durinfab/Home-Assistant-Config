@@ -18,7 +18,7 @@
       entity_id: switch.monitor_ground
     - wait_template: >-
         {{ is_state('binary_sensor.monitor_ground','on') }}
-    - service: notify.mobile_app_iphone_von_fabian_during
+    - service: notify.mobile_app_fabi_phone
       data:
         message: "Ground Bluetooth Knoten wurde neu gestartet!"
 
@@ -33,17 +33,17 @@
   action:
     - service: mqtt.publish
       data:
-        topic: monitor/ground/lelo_handy/device_tracker
+        topic: monitor/ground/partner_phone/device_tracker
         payload: unknown
     - service: mqtt.publish
       data:
-        topic: monitor/ground/fabian_iphone/device_tracker
+        topic: monitor/ground/fabi_phone/device_tracker
         payload: unknown
     - service: mqtt.publish
       data:
-        topic: monitor/ground/fabian_watch/device_tracker
+        topic: monitor/ground/fabi_watch/device_tracker
         payload: unknown
     - service: mqtt.publish
       data:
-        topic: monitor/ground/paul_iphone/device_tracker
+        topic: monitor/ground/mate_phone/device_tracker
         payload: unknown

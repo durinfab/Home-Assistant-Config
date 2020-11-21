@@ -44,6 +44,6 @@ trigger:
     for:
       minutes: 5
 action:
-  service: notify.mobile_app_iphone_von_fabian_during
+  service: notify.mobile_app_fabi_phone
   data_template:
     message: "Sensor {{ trigger.to_state.name }} hat nur noch {{ trigger.to_state.state }}% Batterieladung, er benötigt eine CR2032 Knopfzelle"

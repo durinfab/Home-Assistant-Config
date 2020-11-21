@@ -3,7 +3,7 @@
 ## Note that the bedside lampe
 ##
 
-- alias: Bedroom - Turn on Bedside Lamp Lelo
+- alias: Bedroom - Turn on Bedside Lamp Partner
   initial_state: True
   trigger:
     platform: state
@@ -16,7 +16,7 @@
         entity_id: sensor.fabi_in_bed
         state: "True"
       - condition: state
-        entity_id: sensor.lelo_in_bed
+        entity_id: sensor.partner_in_bed
         state: "False"
   action:
     - service: light.toggle
@@ -38,7 +38,7 @@
         entity_id: sensor.fabi_in_bed
         state: "False"
       - condition: state
-        entity_id: sensor.lelo_in_bed
+        entity_id: sensor.partner_in_bed
         state: "True"
   action:
     - service: light.toggle
@@ -61,7 +61,7 @@
         entity_id: sensor.fabi_in_bed
         state: "False"
       - condition: state
-        entity_id: sensor.lelo_in_bed
+        entity_id: sensor.partner_in_bed
         state: "False"
       - condition: state
         entity_id: light.bedroom_lamp_right
@@ -83,7 +83,7 @@
         entity_id: sensor.fabi_in_bed
         state: "False"
       - condition: state
-        entity_id: sensor.lelo_in_bed
+        entity_id: sensor.partner_in_bed
         state: "False"
       - condition: state
         entity_id: light.bedroom_lamp_right

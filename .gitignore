@@ -5,6 +5,7 @@ www/*
 esphome/*
 themes/*
 custom_components/*
+templates/secret/*
 .storage/*
 .HA_VERSION
 .google.token
@@ -14,6 +15,7 @@ custom_components/*
 home-assistant.log
 google_calendars.yaml
 known_devices.yaml
+customize.yaml
 old.me
 ps4-games.json
 secrets.yaml
