@@ -155,6 +155,15 @@ Beside the LEDs there are also two switches and a HC-SR501-Sensor. I thought abo
 
 Some of you might ask what you can do with a weight sensor in a Smart Home. A whole lot of! I use them placed under my bed to detect the presence there. Because my girlfriend weighs less than me, we can differentiate who and how much people are there. This enables a lot of handy automations.
 
+<details><summary>Using in automations</summary>
+<p>
+  <ul>
+      <li>Leaving and joining bed <a href="/config/automations/rooms/bedroom/weight.yaml" title="/config/automations/rooms/bedroom/weight.yaml">/config/automations/rooms/bedroom/weight.yaml</a></li>
+      <li>Turn on light based on bed presence <a href="/config/automations/rooms/bedroom/switch_single.yaml" title="/config/automations/rooms/bedroom/switch_single.yaml">/config/automations/rooms/bedroom/switch_single.yaml</a></li>
+    </ul>
+</p>
+</details>
+
 *The idea for this use case of the HX711 is from [here](https://selfhostedhome.com/diy-bed-presence-detection-home-assistant/)*
 
 ## Software Components ##
