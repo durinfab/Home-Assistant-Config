@@ -147,9 +147,7 @@ In the bedroom there is still a [DHT22](https://www.amazon.de/AZDelivery-Tempera
 
 #### Debugpanel ####
 
-<img src="readme_images/debugpanel.jpg" width="170" align="right">
-
-This little board looks very ugly but saves me a lot of debugging work. All of these LEDs can be addressed individuelly, and are part of their own automation. For example: A lot of automations are based on the [evening_mode](automations/evening_routine/), so it got its own LED.
+A little wooden plank with build-in LEDs and adhesive labels beside them. The debugpanel is helping me to observe the state of specific events, even if I'm not looking at my Home Assistant interface. All of these LEDs can be addressed individuelly, and are part of their own automation. For example: A lot of automations are based on the [evening_mode](automations/evening_routine/), so it got its own LED.
 
 Beside the LEDs there are also two switches and a HC-SR501-Sensor. I thought about adding a Display to it, which shows a small Home Assistant Log...
 
@@ -238,3 +236,7 @@ Long story short: When someone leaves the bed I can easily tell, who it was. I h
 - Add Wii "Power" to IR Sensor. Maybe PS4 too...
 - Reintegrate my [OpenTherm Gateway](https://www.nodo-shop.nl/nl/opentherm-gateway/188-opentherm-gateway.html). Looking forward to [this](https://github.com/rvdbreemen/OTGW-firmware) to get released.
 - Place an [CC2531](https://www.amazon.de/CC2531-USB-Stick-zigbee2mqtt-ioBroker-Firmware/dp/B07T3GM28F/ref=sr_1_9?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=CC2531&qid=1605394793&sr=8-9) with [this](https://github.com/Koenkk/Z-Stack-firmware/tree/master/router/CC2531) router software to improve my Zigbee network load.
+
+## Support my coffee consumption ☕️ ##
+
+I'm powered by coffee. If you like my work, you can [buy me a coffee](https://www.buymeacoffee.com/durinfab). ❤️
