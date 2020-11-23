@@ -1,3 +1,9 @@
+##
+## Tracking WiFi Devices with static IPs.
+## Notice: WiFi is not as reliable as Bluetooth, because most devices disconnect from WiFi when they don't need it.
+## Source: https://github.com/DubhAd/Home-AssistantConfig/blob/live/device_tracker/nmap_tracker.yaml
+##
+
 platform: nmap_tracker
 interval_seconds: 15
 consider_home: 30
