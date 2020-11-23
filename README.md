@@ -97,6 +97,17 @@ Detecting residents in a specific area is not easy to establish, but is paying o
 | **room based** | **Easy** Motion Sensors, Switches, Buttons (Basically every sensor that needs an interaction). | **Hard** Requires the resident to ALWAYS take their home it them. In my opinion only realizable with Smart Watches. |
 | **home based** | **Easy** Motion Sensors, Switches, Buttons (Basically every sensor that needs an interaction). | **Medium** Requires BLE monitoring and well-defined scanning algorithms. Not easy to establish but very reliable. |
 
+<details><summary>Important corresponding automations</summary>
+<p>
+  <ul>
+      <li> <a href="/config/automations/presence/announcements.yaml" title="/config/automations/presence/announcements.yaml">Announcements to arriving residents</a></li>
+      <li> <a href="/config/automations/presence/arrive_depart.yaml" title="/config/automations/presence/arrive_depart.yaml">Trigger arrive/depart scans</a></li>
+  		<li> <a href="/config/automations/presence/bt_first_floor.yaml" title="/config/automations/presence/bt_first_floor.yaml">Trigger "monitor" restarts on malfunction </a></li>  
+      <li> <a href="/config/automations/alarm_management/alarm.yaml" title="/config/automations/alarm_management/alarm.yaml">Trigger initial scan, if no one is home </a></li>  
+  </ul>
+</p>
+</details>
+
 ### 🧹 Vacuum Robot ###
 
 The newest member in our small Smart Home is a used [Roborock S50](https://www.amazon.de/RoboRock-Staubsauger-Sweep-Mop-Steuerung-Internationale/dp/B07FD8GC1C) (or S51/S55 - different color). 
@@ -104,6 +115,17 @@ The newest member in our small Smart Home is a used [Roborock S50](https://www.a
 <img src="https://images-na.ssl-images-amazon.com/images/I/416NB5aoZzL._AC_SL1000_.jpg" width="200" align="right">
 
 Why especially this device? Because it uses a smart Laser-based navigation(no random algorithms), is rootable and is supported by Valetudo. It is importent to me to interrupt the cloud connection to Xiaomi. His little brother the [Xiaomi Mi Robot](https://www.amazon.de/Xiaomi-Saugroboter-Staubsauger-Kehrmaschine-Steuerung/dp/B01LYV1EMA/ref=pd_lpo_79_t_0/260-7052561-1317654?_encoding=UTF8&pd_rd_i=B01LYV1EMA&pd_rd_r=68c901e4-bbb9-4551-96b6-79d031291d4d&pd_rd_w=Fnimb&pd_rd_wg=YIxMw&pf_rd_p=d5c9797d-0238-4119-b220-af4cc3420918&pf_rd_r=EA2CRW8TBWB03PGYNE88&psc=1&refRID=EA2CRW8TBWB03PGYNE88) has a fewer feature tree. The Roborock S50 supports virtual No-Go Borders and saves the created map over multiple cleaning runs. For a advanced comparision click [here](https://valetudo.cloud/pages/knowledge_base/supported-roborock-devices.html#gen-2).
+
+<details><summary>Using in automations</summary>
+<p>
+  <ul>
+      <li> <a href="/config/automations/vacuum/vacuum_bin.yaml">Command vacuum to go to the bin</a></li>
+      <li> <a href="/config/automations/vacuum/vacuum_auto_clean.yaml">Automatic cleaning</a></li>
+      <li> <a href="/config/automations/vacuum/vacuum_error_detection.yaml">Vacuum error detection</a></li>
+      <li> <a href="/config/automations/vacuum/vacuum_notification.yaml">Notification when cleaning has finished</a></li>
+    </ul>
+</p>
+</details>
 
 *Note: If you want to buy this device, be sure to get one with old production date (before 2019-11) as the factory firmware (to which the robot can be reset) does allow the installation of a custom ROM.*
 
@@ -115,11 +137,28 @@ If you want an dynamic control panel for your Home Assistant, beside your phone,
 
 To integrate my tablet I'm using [Fully Kiosk Browser](https://www.fully-kiosk.com) with the [browser_mod](https://github.com/thomasloven/hass-browser_mod). This allows me to get access to literally all of it's sensors including brightness control, camera and microphones. 
 
+<details><summary>Using in automations</summary>
+<p>
+  <ul>
+      <li> <a href="/config/automations/tablet/fire_ground_floor.yaml">Turn on Fire Tablet in/after the night</a></li>
+      <li> <a href="/config/automations/presence/someone_home.yaml">Turn on Fire Tablet when someone is home</a></li>
+    </ul>
+</p>
+</details>
+
 *Hint: The tablet lose it's connection to Home Assistant if I lock the device. Thats why I'm just setting the brightness to the lowest setting.*
 
 ### ⚡️ IR-Sender ###
 
 As my TVs Ethernet port is not working at the moment and the WoWLAN (Wake-on-WLAN) functionality does not work reliable, I needed an alternative to send commands to the TV. For this propose I'm using the [RM4C mini](https://www.amazon.de/Universal-IR-Fernbedienung-Stimmenkontrolle-Koordinierung-Intelligente-Automatisierungsmodule-Schwarz/dp/B08215598C/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=RM4C+mini&qid=1605704505&sr=8-3). To control this handy device I use the [Broadlink Integration](https://www.home-assistant.io/integrations/broadlink/). This does also support the learing of new IR-Commands.
+
+<details><summary>Using in automations</summary>
+<p>
+  <ul>
+      <li> <a href="/config/scripts/living_room_media.yaml">Turn on/off and adjust living_room devices</a></li>
+    </ul>
+</p>
+</details>
 
 ### ESP32/ESP8266 ###
 
@@ -137,6 +176,15 @@ I like the idea of sharing the collected information of the apartment with the r
 
 On the left side you can see the current time and on the right a random information. There is also a mode for blocking information(that need an interaction to disappear) or an notification, that shows one time for about ten seconds. More information can be found [here](#LED_SIGN).
 
+<details><summary>Using in automations</summary>
+<p>
+  <ul>
+      <li> <a href="/config/scripts/led_sign.yaml" title="/config/scripts/led_sign.yaml">Display information</a></li>
+      <li> <a href="/config/automations/presence/announcements.yaml" title="/config/automations/presence/announcements.yaml">Showing announcements</a></li>
+    </ul>
+</p>
+</details>
+
 #### 🌡 DHT22 - Temperature/Humidity Sensor ####
 
 In the bedroom there is still a [DHT22](https://www.amazon.de/AZDelivery-Temperatursensor-Luftfeuchtigkeitssensor-Platine-Arduino/dp/B078SVZB1X/ref=sr_1_5?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=DHT22&qid=1605960850&sr=8-5) Sensor in use. It should be replaced with an Aqara sensor in the future to keep consistency. I'm still playing with the thought to add some other sensors to this ESP to get a  overview over the air quality...
@@ -151,6 +199,16 @@ A little wooden plank with build-in LEDs and adhesive labels beside them. The de
 
 Beside the LEDs there are also two switches and a HC-SR501-Sensor. I thought about adding a Display to it, which shows a small Home Assistant Log...
 
+<details><summary>Using in automations</summary>
+<p>
+  <ul>
+      <li> <a href="/config/automations/debugpanel/clean_kitchen.yaml" title="/config/automations/debugpanel/clean_kitchen.yaml">Command vacuum robot to clean kitchen</a></li>
+      <li> <a href="/config/automations/debugpanel/speech_enable.yaml" title="/config/automations/debugpanel/speech_enable.yaml">Dis-/enable speech assistant</a></li>
+    	<li> <a href="/config/automations/debugpanel/kitchen_motion.yaml" title="/config/automations/debugpanel/kitchen_motion.yaml">Turn on light after motion</a></li>
+    </ul>
+</p>
+</details>
+
 #### 🏋🏼‍♂️ HX711 - Weight Sensor ####
 
 Some of you might ask what you can do with a weight sensor in a Smart Home. A whole lot of! I use them placed under my bed to detect the presence there. Because my girlfriend weighs less than me, we can differentiate who and how much people are there. This enables a lot of handy automations.
@@ -158,8 +216,8 @@ Some of you might ask what you can do with a weight sensor in a Smart Home. A wh
 <details><summary>Using in automations</summary>
 <p>
   <ul>
-      <li>Leaving and joining bed <a href="/config/automations/rooms/bedroom/weight.yaml" title="/config/automations/rooms/bedroom/weight.yaml">/config/automations/rooms/bedroom/weight.yaml</a></li>
-      <li>Turn on light based on bed presence <a href="/config/automations/rooms/bedroom/switch_single.yaml" title="/config/automations/rooms/bedroom/switch_single.yaml">/config/automations/rooms/bedroom/switch_single.yaml</a></li>
+      <li> <a href="/config/automations/rooms/bedroom/weight.yaml" title="/config/automations/rooms/bedroom/weight.yaml">Leaving and joining bed</a></li>
+      <li> <a href="/config/automations/rooms/bedroom/switch_single.yaml" title="/config/automations/rooms/bedroom/switch_single.yaml">Turn on light based on bed presence</a></li>
     </ul>
 </p>
 </details>
@@ -168,9 +226,9 @@ Some of you might ask what you can do with a weight sensor in a Smart Home. A wh
 
 ## Software Components ##
 
-I'am using different Software Components and custom Home Assistant integrations to round off my setup. one big relief ist [Home Assistant Supervised](https://github.com/home-assistant/supervised-installer) and [HACS](https://github.com/hacs/integration). Home Assistant Supervised is a Docker based version of Home Assistant, which supports the installation of external Integrations (Add-Ons). These are executed in their own Docker container (basically their own execution envoirement).
+I'm using different Software Components and custom Home Assistant integrations to round off my setup. Two big reliefs ist [Home Assistant Supervised](https://github.com/home-assistant/supervised-installer) and [HACS](https://github.com/hacs/integration). Home Assistant Supervised is a Docker based version of Home Assistant, which supports the installation of external Integrations (Add-Ons). These are executed in their own Docker container (basically their own execution environment).
 
-You can install different custom integration into your Home Assisatnt config folder. Normally these are managed manually by the user, but [HACS](https://github.com/hacs/integration) gives the opportunity to list, install/update and maintain all of your integrations. Beside them, [HACS](https://github.com/hacs/integration) allows you to install custom [Themes](https://hacs.xyz/docs/categories/themes) and [Lovelace-Cards](https://hacs.xyz/docs/categories/plugins).
+You can install different custom integration into your Home Assistant config folder. Normally these are managed manually by the user, but [HACS](https://github.com/hacs/integration) gives the opportunity to list, install/update and maintain all of your integrations. Beside them, [HACS](https://github.com/hacs/integration) allows you to install custom [Themes](https://hacs.xyz/docs/categories/themes) and [Lovelace-Cards](https://hacs.xyz/docs/categories/plugins).
 
 ### HACS - Current used Integrations ###
 
@@ -208,14 +266,14 @@ In this section I want to describe some of my more complex automation-systems. M
 
 ### The LED Sign - Notifications and random facts for everyone 🌈 ##
 
-You all know the idea. A continous information source to show some of the collected information and notify the residents in special cases.
+You all know the idea. A continuous information source to show some of the collected information and notify the residents in special cases.
 
 To distinguish between the states of this I created an [input_select](https://www.home-assistant.io/integrations/input_select/) to represent those.
 
 - **Default** - Every two minutes an event is fired to update the current text with a random text from [templates/led/status.yaml](templates/led/status.yaml).
-- **Notification** - Notifications are a bit senseless regarding their reliability, because you need to see them. Example: If someone arrives at home a welcome message is printed there. These kind of notifications disappear after 10 seconds and are restoring the previous text to the sign. If the current State is "Hard" no notification will be shown.
+- **Notification** - Notifications are a bit senseless regarding their reliability, because you need to see them. Example: If someone arrives at home a welcome message is printed there. These kinds of notifications disappear after 10 seconds and are restoring the previous text to the sign. If the current State is "Hard", no notification will be shown.
 - **Hard** - Example: If the vacuum robot's bin should get cleared a "Hard"-Notification is printed. This kind of notification will not get overwritten by anything. Only after an acceptance/specific action of the user, the message will get removed. 
-- **Disabled** - If no one is at home the state switches to "Disabled". This state behaves similary to "Hard", because it can only be interrupted by an specific action(arrival of a resident).
+- **Disabled** - If no one is at home the state switches to "Disabled". This state behaves similar to "Hard", because it can only be interrupted by a specific action(arrival of a resident).
 
 Here is a short illustration:
 
@@ -223,9 +281,9 @@ Here is a short illustration:
 
 ### Bedroom and corresponding lights 🛏 ###
 
-Another quiet complex structure has my bedroom-weight-light automation system. If someone asks me what the most abstract sensor in my setup I usually tell them about the weight sensors under my bed. At the beginning it sounds a bit unnecessary, but the potential is huge. Here is what I'm doing: At first I need to mention that my partner and me are having their fixed side of the bed for sleeping. At this point it is easy to say, that we both got our own bedside lamp. Another point that is playing in my hands is that we've got a moderate weight difference between us. 
+Another quiet complex structure has my bedroom-weight-light automation system. If someone asks me what the most abstract sensor in my setup, I usually tell them about the weight sensors under my bed. At the beginning it sounds a bit unnecessary, but the potential is huge. Here is what I'm doing: At first I need to mention that my partner and me are having their fixed side of the bed for sleeping. At this point it is easy to say, that we both got our own bedside lamp. Another point that is playing in my hands is that we've got a moderate weight difference between us. 
 
-Long story short: When someone leaves the bed I can easily tell, who it was. I have placed two buttons in our bedroom, one between us,over the bed and the otherone at the entrance. The buttons are obviously used to control the lights. But there are some different interactions based one time and if someone is sleeping already.
+Long story short: When someone leaves the bed I can easily tell, who it was. I have placed two buttons in our bedroom, one between us, over the bed and the another at the entrance. The buttons are obviously used to control the lights. But there are some different interactions based one time and if someone is sleeping already.
 
 - Entrance Button (single)
   - **Single:** If no one is in bed: Toggle both lights with full brightness
@@ -235,16 +293,25 @@ Long story short: When someone leaves the bed I can easily tell, who it was. I h
   - **Both:** Turn on both lights with full brightness
 
 - Weight Control
-  - **Enabled**: When one of us lays in bed for more then 15 minutes.
+  - **Enabled**: When one of us lays in bed for more than 15 minutes.
     - When the resident leaves the bed, the light on his side goes on with very low brightness.
     - When the resident lays down again, the light turns off again.
   - **Disabled:** When the sun rises.
+
+<details><summary>Corresponding automations</summary>
+<p>
+  <ul>
+      <li> <a href="/config/automations/rooms/bedroom/weight.yaml">Weight based automations</a></li>
+    	<li> <a href="/config/automations/rooms/bedroom/switch_single.yaml">Entrance button</a></li>
+      <li> <a href="/config/automations/rooms/bedroom/switch_double.yaml">Bedside button</a></li>
 
 ## Future Plans 👨🏻‍🔧 ##
 
 - Add Wii "Power" to IR Sensor. Maybe PS4 too...
 - Reintegrate my [OpenTherm Gateway](https://www.nodo-shop.nl/nl/opentherm-gateway/188-opentherm-gateway.html). Looking forward to [this](https://github.com/rvdbreemen/OTGW-firmware) to get released.
 - Place an [CC2531](https://www.amazon.de/CC2531-USB-Stick-zigbee2mqtt-ioBroker-Firmware/dp/B07T3GM28F/ref=sr_1_9?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=CC2531&qid=1605394793&sr=8-9) with [this](https://github.com/Koenkk/Z-Stack-firmware/tree/master/router/CC2531) router software to improve my Zigbee network load.
+- Thinking of adding a Hue Bridge to improve the connection to my "Hue motion outdoor sensor". It also adds support for "Ambilight+Hue" on my TV...
+- Adding some christmas lights 🎄
 
 ## Support my coffee consumption ☕️ ##
 
