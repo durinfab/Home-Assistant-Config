@@ -1,5 +1,5 @@
 ##
-## Covers all automations corresponding the "monitor"-RPi Zero on the firt floor
+## Covers all automations corresponding the "monitor"-RPi Zero on the first floor
 ##
 
 ## If he's offline for 10 minutes, hard reset him

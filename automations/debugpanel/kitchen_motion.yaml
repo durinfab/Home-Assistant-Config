@@ -1,5 +1,5 @@
 ##
-## Enables/Disables Light based on motion detection in the evening
+## Enables/disables light based on motion detection in the evening.
 ##
 
 - alias: Kitchen - motion light on

@@ -1,5 +1,5 @@
 ##
-## Turns on the hall light on motion in the evening
+## Turns on the hall light on motion in the evening.
 ##
 
 - alias: "Hall - turn on lights in hall on motion"

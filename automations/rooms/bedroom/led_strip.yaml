@@ -1,8 +1,8 @@
 ##
-## Covers all Automation regarding the LED Strip in the Bedroom
+## Covers all automation regarding the LED strip in the bedroom
 ##
 
-## Led Strip should only be on, when the bedside lamps are on
+## LED strip should only be on, when the bedside lamps are on
 - alias: "Bedroom - turn on LED strip"
   trigger:
     platform: state
@@ -14,7 +14,7 @@
     service: light.turn_on
     entity_id: light.bedroom_strip
 
-## Led Strip should only be on, when the bedside lamps are on
+## LED strip should only be on, when the bedside lamps are on
 - alias: "Bedroom - turn on LED strip"
   trigger:
     - platform: state

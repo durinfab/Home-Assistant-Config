@@ -1,5 +1,5 @@
 ##
-## Turns on the stairway light on motion in the evening
+## turns on the stairway light on motion in the evening
 ##
 
 - alias: "Hall - stairway light on"

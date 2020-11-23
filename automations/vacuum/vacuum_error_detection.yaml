@@ -1,4 +1,4 @@
-## Displays that Vacuum Rebot needs help
+## displays that Vacuum Rebot needs help
 - alias: Vacuum - Vacuum Rebot needs help
   trigger:
     - platform: state

@@ -1,5 +1,5 @@
 ##
-## All Events which corresponds evening_mode
+## All events which correspond to evening_mode.
 ##
 
 - alias: Evening - Ambient Light when someone home

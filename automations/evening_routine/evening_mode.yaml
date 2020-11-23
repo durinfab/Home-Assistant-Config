@@ -1,32 +1,31 @@
-  ##
-  ## Enables/Disables Evening Mode
-  ## is used to enable/disable Light-Motion Automations
-  ##
+##
+## Enables/disables the evening mode.
+## is used to enable/disable light-motion automations
+##
 
-  
-  - alias: 'Evening - Enable evening mode'
-    initial_state: True
-    trigger:
-       - platform: sun
-         event: sunset
-       - platform: homeassistant
-         event: start
-    condition:
-      - condition: or
-        conditions:
+- alias: "Evening - Enable evening mode"
+  initial_state: True
+  trigger:
+    - platform: sun
+      event: sunset
+    - platform: homeassistant
+      event: start
+  condition:
+    - condition: or
+      conditions:
         - condition: sun
           after: sunset
         - condition: sun
           before: sunrise
-    action:
-       - service: input_boolean.turn_on
-         entity_id: input_boolean.evening_mode
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.evening_mode
 
-  - alias: 'Evening - Disable evening mode'
-    initial_state: True
-    trigger:
-        platform: sun
-        event: sunrise
-    action:
-       - service: input_boolean.turn_off
-         entity_id: input_boolean.evening_mode
+- alias: "Evening - Disable evening mode"
+  initial_state: True
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.evening_mode

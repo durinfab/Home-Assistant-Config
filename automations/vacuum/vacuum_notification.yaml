@@ -1,4 +1,4 @@
-## Short notification that cleaning was finished
+## short notification that cleaning was finished.
 - alias: Vacuum - rockrobo goes home
   id: Vacuum - rockrobo_goes_home
   trigger:

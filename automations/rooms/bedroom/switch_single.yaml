@@ -1,6 +1,5 @@
 ##
-## Covers all Automation concerning the bedside lampe
-## Note that the bedside lampe
+## covers all automations concerning the bedside lamps
 ##
 
 - alias: Bedroom - Turn on Bedside Lamp Partner
@@ -47,7 +46,7 @@
           - light.bedroom_lamp_right
         brightness: 1
 
-## if nobody is in Bed, toggle the lamps with full brightness
+## If nobody is in bed, toggle the lamps to full brightness.
 - alias: "Bedroom - Single Press, lights on"
   initial_state: True
   trigger:
@@ -69,7 +68,7 @@
   action:
     - service: script.bedroom_bright
 
-## if nobody is in bed, turn both lights off
+## If nobody is in bed, turn both lights off.
 - alias: "Bedroom - Single Press, lights off"
   initial_state: True
   trigger:

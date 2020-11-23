@@ -1,5 +1,5 @@
-## After n times of cleaning, the vacuum robot drives to the bin and wait for
-## his cleaning. After doing that this button does command him back home
+## After n times of cleaning, the vacuum robot drives to the bin and waits for
+## his cleaning. After doing that this button does command him back home.
 - alias: Kitchen - Vacuum return to base after clearing bin
   trigger:
     platform: state
@@ -45,7 +45,7 @@
       data_template:
         message: "Bitte Staubi leeren!"
 
-## After Vacuum Rebot finished, increment the bin number. It is used to to
+## After Vacuum Robot finished, increment the bin number. It is used to to
 ## determine when he needs to be cleared
 - alias: Vacuum - Cleaning finished
   trigger:

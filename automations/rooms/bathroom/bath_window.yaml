@@ -1,6 +1,6 @@
 ##
-## Reminds all residents through acustical feedback to close the bath window
-## TODO: Integrate humidity sensor -> Open window when himidity is high
+## Reminds all residents through acoustic feedback to close the bath window
+## TODO: Integrate humidity sensor -> Open window when humidity is high
 ##
 
 - alias: Bath - notfication to close bath window

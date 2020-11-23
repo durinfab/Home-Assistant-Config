@@ -1,8 +1,8 @@
 ##
-## The acustical feedback can be enabled and disabled
+## The acustic feedback can be enabled / disabled.
 ##
 
-- alias: "Info - switch 2 - Enable acustical feedback"
+- alias: "Info - switch 2 - Enable acustic feedback"
   initial_state: on
   trigger:
     - platform: state
@@ -29,7 +29,7 @@
     - service: input_boolean.turn_on
       entity_id: input_boolean.muted
 
-- alias: "Info - switch 2 - Disable acustical feedback"
+- alias: "Info - switch 2 - Disable acustic feedback"
   initial_state: on
   trigger:
     - platform: state

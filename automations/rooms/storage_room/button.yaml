@@ -1,8 +1,8 @@
 ##
-## Covers all automations corresponding the storage room button
+## Covers all automations corresponding the storage room button.
 ##
 
-## returns vacuum rebot to his base, if he is not wanted
+## Returns vacuum rebot to his base, if he is not wanted
 - alias: "Storage Room - button double"
   initial_state: True
   trigger:

@@ -1,5 +1,5 @@
 ##
-## Covers all automations based on the weigth of the residents
+## Covers all automations based on the weight of the residents.
 ##
 
 - alias: Bedroom - partner get up
@@ -80,7 +80,7 @@
         entity_id:
           - light.bedroom_lamp_right
 
-## turn off the get up/ lay down automations
+## Turn off the get up / lay down automations.
 - alias: "Bedroom - night is over"
   initial_state: True
   trigger:
@@ -94,8 +94,8 @@
         - automation.bedroom_partner_lays_down
         - automation.bedroom_partner_get_up
 
-## The get up/ lay down automations are only turned on, if someone lays
-## longer then 15 min in bed
+## The get up / lay down automations are only turned on, if someone lays
+## longer then 15 min in bed.
 - alias: "Bedroom - night begins for partner"
   initial_state: True
   trigger:

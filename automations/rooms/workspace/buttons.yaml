@@ -1,8 +1,7 @@
 ##
 ## workspace button automations
-## Simple automations based on the kind of pressing
+## simple automations based on the kind of pressing
 ##
-
 ##
 
 - alias: Workspace - right double

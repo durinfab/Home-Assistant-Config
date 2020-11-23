@@ -1,4 +1,4 @@
-## Turn on Living Room Light if the TV(AVR) is on
+## turn on Living Room Light if the TV(AVR) is on
 
 - alias: Living Room - Lights on evening
   initial_state: True

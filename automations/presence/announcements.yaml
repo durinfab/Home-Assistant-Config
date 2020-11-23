@@ -1,5 +1,5 @@
 ##
-## If an resident arrives home, he will be greeted
+## If an resident arrives at home, he will be greeted
 ##
 
 - alias: "Presence - Mate greeting"

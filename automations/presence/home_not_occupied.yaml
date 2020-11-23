@@ -1,5 +1,5 @@
 ##
-## Covers all automations that happenwhen no one is at home anymore
+## Covers all automations that happen when no one is at home anymore
 ##
 
 - alias: "Presence - No one is home"

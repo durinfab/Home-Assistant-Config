@@ -12,20 +12,20 @@ This is my current, active configuration for everyday use. Feel free to inspire 
 
 ### 💭 Philosophy ###
 
-In this chapter I want to give you a short briefing what my smart home should do and where I set my preferences.
+In this chapter I want to give you a short briefing about what my smart home should do and where I set my preferences.
 
-1. The Home should work for you. It should look forward, what you want to do and helps you with that action without any further ado.
+1. The Home should work for you. It should look forward, know what you want to do and help you with that action without any further ado.
 
 2. I love building, solder and flashing devices on my own. But during the last years I learned how true the saying “time is money” is. For a wide range of devices DIY is not as reliable and require much more maintanance then official devices. That's why I have two reasons why I build something on my own.
 
    - It is much significantly cheaper than official hardware
-   - It offers much more functionalities than official hardware
+   - It offers many more functionalities than official hardware
 
    *To be fair: the reliability of devices increases significantly if I use community driven projects like [ESPHome](#ESPHome) or [WLED](#WLED).*
 
 3. The more the Smart Home grows, the more maintenance it needs. Thats why I try to minimize the range of different devices or networks. 
 
-4. The want to avoid cloud services. I know if you're afraid of your data being abused, don't collect them on your own. But at least I want to pay attention to the sharing of those data.
+4. The wish to avoid cloud services. I know if you're afraid of your data being abused, don't collect them on your own. But at least I want to pay attention to the sharing of those data.
 
 ## 🖥 Hardware ##
 
@@ -33,7 +33,7 @@ My Home Assistant instance is running in a [Docker environment](https://docs.doc
 
 ### ⛓ Network ###
 
-As too many Wi-Fi devices are not good for the stability of the network and always need a power source, I needed to add another communication technology to my network. Because [Zigbee](https://en.wikipedia.org/wiki/Zigbee) devices is overall cheaper than [Z-Wave](https://en.wikipedia.org/wiki/Z-Wave), my decision was made quickly.
+As too many Wi-Fi devices are bad for the stability of the network and always need a power source, I needed to add another communication technology to my network. Because [Zigbee](https://en.wikipedia.org/wiki/Zigbee) devices are overall cheaper than [Z-Wave](https://en.wikipedia.org/wiki/Z-Wave), my decision was made quickly.
 
 #### 🐝 Zigbee #### 
 
@@ -59,7 +59,7 @@ Overall I'm very happy with my Zigbee setup. For the future I possibly will repl
 
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRAwO1YO8swy8G67U6m8Dy8bjyuHyDj0Am8jrIOYw9KWByll6sLbiOTPoGGU3VEQbZh5GBY9ITR&usqp=CAc" align="left" width="250">
 
-Today a Wi-Fi-network are inevitable. When one router is not able to reach every spot in the apartment, you need multiple routers to achieve a stable connection. Ealier I configured some old routers to a “Mesh”-like network with multiple [DD-WRT](https://dd-wrt.com) custom flashed routers. But overall it was a real pain to maintain and administrate. At first becuase I got routers from different brands and each one performs, works a bit different and second because the configuration is not trivial for a "please just work"-setup. At the end of 2018 I decided to invest into two [“Google Wi-Fi”](https://www.amazon.de/Google-Wifi-Router-Duo-Pack/dp/B073D5P4L7/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=google+wifi&qid=1605394841&sr=8-3) Routers. 
+Today a Wi-Fi-network is inevitable. When one router is not able to reach every spot in the apartment, you need multiple routers to achieve a stable connection. Ealier I configured some old routers to a “Mesh”-like network with multiple [DD-WRT](https://dd-wrt.com) custom flashed routers. But overall it was a real pain to maintain and administrate. First of all becuase I got routers from different brands and each one performs and works a little differently. Second is the configuration is not trivial for a "please just work"-setup. At the end of 2018 I decided to invest into two [“Google Wi-Fi”](https://www.amazon.de/Google-Wifi-Router-Duo-Pack/dp/B073D5P4L7/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=google+wifi&qid=1605394841&sr=8-3) Routers. 
 
 These are performing inconspicuous. Everything is stable, but from a networking perspective some more settings with the app are desirable. 
 
@@ -69,7 +69,7 @@ But nonetheless these pucks are able to handle my roundabout 45 devices with no 
 
 I love colorful LEDs. They help to give every room some dynamic and variety. That's why I'm mainly using color-ranged bulbs and strips instead of white-ranged ones.
 
-For bulbs and ceiling lamps um using [Yeelight](https://www.yeelight.com) Lamps. They are relatively cheap, have a LAN-functionality and a stable Home Assistant integration.
+For bulbs and ceiling lamps um using [Yeelight](https://www.yeelight.com) Lamps. They are relatively cheap, have a LAN-only-functionality and a stable Home Assistant integration.
 
 | Model                                                        | Image                                                        | Quantity | Notes                                                        |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | :------: | ------------------------------------------------------------ |
@@ -85,16 +85,16 @@ Im using four DIY LED Strips with the Software [WLED](https://github.com/Aircooo
 
 ### 🏃🏻‍♂️ Presence Detection ###
 
-Detecting residents in a specific area is not easy to establish, but is paying off. You can turn the lights off or disable the heater, when nobody is at home. You can automatically start the alarm-management or trigger the vacuum robot... Personally I'm dividing the variants of presence detection in different levels. There are **two level of region precision** (room based vs. home based) and **two level of human/identity precision** (there is a living thing vs. there is resident with a known name).
+Detecting residents in a specific area is not easy to establish, but it's paying off. You can turn the lights off or disable the heater when nobody is at home. You can automatically start the alarm-management or trigger the vacuum robot... Personally I'm dividing the variants of presence detection into different levels. There are **two level of region precision** (room based vs. home based) and **two level of human/identity precision** (there is a living thing vs. there is resident with a known name).
 
-- For the room based region precision I'm using simple motion sensors, which only detect *there is a living thing* 
-- For the home based region precision um using “[monitor](https://github.com/andrewjfreyer/monitor)” a simple script which runs on two [Raspberry Pi Zeros](https://www.raspberrypi.org/products/raspberry-pi-zero/?resellerType=home). They are able to detect “known” BLE ([Bluetooth Low Energy](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy)) devices and as long every resident has a smartphone which does he take with him when he leaves the house, you can easily detect if a resident is at home. As long, he does not forget his phone 🤷🏼‍♂️
+- For the room based region precision I'm using simple motion sensors, which only detects that *there is a living thing* 
+- For the home based region precision um using “[monitor](https://github.com/andrewjfreyer/monitor)”, a simple script which runs on two [Raspberry Pi Zeros](https://www.raspberrypi.org/products/raspberry-pi-zero/?resellerType=home). They are able to detect “known” BLE ([Bluetooth Low Energy](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy)) devices and as long as every resident has a smartphone which does he takes with him when he leaves the house, you can easily detect if a resident is at home. As long as he does not forget his phone 🤷🏼‍♂️
 
 #### Problems with Presence Detection ####
 
 |                | **There is a living thing**                                  | **There is resident with the name**                          |
 | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **room based** | **Easy** Motion Sensors, Switches, Buttons (Basically every sensor that needs an interaction). | **Hard** Requires the resident to ALWAYS take their home it them. In my opinion only realizable with Smart Watches. |
+| **room based** | **Easy** Motion Sensors, Switches, Buttons (Basically every sensor that needs an interaction). | **Hard** Requires the resident to ALWAYS take their personal device (e. g. smart phone) with it them. In my opinion only realizable with Smart Watches. |
 | **home based** | **Easy** Motion Sensors, Switches, Buttons (Basically every sensor that needs an interaction). | **Medium** Requires BLE monitoring and well-defined scanning algorithms. Not easy to establish but very reliable. |
 
 <details><summary>Important corresponding automations</summary>
@@ -114,7 +114,7 @@ The newest member in our small Smart Home is a used [Roborock S50](https://www.a
 
 <img src="https://images-na.ssl-images-amazon.com/images/I/416NB5aoZzL._AC_SL1000_.jpg" width="200" align="right">
 
-Why especially this device? Because it uses a smart Laser-based navigation(no random algorithms), is rootable and is supported by Valetudo. It is importent to me to interrupt the cloud connection to Xiaomi. His little brother the [Xiaomi Mi Robot](https://www.amazon.de/Xiaomi-Saugroboter-Staubsauger-Kehrmaschine-Steuerung/dp/B01LYV1EMA/ref=pd_lpo_79_t_0/260-7052561-1317654?_encoding=UTF8&pd_rd_i=B01LYV1EMA&pd_rd_r=68c901e4-bbb9-4551-96b6-79d031291d4d&pd_rd_w=Fnimb&pd_rd_wg=YIxMw&pf_rd_p=d5c9797d-0238-4119-b220-af4cc3420918&pf_rd_r=EA2CRW8TBWB03PGYNE88&psc=1&refRID=EA2CRW8TBWB03PGYNE88) has a fewer feature tree. The Roborock S50 supports virtual No-Go Borders and saves the created map over multiple cleaning runs. For a advanced comparision click [here](https://valetudo.cloud/pages/knowledge_base/supported-roborock-devices.html#gen-2).
+Why especially this device? Because it uses a smart Laser-based navigation(no random algorithms), is rootable and is supported by Valetudo. It is important to me to interrupt the cloud connection to Xiaomi. His little brother the [Xiaomi Mi Robot](https://www.amazon.de/Xiaomi-Saugroboter-Staubsauger-Kehrmaschine-Steuerung/dp/B01LYV1EMA/ref=pd_lpo_79_t_0/260-7052561-1317654?_encoding=UTF8&pd_rd_i=B01LYV1EMA&pd_rd_r=68c901e4-bbb9-4551-96b6-79d031291d4d&pd_rd_w=Fnimb&pd_rd_wg=YIxMw&pf_rd_p=d5c9797d-0238-4119-b220-af4cc3420918&pf_rd_r=EA2CRW8TBWB03PGYNE88&psc=1&refRID=EA2CRW8TBWB03PGYNE88) has a fewer features. The Roborock S50 supports virtual No-Go Borders and saves the created map over multiple cleaning runs. For an advanced comparison click [here](https://valetudo.cloud/pages/knowledge_base/supported-roborock-devices.html#gen-2).
 
 <details><summary>Using in automations</summary>
 <p>

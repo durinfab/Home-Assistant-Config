@@ -1,4 +1,4 @@
-## When nobody is at home for 15 min, start cleaning(whole apartment)
+## When nobody is at home for 15 min, starts cleaning(whole apartment).
 - alias: Vacuum - Run Main Floor Roomba when Away
   trigger:
     - platform: state
@@ -58,7 +58,7 @@
       entity_id:
         - vacuum.rockrobo
 
-## Vacuum Rebot should ony clean once per day automatically
+## Vacuum Robot should only clean once per day automatically.
 - alias: Vacuum - Set Main Floor Vacuum has ran for the Day
   trigger:
     - platform: state
@@ -75,7 +75,7 @@
 
 
 
-## Let Vacuum return to base, when someone is home
+## Let's Vacuum return to base, when someone is home
 - alias: Vacuum - Shut Off Vacuum Robot when Home
   trigger:
     - platform: state

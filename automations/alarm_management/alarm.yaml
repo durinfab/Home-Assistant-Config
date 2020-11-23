@@ -1,13 +1,13 @@
 ##
-## Covers all automations around the alarm management
+## Covers all automations around the alarm management.
 ##
 
-## If an sensor is triggered and no one is home, the alarm management goes through two stages:
-## Authentication stage: For 30 seconds the alarm management is waiting for one of the residents is coming home
+## If a sensor is triggered and no one is home, the alarm management goes through two stages:
+## Authentication stage: For 30 seconds the alarm management is waiting until one of the residents is coming home
 ##    Success: do not trigger alarm
 ##    Fail: trigger alarm
-## Interpretation stage: With the start of the authentication, a "monitor"-arrive command is send
-##    if they find an known device, they notify the alarm management that an resident has arrived and the alarm can be turned off
+## Interpretation stage: With the start of the authentication, a "monitor"-arrive command is send.
+##    If they find a known device, they notify the alarm management that an resident has arrived and the alarm can be turned off
 
 - alias: "Alarm - Trigger alarm while armed away"
   trigger:

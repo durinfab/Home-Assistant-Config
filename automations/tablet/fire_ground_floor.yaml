@@ -1,6 +1,6 @@
 ##
-## Covers all automations around the tablet on ground_floor
-## Powered by Fully Kiosk Browser
+## Covers all automations around the tablet on ground_floor.
+## powered by Fully Kiosk Browser
 ##
 
 ## turn it back on, when someone comes to ground floor
@@ -40,7 +40,7 @@
         entity_id: input_select.led_sign_mode
         option: Default
 
-## turn on tablet on sunrise
+## Turns on tablet on sunrise.
 
 - alias: "Workspace - Tablet on on sunrise"
   trigger:
