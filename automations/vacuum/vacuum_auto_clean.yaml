@@ -1,0 +1,107 @@
+## When nobody is at home for 15 min, start cleaning(whole apartment)
+- alias: Vacuum - Run Main Floor Roomba when Away
+  trigger:
+    - platform: state
+      entity_id: input_boolean.home_occupied
+      from: "on"
+      to: "off"
+      for:
+        hours: 0
+        minutes: 15
+        seconds: 0
+
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.vacuum_ran
+      state: "off"
+    - condition: time
+      after: "08:00:00"
+      before: "22:00:00"
+    - condition: state
+      entity_id: vacuum.rockrobo
+      state: "docked"
+    - condition: numeric_state
+      entity_id: sensor.vacuum_battery
+      above: 99
+  action:
+    - service: vacuum.start
+      entity_id:
+        - vacuum.rockrobo
+
+## Start cleaning on weekdays (if had not cleaned already)
+- alias: Vacuum - Run Main Floor Vacuum Weekdays
+  trigger:
+    - platform: time
+      at: "16:00:00"
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+    - condition: state
+      entity_id: vacuum.rockrobo
+      state: "docked"
+    - condition: state
+      entity_id: input_boolean.vacuum_ran
+      state: "off"
+    - condition: numeric_state
+      entity_id: sensor.vacuum_battery
+      above: 99
+
+  action:
+    - service: vacuum.start
+      entity_id:
+        - vacuum.rockrobo
+
+## Vacuum Rebot should ony clean once per day automatically
+- alias: Vacuum - Set Main Floor Vacuum has ran for the Day
+  trigger:
+    - platform: state
+      entity_id: vacuum.rockrobo
+      to: "cleaning"
+      for:
+        hours: 0
+        minutes: 20
+        seconds: 0
+  action:
+    - service: homeassistant.turn_on
+      entity_id:
+        - input_boolean.vacuum_ran
+
+
+
+## Let Vacuum return to base, when someone is home
+- alias: Vacuum - Shut Off Vacuum Robot when Home
+  trigger:
+    - platform: state
+      entity_id: input_boolean.home_occupied
+      from: "off"
+      to: "on"
+
+  condition:
+    - condition: state
+      entity_id: vacuum.rockrobo
+      state: "cleaning"
+  action:
+    - service: vacuum.return_to_base
+      entity_id:
+        - vacuum.rockrobo
+    - delay: 5
+    - service: vacuum.return_to_base
+      entity_id:
+        - vacuum.rockrobo
+
+- alias: Vacuum - Vacuum Robot has not ran for the day
+  trigger:
+    - platform: time
+      at: "00:01:00"
+
+  action:
+    - service: homeassistant.turn_off
+      entity_id:
+        - input_boolean.vacuum_ran

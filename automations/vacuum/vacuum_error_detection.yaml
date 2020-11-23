@@ -1,0 +1,14 @@
+## Displays that Vacuum Rebot needs help
+- alias: Vacuum - Vacuum Rebot needs help
+  trigger:
+    - platform: state
+      entity_id: vacuum.rockrobo
+      to: "error"
+  condition:
+    - condition: state
+      entity_id: input_boolean.vacuum_clear_bin
+      state: "off"
+  action:
+    - service: script.led_hard
+      data_template:
+        message: "Staubi braucht Hilfe!"

@@ -1,0 +1,11 @@
+## Short notification that cleaning was finished
+- alias: Vacuum - rockrobo goes home
+  id: Vacuum - rockrobo_goes_home
+  trigger:
+    platform: state
+    entity_id: vacuum.rockrobo
+    to: "returning"
+  action:
+    service: script.led_notification
+    data_template:
+      message: "Saeuberung beendet!"
