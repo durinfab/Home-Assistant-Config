@@ -304,6 +304,8 @@ Long story short: When someone leaves the bed I can easily tell, who it was. I h
       <li> <a href="/config/automations/rooms/bedroom/weight.yaml">Weight based automations</a></li>
     	<li> <a href="/config/automations/rooms/bedroom/switch_single.yaml">Entrance button</a></li>
       <li> <a href="/config/automations/rooms/bedroom/switch_double.yaml">Bedside button</a></li>
+</p>
+</details>
 
 ## Future Plans 👨🏻‍🔧 ##
 
