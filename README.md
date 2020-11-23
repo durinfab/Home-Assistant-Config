@@ -4,9 +4,9 @@
 
 I'm Fabian, a computer science student from Germany. I live in a shared apartment with my partner and a friend of ours. I'm using Home Assistant for about four years right now and Home Automation has become one of my biggest hobbies. During my journey I learned a lot about keeping the network tidy, getting an own point of view of logical shortcuts between devices and a good effort-benefit- and price-performance- assessment.
 
-Because I'm a student and home automation is a slightly expensive hobby. I started my journey in 2016 with almost only DIY sensors and actors, which are mainly driven by a [ESP32/8266](https://www.amazon.de/AZDelivery-ESP32-NodeMCU-gratis-eBook/dp/B07Z83MF5W/ref=asc_df_B07Z83MF5W/?tag=googshopde-21&linkCode=df0&hvadid=427788576373&hvpos=&hvnetw=g&hvrand=8639050305478239369&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1003859&hvtargid=pla-898234157885&psc=1&th=1&psc=1&tag=&ref=&adgrpid=99889209552&hvpone=&hvptwo=&hvadid=427788576373&hvpos=&hvnetw=g&hvrand=8639050305478239369&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1003859&hvtargid=pla-898234157885). Until now, much has changed. More WiFi-devices imply more complexity. More WiFi-devices need a stronger WiFi-Router or some devices need to switch to a alternative network technology. After a while, I switched almost every sensor to a Zigbee device. And so on...
+Because I'm a student and home automation is a slightly expensive hobby. I started my journey in 2016 with almost only DIY sensors and actors, which are mainly driven by a [ESP32/8266](https://www.amazon.de/AZDelivery-ESP32-NodeMCU-gratis-eBook/dp/B07Z83MF5W/ref=asc_df_B07Z83MF5W/?tag=googshopde-21&linkCode=df0&hvadid=427788576373&hvpos=&hvnetw=g&hvrand=8639050305478239369&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1003859&hvtargid=pla-898234157885&psc=1&th=1&psc=1&tag=&ref=&adgrpid=99889209552&hvpone=&hvptwo=&hvadid=427788576373&hvpos=&hvnetw=g&hvrand=8639050305478239369&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1003859&hvtargid=pla-898234157885). Until now, much has changed. More WiFi-devices imply more complexity. Also more WiFi-devices require a stronger WiFi-Router or some devices need to switch to a alternative network technology. After a while, I switched almost every sensor to a Zigbee device. And so on...
 
-This is my current, active configuration for everyday use. Feel free to inspire yourself and give feedback on my setup. I look forward to discussing with you :)
+This is my current, active configuration for everyday use. Feel free to inspire yourself and give feedback on my setup. I am looking forward to any feedback :)
 
 **TL;DR: I received many inspirations and help from all those smart home developers and enthusiasts and I want to give something back. So here is my Home Assistant Configuration.** 
 
@@ -25,7 +25,7 @@ In this chapter I want to give you a short briefing about what my smart home sho
 
 3. The more the Smart Home grows, the more maintenance it needs. Thats why I try to minimize the range of different devices or networks. 
 
-4. The wish to avoid cloud services. I know if you're afraid of your data being abused, don't collect them on your own. But at least I want to pay attention to the sharing of those data.
+4. The goal to avoid cloud services. I know if you're afraid of your data being abused, don't collect them on your own. But at least I want to pay attention to the sharing of those data.
 
 ## 🖥 Hardware ##
 
@@ -211,7 +211,7 @@ Beside the LEDs there are also two switches and a HC-SR501-Sensor. I thought abo
 
 #### 🏋🏼‍♂️ HX711 - Weight Sensor ####
 
-Some of you might ask what you can do with a weight sensor in a Smart Home. A whole lot of! I use them placed under my bed to detect the presence there. Because my girlfriend weighs less than me, we can differentiate who and how much people are there. This enables a lot of handy automations.
+Some of you might ask what you can do with a weight sensor in a Smart Home. A whole lot of! I use them placed under my bed to detect the presence there. Because my partner weighs less than me, we can differentiate who is there. This enables a lot of handy automations.
 
 <details><summary>Using in automations</summary>
 <p>
@@ -226,7 +226,7 @@ Some of you might ask what you can do with a weight sensor in a Smart Home. A wh
 
 ## Software Components ##
 
-I'm using different Software Components and custom Home Assistant integrations to round off my setup. Two big reliefs ist [Home Assistant Supervised](https://github.com/home-assistant/supervised-installer) and [HACS](https://github.com/hacs/integration). Home Assistant Supervised is a Docker based version of Home Assistant, which supports the installation of external Integrations (Add-Ons). These are executed in their own Docker container (basically their own execution environment).
+I'm using different Software Components and custom Home Assistant integrations to round off my setup. Two big reliefs are [Home Assistant Supervised](https://github.com/home-assistant/supervised-installer) and [HACS](https://github.com/hacs/integration). Home Assistant Supervised is a Docker based version of Home Assistant, which supports the installation of external Integrations (Add-Ons). These are executed in their own Docker container (basically their own execution environment).
 
 You can install different custom integration into your Home Assistant config folder. Normally these are managed manually by the user, but [HACS](https://github.com/hacs/integration) gives the opportunity to list, install/update and maintain all of your integrations. Beside them, [HACS](https://github.com/hacs/integration) allows you to install custom [Themes](https://hacs.xyz/docs/categories/themes) and [Lovelace-Cards](https://hacs.xyz/docs/categories/plugins).
 
@@ -240,13 +240,13 @@ You can install different custom integration into your Home Assistant config fol
 - [mini-graph-card](https://github.com/kalkih/mini-graph-card) - Beautiful graphs for Lovelace. 📊
 - [simple-thermostat](https://github.com/nervetattoo/simple-thermostat) - A pretty nice visualsation for climate entities. 🌡
 - [vacuum-card](https://github.com/denysdovhan/vacuum-card) - Nice card for the visualsation of vacuum entities. 🧹
-- [lovelace-valetudo-map-card](https://github.com/TheLastProject/lovelace-valetudo-map-card) - To display the Map from [Valetudo](https://github.com/Hypfer/Valetudo). You will also need [this]() Add-On for image conversion. 🗺
+- [lovelace-valetudo-map-card](https://github.com/TheLastProject/lovelace-valetudo-map-card) - To display the Map from [Valetudo](https://github.com/Hypfer/Valetudo). You will also need [FILL_ME](https://media.giphy.com/media/kFgzrTt798d2w/source.gif) Add-On for image conversion. 🗺
 - [atomic-calendar-revive](https://github.com/marksie1988/atomic-calendar-revive) - Calender-Card with plenty of customisation. 📅
 
 ### HA Supervised Add-Ons ###
 
 - [Adguard](https://github.com/hassio-addons/addon-adguard-home) - Ad-Blocking for the entire network ([PiHole](https://www.home-assistant.io/integrations/pi_hole/) replacement). 🛡
-- [ESPHome](https://esphome.io/guides/getting_started_hassio.html) - Manage all my ESPHome enabled IoT devices. 🏠
+- [ESPHome](https://esphome.io/guides/getting_started_hassio.html) - Manages all my ESPHome enabled IoT devices. 🏠
 - [Mosquitto](https://github.com/home-assistant/hassio-addons/tree/master/mosquitto) - MQTT Server for my network. ☀️
 - [ps4Waker](https://github.com/vkorn/hassio-addons/tree/master/ps4waker) - Helps to automatically start-up my PS4.
 - [RPC-Shutdown](https://github.com/home-assistant/hassio-addons/blob/master/rpc_shutdown/README.md) - Shutdown Windows Machines.
@@ -281,7 +281,7 @@ Here is a short illustration:
 
 ### Bedroom and corresponding lights 🛏 ###
 
-Another quiet complex structure has my bedroom-weight-light automation system. If someone asks me what the most abstract sensor in my setup, I usually tell them about the weight sensors under my bed. At the beginning it sounds a bit unnecessary, but the potential is huge. Here is what I'm doing: At first I need to mention that my partner and me are having their fixed side of the bed for sleeping. At this point it is easy to say, that we both got our own bedside lamp. Another point that is playing in my hands is that we've got a moderate weight difference between us. 
+Another quiet complex structure has my bedroom-weight-light automation system. If someone asks me what the most abstract sensor in my setup is, I usually tell them about the weight sensors under my bed. At the beginning it sounds a bit unnecessary, but the potential is huge. Here is what I'm doing: At first I need to mention that my partner and me are having their fixed side of the bed for sleeping. At this point it is easy to say, that we both got our own bedside lamp. Another point that is playing in my hands is that we've got a moderate weight difference between us. 
 
 Long story short: When someone leaves the bed I can easily tell, who it was. I have placed two buttons in our bedroom, one between us, over the bed and the another at the entrance. The buttons are obviously used to control the lights. But there are some different interactions based one time and if someone is sleeping already.
 
