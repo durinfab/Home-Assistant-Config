@@ -1,0 +1,89 @@
+##
+## Covers all automations regarding the garbage collection.
+##
+
+## The calendar.mulltonne shows whether the garbage collection is coming.
+##  - acoustic feedback
+##  - visual feedback
+- alias: "Garbage Collection - Tomorrow"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.garbage_collection
+    to: "True"
+  action:
+    - service: script.speech_engine
+      data_template:
+        personarriving: >
+          "Morgen muss die {{ state_attr('calendar.muelltonne', 'message') }} raus. Geht sie doch bitte rausschaffen!"
+        call_responsibilities: 0
+        call_random: 1
+        call_no_announcement: 1
+        call_garage_check: 0
+        call_window_check: 0
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.mulltonne
+    - service: script.led_hard
+      data_template:
+        message: "{{ state_attr('calendar.muelltonne', 'message') }}"
+
+## To force the residents to move the trash they get an notification every hour.
+- alias: "Garbage Collection - Notification"
+  initial_state: True
+  trigger:
+    platform: time_pattern
+    minutes: "/59"
+  condition:
+    condition: and
+    conditions:
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: input_boolean.partner_home
+            state: "on"
+          - condition: state
+            entity_id: input_boolean.fabi_home
+            state: "on"
+          - condition: state
+            entity_id: input_boolean.mate_home
+            state: "on"
+      - condition: state
+        entity_id: input_boolean.mulltonne
+        state: "on"
+  action:
+    - service: script.speech_engine
+      data_template:
+        random: >
+          "Morgen muss die {{ state_attr('calendar.gemeindebau', 'message') }} raus. Geht sie doch bitte rausschaffen!"
+        call_responsibilities: 0
+        call_random: 1
+        call_no_announcement: 1
+        call_garage_check: 0
+        call_window_check: 0
+    - service: script.led_hard
+      data_template:
+        message: "{{ state_attr('calendar.muelltonne', 'message') }}"
+
+- alias: "Garbage Collection - Completed"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.workspace_double_click
+    to: "both_double"
+  condition:
+    - condition: state
+      entity_id: input_boolean.mulltonne
+      state: "on"
+  action:
+    - service: script.speech_engine
+      data_template:
+        random: >
+          "{{ state_attr('calendar.muelltonne', 'message') }} wurde bestätigt!"
+        call_responsibilities: 0
+        call_random: 1
+        call_no_announcement: 1
+        call_garage_check: 0
+        call_window_check: 0
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.mulltonne
+    - service: script.clear_led_hard

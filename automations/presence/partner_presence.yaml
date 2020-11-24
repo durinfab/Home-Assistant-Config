@@ -1,0 +1,59 @@
+##
+## The presence of the residents will be tracked with wifi and bluetooth
+## TODO: Source
+##
+
+## if some DeviceTracker goes away we check the credibility of the event,
+## that the resident has left the home. We assume that the resident has left
+## the home, when the count of tracker is below 2
+- alias: "Presence - partner goes away"
+  initial_state: on
+  trigger:
+    - platform: state
+      entity_id:
+        - device_tracker.partner_phone_wifi
+        - device_tracker.partner_tracking_phone_ground
+        - device_tracker.partner_tracking_phone_first_floor
+      to: "not_home"
+    - platform: homeassistant
+      event: start
+  condition:
+    # As long as at least two trackers mark as away, they're away
+    - condition: numeric_state
+      entity_id: group.person_partner
+      below: 2
+      value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_partner', 'entity_id'))|list)|groupby('state'))['home']|count }}"
+    # An exit door recently opened or closed
+    - condition: template
+      value_template: "{{ (as_timestamp(now()) - as_timestamp(states('input_datetime.last_door'))) | int < 600 }}"
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.partner_home
+    - service: mqtt.publish
+      data:
+        topic: location/partner
+        payload: "not_home"
+
+## When a tracker detects a desired device, we assume that the resident comes home
+- initial_state: on
+  alias: "Presence - partner comes home"
+  trigger:
+    - platform: state
+      entity_id:
+        - device_tracker.partner_phone_wifi
+        - device_tracker.partner_tracking_phone_ground
+        - device_tracker.partner_tracking_phone_first_floor
+      to: "home"
+    - platform: homeassistant
+      event: start
+  condition:
+    - condition: state
+      entity_id: group.person_partner
+      state: "home"
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.partner_home
+    - service: mqtt.publish
+      data:
+        topic: location/partner
+        payload: "home"

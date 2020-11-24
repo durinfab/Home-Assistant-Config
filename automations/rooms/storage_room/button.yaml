@@ -1,0 +1,41 @@
+##
+## Covers all automations corresponding the storage room button.
+##
+
+## Returns vacuum rebot to his base, if he is not wanted
+- alias: "Storage Room - button double"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.storage_room_button_click
+    to: "double"
+  action:
+    - service: vacuum.return_to_base
+      entity_id: vacuum.rockrobo
+    - delay: 2
+    - service: vacuum.return_to_base
+      entity_id: vacuum.rockrobo
+
+- alias: Storage Room - button single
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.storage_room_button_click
+    to: "single"
+  action:
+    - service: light.toggle
+      data:
+        entity_id:
+          - light.storage_room_lamp
+        brightness: 250
+        color_temp: 320
+
+- alias: Storage Room - button triple
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.storage_room_button_click
+    to: "triple"
+  action:
+    - service: input_boolean.toggle
+      entity_id: input_boolean.disco

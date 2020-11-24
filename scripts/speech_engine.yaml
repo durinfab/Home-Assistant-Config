@@ -1,0 +1,49 @@
+##
+## This engine is used to give acustical feedback to the residents via Smart Speaker
+## Source: https://github.com/CCOSTAN/Home-AssistantConfig
+##
+
+speech_engine:
+  sequence:
+    - condition: state
+      entity_id: input_boolean.muted
+      state: "off"
+    - service: script.speech_processing
+      data_template:
+        ## when a device is playing music it is excluded
+        ## thats because it does not resume the previous media
+        media_player: >-
+          {% if media_player | length == 0 %}
+            {% if (is_state('media_player.kitchen', 'off') or is_state('media_player.kitchen', 'idle') or is_state('media_player.kitchen', 'paused')) and (is_state('media_player.living_room', 'off') or is_state('media_player.living_room', 'idle') or is_state('media_player.living_room', 'paused')) %}
+              {% set media_player = [
+                'media_player.workspace',
+                'media_player.kitchen',
+                'media_player.living_room'
+              ] %}
+            {% endif %}
+            {% if is_state('media_player.kitchen', 'playing') and is_state('media_player.living_room', 'playing') %}
+              {% set media_player = [
+                'media_player.workspace'
+              ] %}
+            {% endif %}
+            {% if (is_state('media_player.kitchen', 'off') or is_state('media_player.kitchen', 'idle') or is_state('media_player.kitchen', 'paused')) and is_state('media_player.living_room', 'playing') %}
+              {% set media_player = [
+                'media_player.workspace',
+                'media_player.kitchen'
+              ] %}
+            {% endif %}
+            {% if (is_state('media_player.living_room', 'off') or is_state('media_player.living_room', 'idle') or is_state('media_player.living_room', 'paused')) and is_state('media_player.kitchen', 'playing') %}
+              {% set media_player = [
+                'media_player.workspace',
+                'media_player.living_room'
+              ] %}
+            {% endif %}
+          {% endif %}
+
+          {% if media_player is not string and media_player is sequence %}
+            {% set media_player = media_player|join(', ') %}
+          {% endif %}
+
+          {{ media_player }}
+        ## Fill the message with random facts
+        speech_message: !include ../templates/speech/talktome.yaml

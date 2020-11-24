@@ -1,0 +1,13 @@
+##
+## covers all automations corresponding the kitchen button
+##
+
+- alias: "Kitchen - Light on/off"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.kitchen_button_click
+    to: "single"
+  action:
+    - service: light.toggle
+      entity_id: light.kitchen_lamp

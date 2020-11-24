@@ -1,0 +1,3 @@
+    name: "Evening Mode"
+    initial: 'off'
+    icon: mdi:weather-sunset

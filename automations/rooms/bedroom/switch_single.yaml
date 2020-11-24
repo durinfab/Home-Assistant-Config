@@ -1,0 +1,94 @@
+##
+## covers all automations concerning the bedside lamps
+##
+
+- alias: Bedroom - Turn on Bedside Lamp Partner
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.bedroom_button_click
+    to: "single"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.fabi_in_bed
+        state: "True"
+      - condition: state
+        entity_id: sensor.partner_in_bed
+        state: "False"
+  action:
+    - service: light.toggle
+      data:
+        entity_id:
+          - light.bedroom_lamp_left
+        brightness: 1
+
+- alias: Bedroom - Turn on Bedside Lamp Fabi
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.bedroom_button_click
+    to: "single"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.fabi_in_bed
+        state: "False"
+      - condition: state
+        entity_id: sensor.partner_in_bed
+        state: "True"
+  action:
+    - service: light.toggle
+      data:
+        entity_id:
+          - light.bedroom_lamp_right
+        brightness: 1
+
+## If nobody is in bed, toggle the lamps to full brightness.
+- alias: "Bedroom - Single Press, lights on"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.bedroom_button_click
+    to: "single"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.fabi_in_bed
+        state: "False"
+      - condition: state
+        entity_id: sensor.partner_in_bed
+        state: "False"
+      - condition: state
+        entity_id: light.bedroom_lamp_right
+        state: "off"
+  action:
+    - service: script.bedroom_bright
+
+## If nobody is in bed, turn both lights off.
+- alias: "Bedroom - Single Press, lights off"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.bedroom_button_click
+    to: "single"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.fabi_in_bed
+        state: "False"
+      - condition: state
+        entity_id: sensor.partner_in_bed
+        state: "False"
+      - condition: state
+        entity_id: light.bedroom_lamp_right
+        state: "on"
+  action:
+    - service: light.turn_off
+      entity_id:
+        - light.bedroom_lamp_right
+        - light.bedroom_lamp_left

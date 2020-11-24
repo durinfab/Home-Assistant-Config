@@ -1,0 +1,2 @@
+- platform: dwd_weather_warnings
+  region_name: !secret location_city

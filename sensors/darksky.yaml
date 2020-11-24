@@ -1,0 +1,16 @@
+- platform: moon
+- platform: darksky
+  api_key: !secret darksky
+  monitored_conditions:
+    - summary
+    - precip_type
+    - precip_intensity
+    - precip_intensity_max
+    - temperature
+    - wind_speed
+    - cloud_cover
+    - humidity
+    - minutely_summary
+    - uv_index
+    - sunrise_time
+    - sunset_time

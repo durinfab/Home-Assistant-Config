@@ -1,0 +1,11 @@
+##
+## Tracking of the location
+## Source: https://github.com/DubhAd/Home-AssistantConfig/blob/live/device_tracker/mqtt_person.yaml
+##
+
+platform: mqtt
+source_type: router
+devices:
+  presence_fabi: 'location/fabi'
+  presence_partner: 'location/partner'
+  presence_mate: 'location/mate'

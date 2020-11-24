@@ -1,0 +1,57 @@
+##
+## Covers all automations around the tablet on ground_floor.
+## powered by Fully Kiosk Browser
+##
+
+## turn it back on, when someone comes to ground floor
+
+- alias: "Workspace - Turn on fire when someone ground"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id:
+      - light.living_room_lamp_left
+      - light.living_room_lamp_right
+      - light.kitchen_lamp
+      - light.schreibtischlampe
+      - light.storage_room_lamp
+      - light.workspace_strip
+      - light.living_room_strip
+      - light.dining_table
+      - light.dining_table_ambilight
+      - light.vestibule_lamp
+      - light.hall_strip
+    to: "on"
+  condition:
+    - condition: or
+      conditions:
+        - condition: sun
+          after: sunset
+          after_offset: "02:00:00"
+        - condition: sun
+          before: sunrise
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.740aa7b1_77fedd44
+        brightness: 150
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.led_sign_mode
+        option: Default
+
+## Turns on tablet on sunrise.
+
+- alias: "Workspace - Tablet on on sunrise"
+  trigger:
+    - platform: sun
+      event: sunrise
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.740aa7b1_77fedd44
+        brightness: 150
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.led_sign_mode
+        option: Default

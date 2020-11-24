@@ -1,0 +1,89 @@
+##
+## Covers all automations around the alarm management.
+##
+
+## If a sensor is triggered and no one is home, the alarm management goes through two stages:
+## Authentication stage: For 30 seconds the alarm management is waiting until one of the residents is coming home
+##    Success: do not trigger alarm
+##    Fail: trigger alarm
+## Interpretation stage: With the start of the authentication, a "monitor"-arrive command is send.
+##    If they find a known device, they notify the alarm management that an resident has arrived and the alarm can be turned off
+
+- alias: "Alarm - Trigger alarm while armed away"
+  trigger:
+    - platform: state
+      entity_id:
+        - group.entrances
+        - group.motion_sensors
+      to: "on"
+    - platform: state
+      entity_id:
+        - binary_sensor.vestibule_front_door_contact
+      to: "on"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: alarm_control_panel.alarmanlage
+        state: armed_away
+      - condition: state
+        entity_id: input_boolean.home_occupied
+        state: "off"
+  action:
+    - service: script.led_hard
+      data_template:
+        message: "Authentifiziere..."
+    ## Wait for someone to appear home
+    - wait_template: "{{ states('input_boolean.home_occupied') == 'on' }}"
+      timeout: "00:00:30"
+      continue_on_timeout: true
+    ## If timeout triggers, this still will be 'off'
+    - wait_template: "{{ states('input_boolean.home_occupied') == 'off' }}"
+      timeout: "00:00:01"
+      continue_on_timeout: false
+    - service: script.led_hard
+      data_template:
+        message: "Unautorisierter Zugriff!"
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.alarmanlage
+
+##
+## If the alarm was triggered
+##    - residents are notified
+##    - acoustic feedback for the intruder
+##    - visual feedback for the intruder on the led_sign
+##
+
+- alias: "Alarm - Was triggered"
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.alarmanlage
+      to: "triggered"
+  action:
+    - service: script.led_hard
+      data_template:
+        message: "Unautorisierter Zugriff!"
+    - service: script.speech_processing
+      data_template:
+        media_player: >-
+          {% set media_player = [
+            'media_player.workspace',
+            'media_player.living_room',
+            'media_player.bedroom',
+            'media_player.kitchen'
+          ] %}
+
+          {% if media_player is not string and media_player is sequence %}
+            {% set media_player = media_player|join(', ') %}
+          {% endif %}
+
+          {{ media_player }}
+        speech_message: "Unautorisierter Zugriff erkannt."
+    - service: notify.mobile_app_fabi_phone
+      data:
+        title: "Alarm im Gemeindebau"
+        message: "Um {{ now() }} gab es einen Alarm!"
+    - service: notify.mobile_app_pic_lx9
+      data:
+        title: "Alarm im Gemeindebau"
+        message: "Um {{ now() }} gab es einen Alarm!"

@@ -1,0 +1,44 @@
+name: Gemeindebau
+filter:
+  include_domains:
+    - light
+    - alarm_control_panel
+  exclude_entities:
+    - light.debug_led1
+    - light.debug_led2
+    - light.debug_led3
+    - light.debug_led4
+    - light.debug_led5
+    - light.debug_led6
+    - light.debug_led7
+    - light.debug_led8
+    - light.debug_led9
+    - light.debug_led10
+    - light.debug_led11
+    - light.debug_led0
+    - light.740aa7b1_77fedd44
+    - light.b0e6f226_afa899e1
+
+  include_entities:
+    - climate.thermostat
+    - binary_sensor.outdoor_motion_occupancy
+    - binary_sensor.stairway_motion_occupancy
+    - binary_sensor.vestibule_motion_occupancy
+    - binary_sensor.debug_motion
+    - binary_sensor.hall_motion
+    - sensor.living_room_temperature_temperature
+    - sensor.bathroom_temperature_temperature
+    - sensor.workspace_temperature_temperature
+    - sensor.bedroom_temperture
+    - sensor.bathroom_temperature_humidity
+    - sensor.living_room_temperature_humidity
+    - sensor.workspace_temperature_humidity
+    - sensor.outdoor_motion_temperature
+    - switch.workspace_fairy_lights
+    - switch.stairway_light
+    - switch.manual_staubi
+    - input_boolean.phillips_tv
+    - person.fabi
+    - person.partner
+    - person.mate
+    - media_player.denon_avr

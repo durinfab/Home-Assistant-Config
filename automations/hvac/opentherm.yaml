@@ -1,0 +1,160 @@
+##
+## WARNING: Not working at the moment - problems with OpenTherm Bridge
+## Over all the OpenTherm Bridge is very buggy so I tried to recognize 
+## some behavior-patterns. These automations are obsolte.
+##
+
+- alias: 'HVAC - increase heat'
+  trigger:
+    - platform: state
+      entity_id: sensor.arbeitszimmer_set_temperature_ot
+    #- platform: template
+    #  value_template: "{{ state_attr('climate.opentherm','temperature') }}"
+  condition:
+    condition: and
+    conditions:
+    - condition: template
+      value_template: "{{ (trigger.to_state.state | float) > (trigger.from_state.state | float) }}"
+    - condition: template
+      value_template: "{{ (trigger.to_state.state | int) > 0 }}"
+    - condition: state
+      entity_id: input_boolean.dummy_heizung
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.dummy_heizung1
+      state: 'off'
+  action:
+    - service: script.speech_engine
+      data_template:
+        NestStatus: "Ich erhöhe die Temperatur im Haus auf {{ (state_attr('climate.thermostat', 'temperature')) | replace('.', ',') }} Grad."
+        call_window_check: 1
+        call_no_announcement: 1
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.dummy_heizung
+
+- alias: 'HVAC - NaN'
+  trigger:
+    - platform: state
+      entity_id: sensor.arbeitszimmer_set_temperature_ot
+  condition:
+    - condition: template
+      value_template: "{{ not((trigger.to_state.state | float) >  0) }}"
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.dummy_heizung1
+
+- alias: 'HVAC - Dummy'
+  trigger:
+    - platform: state
+      entity_id: sensor.arbeitszimmer_set_temperature_ot
+    #- platform: template
+    #  value_template: "{{ state_attr('climate.opentherm','temperature') }}"
+  condition:
+    - condition: state
+      entity_id: input_boolean.dummy_heizung
+      state: 'on'
+  action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.dummy_heizung
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.dummy_heizung1
+
+- alias: 'HVAC - Dummy fail'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.dummy_heizung
+      to: 'on'
+      for:
+        minutes: 2
+  action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.dummy_heizung
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.dummy_heizung1
+
+- alias: 'HAVC - Dummy1'
+  trigger:
+    - platform: state
+      entity_id: sensor.arbeitszimmer_set_temperature_ot
+    #- platform: template
+    #  value_template: "{{ state_attr('climate.opentherm','temperature') }}"
+  condition:
+    - condition: state
+      entity_id: input_boolean.dummy_heizung1
+      state: 'on'
+  action:
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.dummy_heizung1
+
+- alias: 'HVAC - decrease heat'
+  trigger:
+    - platform: state
+      entity_id: sensor.arbeitszimmer_set_temperature_ot
+    #- platform: template
+    #  value_template: "{{ state_attr('climate.opentherm','temperature') }}"
+  condition:
+    condition: and
+    conditions:
+    - condition: template
+      value_template: "{{ (trigger.to_state.state | float) < (trigger.from_state.state | float) }}"
+    - condition: state
+      entity_id: input_boolean.dummy_heizung
+      state: 'off'
+    - condition: template
+      value_template: "{{ (trigger.to_state.state | float) > 0 }}"
+    - condition: state
+      entity_id: input_boolean.dummy_heizung1
+      state: 'off'
+  action:
+    - service: script.speech_engine
+      data_template:
+        NestStatus: "Ich senke die Temperatur im Haus auf {{ (state_attr('climate.thermostat', 'temperature')) | replace('.', ',') }} Grad."
+        call_window_check: 0
+        call_no_announcement: 1
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.dummy_heizung
+
+- alias: 'HVAC - Turn off if window/door is opened'
+  initial_state: False
+  trigger:
+    - platform: state
+      entity_id:
+        - group.windows
+      to: 'on'
+      from: 'off'
+      for:
+        minutes: 5
+
+  condition:
+    - condition: template
+      value_template: "{{ states('climate.thermostat') != 'off' }}"
+
+  action:
+    - service: climate.turn_off
+      data:
+        entity_id: climate.thermostat
+    - service: script.speech_engine
+      data_template:
+        value1: "Das {{ trigger.to_state.attributes.friendly_name }} Fenster ist seit 5 Minuten offen. Ich schalte die Heizung so lange aus"
+        call_outside_weather: 1
+        call_inside_weather: 1
+
+- alias: 'HVAC - Turn back on when all doors/windows are closed.'
+  trigger:
+    - platform: state
+      entity_id:
+        - group.entrances
+      to: 'off'
+      from: 'on'
+      for:
+        minutes: 5
+
+  condition:
+    - condition: template
+      value_template: "{{ states('climate.thermostat') == 'off' }}"
+
+  action:
+    - service: climate.set_hvac_mode
+      data:
+        entity_id: climate.thermostat
+        hvac_mode: 'auto'

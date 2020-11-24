@@ -1,0 +1,31 @@
+##
+## Enables/disables light based on motion detection in the evening.
+##
+
+- alias: Kitchen - motion light on
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.debug_motion
+    from: "off"
+    to: "on"
+  condition:
+    condition: state
+    entity_id: input_boolean.evening_mode
+    state: "on"
+  action:
+    - service: light.turn_on
+      entity_id: light.kitchen_lamp
+
+- alias: Kitchen - motion light off
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.debug_motion
+    from: "on"
+    to: "off"
+    for:
+      minutes: 10
+  action:
+    - service: light.turn_off
+      entity_id: light.kitchen_lamp

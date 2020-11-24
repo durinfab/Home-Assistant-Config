@@ -1,0 +1,28 @@
+initial_state: on
+alias: "Notification - Battery CR2450"
+trigger:
+  - platform: numeric_state
+    entity_id:
+      - sensor.vestibule_motion_battery
+      - sensor.stairway_motion_battery
+    below: 25
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id:
+      - sensor.vestibule_motion_battery
+      - sensor.stairway_motion_battery
+    below: 10
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id:
+      - sensor.vestibule_motion_battery
+      - sensor.stairway_motion_battery
+    below: 5
+    for:
+      minutes: 5
+action:
+  service: notify.mobile_app_fabi_phone
+  data_template:
+    message: "Sensor {{ trigger.to_state.name }} hat nur noch {{ trigger.to_state.state }}% Batterieladung, er benötigt eine CR2450 Knopfzelle"

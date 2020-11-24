@@ -1,0 +1,10 @@
+##
+## add the ability to remote wake up devices
+##
+
+- platform: wake_on_lan
+  mac: !secret pc_mac
+  name: Living Room PC
+  host: 192.168.0.104
+  turn_off:
+    service: script.shutdown

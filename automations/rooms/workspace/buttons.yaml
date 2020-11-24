@@ -1,0 +1,65 @@
+##
+## workspace button automations
+## simple automations based on the kind of pressing
+##
+##
+
+- alias: Workspace - right double
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.workspace_double_click
+    to: "right_double"
+  action:
+    - service: script.random_effect
+
+- alias: Workspace - left double
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.workspace_double_click
+    to: "left_double"
+  action:
+    - service: script.random_color
+
+- alias: Workspace - right single
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.workspace_double_click
+    to: "right"
+  action:
+    - service: light.toggle
+      data:
+        entity_id:
+          - light.dining_table
+
+- alias: Workspace - left single
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.workspace_double_click
+    to: "left"
+  action:
+    - service: light.toggle
+      data:
+        entity_id:
+          - light.dining_table_nightlight
+
+- alias: Workspace - both single
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.workspace_double_click
+    to: "both"
+  action:
+    - service: light.turn_off
+      entity_id: light.ground_floor_lights
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.led_sign_mode
+        option: "Disabled"
+    - service: light.turn_on
+      data:
+        entity_id: light.740aa7b1_77fedd44
+        brightness: 1

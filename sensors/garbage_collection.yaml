@@ -1,0 +1,9 @@
+  - platform: template
+    sensors:
+      garbage_collection:
+        friendly_name: "Mülltonne raus"
+        value_template: >
+          {% set e = strptime(
+              states.calendar.muelltonne.attributes['start_time'],
+              '%Y-%m-%d %H:%M:%S') %}
+          {{ e.strftime('%j')|int - now().strftime('%j')|int == 1 and now().hour >= 9 }}

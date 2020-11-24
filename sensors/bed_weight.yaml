@@ -1,0 +1,33 @@
+##
+## Source: https://selfhostedhome.com/diy-bed-presence-detection-home-assistant/
+##
+
+- platform: template
+  sensors:
+    weight_border_top:
+      value_template: !secret weight_border_top
+    weight_border_mid:
+      value_template: !secret weight_border_mid
+    weight_border_bot:
+      value_template: !secret weight_border_bot
+    fabi_in_bed:
+      friendly_name: "Fabi im Bett"
+      value_template: >
+        {{ states('sensor.add_bed_weight')|float >= states('sensor.weight_border_mid')|float }}
+    partner_in_bed:
+      value_template: >
+        {{ states('sensor.add_bed_weight')|float > states('sensor.weight_border_bot')|float
+          and (states('sensor.add_bed_weight')|float < states('sensor.weight_border_mid')|float
+               or states('sensor.add_bed_weight')|float >= states('sensor.weight_border_top')|float)}}
+    add_bed_weight:
+      value_template: >
+        {{ ((states('sensor.fabi_weight') | float) + (states('sensor.partner_weight') | float)) | round(2) }}
+    num_in_master_bed:
+      value_template: >-
+        {% if is_state('sensor.fabi_in_bed', 'True') and is_state('sensor.partner_in_bed', 'True') %}
+            2
+        {% elif is_state('sensor.fabi_in_bed', 'True') or is_state('sensor.partner_in_bed', 'True') %}
+            1
+        {% else %}
+            0
+        {% endif %}

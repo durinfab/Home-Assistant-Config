@@ -1,0 +1,50 @@
+##
+## When someone comes home, we want to trigger automations (regardless who)
+##
+
+- alias: "Presence - someone comes home"
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.mate_home
+        - input_boolean.partner_home
+        - input_boolean.fabi_home
+      to: "on"
+  condition:
+    condition: state
+    entity_id: input_boolean.home_occupied
+    state: "off"
+
+  action:
+    ## Walkaround to clear "Authentication..."
+    - service: script.clear_led_hard
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.home_occupied
+
+- alias: "Presence - lighting when someone comes home(evening mode)"
+  trigger:
+    - platform: state
+      entity_id: input_boolean.home_occupied
+      to: "on"
+  condition:
+    - condition: state
+      entity_id: input_boolean.evening_mode
+      state: "on"
+  action:
+    - service: script.home_late_light
+
+- alias: "Presence - Home is occupied"
+  trigger:
+    - platform: state
+      entity_id: input_boolean.home_occupied
+      to: "on"
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.740aa7b1_77fedd44
+        brightness: 150
+    - service: alarm_control_panel.alarm_disarm
+      data:
+        entity_id: alarm_control_panel.alarmanlage
+        code: !secret alarm_code
+    - service: script.clear_led_hard

@@ -1,0 +1,86 @@
+- platform: group
+  name: ground_colored
+  entities:
+    - light.workspace_strip
+    - light.dining_table_ambilight
+    - light.living_room_lamp_left
+    - light.living_room_lamp_right
+    - light.storage_room_lamp
+    - light.hall_strip
+    - light.vestibule_lamp
+
+- platform: group
+  name: living_room_lights
+  entities:
+    - light.living_room_lamp_left
+    - light.living_room_lamp_right
+    - light.living_room_strip
+
+- platform: group
+  name: living_room_light_wall
+  entities:
+    - light.living_room_lamp_left
+    - light.living_room_lamp_right
+
+- platform: group
+  name: workspace_lights
+  entities:
+    - light.workspace_strip
+    - light.dining_table
+    - light.dining_table_ambilight
+
+- platform: group
+  name: kitchen_lights
+  entities:
+    - light.kitchen_lamp
+
+- platform: group
+  name: bedroom_lights
+  entities:
+    - light.bedroom_lamp_left
+    - light.bedroom_lamp_right
+    - light.bedroom_strip
+
+- platform: group
+  name: ground_floor_lights
+  entities:
+    - light.living_room_lamp_left
+    - light.living_room_lamp_right
+    - light.kitchen_lamp
+    - light.storage_room_lamp
+    - light.workspace_strip
+    - light.living_room_strip
+    - light.dining_table
+    - light.dining_table_ambilight
+    - light.hall_strip
+    - light.vestibule_lamp
+
+- platform: group
+  name: all_lights
+  entities:
+    - light.living_room_lamp_left
+    - light.living_room_lamp_right
+    - light.kitchen_lamp
+    - light.storage_room_lamp
+    - light.workspace_strip
+    - light.living_room_strip
+    - light.dining_table
+    - light.dining_table_ambilight
+    - light.outdoor_lamp
+    - light.hall_strip
+    - light.vestibule_lamp
+
+- platform: group
+  name: party_lights
+  entities:
+    - light.living_room_lamp_left
+    - light.living_room_lamp_right
+    - light.storage_room_lamp
+    - light.workspace_strip
+    - light.living_room_strip
+    - light.dining_table_ambilight
+    - light.hall_strip
+    - light.vestibule_lamp
+    - light.bedroom_strip
+    - light.bedroom_lamp_left
+    - light.bedroom_lamp_right

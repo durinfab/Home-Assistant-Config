@@ -1,0 +1,8 @@
+windows:
+  name: windows
+  entities:
+    - binary_sensor.bedroom_window_left_contact
+    - binary_sensor.living_room_window_contact
+    - binary_sensor.workspace_window_left_contact
+    - binary_sensor.bathroom_window_contact
+    - binary_sensor.kitchen_window_contact

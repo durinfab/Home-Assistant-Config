@@ -1,0 +1,51 @@
+##
+## Scrips to change the text on the led sign
+##
+
+## Text that will be displayed for 10 seconds, then the old state will be restored
+led_notification:
+  sequence:
+    ## If mode is already hard, do not proceed
+    - wait_template: "{{ states('input_select.led_sign_mode') == 'Default' }}"
+      timeout: "00:00:01"
+      continue_on_timeout: false
+    - service: input_text.set_value
+      data:
+        entity_id: input_text.tmp
+        value: "{{ states('input_text.hall_text') }}"
+    - service: script.led_hard
+      data_template:
+        message: "{{ message }}"
+    - delay: 10
+    - service: script.clear_led_hard
+    - service: input_text.set_value
+      data:
+        entity_id: input_text.hall_text
+        value: "{{ states('input_text.tmp') }}"
+
+## set an random informational message from status.yaml
+led_update:
+  sequence:
+    - service: input_text.set_value
+      data:
+        entity_id: input_text.hall_text
+        value: !include ../templates/led/status.yaml
+
+## set an specific message which will not get overrided
+led_hard:
+  sequence:
+    - service: input_select.select_option
+      data_template:
+        entity_id: input_select.led_sign_mode
+        option: Hard
+    - service: input_text.set_value
+      data:
+        entity_id: input_text.hall_text
+        value: "{{ message }}"
+
+clear_led_hard:
+  sequence:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.led_sign_mode
+        option: Default

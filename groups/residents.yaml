@@ -1,0 +1,5 @@
+residents:
+  entities:
+    - input_boolean.partner_home
+    - input_boolean.fabi_home
+    - input_boolean.mate_home

@@ -1,0 +1,42 @@
+##
+## All circadian switches
+##
+
+- platform: circadian_lighting
+  lights_rgb:
+    - light.bedroom_lamp_left
+    - light.bedroom_lamp_right
+    - light.bedroom_strip
+  name: bedroom
+  disable_brightness_adjust: True
+
+- platform: circadian_lighting
+  lights_rgb:
+    - light.living_room_lamp_left
+    - light.living_room_lamp_right
+  name: living_room
+  disable_brightness_adjust: True
+
+- platform: circadian_lighting
+  lights_rgb:
+    - light.outdoor_lamp
+  name: outdoor_lamp
+  disable_brightness_adjust: True
+
+- platform: circadian_lighting
+  lights_ct:
+    - light.storage_room_lamp
+  name: storage_room_lamp
+  disable_brightness_adjust: True
+
+- platform: circadian_lighting
+  lights_ct:
+    - light.kitchen_lamp
+  name: kitchen
+  disable_brightness_adjust: True
+
+- platform: circadian_lighting
+  lights_ct:
+    - light.dining_table
+  name: dining_table
+  disable_brightness_adjust: True

@@ -1,0 +1,40 @@
+initial_state: on
+alias: "Notification - Battery CR1632"
+trigger:
+  - platform: numeric_state
+    entity_id:
+      - sensor.vestibule_front_door_battery
+      - sensor.workspace_window_left_battery
+      - sensor.living_room_window_battery
+      - sensor.bedroom_window_left_battery
+      - sensor.bathroom_window_battery
+      - sensor.kitchen_window_battery
+    below: 25
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id:
+      - sensor.vestibule_front_door_battery
+      - sensor.workspace_window_left_battery
+      - sensor.living_room_window_battery
+      - sensor.bedroom_window_left_battery
+      - sensor.bathroom_window_battery
+      - sensor.kitchen_window_battery
+    below: 10
+    for:
+      minutes: 5
+  - platform: numeric_state
+    entity_id:
+      - sensor.vestibule_front_door_battery
+      - sensor.workspace_window_left_battery
+      - sensor.living_room_window_battery
+      - sensor.bedroom_window_left_battery
+      - sensor.bathroom_window_battery
+      - sensor.kitchen_window_battery
+    below: 5
+    for:
+      minutes: 5
+action:
+  service: notify.mobile_app_fabi_phone
+  data_template:
+    message: "Sensor {{ trigger.to_state.name }} hat nur noch {{ trigger.to_state.state }}% Batterieladung, er benötigt eine CR1632 Knopfzelle"

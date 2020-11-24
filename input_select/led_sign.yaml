@@ -1,0 +1,13 @@
+  ##
+  ##  The three modes for our notification sign
+  ##    - Hard - static Message, waits for event to disappear
+  ##    - Default - periodical updates with random informational facts
+  ##    - Disabled - blank screen
+  ##
+  
+  led_sign_mode:
+    options:
+      - Hard
+      - Default
+      - Disabled
+    initial: Default

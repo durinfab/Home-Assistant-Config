@@ -1,0 +1,49 @@
+##
+## Covers all automations corresponding the "monitor"-RPi Zero on the first floor
+##
+
+## If he's offline for 10 minutes, hard reset him
+- initial_state: on
+  alias: "Presence - BT first floor offline too long"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.monitor_first_floor
+      to: "offline"
+      for: "00:10:00"
+  action:
+    - service: switch.turn_off
+      entity_id: switch.monitor_first_floor
+    - delay: "00:01:00"
+    - service: switch.turn_on
+      entity_id: switch.monitor_first_floor
+    - wait_template: >-
+        {{ is_state('binary_sensor.monitor_first_floor','on') }}
+    - service: notify.mobile_app_fabi_phone
+      data:
+        message: "first_floor Bluetooth Knoten wurde neu gestartet!"
+
+## If he's offline for 30 seconds, announce that he cannot be trusted
+- initial_state: on
+  alias: "Presence - BT first floor offline"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.monitor_first_floor
+      to: "offline"
+      for: "00:00:30"
+  action:
+    - service: mqtt.publish
+      data:
+        topic: monitor/first_floor/partner_phone/device_tracker
+        payload: unknown
+    - service: mqtt.publish
+      data:
+        topic: monitor/first_floor/fabi_phone/device_tracker
+        payload: unknown
+    - service: mqtt.publish
+      data:
+        topic: monitor/first_floor/fabi_watch/device_tracker
+        payload: unknown
+    - service: mqtt.publish
+      data:
+        topic: monitor/first_floor/mate_phone/device_tracker
+        payload: unknown

@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    vacuum_battery:
+      friendly_name: "Vacuum Battery"
+      unit_of_measurement: "%"
+      value_template: "{{ state_attr('vacuum.rockrobo', 'battery_level') }}"

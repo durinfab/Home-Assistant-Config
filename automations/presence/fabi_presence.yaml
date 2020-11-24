@@ -1,0 +1,63 @@
+##
+## The presence of the residents will be tracked with wifi and bluetooth
+## TODO: Source
+##
+
+## if some DeviceTracker goes away we check the credibility of the event,
+## that the resident has left the home. We assume that the resident has left
+## the home, when the count of tracker is below 2
+- alias: "Presence - Fabi goes away"
+  initial_state: on
+  trigger:
+    - platform: state
+      entity_id:
+        - device_tracker.fabi_phone_wifi
+        - device_tracker.fabi_tracking_phone_ground
+        - device_tracker.fabi_tracking_phone_first_floor
+        - device_tracker.fabi_tracking_watch_first_floor
+        - device_tracker.fabi_tracking_watch_ground
+      to: "not_home"
+    - platform: homeassistant
+      event: start
+  condition:
+    # As long as at least two trackers mark as away, they're away
+    - condition: numeric_state
+      entity_id: group.person_fabi
+      below: 2
+      value_template: "{{ dict((states|selectattr('entity_id', 'in', state_attr('group.person_fabi', 'entity_id'))|list)|groupby('state'))['home']|count }}"
+    # An exit door recently opened or closed
+    - condition: template
+      value_template: "{{ (as_timestamp(now()) - as_timestamp(states('input_datetime.last_door'))) | int < 600 }}"
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.fabi_home
+    - service: mqtt.publish
+      data:
+        topic: location/fabi
+        payload: "not_home"
+
+## When a tracker detects a desired device, we assume that the resident comes home
+- initial_state: on
+  alias: "Presence - Fabi comes home"
+  trigger:
+    - platform: state
+      entity_id:
+        - device_tracker.fabi_phone_wifi
+        - device_tracker.fabi_tracking_phone_ground
+        - device_tracker.fabi_tracking_phone_first_floor
+        - device_tracker.fabi_tracking_watch_ground
+        - device_tracker.fabi_tracking_watch_first_floor
+      to: "home"
+    - platform: homeassistant
+      event: start
+  condition:
+    - condition: state
+      entity_id: group.person_fabi
+      state: "home"
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.fabi_home
+    - service: mqtt.publish
+      data:
+        topic: location/fabi
+        payload: "home"

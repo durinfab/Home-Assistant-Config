@@ -1,0 +1,16 @@
+##
+## All entities for devices that are observed by the "monitor" component
+## Source: https://github.com/DubhAd/Home-AssistantConfig/blob/live/device_tracker/mqtt.yaml
+##
+
+platform: mqtt
+source_type: "bluetooth"
+devices:
+  fabi_tracking_phone_first_floor: presence/first_floor/fabi_phone/device_tracker
+  fabi_tracking_phone_ground: presence/ground/fabi_phone/device_tracker
+  fabi_tracking_watch_first_floor: presence/first_floor/fabi_watch/device_tracker
+  fabi_tracking_watch_ground: presence/ground/fabi_watch/device_tracker
+  mate_tracking_phone_first_floor: presence/first_floor/mate_phone/device_tracker
+  mate_tracking_phone_ground: presence/ground/mate_phone/device_tracker
+  partner_tracking_phone_first_floor: presence/first_floor/partner_phone/device_tracker
+  partner_tracking_phone_ground: presence/ground/partner_phone/device_tracker
