@@ -12,3 +12,16 @@
     - service: script.led_hard
       data_template:
         message: "Staubi braucht Hilfe!"
+
+## displays that Vacuum Rebot needs help
+- alias: Vacuum - Vacuum robot got help
+  trigger:
+    - platform: state
+      entity_id: vacuum.rockrobo
+      from: "error"
+  condition:
+    - condition: state
+      entity_id: input_boolean.vacuum_clear_bin
+      state: "off"
+  action:
+    - service: script.clear_led_hard
