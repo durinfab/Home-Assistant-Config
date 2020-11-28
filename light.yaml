@@ -3,8 +3,8 @@
   entities:
     - light.workspace_strip
     - light.dining_table_ambilight
-    - light.living_room_lamp_left
-    - light.living_room_lamp_right
+    - light.living_room_left
+    - light.living_room_right
     - light.storage_room_lamp
     - light.hall_strip
     - light.vestibule_lamp
@@ -12,15 +12,15 @@
 - platform: group
   name: living_room_lights
   entities:
-    - light.living_room_lamp_left
-    - light.living_room_lamp_right
+    - light.living_room_left
+    - light.living_room_right
     - light.living_room_strip
 
 - platform: group
   name: living_room_light_wall
   entities:
-    - light.living_room_lamp_left
-    - light.living_room_lamp_right
+    - light.living_room_left
+    - light.living_room_right
 
 - platform: group
   name: workspace_lights
@@ -44,8 +44,8 @@
 - platform: group
   name: ground_floor_lights
   entities:
-    - light.living_room_lamp_left
-    - light.living_room_lamp_right
+    - light.living_room_left
+    - light.living_room_right
     - light.kitchen_lamp
     - light.storage_room_lamp
     - light.workspace_strip
@@ -58,8 +58,8 @@
 - platform: group
   name: all_lights
   entities:
-    - light.living_room_lamp_left
-    - light.living_room_lamp_right
+    - light.living_room_left
+    - light.living_room_right
     - light.kitchen_lamp
     - light.storage_room_lamp
     - light.workspace_strip
@@ -73,8 +73,8 @@
 - platform: group
   name: party_lights
   entities:
-    - light.living_room_lamp_left
-    - light.living_room_lamp_right
+    - light.living_room_left
+    - light.living_room_right
     - light.storage_room_lamp
     - light.workspace_strip
     - light.living_room_strip
