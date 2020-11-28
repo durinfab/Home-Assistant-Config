@@ -1,6 +1,6 @@
 # My Home Assistant Configuration ✨
 
-**Current Version: 0.118.3**
+**Current Version: 0.117.6**
 
 I'm Fabian, a computer science student from Germany. I live in a shared apartment with my partner and a friend of ours. I'm using Home Assistant for about four years right now and Home Automation has become one of my biggest hobbies. During my journey I learned a lot about keeping the network tidy, getting an own point of view of logical shortcuts between devices and a good effort-benefit- and price-performance- assessment.
 
@@ -51,7 +51,6 @@ So far I'm very happy with it. Today I'm using 19 Zigbee sensors, which are note
 | Aqara double key wireless wall switch ([WXKG02LM](https://de.aliexpress.com/item/32877238808.html?spm=a2g0o.productlist.0.0.2dc2610ao1Eubk&algo_pvid=5b3e3fd7-8bba-4599-a858-d2bba7fc7b57&algo_expid=5b3e3fd7-8bba-4599-a858-d2bba7fc7b57-2&btsid=0b0a182b16053946613325014e01f2&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_)) | ![Aqara Double](https://www.zigbee2mqtt.io/images/devices/WXKG02LM.jpg) | 3        | The perfect control center for every room. Can detect nine different “pressing”-events. |
 | SYMFONISK sound controller ([E1744](https://www.amazon.de/IKEA-Symfonisk-Sound-Fernbedienung-schwarz-104-338-47/dp/B082W1GV75/ref=sr_1_1?__mk_de_DE=ÅMÅŽÕÑ&crid=1R02CA212PKGU&dchild=1&keywords=ikea+symfonisk&qid=1605394706&sprefix=ikea+sym%2Caps%2C174&sr=8-1)) | ![Sound](https://www.zigbee2mqtt.io/images/devices/E1744.jpg) | 1        | Currently not in use. Originally used for dimming the workspac lights. |
 | Aqara wireless switch ([WXKG11LM](https://www.amazon.de/Aqara-Wireless-Switch-Mini-Lichtschalter/dp/B07D19YXND/ref=sr_1_1?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=WXKG11LM&qid=1605394752&sr=8-1)) | ![Aqara Single Switch](https://www.zigbee2mqtt.io/images/devices/WXKG11LM.jpg) | 3        | Simple switch with two action. But his pressure point is not perfect in my opinion. |
-| Hue motion outdoor sensor ([9290019758](https://www.amazon.de/Philips-Hue-Bewegungssensor-Aussenbereich-Tageslichtsensor/dp/B07KMP8P1Q/ref=sr_1_2?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=hue+outdoor&qid=1605394774&sr=8-2)) | ![Hue Outdoor](https://www.zigbee2mqtt.io/images/devices/9290019758.jpg) | 1        | Used for capturing the outdoor temperature and entrance lighting. But expensive and a bit “rebellious” with its connection. |
 
 Overall I'm very happy with my Zigbee setup. For the future I possibly will replace the “Aqara wireless switch” with a different model. I also should place an [CC2531](https://www.amazon.de/CC2531-USB-Stick-zigbee2mqtt-ioBroker-Firmware/dp/B07T3GM28F/ref=sr_1_9?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=CC2531&qid=1605394793&sr=8-9) with the router software for a more stable network structure.
 
@@ -74,14 +73,32 @@ For bulbs and ceiling lamps um using [Yeelight](https://www.yeelight.com) Lamps.
 | Model                                                        | Image                                                        | Quantity | Notes                                                        |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | :------: | ------------------------------------------------------------ |
 | Xiaomi Yeelight Bulb V1 ([YLDP02YL](https://www.amazon.de/YEELIGHT-Smart-LED-Glühbirne-Lumen/dp/B073QPD1KX/ref=sr_1_2?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=YLDP02YL&qid=1605394900&sr=8-2)) | <img src="https://images-na.ssl-images-amazon.com/images/I/41WorOMGm5L._AC_SX679_.jpg" width="150"> |    2     | Used as bedside lamps. They are less bright than the V2 and my oldest smart bulbs. |
-| Xiaomi Yeelight Bulb V2 (YLDP06YL)                           | <img src="https://images-na.ssl-images-amazon.com/images/I/414zidjPMbL._AC_SX679_.jpg" width="150"> |    3     | Used inside the Living Room as Main Lighting. One of them is located in our Storage Room. |
-| Xiaomi Yeelight Bulb 1S ([YLDP13YL](https://www.amazon.de/Glühbirne-Millionen-Weißlicht-Kompatibel-Assistant/dp/B0832XR68B/ref=sr_1_1?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=YLDP13YL&qid=1605395096&sr=8-1)) | <img src="https://images-na.ssl-images-amazon.com/images/I/414zidjPMbL._AC_SX679_.jpg" width="150"> |    2     | Used in the vestibule and one outside by the entrance. I'm curious if she does survive the cold days... |
+| Xiaomi Yeelight Bulb V2 (YLDP06YL)                           | <img src="https://images-na.ssl-images-amazon.com/images/I/414zidjPMbL._AC_SX679_.jpg" width="150"> |    1     | One of them is located in our Storage Room.                  |
+| Xiaomi Yeelight Bulb 1S ([YLDP13YL](https://www.amazon.de/Glühbirne-Millionen-Weißlicht-Kompatibel-Assistant/dp/B0832XR68B/ref=sr_1_1?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=YLDP13YL&qid=1605395096&sr=8-1)) | <img src="https://images-na.ssl-images-amazon.com/images/I/414zidjPMbL._AC_SX679_.jpg" width="150"> |    1     | Used on the outside by the entrance. I'm curious if she does survive the cold days... |
 | [Yeelight Meteorite](https://www.amazon.de/Yeelight-2700K-6000K-Farbtemperatur-LED-Leuchter-LED-Kronleuchter/dp/B07MY2MTZY/ref=sr_1_1_sspa?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=yeelight+Meteorite&qid=1605395144&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzS0paWkJJMVZIVkRRJmVuY3J5cHRlZElkPUEwOTA2NTExUUQ5RkhCQlkzS0c2JmVuY3J5cHRlZEFkSWQ9QTA3NDAyNzk5NTlXTE1FTVo4R0Qmd2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl) | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS4sh9x_PEhq1y3UefXoEoBEXZiqPwiVcvc6s20LaNPfTsi3EfLn0dpg6iIcOfQfsOoWn3XtYs&usqp=CAc" width="150"> |    1     | Used in the Workspace room for dinner and ambient lighting. Contains colored light on top and white light on the bottom (adjustable temperature). |
 | Xiaomi Ceiling Lamp                                          | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTD8uUrwwr7SBeM5IchMpkv07SezDwQhY9kOrDej2LyIloFolmgFFtOB_Fp-Jt6HjCC899l4ma5&usqp=CAc" width="150"> |    1     | Used in our kitchen. Very bright but not that cheap.         |
 
 The lighting strips offered by [Yeelight](https://www.yeelight.com) are very expensive and not worth the money when you can do it yourself :)
 
 Im using four DIY LED Strips with the Software [WLED](https://github.com/Aircoookie/WLED). These are executed on an [ESP-01](https://de.aliexpress.com/item/4000505567851.html?spm=a2g0o.productlist.0.0.40194a59h8sLr7&algo_pvid=36b19a66-effe-4b3f-843c-86309eabe285&algo_expid=36b19a66-effe-4b3f-843c-86309eabe285-3&btsid=0b0a187b16053906987342338e15b5&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_) with [RGB-Adapter](https://de.aliexpress.com/item/4000505567851.html?spm=a2g0o.productlist.0.0.40194a59h8sLr7&algo_pvid=36b19a66-effe-4b3f-843c-86309eabe285&algo_expid=36b19a66-effe-4b3f-843c-86309eabe285-3&btsid=0b0a187b16053906987342338e15b5&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_). As [power supply](https://de.aliexpress.com/item/4000741932348.html?spm=a2g0o.productlist.0.0.1fa24d62bzqAcz&algo_pvid=c91f7f6f-7261-4fe9-9880-d96bf9194acc&algo_expid=c91f7f6f-7261-4fe9-9880-d96bf9194acc-0&btsid=2100bde316053910324372519ef81f&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_) im using basic 5V ones and for the lighting [WS2812B LED Strips](https://de.aliexpress.com/item/32682015405.html?spm=a2g0o.productlist.0.0.322a4c9e8dQBrC&algo_pvid=d1e877f2-bc62-4237-9084-3cfd792d8485&algo_expid=d1e877f2-bc62-4237-9084-3cfd792d8485-7&btsid=2100bdd516053912230116342eaf4d&ws_ab_test=searchweb0_0,searchweb201602_,searchweb201603_). For an 3M Led Strip (60 LEDs per Meter) I'm paying around 30 Euro. On top we have all features of the [WLED](https://github.com/Aircoookie/WLED) firmware.
+
+### 🛋 Phillips Hue ###
+
+As I noted in my previous chapters, I want to keep the amount of different networks as small as possible. But an exception confirms the rule. Phillips Bulbs are also based on the Zigbee connection technology. As a Wi-Fi to Zigbee converter, they are using the Hue Bridge. But why do I use them, when I simply can add all Zigbee devices to my Zigbee2MQTT interface?
+
+- Use "[Ambilight+Hue](#TV)". Alternative solution like [diyHue](https://github.com/diyhue/diyHue) or [ambilight-yeelight](https://github.com/jomwells/ambilight-yeelight) does not work in my case.
+- Use an old Phillips LivingColors Bloom again, as they are not able to connect to my Zigbee2MQTT
+- Improve the performance of my "Hue motion outdoor sensor", which sometimes lose connection, which leads to a disassembly followed by a repair.
+
+Long story short: I wanted to minimize afford. Here are my current Phillips Hue devices:
+
+| Model                                                        | Image                                                        | Quantity | Notes                                                        |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | ------------------------------------------------------------ |
+| Phillips E27 white & color ([LCA001](https://www.amazon.de/Hue-Doppelpack-2x806lm-Bluetooth-Energieklasse/dp/B07SS38CVG/ref=pd_lpo_201_t_0/260-7052561-1317654?_encoding=UTF8&pd_rd_i=B07SS38CVG&pd_rd_r=2becca34-75ef-418a-8e9b-ce527592955a&pd_rd_w=Dg3ZD&pd_rd_wg=PiQ18&pf_rd_p=d5c9797d-0238-4119-b220-af4cc3420918&pf_rd_r=9PFXPN6WR9H27BAK4K01&refRID=9PFXPN6WR9H27BAK4K01&th=1)) | <img src="https://images-na.ssl-images-amazon.com/images/I/71MA0Ew2l-L._AC_SL1500_.jpg" align="center" width="150"> | 1        | Used in the living room (Ambilight) and the vestibule (Zigbee Router for outdoor sensor). |
+| Hue motion outdoor sensor ([9290019758](https://www.amazon.de/Philips-Hue-Bewegungssensor-Aussenbereich-Tageslichtsensor/dp/B07KMP8P1Q/ref=sr_1_2?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=hue+outdoor&qid=1605394774&sr=8-2)) | ![Hue Outdoor](https://www.zigbee2mqtt.io/images/devices/9290019758.jpg) | 1        | Used for capturing the outdoor temperature and entrance lighting. |
+| Phillips LivingColors Bloom 3. Gen. ([LLC005](https://www.amazon.de/Philips-LivingColors-Tischleuchte-weiß-7099760PH/dp/B009567RE2/ref=sr_1_1?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=phillips+bloom&qid=1606560541&sr=8-1)) | <img src="https://images-na.ssl-images-amazon.com/images/I/61nWtMHRhNL._AC_SL1500_.jpg" align="center" width="150"> | 1        | Used to light up the whiteboard in the storage room.         |
+
+
 
 ### 🏃🏻‍♂️ Presence Detection ###
 
@@ -108,6 +125,7 @@ Detecting residents in a specific area is not easy to establish, but it's paying
 </p>
 </details>
 
+
 ### 🧹 Vacuum Robot ###
 
 The newest member in our small Smart Home is a used [Roborock S50](https://www.amazon.de/RoboRock-Staubsauger-Sweep-Mop-Steuerung-Internationale/dp/B07FD8GC1C) (or S51/S55 - different color). 
@@ -126,6 +144,7 @@ Why especially this device? Because it uses a smart Laser-based navigation(no ra
     </ul>
 </p>
 </details>
+
 
 *Note: If you want to buy this device, be sure to get one with old production date (before 2019-11) as the factory firmware (to which the robot can be reset) does allow the installation of a custom ROM.*
 
@@ -148,9 +167,23 @@ To integrate my tablet I'm using [Fully Kiosk Browser](https://www.fully-kiosk.c
 
 *Hint: The tablet lose it's connection to Home Assistant if I lock the device. Thats why I'm just setting the brightness to the lowest setting.*
 
+<a name="TV"></a>
+
+### 📺 Television ###
+
+<img src="https://images-na.ssl-images-amazon.com/images/I/616XZ5csfNL._AC_SL1200_.jpg" width="150" align="left">
+
+As TV we are using a **Phillips 55PUS7503**. For the main facts, it features a 55 inch display and was build in 2018. Why Phillips? For a need little thing called Ambilight. Basically the TV has build-in LEDs around the edge, facing the wall behind it. The purpose of them is to emulate an enlargement of the picture by displaying the same colors as the display show on the same position. From a Smart-Home perspective this TV features an API with allows remote control over the network.
+
+To integrate [this](https://github.com/nstrelow/ha_philips_android_tv) component.
+
+Today Phillips Hue is a big player in the lighting Smart-Home industry. To upgrade the cross-over usability of their device, they introduced a feature called "Ambilight+Hue". As you might expect: With this feature you are able to connect your Hue Bulbs to the LEDs from Ambilight. This way you can extend the Ambilight effect even more...
+
+*Problem: As I've not connected an ethernet cable on the installation I'm only able to connect to the TV via Wi-Fi (I'm not able to remove the TV from the wall mount again). The TV also uses a feature called WoWLAN, which works just like Wake-on-LAN, but Wi-Fi gets disabled on standby periodically. This leads to non-deterministic switch-on behavior. As a walkaround I use the guide posted [here](https://github.com/nstrelow/ha_philips_android_tv). With the help of the APP "Wakelock Revamped", you are able to disable the automatic Wi-Fi disconnect on standby.*
+
 ### ⚡️ IR-Sender ###
 
-As my TVs Ethernet port is not working at the moment and the WoWLAN (Wake-on-WLAN) functionality does not work reliable, I needed an alternative to send commands to the TV. For this propose I'm using the [RM4C mini](https://www.amazon.de/Universal-IR-Fernbedienung-Stimmenkontrolle-Koordinierung-Intelligente-Automatisierungsmodule-Schwarz/dp/B08215598C/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=RM4C+mini&qid=1605704505&sr=8-3). To control this handy device I use the [Broadlink Integration](https://www.home-assistant.io/integrations/broadlink/). This does also support the learing of new IR-Commands.
+As not every command is supported by the media_player interface, we need a alternative to send commands to the TV. For this propose I'm using the [RM4C mini](https://www.amazon.de/Universal-IR-Fernbedienung-Stimmenkontrolle-Koordinierung-Intelligente-Automatisierungsmodule-Schwarz/dp/B08215598C/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=RM4C+mini&qid=1605704505&sr=8-3). To control this handy device I use the [Broadlink Integration](https://www.home-assistant.io/integrations/broadlink/). This does also support the learing of new IR-Commands.
 
 <details><summary>Using in automations</summary>
 <p>
@@ -159,6 +192,7 @@ As my TVs Ethernet port is not working at the moment and the WoWLAN (Wake-on-WLA
     </ul>
 </p>
 </details>
+
 
 ### ESP32/ESP8266 ###
 
@@ -185,6 +219,7 @@ On the left side you can see the current time and on the right a random informat
 </p>
 </details>
 
+
 #### 🌡 DHT22 - Temperature/Humidity Sensor ####
 
 In the bedroom there is still a [DHT22](https://www.amazon.de/AZDelivery-Temperatursensor-Luftfeuchtigkeitssensor-Platine-Arduino/dp/B078SVZB1X/ref=sr_1_5?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=DHT22&qid=1605960850&sr=8-5) Sensor in use. It should be replaced with an Aqara sensor in the future to keep consistency. I'm still playing with the thought to add some other sensors to this ESP to get a  overview over the air quality...
@@ -209,6 +244,7 @@ Beside the LEDs there are also two switches and a HC-SR501-Sensor. I thought abo
 </p>
 </details>
 
+
 #### 🏋🏼‍♂️ HX711 - Weight Sensor ####
 
 Some of you might ask what you can do with a weight sensor in a Smart Home. A whole lot of! I use them placed under my bed to detect the presence there. Because my girlfriend weighs less than me, we can differentiate who and how much people are there. This enables a lot of handy automations.
@@ -221,6 +257,7 @@ Some of you might ask what you can do with a weight sensor in a Smart Home. A wh
     </ul>
 </p>
 </details>
+
 
 *The idea for this use case of the HX711 is from [here](https://selfhostedhome.com/diy-bed-presence-detection-home-assistant/)*
 
@@ -253,6 +290,8 @@ You can install different custom integration into your Home Assistant config fol
 - [valetudo-mapper](https://github.com/Poeschl/Hassio-Addons/tree/master/valetudo-mapper) - Converts Valetudo Map to a PNG and adds camera entity for viewing.
 - [VSCode](https://github.com/hassio-addons/addon-vscode) - Visual Studio Code through browser. Used for whole automation implementation.
 - [Zigbee2MQTT](https://github.com/danielwelch/hassio-zigbee2mqtt) - Bridge to pipe Zigbee Device Information to MQTT. 🐝
+- [Philips Ambilight+Hue](https://github.com/jomwells/ambihue) - Dis-/Enable Ambilight+Hue with a Switch.
+- [Home Assistant Philips TV](https://github.com/nstrelow/ha_philips_android_tv) - Integrate Phillips Android TVs as media_player.
 
 ### Miscellaneous ###
 
@@ -307,12 +346,12 @@ Long story short: When someone leaves the bed I can easily tell, who it was. I h
 </p>
 </details>
 
+
 ## Future Plans 👨🏻‍🔧 ##
 
 - Add Wii "Power" to IR Sensor. Maybe PS4 too...
 - Reintegrate my [OpenTherm Gateway](https://www.nodo-shop.nl/nl/opentherm-gateway/188-opentherm-gateway.html). Looking forward to [this](https://github.com/rvdbreemen/OTGW-firmware) to get released.
 - Place an [CC2531](https://www.amazon.de/CC2531-USB-Stick-zigbee2mqtt-ioBroker-Firmware/dp/B07T3GM28F/ref=sr_1_9?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=CC2531&qid=1605394793&sr=8-9) with [this](https://github.com/Koenkk/Z-Stack-firmware/tree/master/router/CC2531) router software to improve my Zigbee network load.
-- Thinking of adding a Hue Bridge to improve the connection to my "Hue motion outdoor sensor". It also adds support for "Ambilight+Hue" on my TV...
 - Adding some christmas lights 🎄
 
 ## Support my coffee consumption ☕️ ##
