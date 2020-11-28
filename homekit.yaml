@@ -37,8 +37,8 @@ filter:
     - switch.workspace_fairy_lights
     - switch.stairway_light
     - switch.manual_staubi
-    - input_boolean.phillips_tv
     - person.fabi
     - person.partner
     - person.mate
     - media_player.denon_avr
+    - media_player.living_room_tv
