@@ -12,6 +12,7 @@ home_late_light:
           - light.dining_table_ambilight
           - light.living_room_strip
           - light.hall_strip
+          - light.storage_room_whiteboard
         rgb_color:
           [
             "{{ (range(0, 255)|random) }}",
@@ -73,6 +74,7 @@ random_color:
         - light.dining_table_ambilight
         - light.living_room_strip
         - light.hall_strip
+        - light.storage_room_whiteboard
       data_template:
         rgb_color:
           [
