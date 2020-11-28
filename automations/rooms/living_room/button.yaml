@@ -34,8 +34,8 @@
     - service: light.toggle
       data:
         entity_id:
-          - light.living_room_lamp_right
-          - light.living_room_lamp_left
+          - light.living_room_right
+          - light.living_room_left
 
 - alias: Living Room - left long
   initial_state: True
@@ -76,3 +76,23 @@
   action:
     - service: script.turn_on
       entity_id: script.living_room_bright
+
+- alias: Living Room - both long
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_double_click
+    to: "both_long"
+  action:
+    - service: script.turn_on
+      entity_id: script.living_room_bright
+
+- alias: Living Room - left double
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_double_click
+    to: "left_double"
+  action:
+    - service: script.turn_on
+      entity_id: script.toggle_ambihue
