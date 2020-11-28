@@ -24,6 +24,14 @@ tts:
     voice: Vicki
     cache: True
 
+media_player:
+  - platform: philips_android_tv
+    name: living_room TV
+    host: !secret ph_ip
+    mac: !secret ph_mac
+    username: !secret ph_user
+    password: !secret ph_pass
+
 sensor: !include_dir_merge_list sensors/
 device_tracker: !include_dir_list device_tracker/
 group: !include_dir_merge_named groups
@@ -66,6 +74,17 @@ person:
     id: partner
     device_trackers:
       - device_tracker.presence_partner
+climate:
+  - platform: mqtt
+    name: Central_Heating
+    current_temperature_topic: events/central_heating/otmonitor/roomtemperature
+    temperature_command_topic: actions/otmonitor/setpoint
+    temperature_state_topic: events/central_heating/otmonitor/setpoint
+    min_temp: 5
+    max_temp: 35
+    initial: 17
+    temp_step: 0.5
+    precision: 0.5
 
 browser_mod:
   devices:
