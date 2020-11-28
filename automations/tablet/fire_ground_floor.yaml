@@ -10,8 +10,8 @@
   trigger:
     platform: state
     entity_id:
-      - light.living_room_lamp_left
-      - light.living_room_lamp_right
+      - light.living_room_left
+      - light.living_room_right
       - light.kitchen_lamp
       - light.schreibtischlampe
       - light.storage_room_lamp
@@ -21,6 +21,7 @@
       - light.dining_table_ambilight
       - light.vestibule_lamp
       - light.hall_strip
+      - light.storage_room_whiteboard
     to: "on"
   condition:
     - condition: or
