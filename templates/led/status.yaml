@@ -32,8 +32,8 @@
   {%- endmacro -%}
 
   {%- macro lights_on() -%}
-    {% set lights = [ states.light.living_room_lamp_left,
-      states.light.living_room_lamp_right,
+    {% set lights = [ states.light.living_room_left,
+      states.light.living_room_right,
       states.light.kitchen_lamp,
       states.light.schreibtischlampe,
       states.light.storage_room_lamp,
@@ -43,7 +43,8 @@
       states.light.dining_table_ambilight,
       states.light.outdoor_lamp,
       states.light.vestibule_lamp,
-      states.light.hall_strip
+      states.light.hall_strip,
+      states.light.storage_room_whiteboard
     ] %}
      {{ lights | selectattr('state','eq','on') | list | count }} einge. Lampen
   {%- endmacro -%}
