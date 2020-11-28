@@ -51,8 +51,8 @@
         - light.storage_room_lamp
         - light.bedroom_lamp_left
         - light.bedroom_lamp_right
-        - light.living_room_lamp_left
-        - light.living_room_lamp_right
+        - light.living_room_left
+        - light.living_room_right
         - light.dining_table
         - light.dining_table_ambilight
         - light.hall_strip
