@@ -15,6 +15,7 @@
       - light.kitchen_lamp
       - light.schreibtischlampe
       - light.storage_room_lamp
+      - light.workspace_window_light
       - light.workspace_strip
       - light.living_room_strip
       - light.dining_table
