@@ -12,7 +12,6 @@
         - switch.circadian_lighting_dining_table
         - switch.circadian_lighting_kitchen
         - switch.circadian_lighting_bedroom
-        - switch.circadian_lighting_kartenstrip
     ## trigger the information loop
     - service: script.led_update
 
