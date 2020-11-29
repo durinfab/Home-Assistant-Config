@@ -1,5 +1,5 @@
 - alias: 'Info - switch 1 - clean kitchen'
-  initial_state: on
+  initial_state: off
   trigger:
   - platform: state
     entity_id: binary_sensor.ad
