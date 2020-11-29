@@ -52,6 +52,7 @@
         - light.bedroom_lamp_left
         - light.bedroom_lamp_right
         - light.living_room_left
+        - light.workspace_window_light
         - light.living_room_right
         - light.dining_table
         - light.dining_table_ambilight

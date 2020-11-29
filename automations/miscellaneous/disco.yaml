@@ -33,6 +33,7 @@
           - light.bedroom_lamp_right
           - light.storage_room_lamp
           - light.dining_table_ambilight
+          - light.workspace_window_light
         brightness: 255
         effect: "Random Loop"
 
