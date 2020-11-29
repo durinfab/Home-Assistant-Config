@@ -13,6 +13,7 @@ home_late_light:
           - light.living_room_strip
           - light.hall_strip
           - light.storage_room_whiteboard
+          - light.workspace_window_light
         rgb_color:
           [
             "{{ (range(0, 255)|random) }}",
@@ -75,6 +76,7 @@ random_color:
         - light.living_room_strip
         - light.hall_strip
         - light.storage_room_whiteboard
+        - light.workspace_window_light
       data_template:
         rgb_color:
           [
@@ -82,6 +84,7 @@ random_color:
             "{{ (range(0, 255)|random) }}",
             "{{ (range(0, 255)|random) }}",
           ]
+        brightness: 255
     - service: wled.effect
       entity_id:
         - light.workspace_strip

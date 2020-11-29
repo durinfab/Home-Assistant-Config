@@ -1,5 +1,4 @@
 ## turn on Living Room Light if the TV(AVR) is on
-
 - alias: Living Room - Lights on evening
   initial_state: True
   trigger:
@@ -7,9 +6,14 @@
     entity_id: input_boolean.evening_mode
     to: "on"
   condition:
-    condition: state
-    entity_id: media_player.denon_avr
-    state: "on"
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: media_player.denon_avr
+        state: "on"
+      - condition: state
+        entity_id: input_boolean.ambilight
+        state: "off"
   action:
     - service: circadian_lighting.values_update
       entity_id:
@@ -20,3 +24,27 @@
         entity_id:
           - light.living_room_right
           - light.living_room_left
+
+- alias: Living Room - enable Ambilight+Hue
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: input_boolean.ambilight
+    to: "on"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.living_room_ambihue
+    - service: switch.turn_off
+      entity_id: switch.circadian_lighting_living_room
+
+- alias: Living Room - disable Ambilight+Hue
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: input_boolean.ambilight
+    to: "on"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.living_room_ambihue
+    - service: switch.turn_off
+      entity_id: switch.circadian_lighting_living_room

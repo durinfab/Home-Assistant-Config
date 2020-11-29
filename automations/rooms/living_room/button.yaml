@@ -94,5 +94,5 @@
     entity_id: sensor.living_room_double_click
     to: "left_double"
   action:
-    - service: script.turn_on
-      entity_id: script.toggle_ambihue
+    - service: input_boolean.toggle
+      entity_id: input_boolean.ambilight

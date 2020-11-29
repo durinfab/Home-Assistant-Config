@@ -1,0 +1,3 @@
+    name: "Ambilight Mode"
+    initial: 'off'
+    icon: mdi:party-popper
