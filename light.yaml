@@ -19,8 +19,8 @@
 - platform: group
   name: living_room_light_wall
   entities:
-    - light.living_room_left
-    - light.living_room_right
+   - light.living_room_left
+   - light.living_room_right
 
 - platform: group
   name: workspace_lights
@@ -50,6 +50,8 @@
     - light.storage_room_lamp
     - light.workspace_strip
     - light.living_room_strip
+    - light.storage_room_whiteboard
+    - light.workspace_window_light
     - light.dining_table
     - light.dining_table_ambilight
     - light.hall_strip
