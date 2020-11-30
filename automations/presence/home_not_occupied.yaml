@@ -40,7 +40,6 @@
   action:
     - service: switch.turn_off
       entity_id:
-        - switch.steckdose2
         - switch.workspace_fairy_lights
         - switch.stairway_light
     - service: light.turn_off
