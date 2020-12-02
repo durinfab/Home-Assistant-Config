@@ -21,7 +21,6 @@
       - light.dining_table
       - light.dining_table_ambilight
       - light.vestibule_lamp
-      - light.hall_strip
       - light.storage_room_whiteboard
     to: "on"
   condition:
