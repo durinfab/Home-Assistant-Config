@@ -15,7 +15,9 @@
   action:
     - service: script.random_color
     - service: switch.turn_on
-      entity_id: switch.workspace_fairy_lights
+      entity_id: 
+        - switch.workspace_fairy_lights
+        - switch.christmas_light_window
     - service: script.led_notification
       data_template:
         message: "Sonnenuntergang"
