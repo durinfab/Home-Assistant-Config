@@ -3,5 +3,5 @@
   host: 192.168.0.9
   username: !secret ph_user
   password: !secret ph_pass
-  id: 2131230774 # ambilight_hue_off node id. Default is 2131230774, but some newer TVs use 2131230778 instead.
+  id: 2131230783 # ambilight_hue_off node id. Default is 2131230774, but some newer TVs use 2131230778 instead.
   scan_interval: 5
