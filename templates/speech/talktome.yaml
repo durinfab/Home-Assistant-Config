@@ -1,9 +1,3 @@
-##
-## Gets random stat from the house
-## TODO: Source
-## TODO: Cleanup
-##
-
 >-
   {%- macro dark_outside() -%}
   {{ [
@@ -60,7 +54,7 @@
   {%- macro light_check() -%}
   {% if states.group.all_lights.state != 'off' -%}
       Aktuell sind
-  {% for state in states.light if state.state == 'on' and state.entity_id != "light.fire" and state.entity_id != "light.e219b707_3e428f6b" and state.entity_id != "light.erdgeschoss_ambiente" -%}
+  {% for state in states.light if state.state == 'on' and state.entity_id != "light.3524c986_aa76e656" and state.entity_id != "light.e219b707_3e428f6b" and state.entity_id != "light.erdgeschoss_ambiente" -%}
       {%- if loop.last -%}
       {{ loop.index }}
       {%- endif -%}

@@ -55,7 +55,6 @@
     - light.dining_table
     - light.dining_table_ambilight
     - light.hall_strip
-    - light.vestibule_lamp
 
 - platform: group
   name: all_lights

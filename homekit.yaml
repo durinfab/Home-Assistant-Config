@@ -16,7 +16,7 @@ filter:
     - light.debug_led10
     - light.debug_led11
     - light.debug_led0
-    - light.740aa7b1_77fedd44
+    - light.3524c986_aa76e656
     - light.b0e6f226_afa899e1
 
   include_entities:
