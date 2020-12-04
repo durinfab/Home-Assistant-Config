@@ -41,7 +41,7 @@
   action:
     - service: light.turn_on
       data:
-        entity_id: light.740aa7b1_77fedd44
+        entity_id: light.3524c986_aa76e656
         brightness: 150
     - service: alarm_control_panel.alarm_disarm
       data:

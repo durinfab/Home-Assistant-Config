@@ -56,12 +56,12 @@
     - service: light.turn_off
       entity_id: light.ground_floor_lights
     - service: switch.turn_off
-      entity_id: switch.workspace_fairy_lights
+      entity_id: 
+        - switch.workspace_fairy_lights
+        - switch.christmas_light_window
     - service: input_select.select_option
       data:
         entity_id: input_select.led_sign_mode
         option: "Disabled"
-    - service: light.turn_on
-      data:
-        entity_id: light.740aa7b1_77fedd44
-        brightness: 1
+    - service: light.turn_off
+      entity_id: light.3524c986_aa76e656
