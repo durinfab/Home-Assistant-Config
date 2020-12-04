@@ -13,11 +13,7 @@ shutdown:
 
 living_room_bright:
   sequence:
-    - service: switch.turn_off
-      entity_id: switch.circadian_lighting_living_room
-    - service: switch.turn_off
-      entity_id: switch.living_room_ambihue
-    - service: light.turn_on
+    - service: light.toggle
       entity_id:
         - light.living_room_left
         - light.living_room_right
@@ -106,8 +102,6 @@ start_netflix:
     - condition: state
       entity_id: input_boolean.evening_mode
       state: "on"
-    - service: switch.turn_on
-      entity_id: switch.circadian_lighting_living_room
     - service: circadian_lighting.values_update
       entity_id:
         - light.living_room_left
@@ -159,8 +153,6 @@ start_wii:
     - condition: state
       entity_id: input_boolean.evening_mode
       state: "on"
-    - service: switch.turn_on
-      entity_id: switch.circadian_lighting_living_room
     - service: circadian_lighting.values_update
       entity_id:
         - light.living_room_left
@@ -216,8 +208,6 @@ start_ps4:
     - condition: state
       entity_id: input_boolean.evening_mode
       state: "on"
-    - service: switch.turn_on
-      entity_id: switch.circadian_lighting_living_room
     - service: circadian_lighting.values_update
       entity_id:
         - light.living_room_left
@@ -273,8 +263,6 @@ start_gaming:
     - condition: state
       entity_id: input_boolean.evening_mode
       state: "on"
-    - service: switch.turn_on
-      entity_id: switch.circadian_lighting_living_room
     - service: circadian_lighting.values_update
       entity_id:
         - light.living_room_left

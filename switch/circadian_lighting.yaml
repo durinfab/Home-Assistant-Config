@@ -12,13 +12,6 @@
 
 - platform: circadian_lighting
   lights_rgb:
-    - light.living_room_left
-    - light.living_room_right
-  name: living_room
-  disable_brightness_adjust: True
-
-- platform: circadian_lighting
-  lights_rgb:
     - light.outdoor_lamp
   name: outdoor_lamp
   disable_brightness_adjust: True

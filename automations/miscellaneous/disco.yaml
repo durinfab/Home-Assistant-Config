@@ -11,7 +11,6 @@
     - service: switch.turn_off
       entity_id:
         - switch.circadian_lighting_bedroom
-        - switch.circadian_lighting_living_room
         - switch.circadian_lighting_storage_room_lamp
         - switch.circadian_lighting_kitchen
     - service: light.turn_on
@@ -63,6 +62,5 @@
     - service: switch.turn_on
       entity_id:
         - switch.circadian_lighting_bedroom
-        - switch.circadian_lighting_living_room
         - switch.circadian_lighting_storage_room_lamp
         - switch.circadian_lighting_kitchen
