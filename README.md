@@ -1,6 +1,6 @@
 # My Home Assistant Configuration ✨
 
-**Current Version: 0.117.6**
+**Current Version: 0.118.4**
 
 I'm Fabian, a computer science student from Germany. I live in a shared apartment with my partner and a friend of ours. I'm using Home Assistant for about four years right now and Home Automation has become one of my biggest hobbies. During my journey I learned a lot about keeping the network tidy, getting an own point of view of logical shortcuts between devices and a good effort-benefit- and price-performance- assessment.
 
