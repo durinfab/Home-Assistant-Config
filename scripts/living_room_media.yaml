@@ -102,10 +102,6 @@ start_netflix:
     - condition: state
       entity_id: input_boolean.evening_mode
       state: "on"
-    - service: circadian_lighting.values_update
-      entity_id:
-        - light.living_room_left
-        - light.living_room_right
     - service: light.turn_on
       data:
         entity_id:
