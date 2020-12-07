@@ -1,6 +1,6 @@
 # My Home Assistant Configuration ✨
 
-**Current Version: 0.118.4**
+**Current Version: 0.117.6**
 
 I'm Fabian, a computer science student from Germany. I live in a shared apartment with my partner and a friend of ours. I'm using Home Assistant for about four years right now and Home Automation has become one of my biggest hobbies. During my journey I learned a lot about keeping the network tidy, getting an own point of view of logical shortcuts between devices and a good effort-benefit- and price-performance- assessment.
 
@@ -98,14 +98,27 @@ Long story short: I wanted to minimize afford. Here are my current Phillips Hue 
 | Hue motion outdoor sensor ([9290019758](https://www.amazon.de/Philips-Hue-Bewegungssensor-Aussenbereich-Tageslichtsensor/dp/B07KMP8P1Q/ref=sr_1_2?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=hue+outdoor&qid=1605394774&sr=8-2)) | ![Hue Outdoor](https://www.zigbee2mqtt.io/images/devices/9290019758.jpg) | 1        | Used for capturing the outdoor temperature and entrance lighting. |
 | Phillips LivingColors Bloom 3. Gen. ([LLC005](https://www.amazon.de/Philips-LivingColors-Tischleuchte-weiß-7099760PH/dp/B009567RE2/ref=sr_1_1?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=phillips+bloom&qid=1606560541&sr=8-1)) | <img src="https://images-na.ssl-images-amazon.com/images/I/61nWtMHRhNL._AC_SL1500_.jpg" align="center" width="150"> | 1        | Used to light up the whiteboard in the storage room.         |
 
-
+<details><summary>Random problems and their solution</summary>
+<p>
+  <ul>
+      <details><summary>If you turn on one Phillips Bulb via Home Assistant, other Phillips Bulbs will turn on, on their own, too</summary>
+      <p>
+        <ul>
+          <li>Be sure that every bulb that should operate on its own, got its own room in the Hue App.</li>
+          <li>Remove/Verify all used Apps by the Hue App, to do this you need an third-party App like <a href="https://www.hueessentials.com">Hue-Essentials</a>.</li>
+         </ul>
+</p>
+</details>
+  </ul>
+</p>
+</details>
 
 ### 🏃🏻‍♂️ Presence Detection ###
 
 Detecting residents in a specific area is not easy to establish, but it's paying off. You can turn the lights off or disable the heater when nobody is at home. You can automatically start the alarm-management or trigger the vacuum robot... Personally I'm dividing the variants of presence detection into different levels. There are **two level of region precision** (room based vs. home based) and **two level of human/identity precision** (there is a living thing vs. there is resident with a known name).
 
 - For the room based region precision I'm using simple motion sensors, which only detects that *there is a living thing* 
-- For the home based region precision um using “[monitor](https://github.com/andrewjfreyer/monitor)”, a simple script which runs on two [Raspberry Pi Zeros](https://www.raspberrypi.org/products/raspberry-pi-zero/?resellerType=home). They are able to detect “known” BLE ([Bluetooth Low Energy](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy)) devices and as long as every resident has a smartphone which does he takes with him when he leaves the house, you can easily detect if a resident is at home. As long as he does not forget his phone 🤷🏼‍♂️
+- For the home based region precision um using “[monitor](https://github.com/andrewjfreyer/monitor)”, a simple script which runs on two [Raspberry Pi Zeros](https://www.raspberrypi.org/products/raspberry-pi-zero/?resellerType=home). They are able to detect “known” BLE ([Bluetooth Low Energy](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy)) devices and as long as every resident has a smartphone which does he takes with him when he leaves the house, you can easily detect if a resident is at home. As long as he does not forget his phone 🤷🏼‍♂️ I also use WiFi for presence detection with a simple network scan, for a specific device.
 
 #### Problems with Presence Detection ####
 
@@ -125,6 +138,19 @@ Detecting residents in a specific area is not easy to establish, but it's paying
 </p>
 </details>
 
+<details><summary>Random problems and their solution</summary>
+<p>
+  <ul>
+      <details><summary>Your iPhones Wifi is not detected by nmap(network scanner) </summary>
+      <p>
+        <ul>
+          <li>In iOS 14 Apple introduced "Private WiFi Adresses". To avoid tracking, they publishing fake MAC-Adresses, which are changing from time to time. You can turn this feature off network wise in settings. </li>
+         </ul>
+</p>
+</details>
+  </ul>
+</p>
+</details>
 
 ### 🧹 Vacuum Robot ###
 
@@ -247,7 +273,7 @@ Beside the LEDs there are also two switches and a HC-SR501-Sensor. I thought abo
 
 #### 🏋🏼‍♂️ HX711 - Weight Sensor ####
 
-Some of you might ask what you can do with a weight sensor in a Smart Home. A whole lot of! I use them placed under my bed to detect the presence there. Because my girlfriend weighs less than me, we can differentiate who and how much people are there. This enables a lot of handy automations.
+Some of you might ask what you can do with a weight sensor in a Smart Home. A whole lot of! I use them placed under my bed to detect the presence there. Because my partner weighs less than me, we can differentiate who and how much people are there. This enables a lot of handy automations.
 
 <details><summary>Using in automations</summary>
 <p>
