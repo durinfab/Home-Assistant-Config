@@ -26,7 +26,7 @@
   action:
     - service: script.speech_engine
       data_template:
-        NestStatus: "Ich erhöhe die Temperatur im Haus auf {{ (state_attr('climate.thermostat', 'temperature')) | replace('.', ',') }} Grad."
+        NestStatus: "Ich erhöhe die Temperatur in der Wohnung auf {{ (state_attr('climate.thermostat', 'temperature')) | replace('.', ',') }} Grad."
         call_window_check: 1
         call_no_announcement: 1
     - service: input_boolean.turn_on
@@ -108,7 +108,7 @@
   action:
     - service: script.speech_engine
       data_template:
-        NestStatus: "Ich senke die Temperatur im Haus auf {{ (state_attr('climate.thermostat', 'temperature')) | replace('.', ',') }} Grad."
+        NestStatus: "Ich senke die Temperatur in der Wohnung auf {{ (state_attr('climate.thermostat', 'temperature')) | replace('.', ',') }} Grad."
         call_window_check: 0
         call_no_announcement: 1
     - service: input_boolean.turn_on

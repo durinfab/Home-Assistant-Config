@@ -15,7 +15,7 @@
     - service: script.speech_engine
       data_template:
         personarriving: >
-          "Morgen muss die {{ state_attr('calendar.muelltonne', 'message') }} raus. Geht sie doch bitte rausschaffen!"
+          "Morgen muss die {{ state_attr('calendar.muelltonne', 'message') }} raus."
         call_responsibilities: 0
         call_random: 1
         call_no_announcement: 1
@@ -54,7 +54,7 @@
     - service: script.speech_engine
       data_template:
         random: >
-          "Morgen muss die {{ state_attr('calendar.gemeindebau', 'message') }} raus. Geht sie doch bitte rausschaffen!"
+          "Morgen muss die {{ state_attr('calendar.gemeindebau', 'message') }} raus."
         call_responsibilities: 0
         call_random: 1
         call_no_announcement: 1
