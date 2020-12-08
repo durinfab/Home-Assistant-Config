@@ -199,7 +199,7 @@ To integrate my tablet I'm using [Fully Kiosk Browser](https://www.fully-kiosk.c
 
 <img src="https://images-na.ssl-images-amazon.com/images/I/616XZ5csfNL._AC_SL1200_.jpg" width="150" align="left">
 
-As TV we are using a **Phillips 55PUS7503**. For the main facts, it features a 55 inch display and was build in 2018. Why Phillips? For a need little thing called Ambilight. Basically the TV has build-in LEDs around the edge, facing the wall behind it. The purpose of them is to emulate an enlargement of the picture by displaying the same colors as the display show on the same position. From a Smart-Home perspective this TV features an API with allows remote control over the network.
+As TV we are using a **Phillips 55PUS7503**. For the main facts, it features a 55 inch display and was build in 2018. Why Phillips? For a neat little thing called "Ambilight". Basically the TV has build-in LEDs around the edge, facing the wall behind it. The purpose of them is to emulate an enlargement of the picture by displaying the same colors as the display show on the same position. From a Smart-Home perspective this TV features an API with allows remote control over the network.
 
 To integrate [this](https://github.com/nstrelow/ha_philips_android_tv) component.
 
@@ -209,7 +209,7 @@ Today Phillips Hue is a big player in the lighting Smart-Home industry. To upgra
 
 ### ⚡️ IR-Sender ###
 
-As not every command is supported by the media_player interface, we need a alternative to send commands to the TV. For this propose I'm using the [RM4C mini](https://www.amazon.de/Universal-IR-Fernbedienung-Stimmenkontrolle-Koordinierung-Intelligente-Automatisierungsmodule-Schwarz/dp/B08215598C/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=RM4C+mini&qid=1605704505&sr=8-3). To control this handy device I use the [Broadlink Integration](https://www.home-assistant.io/integrations/broadlink/). This does also support the learing of new IR-Commands.
+As not every command is supported by the media_player interface, we need a alternative to send commands to the TV. For this propose I'm using the [RM4C mini](https://www.amazon.de/Universal-IR-Fernbedienung-Stimmenkontrolle-Koordinierung-Intelligente-Automatisierungsmodule-Schwarz/dp/B08215598C/ref=sr_1_3?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=RM4C+mini&qid=1605704505&sr=8-3). To control this handy device I use the [Broadlink Integration](https://www.home-assistant.io/integrations/broadlink/). This does also support the learning of new IR-Commands.
 
 <details><summary>Using in automations</summary>
 <p>
@@ -372,6 +372,52 @@ Long story short: When someone leaves the bed I can easily tell, who it was. I h
 </p>
 </details>
 
+### Acoustic Feedback
+
+Virtual assistants are getting more and more popular and I'm also using some Google Home Minis around the apartment. There are many downsides of using those assistants. The first point here is the security perspective. With the installation of such a device you are placing an always online and microphone-equipped spy inside your home. Personally I grew slightly more tolerant towards the topic and see the usage as a trade-off between really useful features and the collection of data. These devices could possibly scan everything in your environment and help the manufacturer create a detailed personal description. Making sure they don't is impossible as long as the code is closed source.
+
+On the other side these devices can assist you during your everyday life. Ask for the weather, create timers, play songs, everything controlled by your voice. Furthermore you have the entire knowledge database of the internet on your side. Simple and some complex questions get answered and after a while you really get used to it. 
+
+#### But why Google Home? ####
+
+First of all, I've made this decision about three years ago, so some things might have changed (feature and restriction wise). Beside some community driven projects there are three choices when choosing a virtual assistant.
+
+##### Amazon Alexa #####
+
+Alexa was the first assistant which was presented to the world and I used her for around two months. From a usability perspective I had some problems with the system. The first thing was the "application"-model. If you want to use third-party apps, you need to call Alexa to execute this app and then every vocal input will be piped through her. Another thing is that Amazon is, in my opinion, not really able to create handy User Interfaces. Except that, Alexa was not that bad. However Google Home had attractive features like accessible API for Bluetooth LE (not supported anymore 🙁), Spotify Multiroom(speaker-group) support and person specific profiles.
+
+*Things might have changed since then!*
+
+##### Apple Siri #####
+
+<img src="https://appletoolbox.com/wp-content/uploads/2020/06/iOS-14-Home-App-Interface.jpg" width="170" align="right">
+
+In the past Siri was always known to be less reliable than her competitor. On a daily base she performs okay in executing basic commands, but has some problems. Because Siri is developed by Apple, she only works with Apple devices. Even using a different streaming service, aside from "Apple Music", is not possible at the moment. Another point is the high price tag on the speaker devices. Recently they released the HomePod Mini for 99 Euro (320 Euro for the original HomePod) which is still really expensive per device. They might sound a lot better then the Google Home Minis, but you can buy five of them for the price of one HomePod Mini...
+
+However it is ridiculously easy to connect Siri to Home Assistant: with HomeKit. HomeKit is an interface to connect IoT Devices to your Apple Account. Home Assistant has an [HomeKit Integration](https://www.home-assistant.io/integrations/homekit/) which allows to simply forward all supported and desired device entities to HomeKit. Doing so will add the entities in the stock HomeKit App - this means full Siri support! Additionally you can share your Home to other users if you want them to take control of the home. From a daily usage perspective this replaces the official Home Assistant App ...
+
+##### Google Home #####
+
+<img src="https://stadt-bremerhaven.de/wp-content/uploads/2018/10/Screen_Shot_2018-10-01_at_6.07.47_PM.jpg" width="170" align="right">
+
+With the other two assistants aside: Why did I choose Google Home? At the time I bought these devices, Google beat Amazon feature wise and Apple was not even an option. But how do they perform today?
+
+I've got four original Google Home Mini's (No Google Nest devices) around the apartment. They are very cheap, do their job, but are... interchangeable. Today all virtual assistants perform similar and only got minor differences. The top uses of our Google Home Minis:
+
+- Ask for the weather 🌨
+- Play Music (Single- and Multiroom) on Spotify 🎶
+- Set Timers ⏰
+- Find my Phone (Android only) 🤷🏼‍♂️
+
+You might notice that these are very basic actions and you are right. But one thing is missing completely on this list...
+
+#### Integration of Google Home into Home Assistant ####
+
+Google Home devices can be integrated as [media_players](https://www.home-assistant.io/integrations/google_assistant/) to Home Assistant. This integration also supports TTS (Text-to-Speech) which can be very handy if you want acoustical feedback from Home Assistant. Every notification, every event, every custom text can be played around the apartment, which offers many possibilities. As TTS Service I use [Amazon Polly](https://aws.amazon.com/de/polly/). She just sounds better than the classic Google TTS. The basic setup of the speech engine I'm using is from [this configuration](https://github.com/CCOSTAN/Home-AssistantConfig) (Thanks CCOSTAN 😊). 
+
+So Google Home can easily be used as an output. On the other side it is very difficult to reliably integrate Home Assistant entities to Google Home and trigger them with your voice as input. I tried many times and never got it to work stably. Many tricky workarounds, extravagant additional configs and non-deterministic results are just not worth the effort in my opinion... Again, things might have changed but at the moment I'm just using Siri on my Phone if I really want to give voice commands.
+
+So what is my recommendation? For my environment it would make sense to use the Apple Home Pod nowadays. But they are still very expensive and do not even support Spotify, so I'll stick to my Google Home Mini's. In the end every assistant is similar to each other: You don't pay with money, you pay with personal data. On the other side they can offer small additions to your daily life and are just fun to use.
 
 ## Future Plans 👨🏻‍🔧 ##
 
