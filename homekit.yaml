@@ -18,6 +18,20 @@ filter:
     - light.debug_led0
     - light.3524c986_aa76e656
     - light.b0e6f226_afa899e1
+    - light.01e881b7_e807f250
+    - light.all_lights
+    - light.group_1
+    - light.ground_floor_lights
+    - light.ground_colored
+    - light.party_lights
+    - light.debugleds
+    - light.bedroom_lights
+    - light.vestibule
+    - light.living_room
+    - light.workspace_lights
+    - light.living_room_light_wall
+    - light.living_room_lights
+    - light.kitchen_lights
 
   include_entities:
     - climate.thermostat
