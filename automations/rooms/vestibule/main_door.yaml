@@ -42,7 +42,7 @@
   initial_state: True
   trigger:
     platform: state
-    entity_id: binary_sensor.flur_tuer_contact
+    entity_id: binary_sensor.vestibule_front_door_contact
     to: "on"
     for:
       minutes: 5
