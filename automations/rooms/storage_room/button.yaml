@@ -2,7 +2,7 @@
 ## Covers all automations corresponding the storage room button.
 ##
 
-## Force Returns vacuum robot to his base
+## Force vacuum robot to clean
 - alias: "Storage Room - button double - start vacuum"
   initial_state: True
   trigger:
@@ -17,7 +17,7 @@
     - service: vacuum.start
       entity_id: vacuum.rockrobo
 
-## Force vacuum robot to clean
+## Force vacuum robot to return
 - alias: "Storage Room - button double - return vacuum"
   initial_state: True
   trigger:
