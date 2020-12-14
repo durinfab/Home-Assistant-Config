@@ -4,6 +4,7 @@ tts/*
 www/*
 esphome/*
 themes/*
+blueprints/*
 custom_components/*
 templates/secret/*
 .storage/*
