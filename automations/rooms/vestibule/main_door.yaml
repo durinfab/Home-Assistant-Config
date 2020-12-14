@@ -72,7 +72,7 @@
       entity_id: input_boolean.vestibule_front_door_open_5
     - service: script.led_hard
       data_template:
-        message: "vestibule_front_door schliessen!"
+        message: "Haustuer schliessen!"
         symbol: "E"
 
 - alias: Vestibule - Door closes after too long
@@ -88,6 +88,7 @@
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.vestibule_front_door_open_5
+    - service: script.clear_led_hard
     - service: script.led_notification
       data_template:
         message: "Danke!"
