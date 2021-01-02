@@ -27,8 +27,12 @@
     {{ float(states('sensor.time')) }} Uhr
   {%- endmacro -%}
 
-  {%- macro un_christ() -%}
-    {{ states('sensor.until_christ') }} Tage bis Weihnachten
+  {%- macro print() -%}
+    {%- if (states('sensor.octoprint_job_percentage') | float > 0.00) or (states('sensor.octoprint_job_percentage') | float < 100.00) -%}
+      {{ states('sensor.octoprint_job_percentage') }} % abgeschlossen
+    {%- else -%}
+      Kein 3D Druck
+    {%- endif -%}
   {%- endmacro -%}
 
   {%- macro lights_on() -%}
@@ -46,7 +50,7 @@
       states.light.hall_strip,
       states.light.storage_room_whiteboard
     ] %}
-     {{ lights | selectattr('state','eq','on') | list | count }} einge. Lampen
+    {{ lights | selectattr('state','eq','on') | list | count }} einge. Lampen
   {%- endmacro -%}
   {%- macro windows_open() -%}
     {% set windows = [ 
@@ -56,11 +60,11 @@
     states.binary_sensor.bathroom_window_contact,
     states.binary_sensor.kitchen_window_contact
     ] %}
-     {{ windows | selectattr('state','eq','on') | list | count }} Fenster offen
+    {{ windows | selectattr('state','eq','on') | list | count }} Fenster offen
   {%- endmacro -%}
   {%- macro last_clean() -%}
     {% set a = state_attr('vacuum.rockrobo', 'last_run_stats') ['endTime'] %}
     Letztes Saugen: {{ ( a | int  / 1000 ) | timestamp_custom("%d.%m um %H:%M") }}
   {%- endmacro -%}
 
-  {{ ([last_clean,lights_on,un_christ,ad,au,bad,win,windows_open]|random)() }}
+  {{ ([last_clean,lights_on,print,ad,au,bad,win,windows_open]|random)() }}
