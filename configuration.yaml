@@ -15,6 +15,9 @@ spotify:
 http:
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
+octoprint:
+  host: octopi.local
+  api_key: !secret octokey
 tts:
   - platform: amazon_polly
     aws_access_key_id: !secret polly_key
