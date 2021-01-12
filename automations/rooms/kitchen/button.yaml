@@ -11,3 +11,5 @@
   action:
     - service: light.toggle
       entity_id: light.kitchen_lamp
+    - service: light.toggle
+      entity_id: light.kitchen_strip

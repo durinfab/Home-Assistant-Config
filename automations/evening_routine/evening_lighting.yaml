@@ -2,6 +2,16 @@
 ## All events which correspond to evening_mode.
 ##
 
+- alias: Evening - Christmas Lights on
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: input_boolean.evening_mode
+    to: "on"
+  action:
+    service: switch.turn_on
+    entity_id: switch.christmas_light_window
+
 - alias: Evening - Ambient Light when someone home
   initial_state: True
   trigger:
@@ -17,7 +27,7 @@
     - service: switch.turn_on
       entity_id: 
         - switch.workspace_fairy_lights
-        - switch.christmas_light_window
+        - switch.christmas_tree
     - service: script.led_notification
       data_template:
         message: "Sonnenuntergang"

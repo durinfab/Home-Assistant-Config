@@ -25,6 +25,7 @@
 - platform: circadian_lighting
   lights_ct:
     - light.kitchen_lamp
+    - light.kitchen_strip
   name: kitchen
   disable_brightness_adjust: True
 
