@@ -1,0 +1,10 @@
+- alias: 'HVAC - convert setpoint to command with setpoint'
+  trigger:
+    platform: mqtt
+    topic: hvac_unformatted/SetTemperature
+  action:
+    service: mqtt.publish
+    data:
+          topic: OTGW/command
+          payload: >
+            TC={{ trigger.payload }}
