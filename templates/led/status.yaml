@@ -28,10 +28,10 @@
   {%- endmacro -%}
 
   {%- macro print() -%}
-    {%- if (states('sensor.octoprint_job_percentage') | float > 0.00) or (states('sensor.octoprint_job_percentage') | float < 100.00) -%}
+    {%- if (states('sensor.octoprint_job_percentage') | float != 0) and (states('sensor.octoprint_job_percentage') | float != 100) -%}
       {{ states('sensor.octoprint_job_percentage') }} % abgeschlossen
     {%- else -%}
-      Kein 3D Druck
+      Kein 3D Druck!
     {%- endif -%}
   {%- endmacro -%}
 
@@ -48,6 +48,7 @@
       states.light.outdoor_lamp,
       states.light.vestibule_lamp,
       states.light.hall_strip,
+      states.light.kitchen_strip,
       states.light.storage_room_whiteboard
     ] %}
     {{ lights | selectattr('state','eq','on') | list | count }} einge. Lampen
