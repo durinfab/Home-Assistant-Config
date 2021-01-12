@@ -79,9 +79,9 @@ person:
 climate:
   - platform: mqtt
     name: Central_Heating
-    current_temperature_topic: events/central_heating/otmonitor/roomtemperature
-    temperature_command_topic: actions/otmonitor/setpoint
-    temperature_state_topic: events/central_heating/otmonitor/setpoint
+    current_temperature_topic: OTGW/Tr
+    temperature_command_topic: hvac_unformatted/SetTemperature
+    temperature_state_topic: OTGW/TrSet
     min_temp: 5
     max_temp: 35
     initial: 17
