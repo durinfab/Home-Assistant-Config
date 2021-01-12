@@ -1,6 +1,6 @@
 # My Home Assistant Configuration ✨
 
-**Current Version: 2020.12.0**
+**Current Version: 2020.12.2**
 
 I'm Fabian, a computer science student from Germany. I live in a shared apartment with my partner and a friend of ours. I'm using Home Assistant for about four years right now and Home Automation has become one of my biggest hobbies. During my journey I learned a lot about keeping the network tidy, getting an own point of view of logical shortcuts between devices and a good effort-benefit- and price-performance- assessment.
 
@@ -68,15 +68,18 @@ But nonetheless these pucks are able to handle my roundabout 45 devices with no 
 
 I love colorful LEDs. They help to give every room some dynamic and variety. That's why I'm mainly using color-ranged bulbs and strips instead of white-ranged ones.
 
-For bulbs and ceiling lamps um using [Yeelight](https://www.yeelight.com) Lamps. They are relatively cheap, have a LAN-only-functionality and a stable Home Assistant integration.
+For ceiling lamps i'm using [Yeelight](https://www.yeelight.com) Lamps. They are relatively cheap, have a LAN-only-functionality and a stable Home Assistant integration.
+
+For casual bulbs I started to switch to Phillips Hue Devices, because in their White(Warm/Cold) variant are quite affordable. The Color varient of these bulbs are stupid overpriced an are only used in the Living Room to work with Philips Ambilight.
 
 | Model                                                        | Image                                                        | Quantity | Notes                                                        |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | :------: | ------------------------------------------------------------ |
 | Xiaomi Yeelight Bulb V1 ([YLDP02YL](https://www.amazon.de/YEELIGHT-Smart-LED-Glühbirne-Lumen/dp/B073QPD1KX/ref=sr_1_2?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=YLDP02YL&qid=1605394900&sr=8-2)) | <img src="https://images-na.ssl-images-amazon.com/images/I/41WorOMGm5L._AC_SX679_.jpg" width="150"> |    2     | Used as bedside lamps. They are less bright than the V2 and my oldest smart bulbs. |
-| Xiaomi Yeelight Bulb V2 (YLDP06YL)                           | <img src="https://images-na.ssl-images-amazon.com/images/I/414zidjPMbL._AC_SX679_.jpg" width="150"> |    1     | One of them is located in our Storage Room.                  |
-| Xiaomi Yeelight Bulb 1S ([YLDP13YL](https://www.amazon.de/Glühbirne-Millionen-Weißlicht-Kompatibel-Assistant/dp/B0832XR68B/ref=sr_1_1?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=YLDP13YL&qid=1605395096&sr=8-1)) | <img src="https://images-na.ssl-images-amazon.com/images/I/414zidjPMbL._AC_SX679_.jpg" width="150"> |    1     | Used on the outside by the entrance. I'm curious if she does survive the cold days... |
+| Xiaomi Yeelight Bulb 1S ([YLDP13YL](https://www.amazon.de/Glühbirne-Millionen-Weißlicht-Kompatibel-Assistant/dp/B0832XR68B/ref=sr_1_1?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=YLDP13YL&qid=1605395096&sr=8-1)) | <img src="https://images-na.ssl-images-amazon.com/images/I/414zidjPMbL._AC_SX679_.jpg" width="150"> |    1     | Used as a christmas ambient light near the window.           |
 | [Yeelight Meteorite](https://www.amazon.de/Yeelight-2700K-6000K-Farbtemperatur-LED-Leuchter-LED-Kronleuchter/dp/B07MY2MTZY/ref=sr_1_1_sspa?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=yeelight+Meteorite&qid=1605395144&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzS0paWkJJMVZIVkRRJmVuY3J5cHRlZElkPUEwOTA2NTExUUQ5RkhCQlkzS0c2JmVuY3J5cHRlZEFkSWQ9QTA3NDAyNzk5NTlXTE1FTVo4R0Qmd2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl) | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS4sh9x_PEhq1y3UefXoEoBEXZiqPwiVcvc6s20LaNPfTsi3EfLn0dpg6iIcOfQfsOoWn3XtYs&usqp=CAc" width="150"> |    1     | Used in the Workspace room for dinner and ambient lighting. Contains colored light on top and white light on the bottom (adjustable temperature). |
 | Xiaomi Ceiling Lamp                                          | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTD8uUrwwr7SBeM5IchMpkv07SezDwQhY9kOrDej2LyIloFolmgFFtOB_Fp-Jt6HjCC899l4ma5&usqp=CAc" width="150"> |    1     | Used in our kitchen. Very bright but not that cheap.         |
+
+*Hint: I recently used a Yeelight Bulb 1S outside (around -5 °C minimum). The Bulb survived the cold temperatures, but the network connection was very, very unstable.*
 
 The lighting strips offered by [Yeelight](https://www.yeelight.com) are very expensive and not worth the money when you can do it yourself :)
 
@@ -97,6 +100,7 @@ Long story short: I wanted to minimize afford. Here are my current Phillips Hue 
 | Phillips E27 white & color ([LCA001](https://www.amazon.de/Hue-Doppelpack-2x806lm-Bluetooth-Energieklasse/dp/B07SS38CVG/ref=pd_lpo_201_t_0/260-7052561-1317654?_encoding=UTF8&pd_rd_i=B07SS38CVG&pd_rd_r=2becca34-75ef-418a-8e9b-ce527592955a&pd_rd_w=Dg3ZD&pd_rd_wg=PiQ18&pf_rd_p=d5c9797d-0238-4119-b220-af4cc3420918&pf_rd_r=9PFXPN6WR9H27BAK4K01&refRID=9PFXPN6WR9H27BAK4K01&th=1)) | <img src="https://images-na.ssl-images-amazon.com/images/I/71MA0Ew2l-L._AC_SL1500_.jpg" align="center" width="150"> | 1        | Used in the living room (Ambilight) and the vestibule (Zigbee Router for outdoor sensor). |
 | Hue motion outdoor sensor ([9290019758](https://www.amazon.de/Philips-Hue-Bewegungssensor-Aussenbereich-Tageslichtsensor/dp/B07KMP8P1Q/ref=sr_1_2?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=hue+outdoor&qid=1605394774&sr=8-2)) | ![Hue Outdoor](https://www.zigbee2mqtt.io/images/devices/9290019758.jpg) | 1        | Used for capturing the outdoor temperature and entrance lighting. |
 | Phillips LivingColors Bloom 3. Gen. ([LLC005](https://www.amazon.de/Philips-LivingColors-Tischleuchte-weiß-7099760PH/dp/B009567RE2/ref=sr_1_1?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=phillips+bloom&qid=1606560541&sr=8-1)) | <img src="https://images-na.ssl-images-amazon.com/images/I/61nWtMHRhNL._AC_SL1500_.jpg" align="center" width="150"> | 1        | Used to light up the whiteboard in the storage room.         |
+| Phillips E27 white ([A60](https://www.amazon.de/Hue-Doppelpack-2x806lm-Bluetooth-Energieklasse/dp/B07SPKSVKH)) | <img src="https://images-na.ssl-images-amazon.com/images/I/61If6LoPB2L._AC_SL1500_.jpg" align="center" width="150"> | 2        | Used in Storage Room and Outside                             |
 
 <details><summary>Random problems and their solution</summary>
 <p>
@@ -112,6 +116,7 @@ Long story short: I wanted to minimize afford. Here are my current Phillips Hue 
   </ul>
 </p>
 </details>
+
 
 ### 🏃🏻‍♂️ Presence Detection ###
 
@@ -138,6 +143,7 @@ Detecting residents in a specific area is not easy to establish, but it's paying
 </p>
 </details>
 
+
 <details><summary>Random problems and their solution</summary>
 <p>
   <ul>
@@ -151,6 +157,7 @@ Detecting residents in a specific area is not easy to establish, but it's paying
   </ul>
 </p>
 </details>
+
 
 ### 🧹 Vacuum Robot ###
 
@@ -172,6 +179,7 @@ Why especially this device? Because it uses a smart Laser-based navigation(no ra
 </details>
 
 
+
 *Note: If you want to buy this device, be sure to get one with old production date (before 2019-11) as the factory firmware (to which the robot can be reset) does allow the installation of a custom ROM.*
 
 ### 📱 Wall mounted tablet ###
@@ -190,6 +198,7 @@ To integrate my tablet I'm using [Fully Kiosk Browser](https://www.fully-kiosk.c
     </ul>
 </p>
 </details>
+
 
 *Hint: The tablet lose it's connection to Home Assistant if I lock the device. Thats why I'm just setting the brightness to the lowest setting.*
 
@@ -220,6 +229,7 @@ As not every command is supported by the media_player interface, we need a alter
 </details>
 
 
+
 ### ESP32/ESP8266 ###
 
 <img src="https://images-na.ssl-images-amazon.com/images/I/71y1ETlEHyL._SL1500_.jpg" width="130" align="left">
@@ -244,6 +254,7 @@ On the left side you can see the current time and on the right a random informat
     </ul>
 </p>
 </details>
+
 
 
 #### 🌡 DHT22 - Temperature/Humidity Sensor ####
@@ -271,6 +282,7 @@ Beside the LEDs there are also two switches and a HC-SR501-Sensor. I thought abo
 </details>
 
 
+
 #### 🏋🏼‍♂️ HX711 - Weight Sensor ####
 
 Some of you might ask what you can do with a weight sensor in a Smart Home. A whole lot of! I use them placed under my bed to detect the presence there. Because my partner weighs less than me, we can differentiate who and how much people are there. This enables a lot of handy automations.
@@ -283,6 +295,7 @@ Some of you might ask what you can do with a weight sensor in a Smart Home. A wh
     </ul>
 </p>
 </details>
+
 
 
 *The idea for this use case of the HX711 is from [here](https://selfhostedhome.com/diy-bed-presence-detection-home-assistant/)*
@@ -371,6 +384,7 @@ Long story short: When someone leaves the bed I can easily tell, who it was. I h
 </p>
 </details>
 
+
 ### Acoustic Feedback
 
 Virtual assistants are getting more and more popular and I'm also using some Google Home Minis around the apartment. There are many downsides of using those assistants. The first point here is the security perspective. With the installation of such a device you are placing an always online and microphone-equipped spy inside your home. Personally I grew slightly more tolerant towards the topic and see the usage as a trade-off between really useful features and the collection of data. These devices could possibly scan everything in your environment and help the manufacturer create a detailed personal description. Making sure they don't is impossible as long as the code is closed source.
@@ -416,14 +430,13 @@ Google Home devices can be integrated as [media_players](https://www.home-assist
 
 So Google Home can easily be used as an output. On the other side it is very difficult to reliably integrate Home Assistant entities to Google Home and trigger them with your voice as input. I tried many times and never got it to work stably. Many tricky workarounds, extravagant additional configs and non-deterministic results are just not worth the effort in my opinion... Again, things might have changed but at the moment I'm just using Siri on my Phone if I really want to give voice commands.
 
-So what is my recommendation? For my environment it would make sense to use the Apple Home Pod nowadays. But they are still very expensive and do not even support Spotify, so I'll stick to my Google Home Mini's. In the end every assistant is similar to each other: You don't pay with money, you pay with personal data. On the other side they can offer small additions to your daily life and are just fun to use.
+So what is my recommendation? For my environment it would make sense to use the Apple HomePod nowadays. But they are still very expensive and do not even support Spotify, so I'll stick to my Google Home Mini's. In the end every assistant is similar to each other: You don't pay with money, you pay with personal data. On the other side they can offer small additions to your daily life and are just fun to use.
 
 ## Future Plans 👨🏻‍🔧 ##
 
 - Add Wii "Power" to IR Sensor. Maybe PS4 too...
+- Waiting for my HomePod Mini to arrive... 🚙
 - Reintegrate my [OpenTherm Gateway](https://www.nodo-shop.nl/nl/opentherm-gateway/188-opentherm-gateway.html). Looking forward to [this](https://github.com/rvdbreemen/OTGW-firmware) to get released.
-- Place an [CC2531](https://www.amazon.de/CC2531-USB-Stick-zigbee2mqtt-ioBroker-Firmware/dp/B07T3GM28F/ref=sr_1_9?__mk_de_DE=ÅMÅŽÕÑ&dchild=1&keywords=CC2531&qid=1605394793&sr=8-9) with [this](https://github.com/Koenkk/Z-Stack-firmware/tree/master/router/CC2531) router software to improve my Zigbee network load.
-- Adding some christmas lights 🎄
 
 ## Support my coffee consumption ☕️ ##
 
