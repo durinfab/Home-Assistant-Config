@@ -41,6 +41,7 @@
     - service: switch.turn_off
       entity_id:
         - switch.workspace_fairy_lights
+        - switch.christmas_tree
         - switch.stairway_light
     - service: light.turn_off
       entity_id:
@@ -56,6 +57,7 @@
         - light.dining_table
         - light.dining_table_ambilight
         - light.hall_strip
+        - light.kitchen_strip
         - light.living_room_strip
         - light.storage_room_whiteboard
     - service: light.turn_on

@@ -20,6 +20,7 @@
           - light.living_room_strip
           - light.bedroom_strip
           - light.hall_strip
+          - light.kitchen_strip
         brightness: 255
         effect: colorloop
 

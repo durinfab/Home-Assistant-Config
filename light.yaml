@@ -7,6 +7,7 @@
     - light.living_room_right
     - light.storage_room_lamp
     - light.hall_strip
+    - light.kitchen_strip
     - light.vestibule_lamp
 
 - platform: group
@@ -55,6 +56,7 @@
     - light.dining_table
     - light.dining_table_ambilight
     - light.hall_strip
+    - light.kitchen_strip
 
 - platform: group
   name: all_lights
@@ -69,6 +71,7 @@
     - light.dining_table_ambilight
     - light.outdoor_lamp
     - light.hall_strip
+    - light.kitchen_strip
     - light.vestibule_lamp
 
 - platform: group
@@ -81,6 +84,7 @@
     - light.living_room_strip
     - light.dining_table_ambilight
     - light.hall_strip
+    - light.kitchen_strip
     - light.vestibule_lamp
     - light.bedroom_strip
     - light.bedroom_lamp_left
