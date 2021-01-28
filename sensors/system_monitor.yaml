@@ -5,3 +5,4 @@
     - type: memory_free
     - type: load_1m
     - type: processor_use
+    - type: processor_temperature

@@ -35,6 +35,14 @@
     {%- endif -%}
   {%- endmacro -%}
 
+  {%- macro tim() -%}
+    {{ float(states('sensor.time')) }} Uhr
+  {%- endmacro -%}
+
+  {%- macro stats() -%}
+    CPU: {{ float(states('sensor.processor_temperature')) }} °C Mem. Free: {{ float(states('sensor.memory_free')) }} MB
+  {%- endmacro -%}
+
   {%- macro lights_on() -%}
     {% set lights = [ states.light.living_room_left,
       states.light.living_room_right,
@@ -68,4 +76,4 @@
     Letztes Saugen: {{ ( a | int  / 1000 ) | timestamp_custom("%d.%m um %H:%M") }}
   {%- endmacro -%}
 
-  {{ ([last_clean,lights_on,print,ad,au,bad,win,windows_open]|random)() }}
+  {{ ([stats,last_clean,lights_on,print,ad,au,bad,win,windows_open]|random)() }}
