@@ -56,9 +56,9 @@
     - service: light.turn_off
       entity_id: light.ground_floor_lights
     - service: switch.turn_off
-      entity_id: 
+      entity_id:
         - switch.workspace_fairy_lights
-        - switch.christmas_tree
+        - switch.window_plant
         - switch.christmas_light_window
     - service: input_select.select_option
       data:

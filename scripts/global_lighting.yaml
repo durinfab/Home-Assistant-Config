@@ -6,9 +6,9 @@
 home_late_light:
   sequence:
     - service: switch.turn_on
-      entity_id: 
+      entity_id:
         - switch.workspace_fairy_lights
-        - switch.christmas_tree
+        - switch.window_plant
     - service: light.turn_on
       data_template:
         entity_id:

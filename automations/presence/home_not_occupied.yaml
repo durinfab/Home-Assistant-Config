@@ -41,7 +41,7 @@
     - service: switch.turn_off
       entity_id:
         - switch.workspace_fairy_lights
-        - switch.christmas_tree
+        - switch.window_plant
         - switch.stairway_light
     - service: light.turn_off
       entity_id:

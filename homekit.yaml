@@ -37,6 +37,7 @@ filter:
 
   include_entities:
     - climate.central_heating
+    - camera.3d_printer
     - binary_sensor.outdoor_motion_occupancy
     - binary_sensor.stairway_motion_occupancy
     - binary_sensor.vestibule_motion_occupancy
@@ -51,7 +52,7 @@ filter:
     - sensor.workspace_temperature_humidity
     - sensor.outdoor_motion_temperature
     - switch.workspace_fairy_lights
-    - switch.christmas_tree
+    - switch.window_plant
     - switch.stairway_light
     - switch.manual_staubi
     - person.fabi
