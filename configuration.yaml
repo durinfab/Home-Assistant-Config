@@ -18,6 +18,13 @@ http:
 octoprint:
   host: octopi.local
   api_key: !secret octokey
+  bed: true
+
+camera:
+    - platform: generic
+      name: 3d_printer
+      still_image_url: http://octopi.local/webcam/?action=snapshot
+      stream_source: http://octopi.local/webcam/?action=stream
 tts:
   - platform: amazon_polly
     aws_access_key_id: !secret polly_key
