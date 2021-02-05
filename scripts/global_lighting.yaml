@@ -16,7 +16,6 @@ home_late_light:
           - light.dining_table_ambilight
           - light.living_room_strip
           - light.hall_strip
-          - light.kitchen_strip
           - light.storage_room_whiteboard
           - light.workspace_window_light
         rgb_color:
@@ -31,7 +30,6 @@ home_late_light:
         - light.workspace_strip
         - light.living_room_strip
         - light.hall_strip
-        - light.kitchen_strip
       data_template:
         effect: 0
     - service: light.turn_on
@@ -47,7 +45,6 @@ random_effect:
           - light.workspace_strip
           - light.living_room_strip
           - light.hall_strip
-          - light.kitchen_strip
         rgb_color:
           [
             "{{ (range(0, 255)|random) }}",
@@ -64,12 +61,6 @@ random_effect:
       entity_id: light.hall_strip
       data:
         effect: '{{ state_attr("light.hall_strip", "effect_list") | random }}'
-        intensity: "{{ (range(50, 200)|random) }}"
-        speed: "{{ (range(50, 200)|random) }}"
-    - service: wled.effect
-      entity_id: light.kitchen_strip
-      data:
-        effect: '{{ state_attr("light.kitchen_strip", "effect_list") | random }}'
         intensity: "{{ (range(50, 200)|random) }}"
         speed: "{{ (range(50, 200)|random) }}"
     - service: wled.effect
