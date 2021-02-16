@@ -21,18 +21,10 @@ octoprint:
   bed: true
 
 camera:
-    - platform: generic
-      name: 3d_printer
-      still_image_url: http://octopi.local/webcam/?action=snapshot
-      stream_source: http://octopi.local/webcam/?action=stream
-tts:
-  - platform: amazon_polly
-    aws_access_key_id: !secret polly_key
-    aws_secret_access_key: !secret polly_access
-    region_name: eu-central-1
-    text_type: ssml
-    voice: Vicki
-    cache: True
+  - platform: generic
+    name: 3d_printer
+    still_image_url: http://octopi.local/webcam/?action=snapshot
+    stream_source: http://octopi.local/webcam/?action=stream
 
 media_player:
   - platform: philips_android_tv
@@ -125,3 +117,7 @@ input_text:
   tmp:
     name: tmp text
     initial: ""
+  awtrix_notify:
+    name: Awtrix Notify
+    initial: Hello, World!
+    icon: mdi:form-textarea

@@ -63,22 +63,6 @@
     - service: script.led_hard
       data_template:
         message: "Unautorisierter Zugriff!"
-    - service: script.speech_processing
-      data_template:
-        media_player: >-
-          {% set media_player = [
-            'media_player.workspace',
-            'media_player.living_room',
-            'media_player.bedroom',
-            'media_player.kitchen'
-          ] %}
-
-          {% if media_player is not string and media_player is sequence %}
-            {% set media_player = media_player|join(', ') %}
-          {% endif %}
-
-          {{ media_player }}
-        speech_message: "Unautorisierter Zugriff erkannt."
     - service: notify.mobile_app_fabi_phone
       data:
         title: "Alarm im Gemeindebau"
