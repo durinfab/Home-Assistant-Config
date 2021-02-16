@@ -1,0 +1,7 @@
+- platform: mqtt
+  name: "awtrix_activeApp"
+  state_topic: "awtrix/activeApp"
+- platform: mqtt
+  name: "awtrix_powerState"
+  state_topic: "awtrix/response"
+  value_template: "{{ value_json.powerState }}"

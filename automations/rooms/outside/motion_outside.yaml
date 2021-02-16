@@ -12,6 +12,10 @@
   action:
     - service: light.turn_on
       entity_id: light.outdoor_lamp
+    - service: script.awtrix_advanced_notify
+      data_template:
+        message: "Haustür"
+        icon: 709
 
 - alias: "Outside - motion light off"
   initial_state: True

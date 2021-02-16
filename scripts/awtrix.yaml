@@ -1,0 +1,15 @@
+awtrix_default_notify:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: awtrix/notify
+        payload: '{"name":"HASS Notify", "force":true, "duration":5, "repeat":2, "icon":1221, "text":"{{states.input_text.awtrix_notify.state}}"}'
+  mode: single
+
+awtrix_advanced_notify:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: awtrix/notify
+        payload: '{"name":"HASS Notify", "force":true, "duration":5, "repeat":2, "icon":{{icon}}, "text":"{{message}}"}'
+  mode: single

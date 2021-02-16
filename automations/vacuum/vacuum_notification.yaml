@@ -6,6 +6,10 @@
     entity_id: vacuum.rockrobo
     to: "returning"
   action:
-    service: script.led_notification
-    data_template:
-      message: "Saeuberung beendet!"
+    - service: script.awtrix_advanced_notify
+      data_template:
+        message: "Saeuberung beendet!"
+        icon: 1043
+    - service: script.led_notification
+      data_template:
+        message: "Saeuberung beendet!"

@@ -20,8 +20,8 @@
 - platform: group
   name: living_room_light_wall
   entities:
-   - light.living_room_left
-   - light.living_room_right
+    - light.living_room_left
+    - light.living_room_right
 
 - platform: group
   name: workspace_lights
@@ -89,3 +89,26 @@
     - light.bedroom_strip
     - light.bedroom_lamp_left
     - light.bedroom_lamp_right
+
+- platform: template
+  lights:
+    awtrix_lights:
+      value_template: "{{ states.sensor.awtrix_powerstate.state }}"
+      turn_on:
+        - service: mqtt.publish
+          data:
+            topic: awtrix/basics
+            payload: '{"power": true}'
+        - service: mqtt.publish
+          data:
+            topic: awtrix/basics
+            payload: '{"get":"powerState"}'
+      turn_off:
+        - service: mqtt.publish
+          data:
+            topic: awtrix/basics
+            payload: '{"power":false}'
+        - service: mqtt.publish
+          data:
+            topic: awtrix/basics
+            payload: '{"get":"powerState"}'

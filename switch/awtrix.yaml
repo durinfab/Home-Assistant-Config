@@ -1,0 +1,26 @@
+- platform: template
+  switches:
+    awtirx_apploop:
+      friendly_name: "Back/Next"
+      turn_on:
+        - service: mqtt.publish
+          data:
+            topic: "awtrix/basics"
+            payload: '{"app": "next"}'
+      turn_off:
+        - service: mqtt.publish
+          data:
+            topic: awtrix/basics
+            payload: '{"app": "back"}'
+    awtirx_switching:
+      friendly_name: "Hold/Pause"
+      turn_on:
+        - service: mqtt.publish
+          data:
+            topic: "awtrix/basics"
+            payload: '{"app": "pause"}'
+      turn_off:
+        - service: mqtt.publish
+          data:
+            topic: awtrix/basics
+            payload: '{"app": "hold"}'

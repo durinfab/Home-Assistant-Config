@@ -1,0 +1,12 @@
+- alias: awtrix - Get Power State
+  description: ""
+  trigger:
+    - platform: state
+      entity_id: sensor.awtrix_activeapp
+  condition: []
+  action:
+    - service: mqtt.publish
+      data:
+        topic: awtrix/basics
+        payload: '{"get":"powerState"}'
+  mode: single

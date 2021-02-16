@@ -31,3 +31,7 @@
     - service: script.led_notification
       data_template:
         message: "Sonnenuntergang"
+    - service: script.awtrix_advanced_notify
+      data_template:
+        message: "Sunset"
+        icon: 493

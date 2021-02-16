@@ -41,6 +41,10 @@
     - service: script.move_vacuum_to_bin
     - service: input_boolean.turn_on
       entity_id: input_boolean.vacuum_clear_bin
+    - service: script.awtrix_advanced_notify
+      data_template:
+        message: "Bitte Staubi leeren!"
+        icon: 1053
     - service: script.led_hard
       data_template:
         message: "Bitte Staubi leeren!"

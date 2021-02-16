@@ -60,6 +60,7 @@
         - light.kitchen_strip
         - light.living_room_strip
         - light.storage_room_whiteboard
+        - light.awtrix_lights
     - service: light.turn_on
       data:
         entity_id: light.3524c986_aa76e656

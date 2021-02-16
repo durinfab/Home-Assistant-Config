@@ -22,6 +22,7 @@
       - light.dining_table_ambilight
       - light.vestibule_lamp
       - light.storage_room_whiteboard
+      - binary_sensor.hall_motion
     to: "on"
   condition:
     - condition: or
@@ -36,6 +37,9 @@
       data:
         entity_id: light.3524c986_aa76e656
         brightness: 150
+    - service: light.turn_on
+      entity_id:
+        - light.awtrix_lights
     - service: input_select.select_option
       data:
         entity_id: input_select.led_sign_mode

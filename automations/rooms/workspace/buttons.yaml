@@ -65,4 +65,6 @@
         entity_id: input_select.led_sign_mode
         option: "Disabled"
     - service: light.turn_off
-      entity_id: light.3524c986_aa76e656
+      entity_id: 
+        - light.3524c986_aa76e656
+        - light.awtrix_lights

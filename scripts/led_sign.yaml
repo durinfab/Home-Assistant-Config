@@ -11,6 +11,11 @@ led_notification:
       continue_on_timeout: false
     - service: input_text.set_value
       data:
+        entity_id: input_text.awtrix_notify
+        value: "{{ states('input_text.hall_text') }}"
+    - service: script.awtrix_notify
+    - service: input_text.set_value
+      data:
         entity_id: input_text.tmp
         value: "{{ states('input_text.hall_text') }}"
     - service: script.led_hard
