@@ -35,6 +35,7 @@ home_late_light:
     - service: light.turn_on
       entity_id:
         - light.dining_table
+        - light.awtrix_lights
 
 ## Just for Fun: All strips get a random WLED effect
 random_effect:

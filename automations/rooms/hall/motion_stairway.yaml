@@ -14,8 +14,8 @@
       entity_id: input_boolean.evening_mode
       state: "on"
   action:
-    - service: switch.turn_on
-      entity_id: switch.stairway_light
+    - service: light.turn_on
+      entity_id: light.stairway_wled
 
 - alias: "Hall - stairway light off"
   initial_state: True
@@ -26,5 +26,5 @@
     for:
       seconds: 90
   action:
-    - service: switch.turn_off
-      entity_id: switch.stairway_light
+    - service: light.turn_off
+      entity_id: light.stairway_wled

@@ -12,8 +12,7 @@
     - platform: state
       entity_id:
         - device_tracker.partner_phone_wifi
-        - device_tracker.partner_tracking_phone_ground
-        - device_tracker.partner_tracking_phone_first_floor
+        - device_tracker.partner_phone_bluetooth_tracker
       to: "not_home"
     - platform: homeassistant
       event: start
@@ -41,8 +40,7 @@
     - platform: state
       entity_id:
         - device_tracker.partner_phone_wifi
-        - device_tracker.partner_tracking_phone_ground
-        - device_tracker.partner_tracking_phone_first_floor
+        - device_tracker.partner_phone_bluetooth_tracker
       to: "home"
     - platform: homeassistant
       event: start

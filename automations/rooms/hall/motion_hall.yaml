@@ -14,6 +14,8 @@
       entity_id: input_boolean.evening_mode
       state: "on"
   action:
+    - service: switch.turn_on
+      entity_id: switch.stairway_light
     - service: light.turn_on
       entity_id: light.hall_strip
       data_template:
@@ -29,5 +31,7 @@
     for:
       seconds: 90
   action:
+    - service: switch.turn_off
+      entity_id: switch.stairway_light
     - service: light.turn_off
       entity_id: light.hall_strip

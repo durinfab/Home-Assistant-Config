@@ -12,6 +12,12 @@
 
 - platform: circadian_lighting
   lights_rgb:
+    - light.stairway_fairy
+  name: stairway
+  disable_brightness_adjust: True
+
+- platform: circadian_lighting
+  lights_rgb:
     - light.outdoor_lamp
   name: outdoor_lamp
   disable_brightness_adjust: True

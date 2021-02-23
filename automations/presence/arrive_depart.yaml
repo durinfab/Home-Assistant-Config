@@ -4,7 +4,7 @@
 ##
 
 - alias: "Presence - Start Departscan"
-  initial_state: True
+  initial_state: False
   trigger:
     platform: state
     entity_id: binary_sensor.vestibule_front_door_contact
@@ -21,7 +21,7 @@
     - service: script.scan_bt_depart
 
 - alias: "Presence - Start Arrivescan"
-  initial_state: True
+  initial_state: False
   trigger:
     platform: state
     entity_id: binary_sensor.vestibule_front_door_contact

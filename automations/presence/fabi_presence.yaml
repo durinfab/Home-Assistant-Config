@@ -12,10 +12,8 @@
     - platform: state
       entity_id:
         - device_tracker.fabi_phone_wifi
-        - device_tracker.fabi_tracking_phone_ground
-        - device_tracker.fabi_tracking_phone_first_floor
-        - device_tracker.fabi_tracking_watch_first_floor
-        - device_tracker.fabi_tracking_watch_ground
+        - device_tracker.fabi_phone_tracker
+        - device_tracker.fabi_smartwatch_tracker
       to: "not_home"
     - platform: homeassistant
       event: start
@@ -43,10 +41,8 @@
     - platform: state
       entity_id:
         - device_tracker.fabi_phone_wifi
-        - device_tracker.fabi_tracking_phone_ground
-        - device_tracker.fabi_tracking_phone_first_floor
-        - device_tracker.fabi_tracking_watch_ground
-        - device_tracker.fabi_tracking_watch_first_floor
+        - device_tracker.fabi_phone_tracker
+        - device_tracker.fabi_smartwatch_tracker
       to: "home"
     - platform: homeassistant
       event: start

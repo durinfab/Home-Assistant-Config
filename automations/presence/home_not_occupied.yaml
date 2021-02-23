@@ -47,6 +47,7 @@
       entity_id:
         - light.bogenstrip
         - light.workspace_strip
+        - light.stairway_wled
         - light.kitchen_lamp
         - light.storage_room_lamp
         - light.bedroom_lamp_left

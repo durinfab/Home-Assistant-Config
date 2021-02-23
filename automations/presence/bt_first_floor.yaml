@@ -3,7 +3,7 @@
 ##
 
 ## If he's offline for 10 minutes, hard reset him
-- initial_state: on
+- initial_state: off
   alias: "Presence - BT first floor offline too long"
   trigger:
     - platform: state
@@ -23,7 +23,7 @@
         message: "first_floor Bluetooth Knoten wurde neu gestartet!"
 
 ## If he's offline for 30 seconds, announce that he cannot be trusted
-- initial_state: on
+- initial_state: off
   alias: "Presence - BT first floor offline"
   trigger:
     - platform: state

@@ -2,21 +2,17 @@ person_fabi:
   name: fabi
   entities:
     - device_tracker.fabi_phone_wifi
-    - device_tracker.fabi_tracking_phone_ground
-    - device_tracker.fabi_tracking_phone_first_floor
-    - device_tracker.fabi_tracking_watch_first_floor
-    - device_tracker.fabi_tracking_watch_ground
+    - device_tracker.fabi_phone_tracker
+    - device_tracker.fabi_smartwatch_tracker
 
 person_mate:
   name: Mate
   entities:
     - device_tracker.mate_phone_wifi
-    - device_tracker.mate_tracking_phone_ground
-    - device_tracker.mate_tracking_phone_first_floor
+    - device_tracker.mate_phone_bluetooth_tracker
 
 person_partner:
   name: Partner
   entities:
     - device_tracker.partner_phone_wifi
-    - device_tracker.partner_tracking_phone_ground
-    - device_tracker.partner_tracking_phone_first_floor
+    - device_tracker.partner_phone_bluetooth_tracker
