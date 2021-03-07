@@ -1,7 +1,0 @@
-- platform: template
-  sensors:
-    ## Sets the HVAC Temperature
-    arbeitszimmer_set_temperature_ot:
-      friendly_name: OpenTherm Set Temperatur
-      unit_of_measurement: "°C"
-      value_template: '{{state_attr("climate.thermostat", "temperature")}}'

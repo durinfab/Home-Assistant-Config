@@ -16,9 +16,6 @@ filter:
     - light.debug_led10
     - light.debug_led11
     - light.debug_led0
-    - light.3524c986_aa76e656
-    - light.b0e6f226_afa899e1
-    - light.01e881b7_e807f250
     - light.all_lights
     - light.group_1
     - light.ground_floor_lights
@@ -36,7 +33,7 @@ filter:
     - light.kitchen_lights
 
   include_entities:
-    - climate.central_heating
+    - climate.hvac_thermostat
     - camera.3d_printer
     - binary_sensor.doorbell_contact
     - binary_sensor.outdoor_motion_occupancy

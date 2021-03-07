@@ -75,24 +75,8 @@ person:
       - device_tracker.presence_partner
 tts:
   - platform: google_translate
-    base_url: http://192.168.0.5:8123
-climate:
-  - platform: mqtt
-    name: Central_Heating
-    current_temperature_topic: OTGW/Tr
-    temperature_command_topic: hvac_unformatted/SetTemperature
-    temperature_state_topic: OTGW/TrSet
-    min_temp: 5
-    max_temp: 35
-    initial: 17
-    temp_step: 0.5
-    precision: 0.5
+    base_url: !secret local
 
-browser_mod:
-  devices:
-    740aa7b1-83b882ce:
-      name: "fire"
-      camera: true
 input_datetime:
   last_door:
     name: last door opening
