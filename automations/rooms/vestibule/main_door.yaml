@@ -33,7 +33,7 @@
     entity_id: input_boolean.partner_home
     state: "on"
   action:
-    - service: notify.mobile_app_pic_lx9
+    - service: nnotify.mobile_app_partner_phone
       data:
         message: "Die Haustür steht länger als 5 Minuten offen"
         title: "Warnung"

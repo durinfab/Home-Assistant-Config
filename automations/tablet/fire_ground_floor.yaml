@@ -22,7 +22,6 @@
       - light.dining_table_ambilight
       - light.vestibule_lamp
       - light.storage_room_whiteboard
-      - binary_sensor.hall_motion
     to: "on"
   condition:
     - condition: or

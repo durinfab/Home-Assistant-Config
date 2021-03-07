@@ -1,0 +1,18 @@
+- alias: Night - Turn off all lights
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: input_boolean.night_mode
+    to: "on"
+  action:
+    - service: script.turn_off_everything
+
+- alias: Night - is over
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: input_boolean.night_mode
+    to: "off"
+  action:
+    - service: light.turn_on
+      entity_id: light.awtrix_lights
