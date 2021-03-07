@@ -1,0 +1,112 @@
+- alias: "Presence - activate night mode"
+  initial_state: on
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.fabi_phone_room_presence
+        - sensor.mate_phone_bluetooth_room_presence
+        - sensor.fabi_smartwatch_room_presence
+        - sensor.partner_phone_bluetooth_room_presence
+      to: "bedroom"
+    - platform: homeassistant
+      event: start
+  condition:
+    - condition: and
+      conditions:
+        - condition: or
+          conditions:
+            - condition: state
+              entity_id: sensor.fabi_phone_room_presence
+              state: "bedroom"
+            - condition: state
+              entity_id: sensor.fabi_phone_room_presence
+              state: "not_home"
+        - condition: or
+          conditions:
+            - condition: state
+              entity_id: sensor.mate_phone_bluetooth_room_presence
+              state: "bedroom"
+            - condition: state
+              entity_id: sensor.mate_phone_bluetooth_room_presence
+              state: "not_home"
+        - condition: or
+          conditions:
+            - condition: state
+              entity_id: sensor.fabi_smartwatch_room_presence
+              state: "bedroom"
+            - condition: state
+              entity_id: sensor.fabi_smartwatch_room_presence
+              state: "not_home"
+        - condition: or
+          conditions:
+            - condition: state
+              entity_id: sensor.partner_phone_bluetooth_room_presence
+              state: "bedroom"
+            - condition: state
+              entity_id: sensor.partner_phone_bluetooth_room_presence
+              state: "not_home"
+        - condition: time
+          after: "20:00:00"
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.night_mode
+
+- alias: "Presence - deactivate night mode"
+  initial_state: on
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.fabi_phone_room_presence
+        - sensor.mate_phone_bluetooth_room_presence
+        - sensor.fabi_smartwatch_room_presence
+        - sensor.partner_phone_bluetooth_room_presence
+      from: "bedroom"
+    - platform: state
+      entity_id:
+        - sensor.fabi_phone_room_presence
+        - sensor.mate_phone_bluetooth_room_presence
+        - sensor.fabi_smartwatch_room_presence
+        - sensor.partner_phone_bluetooth_room_presence
+      to: "not_home"
+    - platform: homeassistant
+      event: start
+  condition:
+    - condition: or
+      conditions:
+        condition: not
+        conditions:
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: sensor.fabi_phone_room_presence
+                state: "bedroom"
+              - condition: state
+                entity_id: sensor.fabi_phone_room_presence
+                state: "not_home"
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: sensor.mate_phone_bluetooth_room_presence
+                state: "bedroom"
+              - condition: state
+                entity_id: sensor.mate_phone_bluetooth_room_presence
+                state: "not_home"
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: sensor.fabi_smartwatch_room_presence
+                state: "bedroom"
+              - condition: state
+                entity_id: sensor.fabi_smartwatch_room_presence
+                state: "not_home"
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: sensor.partner_phone_bluetooth_room_presence
+                state: "bedroom"
+              - condition: state
+                entity_id: sensor.partner_phone_bluetooth_room_presence
+                state: "not_home"
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.night_mode
