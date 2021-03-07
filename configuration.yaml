@@ -13,8 +13,6 @@ spotify:
   client_secret: !secret spotify_secret
 
 http:
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
 octoprint:
   host: octopi.local
   api_key: !secret octokey
@@ -75,6 +73,9 @@ person:
     id: partner
     device_trackers:
       - device_tracker.presence_partner
+tts:
+  - platform: google_translate
+    base_url: http://192.168.0.5:8123
 climate:
   - platform: mqtt
     name: Central_Heating
@@ -121,3 +122,11 @@ input_text:
     name: Awtrix Notify
     initial: Hello, World!
     icon: mdi:form-textarea
+
+utility_meter:
+  living_room_energy:
+    source: sensor.living_room_plug_energy
+    cycle: monthly
+  workspace_energy:
+    source: sensor.workspace_plug_energy
+    cycle: monthly

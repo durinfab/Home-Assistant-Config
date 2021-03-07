@@ -38,6 +38,7 @@ filter:
   include_entities:
     - climate.central_heating
     - camera.3d_printer
+    - binary_sensor.doorbell_contact
     - binary_sensor.outdoor_motion_occupancy
     - binary_sensor.stairway_motion_occupancy
     - binary_sensor.vestibule_motion_occupancy
@@ -60,3 +61,7 @@ filter:
     - person.mate
     - media_player.denon_avr
     - media_player.living_room_tv
+entity_config:
+  binary_sensor.doorbell_contact:
+    name: Klingel
+    linked_battery_sensor: sensor.doorbell_battery
