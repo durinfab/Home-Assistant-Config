@@ -4,7 +4,7 @@
   trigger:
     platform: state
     entity_id: sensor.kitchen_button_click
-    to: "double"
+    to: "close"
   condition:
     - condition: state
       entity_id: input_boolean.vacuum_clear_bin
@@ -65,3 +65,22 @@
   action:
     - service: input_number.increment
       entity_id: input_number.bin
+
+- alias: Kitchen - Clean kitchen
+  trigger:
+    platform: state
+    entity_id: sensor.kitchen_button_click
+    to: "close"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.vacuum_clear_bin
+        state: "off"
+      - condition: state
+        entity_id: vacuum.rockrobo
+        state: "idle"
+
+  action:
+    - service: script.clean_kitchen
+      entity_id: vacuum.rockrobo

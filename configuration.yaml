@@ -24,13 +24,13 @@ camera:
     still_image_url: http://octopi.local/webcam/?action=snapshot
     stream_source: http://octopi.local/webcam/?action=stream
 
-media_player:
-  - platform: philips_android_tv
-    name: living_room TV
-    host: !secret ph_ip
-    mac: !secret ph_mac
-    username: !secret ph_user
-    password: !secret ph_pass
+#media_player:
+#  - platform: philips_android_tv
+#    name: living_room TV
+#    host: !secret ph_ip
+#    mac: !secret ph_mac
+#    username: !secret ph_user
+#    password: !secret ph_pass
 
 sensor: !include_dir_merge_list sensors/
 device_tracker: !include_dir_list device_tracker/

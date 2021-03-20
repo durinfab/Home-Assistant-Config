@@ -60,11 +60,11 @@ start_netflix:
         source: TV
 
     ## switch tv input
-    - service: remote.send_command
-      entity_id: remote.living_room_remote
+    - service: media_player.play_media
+      entity_id: media_player.living_room_tv
       data:
-        device: television
-        command: netflix
+        media_content_id: com.netflix.ninja.MainActivity-com.netflix.ninja
+        media_content_type: app
     - condition: state
       entity_id: input_boolean.evening_mode
       state: "on"
@@ -86,17 +86,17 @@ start_wii:
         source: Wii
 
     ## switch tv input
-    - service: remote.send_command
-      entity_id: remote.living_room_remote
-      data:
-        device: television
-        command: source
-    - delay: "00:00:04"
-    - service: remote.send_command
-      entity_id: remote.living_room_remote
-      data:
-        device: television
-        command: enter
+    #- service: remote.send_command
+    #  entity_id: remote.living_room_remote
+    #  data:
+    #    device: television
+    #    command: source
+    #- delay: "00:00:04"
+    #- service: remote.send_command
+    #  entity_id: remote.living_room_remote
+    #  data:
+    #    device: television
+    #    command: enter
     - condition: state
       entity_id: input_boolean.evening_mode
       state: "on"
@@ -124,17 +124,17 @@ start_ps4:
         source: Playstation
 
     ## switch tv input
-    - service: remote.send_command
-      entity_id: remote.living_room_remote
-      data:
-        device: television
-        command: source
-    - delay: "00:00:04"
-    - service: remote.send_command
-      entity_id: remote.living_room_remote
-      data:
-        device: television
-        command: enter
+    #- service: remote.send_command
+    #  entity_id: remote.living_room_remote
+    #  data:
+    #    device: television
+    #    command: source
+    #- delay: "00:00:04"
+    #- service: remote.send_command
+    #  entity_id: remote.living_room_remote
+    #  data:
+    #    device: television
+    #    command: enter
     - condition: state
       entity_id: input_boolean.evening_mode
       state: "on"
@@ -162,17 +162,17 @@ start_gaming:
         source: Windows
 
     ## switch tv input
-    - service: remote.send_command
-      entity_id: remote.living_room_remote
-      data:
-        device: television
-        command: source
-    - delay: "00:00:04"
-    - service: remote.send_command
-      entity_id: remote.living_room_remote
-      data:
-        device: television
-        command: enter
+    #- service: remote.send_command
+    #  entity_id: remote.living_room_remote
+    #  data:
+    #    device: television
+    #    command: source
+    #- delay: "00:00:04"
+    #- service: remote.send_command
+    #  entity_id: remote.living_room_remote
+    #  data:
+    #    device: television
+    #    command: enter
     - condition: state
       entity_id: input_boolean.evening_mode
       state: "on"
