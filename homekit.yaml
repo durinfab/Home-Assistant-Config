@@ -3,6 +3,7 @@ filter:
   include_domains:
     - light
     - alarm_control_panel
+    - cover
   exclude_entities:
     - light.debug_led1
     - light.debug_led2
@@ -34,13 +35,13 @@ filter:
 
   include_entities:
     - climate.hvac_thermostat
-    - camera.3d_printer
     - binary_sensor.doorbell_contact
     - binary_sensor.outdoor_motion_occupancy
     - binary_sensor.stairway_motion_occupancy
     - binary_sensor.vestibule_motion_occupancy
     - binary_sensor.debug_motion
     - binary_sensor.hall_motion
+    - sensor.outdoor_motion_light_level
     - sensor.living_room_temperature_temperature
     - sensor.bathroom_temperature_temperature
     - sensor.workspace_temperature_temperature
@@ -57,8 +58,18 @@ filter:
     - person.partner
     - person.mate
     - media_player.denon_avr
-    - media_player.living_room_tv
+    - camera.3d_printer
 entity_config:
   binary_sensor.doorbell_contact:
     name: Klingel
     linked_battery_sensor: sensor.doorbell_battery
+  sensor.bathroom_temperature_temperature:
+    linked_battery_sensor: sensor.bathroom_temperature_battery
+  binary_sensor.stairway_motion_occupancy:
+    linked_battery_sensor: sensor.stairway_motion_battery
+  binary_sensor.vestibule_motion_occupancy:
+    linked_battery_sensor: sensor.vestibule_motion_battery
+  sensor.living_room_temperature_temperature:
+    linked_battery_sensor: sensor.living_room_temperature_battery
+  sensor.workspace_temperature_temperature:
+    linked_battery_sensor: sensor.workspace_temperature_battery
