@@ -8,15 +8,19 @@
   trigger:
     - platform: sun
       event: sunset
+    - platform: numeric_state
+      entity_id: sensor.outdoor_motion_light_level
+      below: 200
     - platform: homeassistant
       event: start
   condition:
-    - condition: or
+    - condition: and
       conditions:
-        - condition: sun
-          after: sunset
-        - condition: sun
-          before: sunrise
+      - condition: numeric_state
+        entity_id: sensor.outdoor_motion_light_level
+        below: 200
+      - condition: time
+        after: "14:00:00"
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.evening_mode
@@ -27,5 +31,7 @@
     platform: sun
     event: sunrise
   action:
+    - service: light.turn_on
+      entity_id: light.awtrix_lights
     - service: input_boolean.turn_off
       entity_id: input_boolean.evening_mode

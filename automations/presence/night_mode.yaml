@@ -1,5 +1,5 @@
 - alias: "Presence - activate night mode"
-  initial_state: on
+  initial_state: off
   trigger:
     - platform: state
       entity_id:
