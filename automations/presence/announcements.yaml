@@ -10,6 +10,8 @@
       to: "on"
 
   action:
+    - service: light.turn_on
+      entity_id: light.awtrix_lights
     - service: script.led_update
     - service: script.led_notification
       data_template:
@@ -26,6 +28,8 @@
         - input_boolean.fabi_home
       to: "on"
   action:
+    - service: light.turn_on
+      entity_id: light.awtrix_lights
     - service: script.awtrix_advanced_notify
       data_template:
         message: "Hey Fabi!"
@@ -43,6 +47,8 @@
       to: "on"
 
   action:
+    - service: light.turn_on
+      entity_id: light.awtrix_lights
     - service: script.awtrix_advanced_notify
       data_template:
         message: !secret hey_partner

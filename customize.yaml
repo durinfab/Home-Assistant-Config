@@ -27,3 +27,5 @@ switch.spielerechner:
   icon: mdi:desktop-tower
 person.fabi:
   entity_picture: "fabian.png"
+media_player.living_room_tv:
+  device_class: tv

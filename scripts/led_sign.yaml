@@ -13,7 +13,6 @@ led_notification:
       data:
         entity_id: input_text.awtrix_notify
         value: "{{ states('input_text.hall_text') }}"
-    - service: script.awtrix_default_notify
     - service: input_text.set_value
       data:
         entity_id: input_text.tmp
