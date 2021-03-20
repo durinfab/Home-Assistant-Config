@@ -6,8 +6,8 @@
   initial_state: True
   trigger:
     platform: state
-    entity_id: sensor.bedroom_button_click
-    to: "single"
+    entity_id: sensor.bedroom_door_action
+    to: "open"
   condition:
     condition: and
     conditions:
@@ -28,8 +28,8 @@
   initial_state: True
   trigger:
     platform: state
-    entity_id: sensor.bedroom_button_click
-    to: "single"
+    entity_id: sensor.bedroom_door_action
+    to: "open"
   condition:
     condition: and
     conditions:
@@ -51,8 +51,8 @@
   initial_state: True
   trigger:
     platform: state
-    entity_id: sensor.bedroom_button_click
-    to: "single"
+    entity_id: sensor.bedroom_door_action
+    to: "open"
   condition:
     condition: and
     conditions:
@@ -73,8 +73,8 @@
   initial_state: True
   trigger:
     platform: state
-    entity_id: sensor.bedroom_button_click
-    to: "single"
+    entity_id: sensor.bedroom_door_action
+    to: "open"
   condition:
     condition: and
     conditions:
@@ -92,3 +92,39 @@
       entity_id:
         - light.bedroom_lamp_right
         - light.bedroom_lamp_left
+
+## cover down
+- alias: "Bedroom - Cover Down"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.bedroom_door_action
+    to: "close"
+  condition:
+    - condition: numeric_state
+      entity_id: cover.bedroom_left
+      value_template: "{{ state.attributes.position }}"
+      above: 99
+  action:
+    - service: cover.close_cover
+      entity_id:
+        - cover.bedroom_left
+        - cover.bedroom_right
+
+## cover up
+- alias: "Bedroom - Cover Up"
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.bedroom_door_action
+    to: "close"
+  condition:
+    - condition: numeric_state
+      entity_id: cover.bedroom_left
+      value_template: "{{ state.attributes.position }}"
+      below: 100
+  action:
+    - service: cover.open_cover
+      entity_id:
+        - cover.bedroom_left
+        - cover.bedroom_right

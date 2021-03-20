@@ -6,8 +6,8 @@
   initial_state: True
   trigger:
     platform: state
-    entity_id: sensor.kitchen_button_click
-    to: "single"
+    entity_id: sensor.kitchen_door_action
+    to: "open"
   action:
     - service: light.toggle
       entity_id: light.kitchen_lamp
