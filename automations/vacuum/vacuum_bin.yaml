@@ -69,7 +69,7 @@
 - alias: Kitchen - Clean kitchen
   trigger:
     platform: state
-    entity_id: sensor.kitchen_button_click
+    entity_id: sensor.kitchen_door_action
     to: "close"
   condition:
     condition: and
@@ -79,8 +79,7 @@
         state: "off"
       - condition: state
         entity_id: vacuum.rockrobo
-        state: "idle"
+        state: "docked"
 
   action:
     - service: script.clean_kitchen
-      entity_id: vacuum.rockrobo

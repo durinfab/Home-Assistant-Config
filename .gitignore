@@ -1,6 +1,7 @@
 ssh_keys/*
 sounds/*
 tts/*
+.vscode/
 www/*
 esphome/*
 themes/*

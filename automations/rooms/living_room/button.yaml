@@ -2,25 +2,15 @@
 ## covers all automations corresponding the living room button.
 ##
 
-- alias: Living Room - left single
+- alias: Living Room - left double
   initial_state: True
   trigger:
     platform: state
     entity_id: sensor.living_room_double_click
-    to: "left"
+    to: "double_left"
   action:
     - service: script.turn_on
       entity_id: script.start_gaming
-
-- alias: Living Room - right double
-  initial_state: True
-  trigger:
-    platform: state
-    entity_id: sensor.living_room_double_click
-    to: "right_double"
-  action:
-    - service: script.turn_on
-      entity_id: script.start_wii
 
 - alias: Living Room - right single
   initial_state: True
@@ -32,6 +22,16 @@
     - service: script.turn_on
       entity_id: script.living_room_bright
 
+- alias: Living Room - left single
+  initial_state: True
+  trigger:
+    platform: state
+    entity_id: sensor.living_room_double_click
+    to: "left"
+  action:
+    - service: script.turn_on
+      entity_id: script.living_room_warm
+
 - alias: Living Room - left long
   initial_state: True
   trigger:
@@ -42,15 +42,15 @@
     - service: script.turn_on
       entity_id: script.start_netflix
 
-- alias: Living Room - right long
-  initial_state: True
-  trigger:
-    platform: state
-    entity_id: sensor.living_room_double_click
-    to: "right_long"
-  action:
-    - service: script.turn_on
-      entity_id: script.start_ps4
+#- alias: Living Room - right long
+#  initial_state: True
+#  trigger:
+#    platform: state
+#    entity_id: sensor.living_room_double_click
+#    to: "right_long"
+#  action:
+#    - service: script.turn_on
+#      entity_id: script.start_ps4
 
 - alias: Living Room - both
   initial_state: True
@@ -61,7 +61,6 @@
   action:
     - service: script.turn_on
       entity_id: script.turn_off_everything
-
 #- alias: Living Room - both long
 #  initial_state: True
 #  trigger:
@@ -72,12 +71,12 @@
 #    - service: script.turn_on
 #      entity_id: script.living_room_bright
 
-- alias: Living Room - left double
-  initial_state: True
-  trigger:
-    platform: state
-    entity_id: sensor.living_room_double_click
-    to: "left_double"
-  action:
-    - service: input_boolean.toggle
-      entity_id: input_boolean.ambilight
+#- alias: Living Room - left double
+#  initial_state: True
+#  trigger:
+#    platform: state
+#    entity_id: sensor.living_room_double_click
+#    to: "left_double"
+#  action:
+#    - service: input_boolean.toggle
+#      entity_id: input_boolean.ambilight

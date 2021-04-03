@@ -21,6 +21,16 @@ living_room_bright:
         color_temp: 213
         brightness: 255
 
+living_room_warm:
+  sequence:
+    - service: light.toggle
+      entity_id:
+        - light.living_room_left
+        - light.living_room_right
+      data_template:
+        color_temp: 400
+        brightness: 255
+
 bedroom_bright:
   sequence:
     - service: switch.turn_off
@@ -35,18 +45,14 @@ bedroom_bright:
 
 turn_off_everything:
   sequence:
-    - service: media_player.turn_off
-      entity_id: media_player.living_room_tv
-    - service: media_player.turn_off
-      entity_id: media_player.denon_avr
-      #- service: homeassistant.turn_off
-      #  entity_id: switch.spielerechner
-    - service: media_player.turn_off
-      entity_id: media_player.playstation_4
     - service: homeassistant.turn_off
       entity_id:
         - light.living_room_right
         - light.living_room_left
+    - service: media_player.turn_off
+      entity_id: media_player.living_room_tv
+    - service: media_player.turn_off
+      entity_id: media_player.denon_avr
 
 start_netflix:
   sequence:
@@ -60,11 +66,10 @@ start_netflix:
         source: TV
 
     ## switch tv input
-    - service: media_player.play_media
+    - service: media_player.select_source
       entity_id: media_player.living_room_tv
       data:
-        media_content_id: com.netflix.ninja.MainActivity-com.netflix.ninja
-        media_content_type: app
+        source: '\U0001F4F1 Netflix'
     - condition: state
       entity_id: input_boolean.evening_mode
       state: "on"

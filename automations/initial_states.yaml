@@ -13,13 +13,10 @@
         - switch.circadian_lighting_kitchen
         - switch.circadian_lighting_bedroom
         - switch.circadian_lighting_stairway
-    ## trigger the information loop
-    - service: script.led_update
-
-    ## restart the "monitor" service
-    - service: mqtt.publish
-      data_template:
-        topic: presence/scan/restart
+    - service: input_text.set_value
+      data:
+        entity_id: input_text.hall_text
+        value: ""
 
 - alias: Miscellaneous - HA Restarting/Stop
   trigger:
