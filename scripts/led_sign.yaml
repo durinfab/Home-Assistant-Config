@@ -28,12 +28,12 @@ led_notification:
         value: "{{ states('input_text.tmp') }}"
 
 ## set an random informational message from status.yaml
-led_update:
-  sequence:
-    - service: input_text.set_value
-      data:
-        entity_id: input_text.hall_text
-        value: !include ../templates/led/status.yaml
+#led_update:
+#  sequence:
+#    - service: input_text.set_value
+#      data:
+#        entity_id: input_text.hall_text
+#        value: !include ../templates/led/status.yaml
 
 ## set an specific message which will not get overrided
 led_hard:

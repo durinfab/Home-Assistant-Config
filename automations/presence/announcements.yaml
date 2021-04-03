@@ -12,7 +12,6 @@
   action:
     - service: light.turn_on
       entity_id: light.awtrix_lights
-    - service: script.led_update
     - service: script.led_notification
       data_template:
         message: !secret hey_mate
@@ -34,7 +33,6 @@
       data_template:
         message: "Hey Fabi!"
         icon: 1230
-    - service: script.led_update
     - service: script.led_notification
       data_template:
         message: "Hey Fabi!"
@@ -53,7 +51,6 @@
       data_template:
         message: !secret hey_partner
         icon: 1229
-    - service: script.led_update
     - service: script.led_notification
       data_template:
         message: !secret hey_partner
