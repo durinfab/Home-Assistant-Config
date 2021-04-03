@@ -76,4 +76,4 @@
     Letztes Saugen: {{ ( a | int  / 1000 ) | timestamp_custom("%d.%m um %H:%M") }}
   {%- endmacro -%}
 
-  {{ ([stats,last_clean,lights_on,print,ad,au,bad,win,windows_open]|random)() }}_
+  {{ ([stats,last_clean,lights_on,print,ad,au,bad,win,windows_open]|random)() }}
