@@ -1,6 +1,6 @@
 # My Home Assistant Configuration ✨
 
-**⚠️ Update 05.2021: This smart home project is discontinued from now on. The reason is I'm switching my place to live and implicitly not able to continue this project. I don't know if I start another smart home like this anytime soon, but I learned a lot during the last four years of tinkering and I don't think I can fully discard this hobby. **
+**⚠️ Update 05.2021: This smart home project is discontinued from now on. The reason is I'm switching my place to live and implicitly not able to continue this project. I don't know if I start another smart home like this anytime soon, but I learned a lot during the last four years of tinkering and I don't think I can fully discard this hobby.**
 
 **Of course I'm keeping this repository online, because it still might help some of you designing a smart home.**
 
